@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: reporteRenyiMap.aux
+The style file: plain.bst
+Database file #1: sample.bib.bib
+Too many commas in name 1 of "T. Addabbo, M. Alioto, A. Fort, A. Pasini, S. Rocchi and V. Vignoli" for entry Addabbo
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "T. Addabbo, M. Alioto, A. Fort, A. Pasini, S. Rocchi and V. Vignoli" for entry Addabbo
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "T. Addabbo, M. Alioto, A. Fort, A. Pasini, S. Rocchi and V. Vignoli" for entry Addabbo
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "T. Addabbo, M. Alioto, A. Fort, A. Pasini, S. Rocchi and V. Vignoli" for entry Addabbo
+while executing---line 1090 of file plain.bst
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            505 strings with 4245 characters,
+and the built_in function-call counts, 355 in all, are:
+= -- 35
+> -- 13
+< -- 0
++ -- 6
+- -- 4
+* -- 28
+:= -- 64
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 5
+chr.to.int$ -- 0
+cite$ -- 1
+duplicate$ -- 11
+empty$ -- 28
+format.name$ -- 4
+if$ -- 69
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 8
+num.names$ -- 2
+pop$ -- 3
+preamble$ -- 1
+purify$ -- 4
+quote$ -- 0
+skip$ -- 8
+stack$ -- 0
+substring$ -- 31
+swap$ -- 1
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 4
+width$ -- 2
+write$ -- 13
+(There were 4 error messages)

@@ -1,0 +1,250 @@
+% LLNCStmpl.tex
+% Template file to use for LLNCS papers prepared in LaTeX
+%websites for more information: http://www.springer.com
+%http://www.springer.com/lncs
+
+\documentclass{llncs}
+%Use this line instead if you want to use running heads (i.e. headers on each page):
+%\documentclass[runningheads]{llncs}
+\usepackage{url}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{ntheorem}
+
+
+
+
+\setlength{\theorempreskipamount}{7mm}
+\setlength{\theorempostskipamount}{7mm}
+\theoremstyle{plane}
+\theorembodyfont{\normalfont}
+\theoremheaderfont{\scshape\large}
+\newtheorem{teo}{Teorema}
+\newtheorem{defi}{Definición}
+\newtheorem{ej}{Ejemplo}
+
+
+
+\begin{document}
+\title{Propiedades de un anillo}
+
+%If you're using runningheads you can add an abreviated title for the running head on odd pages using the following
+%\titlerunning{abreviated title goes here}
+%and an alternative title for the table of contents:
+%\toctitle{table of contents title}
+
+\subtitle{Principales propiedades}
+
+%For a single author
+%\author{Author Name}
+
+%For multiple authors:
+\author{Marcos Daniel Calderón Calderón}
+
+
+%If using runnningheads you can abbreviate the author name on even pages:
+%\authorrunning{abbreviated author name}
+%and you can change the author name in the table of contents
+%\tocauthor{enhanced author name}
+
+%For a single institute
+\institute{Centro de Investigación en Matemáticas \\ \email{marcos.calderon@cimat.mx}}
+
+
+
+\maketitle
+
+\begin{abstract}
+En este documento se hace un pequeño análisis de la estructura conocida como ''anillo''. Se incluyen las definiciones principales, los teoremas más importantes.
+\end{abstract}
+
+\section{Fundamentos}
+\begin{defi}[Anillo]
+Sea \textbf{R} un conjunto no vacio en el cual tenemos dos operaciones cerradas binarias, denotadas por + y $\cdot$ (dichas operaciones pueden ser diferentes a la multiplicación y suma ordinarias). Entonces ( \textbf{R}, +, $\cdot$ ) es un \textit{anillo} si para todo \textit{a}, \textit{b}, \textit{c} $\in$ \textbf{R}, las siguientes condiciones se cumplen: 
+
+
+
+\begin{itemize}
+\item [\textbf{a)}]$a+b=b+a.$ \hfill Ley Conmutativa de +
+\item [\textbf{b)}]$a+(b+c)=(a+b)+c.$ \hfill Ley asociativa de +
+\item [\textbf{c)}] Existe \textit{z} $\in$ \textbf{R} tal que \hfill Existencia de una identitad para + \\ $a+z=z+a=a$ para cada \textit{a} $\in$ \textbf{R}.  
+\item [\textbf{d)}] Para cada \textit{a} $\in$ \textbf{R} hay un elemento   \hfill Existencia de inversos bajo +\\ \textit{b} 
+$\in$ \textbf{R} donde $a+b=b+a=z.$ 
+
+\item [\textbf{e)}]$a \cdot (b \cdot c)=(a \cdot b) \cdot c$ \hfill Ley asociativa de $\cdot$ 
+
+\item [\textbf{f)}]$a \cdot (b + c)=a \cdot b + a \cdot c$ \hfill Leyes distributivas de $\cdot$ sobre +  \\
+$ (b + c) \cdot a =  b \cdot a + c \cdot a$  
+\end{itemize}
+\end{defi}
+
+Como las operaciones binarias cerradas de + (suma del anillo) y $\cdot$ (multiplicación del anillo) son ambas asociativas, no hay confusión si escribimos $a+b+c$ por la expresión $(a+b)+c$ o $a+(b+c)$, o $a \cdot b \cdot c$ por $(a \cdot b) \cdot c$ o $a \cdot( b \cdot c)$. COn frecuencia se escribe $ab$ para representar $a \cdot b$. Las leyes asociativas pueden ser extendidas a mas de dos términos.
+
+
+
+\begin{ej}
+Bajo las operaciones binarias cerradas de la suma y multiplicación ordinaria, podemos concluir que \textbf{Z}, \textbf{Q}, \textbf{R} son anillos. En todos estos casos, la identidad aditiva $z$ es el entero 0, y el inverso aditivo de cada número $x$ es $-x$.
+\end{ej}
+
+
+\begin{defi}
+Sea ( \textbf{R}, +, $\cdot$ ) un anillo.
+
+
+\begin{itemize}
+\item [\textbf{a)}] Si $ab=ba$ para todo $a, b \in$ \textbf{R}, entonces \textbf{R} es llamado un anillo \textit{conmutativo}.  
+
+\item [\textbf{b)}] Se dice que el anillo \textbf{R} \textit{no tiene divisores propios de cero} si para todo $a, b \in R, \quad ab =z \Rightarrow a= z \quad o \quad b=z.$
+
+\item [\textbf{c)}] Si un elemento $u \in \mathbf{R}$ es tal que $u \neq z$ Y $au=ua=a$ para todo $a \in \mathbf{R}$, podemos llamar a $u$ una identidad multiplicativa de \textbf{R}. Por lo tanto \textbf{R} es llamado un anillo con un elemento identidad para la multiplicación.
+
+\end{itemize}
+\end{defi}
+
+Se puede concluir de la parte \textbf{ (c)} de la definición anterior, que siempre que nosotros tengamos un anillo \textbf{R} con un elemento identidad para la multiplicación. entonces, \textbf{R} contiene al menos dos elementos.
+
+
+\begin{ej}
+Loa anillos \textbf{Z}, \textbf{Q}, \textbf{R} son anillos conmutativos cuya identidad para la multiplicación es el entero 1. Ninguno de estos anillos tiene divisores propios de cero. 
+\end{ej}
+
+\begin{defi}
+Sea \textbf{R} un anillo con identidad multiplicativa $u$. si $a \in \textbf{R}$ y existe un $b \in \textbf{R}$ tal que $ab= ba = u$, entonce $b$ es llamado un \textit{inverso multiplicativo} de \textit{a}.
+\end{defi}
+
+\begin{defi}
+Sea \textbf{R} un anillo con identidad multiplicativa $u$. Entonces, podemos decir lo siguiente:
+\begin{itemize}
+\item [\textbf{a)}] \textbf{R} es llamado un \textit{dominio de integridad} si \textbf{R} no tiene divisores propios de cero.
+\item [\textbf{b)}] \textbf{R} es llamado un \textit{campo}  si cada elemento no cero de \textbf{R} tiene un inverso multiplicativo.
+\end{itemize}
+\end{defi}
+
+El anillo (\textbf{Z},+ . $\cdot$) es un dominio de integridad pero no es un cambo, mientras que \textbf{Q}, \textbf{R} y \textbf{C}, bajo las operaciones ordinarias de suma y multiplicación son dominios de integridad y campos.
+
+
+
+
+
+\begin{teo}
+En cualquier anillo (\textbf{R}, +. $\cdot$),
+
+\begin{itemize}
+\item [\textbf{a)}] el elemento $cero$ es único, y 
+\item [\textbf{b)}] el inverso aditivo de cada elemento del anillo es único.
+\end{itemize}
+\end{teo}
+
+
+\begin{proof}
+\item [\textbf{a)}] Supongamos que $R$ tiene más de una identidad aditiva y $z_{1}$, $z_{2}$ denotan a estos elementos. Entonces
+\[  z_{1} = z_{1}+z_{2}= z_{2} \]
+\item [\textbf{b)}] Para un $a \in $ \textbf{R}, supongamos que hay dos elementos $b, c \in $ \textbf{R} conde $a+b= b+a=z$ y  $a+c= c+a=z$. Entonces, $b= b+z=b+(a+c)=(b+a)+c= z+c=c$ 
+\end{proof}
+
+Como un resuldado de la unicidad de la parte \textbf{(b)}, podemos denotar el inverso aditivo de $a \in $ \textbf{R} como $-a$
+
+\begin{teo}[Las leyes de cancelación para la adición o suma]
+Para todo $a, b, c \in$ \textbf{R},
+\begin{itemize}
+\item [\textbf{a)}] $a+b= a+c \Rightarrow b=c$, y
+\item [\textbf{b)}] $b+a=c+a \Rightarrow b=c$
+\end{itemize}
+\end{teo}
+
+
+\begin{proof}
+\item [\textbf{a)}] Como $a \in $ \textbf{R}, podemos confirmar que $-a \in $ \textbf{R} y podemos hacer lo siguiente:
+
+\begin{equation*}
+\begin{aligned}
+a+b = a+c  \Rightarrow  (-a)+ a+b =  (-a)+ a+c  \\   
+\Rightarrow [(-a)+a]+b= [(-a)+a]+c \\
+\Rightarrow z+b= z+c \\
+\Rightarrow b= c
+\end{aligned}
+\end{equation*}
+
+\item [\textbf{b)}] La demostración es similar a la anterior.
+\end{proof}
+
+
+
+
+
+\begin{teo}
+En cualquier anillo (\textbf{R}, +. $\cdot$), y paras cualquier $a \in \mathbf{R}$, se cumple que $az= za=z.$
+\end{teo}
+
+
+\begin{proof}
+Si $a \in R$, entonces $az= a(z+z)$ ya que $z+z=z$. Por lo tanto $z+az= az= az+az.$
+Al usar la ley de cancelación para la adición, tenemos que $z=az$.
+La prueba de que $za=z$ se realiza de manera similar.
+\end{proof}
+
+
+
+\begin{teo}
+En un anillo (\textbf{R}, +. $\cdot$), para cualquier $a , b \in \mathbf{R}$, 
+\item [\textbf{a)}]  -(-a)=a,
+\item [\textbf{b)}] a(-b)= (-a)b= -(ab) y
+\item [\textbf{c)}] (-a)(-b)= ab.
+\end{teo}
+
+\begin{proof}
+\item [\textbf{a)}]  Por la convención mencionada $-(-a)$ denota el inverso aditivo de $-a$. Como $(-a)+a=z$, $a$ también es un inverso aditivo para $-a$. EN consecuencia, por la unicidad de los inversos $-(-a)=a$.
+
+\item [\textbf{b)}] Debemos probar que $a(-b)= -(ab)$. Sabemos aque $-(ab)$ denota el inverso aditivo de $ab$. Por lo tanto, $ab+ a(-b)= a[b+(-b)]= az= z$ por el teorema 3 y por la unicidad de inversos aditivos, concluímos que: $a(-b)$
+\item [\textbf{c)}] De la parte (b), podemos concluir que $(-a)(-b)= -[a(-b)]= -[-(ab)]$, y por lo tanto el resultado se obtiene de la parte (a).
+\end{proof}
+
+
+
+
+
+\begin{teo}
+Para un anillo dado (\textbf{R}, +. $\cdot$), 
+\item [\textbf{a)}]  Si \textbf{R} tiene un una identidad para multiplicación, entonces esta es única, y
+\item [\textbf{b)}]  Si \textbf{R} tiene un una identidad para multiplicación,  y $x \in \mathbf{R}$, etonces el inverso multiplicativo de $x$ es unico.
+\end{teo}
+
+
+
+\begin{teo}
+Sea (\textbf{R}, +. $\cdot$),  un anillo conmutativo con elemento unidad. Entonces $\mathbf{R}$ es un dominio de integridad si, para todo $a, b, c \in \mathbf{R}$, donde $a \neq z$, $ab=ac \Rightarrow b=c$. Por lo tanto, un anillo conmutativo con elemento unidad satisface la ley de la cancelación para la multiplicación es un dominio de integridad.
+\end{teo}
+
+Un dominio de integridad no necesariamente es un campo.
+
+
+
+
+
+
+
+
+
+%The bibliography, done here without a bib file
+%This is the old BibTeX style for use with llncs.cls
+\bibliographystyle{splncs}
+
+%Alternative bibliography styles:
+%the following does the same as above except with alphabetic sorting
+%\bibliographystyle{splncs_srt}
+%the following is the current LNCS BibTex with alphabetic sorting
+%\bibliographystyle{splncs03}
+%If you want to use a different BibTex style include [oribibl] in the document class line
+
+\begin{thebibliography}{1}
+%add each reference in here like this:
+\bibitem[RE1]{reference1}
+Author:
+Article/Book:
+Other info: (date) page numbers.
+\end{thebibliography}
+
+\end{document}
+

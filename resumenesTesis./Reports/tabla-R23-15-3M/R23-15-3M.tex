@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%% ICML 2013 EXAMPLE LATEX SUBMISSION FILE %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Use the following line _only_ if you're still using LaTeX 2.09.
+%\documentstyle[icml2013,epsf,natbib]{article}
+% If you rely on Latex2e packages, like most moden people use this:
+\documentclass{article}
+
+% For figures
+\usepackage{graphicx} % more modern
+%\usepackage{epsfig} % less modern
+\usepackage{subfigure} 
+
+% For citations
+\usepackage{natbib}
+
+% For algorithms
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% As of 2011, we use the hyperref package to produce hyperlinks in the
+% resulting PDF.  If this breaks your system, please commend out the
+% following usepackage line and replace \usepackage{icml2013} with
+% \usepackage[nohyperref]{icml2013} above.
+\usepackage{hyperref}
+
+% Packages hyperref and algorithmic misbehave sometimes.  We can fix
+% this with the following command.
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+% Employ the following version of the ``usepackage'' statement for
+% submitting the draft version of the paper for review.  This will set
+% the note in the first column to ``Under review.  Do not distribute.''
+\usepackage{icml2013} 
+
+\icmltitlerunning{Submission and Formatting Instructions for ICML 2013}
+
+\begin{document} 
+
+\onecolumn
+
+
+
+% You may provide any keywords that you 
+% find helpful for describing your paper; these are used to populate 
+% the "keywords" metadata in the PDF but will not be shown in the document
+\icmlkeywords{boring formatting information, machine learning, ICML}
+
+\vskip 0.3in
+
+
+\begin{table}[!h]
+\caption{NIST test results for  a sequence of three million bits.}
+\label{sample-table}
+\vskip 0.15in
+\begin{center}
+\begin{small}
+\begin{sc}
+\begin{tabular}{lccr}
+\hline
+\abovespace\belowspace
+Statistical Test &  P-Value  & Result \\
+\hline
+\abovespace
+Aproximate Entropy    &  0.493265   & PASS  \\
+\abovespace
+Block Frecuency  &  0.381539 &  PASS \\
+\abovespace
+Cumulative Sums    &   Forward test: 0.906708, Reverse test: 0.715249   & PASS \\
+\abovespace
+FFT    &  0.239521  &   PASS     \\
+\abovespace
+Frecuency     &  0.825445  &  PASS  \\
+\abovespace
+Linear Complexity      &  0.356142 & PASS \\
+\abovespace
+Longest Run      &  0.272392   &    PASS     \\
+\abovespace
+Non Overlapping Template      & P-Values accepted: 147 out of 148    &    PASS      \\
+\abovespace
+Overlapping Template      &  0.925300  &        PASS      \\
+\abovespace
+Random Excursions      &   P-Values accepted: 8 out of 8    &     PASS         \\
+\abovespace
+Random Excursions Variant  &   P-Values accepted: 18 out of 18     &    PASS      \\
+\abovespace
+Rank &    0.536335      &       PASS     \\
+\abovespace
+Runs &        0.768394   &     PASS       \\
+\abovespace
+Serial &     P-Values accepted: 2 out of 2     &     PASS      \\
+\abovespace
+\belowspace
+Universal &    0.758237  &   PASS          \\
+
+\hline
+\abovespace
+
+
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+\vskip -0.1in
+\end{table}
+
+
+
+
+\end{document} 
+

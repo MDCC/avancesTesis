@@ -1,0 +1,45 @@
+\documentclass[10pt]{IEEEtran}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.bmp,.png,.pdf,.jpg}
+\usepackage{amsmath}
+
+
+\title {Resumen: Chaotic Encryption Shceme for Real-Time Digital VIdeo.}
+
+
+
+\author{\IEEEauthorblockN{Marcos Daniel Calderón Calderón}\\
+\IEEEauthorblockA{Maestría en Ciencias de la Computación\\
+Centro de Investigación en Matemáticas (CIMAT)\\
+Guanajuato , Gto.\\
+marcos.calderon@cimat.mx}}
+
+
+\begin{document}
+\maketitle
+\begin{abstract}
+En este resumen se propone un novedoso esquema de encriptación para video basado en múltiples sistemas caóticos digitales, esto es llamado como CVES (Chaotic Video Encryption Scheme). CVES es independiente de cualquier algoritmo de compresión de video.
+\end{abstract}
+
+\section{Introducción.}
+En el mundo digital de hoy en día, la seguridad de componentes digitales se vuelve muy importante desde que las comunicaciones en productos difitales sobre redes ocurren con mayor frecuencia. En suma, se necesita seguridad en el almacenamiento y transmisión de videos e imágenes digitales. Hablando de manera general, el desarrollo moderno de la criptografía debería ser la solución poerfecta para esta tarea. Existen muchos cifrados perfectos que no pueden ser utilizados para la encriptación de video en sistemas de tiempor real porque la velocidad de encriptación de estos sistemas no es lo suficientemente rápida. Además, la existencia de diferentes algoritmos de compresión en sistemas digitales de video hace más complicado incorporar una parte de encriptación en en sistema.
+Recientemente, muchos esquemas de encriptación para video se han propuesto. Muchos de ellos son sistemas conjuntos de compresión y encriptación, los cuales son diseñados especialmente para dar una seguridad apropiada para flujos de video MPEG.
+En el paper se presenta un novedoso sistema de encriptación badado en sistemas caóticos múltiples, el cual es llamado ''Chaotic Video Encryption Scheme''. Este provee una seguridad muy alta con velocidad de encriptación muy buena. CVES es independiente de cualquier algoritmo de encriptación.Por lo tanto CVES puede extenderse para soportar recuperación aleatoria de video encriptado. CVES es un sistema de encriptación rápida universal  con alta seguridad 
+
+
+\section{Unrestricted Search Algorithm.}
+La idea general de este algoritmo es localizar la trayectoria caótica para un rango amplio de sistemas dinámicos usando un muestreo inicial de un intervalo $P_{0}$. Si no se encontraron ciclos durante las primeras iteraciones, este gradualmente cambia sus espectativas de encontrar ciclos largos al incrementar el intervalo de muestreo y elegir un espacio el doble de lo elegido al principio, este proceso se repite hasta que un ciclo es encontrado.  Una de las principales ventajas del método USA es que  sólo son considerados R puntos en el ciclo de búsqueda, independientemente del tamaño de ciclo. El algoritmo se divide en pasos, y cada paso es dividido en rondas con diferentes intervalos de muestreo. El procedimiento se puede resumir de la siguiente manera:
+
+\begin{enumerate}
+\item \textit{Proceso de inicialización.} El primer paso toma el conjunto de trayectorias $\left\lbrace  X_{l=n/p_{k=0}}, l \in (0, 1, ... P_{0}R )  \right\rbrace$ (un punto a la vez) y las acomoda en una tabla hash en cada $P_{0}$ iteraciones hasta que un total de $R$ puntos son acomodados. Los puntos intermedios $ X_{l=n/p_{0}}, l \notin (0, 1, ... P_{0}R )  $  son únicamente verificados si existen o no en la tabla hash, pero no son almacenados; si un punto intermedio o un punto de la mestra ya existe en la tabla, un ciclo ha sido encontrado. Y en este caso asignamos $k \leftarrow 1$.
+\item \textit{Step k:} En la primer ronda de el paso k-ésimo, los $\frac{R}{2}$ puntos de la muestra con índices impares son reemplazados (siguiendo estrictamente un orden de crecimiento de I) por los siguientes N puntos que se muestrean en cada $P_{k}$ iteraciones. La nueva señal muestreada R tiene ahora dos diferentes intervalos de muestreo, $P_{k}$ en la primer mitad y $P_{k-1}$ en la segunda mitad donde $P_{k}= 2P_{k-1}$=$2^{k}P_{0}$ (el tamaño de R es constante, sólo cambian los datos). Este procedimiento se repite para la segunda parde del array R, teniendo $\frac{3}{4R}$ con un periodo $P_{K}$ y  $\frac{1}{4R}$ con periodo $P_{k-1}$ (segunda ronda).El número total de rondas que se necesitan para tener un intervalo uniforme de $P_{k}$ es $\left[        \log_{2}R+1\right]$, lo cual marca el final del primer paso. Y como en el pasoprevio, cada punto muestreado o intermedio es verificado si está o no en la tabla hash.
+
+\item Si un ciclo aún no ha sido encontrado, se hace $ k \leftarrow k+1$, $P_{k}= 2^{k}P_{0}$ y regresmos al paso 2. 
+\end{enumerate}
+
+\end{document}
+
+
+

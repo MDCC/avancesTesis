@@ -1,0 +1,165 @@
+%Gilberto Chavez Mtz
+%Image denoising using MRF potentials etc.
+%Ref: Bishop 8.3.3
+
+img = imread('image.png');
+out = imread('image.png');
+dim = size(img);
+width = dim(1,2);
+height = dim(1,1);
+beta = 2.1;
+eta = 2.1;
+h = 0;
+y = zeros(height, width);
+
+%binarizar y y=+-1
+for i=1:height
+for j=1:width
+    if(img(i,j)==0)
+        y(i,j) = -1;
+    else
+        img(i,j) = 254;
+        y(i,j) = 1;
+    end
+end
+end
+figure;
+imshow(img);
+
+
+% Movie
+figure('Position',[100 100 850 600])
+imshow(img);
+axis tight
+set(gca,'NextPlot','replacechildren');
+
+
+x = y;
+energy = 0;
+energy_ne = 0;
+%energia inicial
+for i=1:height
+for j=1:width
+    energy = energy + h*x(i,j) - eta * x(i,j) * y(i,j);
+    energy_ne = 0;
+    if(i > 1)
+        energy_ne = energy_ne + x(i,j) * x(i-1,j);
+    end
+    if(i < height)
+        energy_ne = energy_ne + x(i,j) * x(i+1,j);
+    end
+    if(j > 1)
+        energy_ne = energy_ne + x(i,j) * x(i,j-1);
+    end
+    if(j < width)
+        energy_ne = energy_ne + x(i,j) * x(i,j+1);
+    end
+    energy = energy - beta * energy_ne;
+end
+end
+
+fprintf('Energia inicial: %f', energy);
+
+energy_temp = energy;
+energy_ne2=0;
+energy_ne1 = 0;
+max_iters = 1000;
+cambios = 0;
+it = 0;
+ind = 0;
+for iters = 1:max_iters
+	cambios = 0;
+    for i=1:height
+    for j=1:width
+        %calculamos energia cambiando xij por xij = xij - 2*xij in {-1,1}
+        xn = x(i,j) - 2 * x(i,j);
+        %quitamos termino anterior y ponemos termino nuevo
+        energy_temp = energy_temp - h*x(i,j) + eta * x(i,j) * y(i,j);
+        energy_temp = energy_temp + h*xn - eta * xn * y(i,j);
+        energy_ne1 = 0;
+        energy_ne2 = 0;
+        if(i > 1)
+            energy_ne1 = energy_ne1 + x(i,j) * x(i-1,j);
+            energy_ne2 = energy_ne2 + xn * x(i-1,j);
+        end
+        if(i < height)
+            energy_ne1 = energy_ne1 + x(i,j) * x(i+1,j);
+            energy_ne2 = energy_ne2 + xn * x(i+1,j);
+        end
+        if(j > 1)
+            energy_ne1 = energy_ne1 + x(i,j) * x(i,j-1);
+            energy_ne2 = energy_ne2 + xn * x(i,j-1);
+        end
+        if(j < width)
+            energy_ne1 = energy_ne1 + x(i,j) * x(i,j+1);
+            energy_ne2 = energy_ne2 + xn * x(i,j+1);
+        end
+        %quitamos termino anterior y ponemos termino nuevo
+        energy_temp = energy_temp + beta * energy_ne1;
+        energy_temp = energy_temp - beta * energy_ne2;
+        if(energy > energy_temp)
+           x(i,j) = xn;
+           cambios = cambios+1;
+           energy = energy_temp;
+        else
+            energy_temp = energy;
+        end
+        it = it + 1;
+        E( it ) =  energy;
+        if mod( it, 6000 ) == 0 && iters == 1
+            ind = ind + 1;
+            Eind( ind ) = energy;
+            imagesc(x)
+            drawnow
+            F( ind ) = getframe;
+        end
+   
+    end
+    end
+    %si no hubo cambios
+    if cambios ==0
+        break;
+    end
+end
+
+fprintf('\nIteraciones: %d', iters);
+fprintf('\nEnergia Final: %f', energy);
+
+
+% use 1st frame to get dimensions
+[h, w, p] = size(F(1).cdata);
+hf = figure; 
+% resize figure based on frame's w x h, and place at (150, 150)
+set(hf,'Position', [150 150 w h]);
+axis off
+% Place frames at bottom left
+movie(hf,F,4,30,[0 0 0 0]);
+movie2avi(F, 'image_denoising.avi', 'compression', 'None');
+
+for i=1:height
+for j=1:width
+    if(x(i,j)==-1)
+        out(i,j) = 0;
+    else
+        out(i,j) = 254;
+    end
+end
+end
+figure;
+imshow(out);
+imwrite(out,'image_out_m.png');
+
+
+plot(  E , 'k');
+set( gca, 'FontSize', 20 );
+h = xlabel('iteration')
+set( gca, 'FontSize', 21 );
+h = ylabel('Energy');
+set( gca, 'FontSize', 21 );
+
+box off
+print( gcf, '-djpeg', 'Energy') 
+
+
+
+

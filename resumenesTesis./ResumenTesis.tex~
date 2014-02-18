@@ -1,0 +1,509 @@
+\documentclass[10pt]{IEEEtran}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.bmp,.png,.pdf,.jpg}
+\usepackage{amsmath}
+
+
+\title {Búsqueda en linea con máximo descenso: backtracking con inercia y ajuste de paso cuadrático y su aplicación en el problema de integración de campo de gradiente ruidoso en imágenes.}
+
+
+
+\author{\IEEEauthorblockN{Marcos Daniel Calderón Calderón}\\
+\IEEEauthorblockA{Maestría en Ciencias de la Computación\\
+Centro de Investigación en Matemáticas (CIMAT)\\
+Guanajuato , Gto.\\
+marcos.calderon@cimat.mx}}
+
+
+\begin{document}
+\maketitle
+\begin{abstract}
+En este documento se explica de manera breve el funcionamiento del algoritmo de búsqueda en línea por máximo descenso aplicando la técnica de Backtracking con inercia, y la técnica de interpolación cuadrática, también se incluyen algunos ejemplos y los resultados obtenidos.
+\end{abstract}
+\section{INTRODUCCION}
+En este documento, se desarrolla el algoritmo de integración de campo de gradiente ruidoso, en dicho algoritmo se aplicará el algoritmo de búsqueda en línea por descenso de gradiente.
+
+
+El problema general en optimización consiste en resolver la siguiente relación:
+\[min{x} \left[ f(x) \right] \]
+
+Algo importante a notar es que no tenemos restricciones de ningún tipo. Los algoritmos que se desarrollan para encontrar el mínimo de una función intentan encontrar puntos que poco a poco vayan convergiendo al mínimo, de hecho, ni siquiera es necesario especificar si el nínimo va a ser local o si va a ser global. Debemos recordar la definición de un mínimo local:
+
+Un punto $x^{*} $ es un mínimo locar si existe una vecindad $N$ de $x^{*} $ tal que $f(x^{*})   \leq f(x^{*})$ para todo $ x \in N$ 
+
+El método de búsqueda en línea se utiliza para encontrar una dirección $p_{k}$ a partir de un punto inicial. Este método es iterativo, y en cada ciclo obtenemos algo de la forma:
+\[x_{k+1}= x_{k}+ \alpha _{k} p{k} \]
+
+En este método, un paso fundamental para obtener éxito y encontrar el mínimo de la función es obtener un escalar $ \alpha _{k}$ adecuado, este valor es mejor conocido como el tamaño de paso. 
+
+También es importante elegir de manera adecuada nuestro vector $p_{k}$, el propósito de una buena elección consiste en acercarse al mínimo de una función en $R^{N}$. Normalmente, dicho vector es elegido mediante la siguiente regla:
+
+\[p_{k}= -B_{k}^{-1}\nabla f{k} \]
+
+En los ejemplos que se tratan aquí, $B_{k}$ es reemplazado por la matriz identidad, por lo tanto, la expresión anterior queda reducida a el gradiente de la función con signo contrario.
+
+
+
+\section{MÉTODO}
+
+Cada iteración del método de búsqueda en línea calcula una dirección de búsqueda $p_{k}$, y después decide cómo moverse sobre esa dirección. La iteración es dada por la siguiente expresión:
+
+\[x_{k+1}= x_{k}+ \alpha_{k} p_{k} .\]
+
+El método de descenso más profundo consiste en un método de búsqueda en línea que se mueve sobre la dirección:
+\[p_{k}= -B_{k}^{-1} \nabla f{k} \] en cada paso. Para garantizar el máximo descenso, se elige a$B_{k}$ como la matriz identidad $I$.
+
+Una de las principales ventajas del método de máximo descenso  es que solo requiere el cálculo del gradiente, pero no utiliza para nada a las segundas derivadas.
+
+Si se elige un tamaño de paso adecuado, entonces la evaluación de la función en el punto encontrado se reducirá.
+
+
+
+Los algoritmos de búsqueda en línea intentan encontrar tamaño de paso adecuados, pero sin utilizar demasiados recursos computacionales. EL algoritmo de búsqueda en línea se compone de dos pasos:
+\begin{itemize}[\IEEEsetlabelwidth{Z}]
+\item Una fase se encarga de encontrar un intervalo donde haya tamaños de paso adecuado.
+\item La otra fase se encarga de encontrar un buen tamaño de paso en un intervalo identificado.
+\end{itemize}
+
+Una de las condiciones para encontrar un $ \alpha _{k}$ adecuado es que el valor elegido ofrezca un descenso suficiente a la función para llegar a un nuevo punto más cerca del mínimo. Esta condición es medida por la siguiente desigualdad:
+
+\[f(x_{k}+\alpha p_{k}  )  \leq  f(x_{k})+ c_{1}\alpha \nabla  f_{k}^{T}p_{k}  \]
+
+Si la desigualdad anterior se cumple para un $ \alpha _{k}$ elegido, se elije para calcular nuestro siguiente punto más aproximado al mínimo buscado.
+
+Si analizamos la expresión anterior, nos podemos dar cuenta que la expresión del lado derecho tiene una pendiente negativa porque  $c_{1}\in (0,1)$, normalmente, se debe de elegir $c_{1}$ muy pequeña, un valor común es de  $10^{-4}$.
+
+Una simple condición de descenso no es suficiente para asegurar que un algoritmo obtenga resultados favorables. Por tal motivo, también se introdujo la siguiente regla:
+
+\[  \nabla fx_{k}+\alpha p_{k}  )^{T}p_{k}  \geq  c_{2} \nabla  f_{k}^{T}p_{k} \]
+
+Las dos desigualdades mostradas anteriormente, son comúnmente conocidas como las condiciones de Wolfe, y nos ayudan a definir si un valor de $\alpha$ nos puede garantizar convergancia. Existe una variante de estas desigualdades conocida como ''las condiciones fuertes de Wolfe''.
+
+EL algoritmo de las condiciones fuertes de Wolfe y el de las condiciones débiles de Wolfe, utilizan la siguiente expresión para encontrar un  $ \alpha _{k}$  inicial:
+
+\[ \alpha _{k} = \frac{ - \nabla fx_{k}^{T} \nabla fx_{k} }{ \nabla fx_{k}^{T} Q \nabla fx_{k}}\]
+
+Si el $ \alpha _{k} $ no cumple las condiciones de Wolfe, se calculará un nuevo alfa, por medio de una aproximación cuadrática.
+
+
+El algoritmo de Backtraking encuentra un $ \alpha _{k} $ despues de ejecutar varias veces un ciclo para encontrarlo. Este algoritmo se encarga de encontrar una valor en una región buena del dominio de la función, también revisa que el  $ \alpha _{k} $ encontrado sea suficientemente pequeño para cumplir la condicion de decremento, pero el valor encontrado no será extremadamente pequeño.
+
+EL método de Backtracking con inercia, es muy parecido al metodo de Bakctracking tradicional, tiene unos cambios para garantizar que se mantenga la longitud de paso que se ha calculado en una iteración anterior.
+
+EL método funciona de la siguiente manera:
+\begin{itemize}[\IEEEsetlabelwidth{Z}]
+\item Declaramos variables globales C1, C2 y C3, se recomienda que sean valores enteros.
+\item Declaramos una variable  A, dicha variable debe valer $10^{-3}$.
+\item Declaramos una valor inical para $\alpha_{k}$, en este caso,  $\alpha_{k}=A$.
+\item Hacemos un ciclo en donde se va a calcular un nuevo vector, que en teoría, debe de acercarce a un mínimo al momento de que el algoritmo se detenga.
+
+\item Adentro del ciclo principal mencionado anteriormente, es donde vamos a buscar nuestra  $\alpha_{k}$ adecuada, una vez que la encontremos, ya podemos encontrar un nuevo punto que debe estar mas cerca del mínimo.
+
+\end{itemize}
+
+
+\subsection*{Pseudocódigo del método de Backtracking con inercia.}
+A continuación se muestra un pequeño pseudocódigo del algoritmo que se ha realizado:
+
+\begin{enumerate}[\IEEEsetlabelwidth{12)}]
+\item $a_{k}=a$
+\item $while([f(x_{k}+\alpha p_{k}  )  \geq  f(x_{k})+ c_{1}\alpha \nabla f_{k}^{T}p_{k} ) $
+
+
+\begin{itemize}[\IEEEsetlabelwidth{Z}]
+\item  $\alpha_{k}= \alpha_{k}/c_{1}$
+
+\item $m=0$
+
+\end{itemize}
+end
+
+\item $m=m+1$
+\item if ($m>C_{2}$)
+\begin{itemize}[\IEEEsetlabelwidth{Z}]
+\item $a= c_{3}*\alpha_{k}$
+\item $m=0$
+
+\end{itemize}
+
+\item else
+
+\begin{itemize}[\IEEEsetlabelwidth{Z}]
+\item $a= alpha_{k}$
+\end{itemize}
+
+\item return $\alpha_{k}$
+\end{enumerate}
+
+
+\subsection*{Fórmula para la interpolación cuadrática.}
+Después de formular nuestro modelo cuadrático, obtenemos la siguiente fórmula para encontrar el nuevo alfa que cumpla con las condiciones de Wolfe:
+
+\[  \alpha_{1}= \frac{- \phi^{'}(0)\alpha_{0}^{2}  }{2 \left[  \phi(\alpha_{0})- \phi_{0} - \phi^{'}(0)\alpha_{0}   \right]  }     \]
+
+\section{DETALLES}
+\subsection*{Panorama general del algoritmo.}
+
+Los pasos a seguir para resolver el problema son los siguientes:
+
+\begin{enumerate}
+\item Primero, debemos definir  una función suave en dos dimensiones, en este caso, la mejor aproximación a una función suave puede ser una imagen borrosa.
+\item A continuación, es necesario calcular el gradiente numérico de nuetra imagen $I$. Este paso se resuelve mediane la siguiente expresión:
+
+\[ I_{x}=  \frac{\partial I }{ \partial x }  = f(x, y)- f(x-1, y)  \]
+\[I_{y}=  \frac{\partial I }{ \partial y }  = f(x, y)- f(x, y-1)  \]
+
+
+
+\[ \nabla I =\left[ 
+\begin{array}{c}
+I_{x}  \\
+I_{y}
+\end{array} 
+\right]
+\]
+
+
+\item Una vez que hemos calculado el gradiente mencionado en el paso anterior, el siguiente paso es agregar a cada componente $I_{x}$ e $I_{y}$ un componente de ruido, en este paso se obtendrá una versión ruidosa del gradiente, se van a utilizar dos tipos de ruido: ruido gaussiano y ruido impulsivo, la operación está representada mediante la siguiente expresión:
+
+\[G =  \nabla I  +  \left[ 
+\begin{array}{c}
+ \eta_{x}  \\
+ \eta_{y}
+\end{array} 
+\right]   \]
+
+
+\item La función que se va a optimizar es la siguiente:
+
+\begin{equation*}
+\begin{aligned}
+min_{f} F(f)=\\  \sum_{x,y} \left[   1- \exp \left\lbrace  -\gamma(G_{x}(x,y)-f(x,y)+f(x-1,y)  )^{2}    \right\rbrace    \right] \\ + \\
+\sum_{x,y} \left[   1- \exp \left\lbrace  -\gamma(G_{x}(x,y)-f(x,y)+f(x,y-1)  )^{2}    \right\rbrace    \right]
+\end{aligned}
+\end{equation*}
+
+En la ecuacion anterior, $f$ representa a la imagen que se obtiene en cada iteración en el proceso de minimización, es importante recordar que en este desarrollo, aunque $f$ es una imagen de $n x m$, en realidad, se representó al vector $f$ como un vector columna de dimensiones: $ \left[ (n*m) x1  \right] $, podemos imaginarnos que la imagen fué desenrollada para que su representación fuera como un vector columna.
+
+
+\item La actualización de nuestro vector $f$, está dado por la siguiente expresión:
+\begin{equation*}
+\begin{aligned}
+f^{t+1}= f^{t}+ \alpha \nabla F(t^{t}).
+\end{aligned}
+\end{equation*}
+
+En la expresión anterior, el valor del tamaño de paso $\alpha$ se calcula mediente algúno de los métodos existentes para el cálculo del tamaño de paso, en este problema, utilizamos el método de backtracking y de interpolación cuadŕatica.
+
+\end{enumerate}
+\subsection*{Cálculo del gradiente  $\nabla F(t^{t})$ }
+
+Para el cálculo del gradiente, se debe de derivar sobre cada uno de los elementos de la imagen: $f(x,y)$la función a minimizar $F(f)$, al aplicar este procedimiento, se obtiene un vector columna, la expresión para el cálculo del gradiente es la siguiente:
+\begin{equation*}
+\begin{aligned}
+F^{'}(f)=  \\- \exp \left\lbrace  -\gamma(G_{x}(x,y)-f(x,y)+f(x-1,y)  )^{2}    \right\rbrace \\ *(2 \gamma)*
+\left\lbrace  (G_{x}(x,y)-f(x,y)+f(x-1,y)  )   \right\rbrace 
+\\
+- \exp \left\lbrace  -\gamma(G_{y}(x,y)-f(x,y)+f(x,y-1)  )^{2}    \right\rbrace \\ *(2 \gamma)*
+\left\lbrace  (G_{y}(x,y)-f(x,y)+f(x,y-1)  )   \right\rbrace
+\end{aligned}
+\end{equation*}
+
+\subsection*{Cálculo del Hessiano   $\nabla ^{2}F(t^{t})$ }
+Para calcular el hessiano, es necesario revisar la relación que existe entre las variables en nuestra función $F(f)$, podemos concluir lo siguiente:
+\begin{enumerate}
+\item Las derivadas en la diagonal del hessiano, son diferentes de cero.
+\item AL observar $F(f)$, también podemos notar que hay una relación entre las variables $f(x,y)$ y $f(x-1,y)$, esta relación es normalmente conocida como diferencias finitas en $x$.
+\item También hay una relación entre las variables $f(x,y)$ y $f(x,y-1)$, esta relación es normalmente conocida como diferencias finitas en $y$. En este caso, la variable actual $f(x,y)$, se relaciona con la variable que se encuentra $m$ lugares atrás en la imagen, si suponemos que el orden de las variables es: comenzando de izquierda a derecha, y de arriba hacia abajo de la imagen. Recordar que $m$ es el número de columnas. También, podemos notar que las diferencias finitas de la primer fila deben de definirse de otra manera, porque ya no hay filas anteriores.
+
+\item Las relaciones entre las demás variables no existen, por lo que a la hora de derivar cuando se contruye el hessiano, se obtendrán ceros.
+\end{enumerate}
+
+Tomando en cuenta las observaciones anteriores, el hessiano que se ha formado está compuesto por valores diferentes de cero para la diagonal principal, para las diagonales adyacentes a la principal, para aquellas diagonales que representan las variables involucradas en las diferencias finitas en $y$, finalmente, para aquellas variables que se ven involucradas en las diferencias finitas en $y$ de la primer fila. Por la simetría del hessiano, se ha formado una matriz donde 7 diagonales tienen valores distintos de cero.
+
+A continuación, mostramos la expresión que se utiliza para calcular las segundas derivadas de la diagonal principal del hessiano:
+
+\begin{equation*}
+\begin{aligned}
+F^{''}(f)=  \\- \exp \left\lbrace  -\gamma(G_{x}(x,y)-f(x,y)+f(x-1,y)  )^{2}    \right\rbrace \\ *
+\left\lbrace  (G_{x}(x,y)-f(x,y)+f(x-1,y)  )   \right\rbrace  *(4 \gamma^{2})* \\
+\left\lbrace  (G_{x}(x,y)-f(x,y)+f(x-1,y)  )   \right\rbrace +\\
+(2\gamma)* \exp \left\lbrace  -\gamma(G_{x}(x,y)-f(x,y)+f(x-1,y)  )^{2}    \right\rbrace 
+\\- \exp \left\lbrace  -\gamma(G_{y}(x,y)-f(x,y)+f(x,y-1)  )^{2}    \right\rbrace \\ *
+\left\lbrace  (G_{y}(x,y)-f(x,y)+f(x,y-1)  )   \right\rbrace  *(4 \gamma^{2})* \\
+\left\lbrace  (G_{y}(x,y)-f(x,y)+f(x,y-1)  )   \right\rbrace +\\
+(2\gamma)* \exp \left\lbrace  -\gamma(G_{y}(x,y)-f(x,y)+f(x,y-1)  )^{2}    \right\rbrace 
+\end{aligned}
+\end{equation*}
+
+Las segundas derivadas de las variables que aparecen en las diferencias finitas en $x$ nos dará como resultado las diagonales adyacentes a la diagonal principal del hessiano, la expresión utilizada fué la siguiente:
+\begin{equation*}
+\begin{aligned}
+F^{''}(f)_{x}=  \\ \exp \left\lbrace  -\gamma(G_{x}(x,y)-f(x,y)+f(x-1,y)  )^{2}    \right\rbrace \\ *
+(4\gamma^{2})*(G_{x}(x,y)-f(x,y)+f(x-1,y)  )^{2}  + \\
+(2\gamma)*\exp \left\lbrace  -\gamma(G_{x}(x,y)-f(x,y)+f(x-1,y)  )^{2}    \right\rbrace  
+\end{aligned}
+\end{equation*}
+
+Las segundas derivadas de las variables que aparecen en las diferencias finitas en $y$ nos dará como resultado las diagonales más alejadas diagonal principal del hessiano, la expresión utilizada fué la siguiente:
+\begin{equation*}
+\begin{aligned}
+F^{''}(f)_{y}=  \\ \exp \left\lbrace  -\gamma(G_{y}(x,y)-f(x,y)+f(x,y-1)  )^{2}    \right\rbrace \\ *
+(4\gamma^{2})*(G_{y}(x,y)-f(x,y)+f(x,y-1)  )^{2}  + \\
+(2\gamma)*\exp \left\lbrace  -\gamma(G_{y}(x,y)-f(x,y)+f(x,y-1)  )^{2}    \right\rbrace  
+\end{aligned}
+\end{equation*}
+
+\subsection*{Actualización del tamaño de paso.}
+
+En los métodos de búsqueda en línea con iterpolación cuadrática, como en el caso del modelo cuadrático, es necesario utilizar intormación calculada en la iteración anterior para calcular nuestro nuevo $\alpha_{0}$ de partida, en este caso se utilizó la siguiente fórmula:
+
+\[ \alpha_{0}= \alpha_{k-1}  \frac{ \nabla f_{k-1}^{T}p_{k-1}   }{f_{k}^{T}p_{k} } \]
+
+En el caso del método de búsqueda en línea con Backtracking, el valor inicial de $\alpha_{0}$  en cada iteración, fué inicializado con un número muy pequeño. Esto dió buenos resultados.
+
+\section{RESULTADOS}
+\subsection*{Búsqueda de tamaño de paso por el método de Backtracking con inercia.}
+
+\subsubsection*{Utilización de ruido gaussiano y Backtracking con inercia.}
+\begin{enumerate}
+\item Para este ejemplo se utilizó una imagen inicial, que tiene la característica de que es "borrosa". La imagen utilizada fué la figura ~\ref{lena}.
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics{borrosa.jpg}
+\caption{Imagen muy borrosa.}
+\label{lena}
+\end{figure}
+
+\item La siguiente tarea fué la de obtener los gradientes $I_{x}$ e $I_{y}$ de la imagen inicial, a dichos gradientes se les añadió ruido gaussiano, los resultados se pueden ver en la imagen  ~\ref{Gx}, que representa el cálculo de $G(x)$  y en la imagen ~\ref{Gy}, que representa el cálculo de $G(y).$
+
+\begin{figure}[H]
+\centering
+\includegraphics{gx.jpg}
+\caption{Imagen 	G(x) gaussiana.}
+\label{Gx}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics{gy.jpg}
+\caption{Imagen G(y) gaussiana.}
+\label{Gy}
+\end{figure}
+
+\item A la hora de aplicar el algoritmo de búsqueda en línea con máximo descenso y la búsqueda del tamaño de paso por medio del método de Backtracking, el resultado obtenido fué un vector $f$ que al acomodar, representa a la imagen ~\ref{fin}.
+
+\begin{figure}[H]
+\centering
+\includegraphics{final.jpg}
+\caption{Imagen final Backtracking con inercia (ruido gaussiano).}
+\label{fin}
+\end{figure}
+
+\end{enumerate}
+
+
+A continuación, se muestra una tabla que representa un resumen de los resultados obtenidos para el método de búsqueda en línea con algoritmo de Backtracking con inercia para tamaño de paso:
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}[c]{| c |p{2cm} |}
+\hline
+\hline
+\multicolumn{2}{|c|}{Backtracking con inercia (ruido gaussiano)}\\
+
+\hline
+\hline
+Número de iteraciones: & 103  \\
+\hline
+$\alpha$ final: & 4.77915e-12 \\
+\hline
+Valor de la función:  & 542.181\\
+\hline
+$\gamma$ utilizado:  & 1e-6 \\
+\hline
+Tiempo de ejecución: &  3260 milisegundos\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Utilización de ruido impulsivo.}
+\begin{enumerate}
+\item Para este ejemplo se utilizó la misma imagen inicial del ejemplo anterior, que es la figura ~\ref{lena}.
+
+\item La siguiente tarea fué la de obtener los gradientes $I_{x}$ e $I_{y}$ de la imagen inicial, a dichos gradientes se les añadió ruido impulsivo, los resultados se pueden ver en la imagen  ~\ref{gix}, que representa el cálculo de $G(x)$  y en la imagen ~\ref{giy}, que representa el cálculo de $G(y).$
+
+\begin{figure}[H]
+\centering
+\includegraphics{gix.jpg}
+\caption{Imagen 	G(x) con ruido impulsivo.}
+\label{gix}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics{giy.jpg}
+\caption{Imagen G(y) con ruido impulsivo.}
+\label{giy}
+\end{figure}
+
+\item A la hora de aplicar el algoritmo de búsqueda en línea con máximo descenso y la búsqueda del tamaño de paso por medio del método de Backtracking, el resultado obtenido fué un vector $f$ que al acomodar, representa a imagen ~\ref{fini}.
+
+\begin{figure}[H]
+\centering
+\includegraphics{finai.jpg}
+\caption{Imagen final Backtracking con inercia (ruido impulsivo).}
+\label{fini}
+\end{figure}
+\end{enumerate}
+
+
+
+A continuación, igual que como lo hicimos con ruido gaussiano, pero ahora recordemos que se utilizó ruido impulsivo, se muestra una tabla que representa un resumen de los resultados obtenidos para el método de búsqueda en línea con algoritmo de Backtracking para tamaño de paso:
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}[c]{| c |p{2cm} |}
+\hline
+\hline
+\multicolumn{2}{|c|}{Backtracking con inercia (ruido impulsivo)}\\
+
+\hline
+\hline
+Número de iteraciones: & 104 \\
+\hline
+$\alpha$ final: & 4.77915e-12\\
+\hline
+Valor de la función:  &567.738\\
+\hline
+$\gamma$ utilizado:  & 1e-6 \\
+\hline
+Tiempo de ejecución: &  3240 milisegundos\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Método de ajuste cuadrático.}
+\subsubsection*{Utilización de ruido gaussiano.}
+\begin{enumerate}
+\item Para este ejemplo se utilizó una imagen inicial, la imagen utilizada, como en los casos anteriores, fué la figura ~\ref{lena}.
+
+
+
+\item La siguiente tarea fué la de obtener los gradientes $I_{x}$ e $I_{y}$ de la imagen inicial, a dichos gradientes se les añadió ruido gaussiano, los resultados son los mismos que se obtuvieron en el cálculo del tamaño de paso por Backtracking con inercia con ruido gaussiano las imágenes que se obtienen son:  ~\ref{Gx}, que representa el cálculo de $G(x)$  y en la imagen ~\ref{Gy}, que representa el cálculo de $G(y).$
+
+
+
+\item A la hora de aplicar el algoritmo de búsqueda en línea con máximo descenso y la búsqueda del tamaño de paso por medio del método de interpolación cuadrática, el resultado obtenido fué un vector $f$ que al acomodar, representa a la imagen ~\ref{finc}.
+
+\begin{figure}[H]
+\centering
+\includegraphics{finc.jpg}
+\caption{Imagen final con interpolación cuadrática (ruido gaussiano).}
+\label{finc}
+\end{figure}
+
+\end{enumerate}
+
+A continuación, se muestra una tabla que representa un resumen de los resultados obtenidos para el método de búsqueda en línea con algoritmo de Backtracking para tamaño de paso:
+
+\begin{table}[h]
+\centering
+\begin{tabular}[c]{| c |p{2cm} |}
+\hline
+\hline
+\multicolumn{2}{|c|}{Interpolación cuadrática(ruido gaussiano)}\\
+
+\hline
+\hline
+Número de iteraciones: & 31 \\
+\hline
+$\alpha$ final: & 9.9919e-12 \\
+\hline
+Valor de la función:  &542.115\\
+\hline
+$\gamma$ utilizado:  & 1e-6 \\
+\hline
+Tiempo de ejecución: &  70290 milisegundos\\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\subsubsection*{Utilización de ruido impulsivo.}
+\begin{enumerate}
+\item Para este ejemplo se utilizó una imagen inicial, la imagen utilizada, como en los casos anteriores, fué la figura ~\ref{lena}.
+
+
+
+\item La siguiente tarea fué la de obtener los gradientes $I_{x}$ e $I_{y}$ de la imagen inicial, a dichos gradientes se les añadió ruido impulsivo, los resultados son los mismos que se obtuvieron en el cálculo del tamaño de paso por Backtracking con inercia con ruido impulsivo las imágenes que se obtienen son:  ~\ref{gix}, que representa el cálculo de $G(x)$  y en la imagen ~\ref{giy}, que representa el cálculo de $G(y).$
+
+
+
+\item A la hora de aplicar el algoritmo de búsqueda en línea con máximo descenso y la búsqueda del tamaño de paso por medio del método de interpolación cuadrática, el resultado obtenido fué un vector $f$ que al acomodar, representa a la imagen ~\ref{fino}.
+
+\begin{figure}[H]
+\centering
+\includegraphics{fino.jpg}
+\caption{Imagen final con interpolación cuadrática (ruido impulsivo).}
+\label{fino}
+\end{figure}
+
+\end{enumerate}
+
+A continuación, se muestra una tabla que representa un resumen de los resultados obtenidos para el método de búsqueda en línea con algoritmo de Backtracking para tamaño de paso:
+
+\begin{table}[h]
+\centering
+\begin{tabular}[c]{| c |p{2cm} |}
+\hline
+\hline
+\multicolumn{2}{|c|}{Interpolación cuadrática(ruido impulsivo)}\\
+
+\hline
+\hline
+Número de iteraciones: & 30  \\
+\hline
+$\alpha$ final: & 7.70857e-12\\
+\hline
+Valor de la función:  & 570.202 \\
+\hline
+$\gamma$ utilizado:  & 1e-6 \\
+\hline
+Tiempo de ejecución: &  69360 milisegundos\\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\section{CONCLUSIONES}
+Las conclusiones obtenidas son las siguientes:
+\begin{itemize}
+\item Cuando se utilizó el  método de búsqueda en línea con backtracking con inercia, se realizaron muchas más iteraciones en relación con la búsqueda en línea con interpolación cuadrática.
+
+\item Es pesado el cálculo del hessiano para problemas de este tipo. Por el tipo de información que se maneja: imágenes.
+
+\item Se obtiene una convergencia mucho mas rápida con el método de interpolación, sin embargo, el tiempo de ejecución es mayor, porque se necesita el hessiano para el cálculo del $\alpha_{0}$, sin embargo, si utilizamos un $\alpha_{0}$ constante, como en el método de backtracking con inercia, entonces el tiempo de ejecución baja de manera considerable, y el número de iteraciones se mantiene muy bajo.
+
+
+
+\end{itemize}
+
+
+\section{REFERENCIAS}
+[1] J. Nocedal and Stephen J. Wright, Numerical Optimization. New York, NY: Springer-Verlag, 1999.
+\end{document}
+
+
+

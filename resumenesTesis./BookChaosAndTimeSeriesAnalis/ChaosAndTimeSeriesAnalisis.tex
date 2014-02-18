@@ -1,0 +1,268 @@
+
+\documentclass[prodmode,acmtap]{acmlarge}
+
+% Metadata Information
+\acmVolume{2}
+\acmNumber{3}
+\acmArticle{1}
+\articleSeq{1}
+\acmYear{2010}
+\acmMonth{5}
+
+% Package to generate and customize Algorithm as per ACM style
+\usepackage[ruled]{algorithm2e}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\SetAlFnt{\algofont}
+\SetAlCapFnt{\algofont}
+\SetAlCapNameFnt{\algofont}
+\SetAlCapHSkip{0pt}
+\IncMargin{-\parindent}
+\renewcommand{\algorithmcfname}{ALGORITHM}
+
+
+
+% Title portion
+\title{Exponentes de Lyapunov.}
+\author{Marcos Daniel Calderón Calderón \affil{CIMAT}
+}
+% NOTE! Affiliations placed here should be for the institution where the
+%       BULK of the research was done. If the author has gone to a new
+%       institution, before publication, the (above) affiliation should NOT be changed.
+%       The authors 'current' address may be given in the "Author's addresses:" block (below).
+%       So for example, Mr. Fogarty, the bulk of the research was done at UIUC, and he is
+%       currently affiliated with NASA.
+
+\begin{abstract}
+Caos y análisis de series de tiempo.
+\end{abstract}
+
+
+
+\begin{document}
+
+
+\maketitle
+
+\section{Exponentes de Lyapunov.}
+Aunque no hay una definición universal para el concepto de caos, se poede concluir que el caos es aperiódico, con un comportamiento a largo plazo, y se genera por sistemas determinísticos que exhiben sensibilidad a las condiciones iniciales. Sin embargo, es difícil medir la sensibilidad a las condiciones iniciales.
+
+Los exponentes de Lyapunov nos ayudan a identificar el comportamiento de diversos sistemas: el signo nos dice si el sistema es caótico o no, el valor nos indica que tan caótico es un sistema.
+
+Un sistema dinámico con un exponente positivo de Liapunov es caótico. El exponente describe la velociada a la cual la predicibilidad se pierde.
+
+Los exponentes de Lyapunov son siempre reales y son geométricamente promediados a lo largo de la órbita de una trayectoria, y sus direcciones asocidadas son mutuamente ortogonales. 
+
+Un sistema con $n$ dimensiones tiene $n$ exponentes de Lyapunov.
+
+En este momento, es recomendable recordar algunos conceptos:
+
+\textbf{Atractor.} Un atractor es el conjunto al que el sistema evoluciona después de un tiempo suficientemente largo. Para que el conjunto sea un atractor, las trayectorias que le sean suficientemente próximas han de permanecer próximas incluso si son ligeramente perturbadas. Geométricamente, un atractor puede ser un punto, una curva, una variedad o incluso un conjunto complicado de estructura fractal conocido como atractor extraño. La trayectoria del sistema dinámico en el atractor no tiene que satisfacer ninguna propiedad especial excepto la de permanecer en el atractor; puede ser periódica, caótica o de cualquier otro tipo. Por ejemplo, el atractor del péndulo.
+
+\subsection{Exponentes de Lyapunov para mapas en una dimensión.}
+
+
+Recordemos que el mapa logístico tiene la siguiente forma:
+\begin{equation}
+X_{n+1}= A X_{n}(1-X_{n})
+\end{equation}
+Imaginemos que tenemos dos puntos cercanos iniciales $X_{0}$ y $X_{0} +\Delta X_{0}$. Después de una iteración en el mapa, los puntos son separados por:
+
+
+
+La forma general del exponente de Lyapunov es así:
+
+\begin{equation}
+e^{\lambda}= |\Delta X_{1} / \Delta X_{0} |
+\end{equation}
+
+Para un mapa en una dimensión, el exponente de Lyapunov se define de la siguiente manera:
+
+\begin{equation}
+\lambda = ln|\Delta X_{1} / \Delta X_{0} |
+\end{equation}
+
+EL valor absoluto asegura que el Número de Lyapunov es positivo y de esta manera, el logaritmo sea un número real.  Si $\Delta X_{1} / \Delta X_{0} $ es negativo, esto significa que dos puntos cercanos intercambian su orden, el más grande se convierte en el más chico y viceversa. Conocer el comportaminento del exponente local de Lyapunov nos permite identificar regiones en un atractor: si hay mucha o poca predicibilidad. Para obtener el exponente global de Lyapunov, se realiza el siguiente cálculo sobre  muchas iteraciones:
+
+\begin{equation}
+\lambda = \lim_{N \rightarrow \infty} \frac{1}{N} \sum_{n=0}^{N-1}|f^{'}(X_{n})|
+\end{equation}
+
+Si la órbita es periódica, se necesita sólamente promediar sobre el período una vez que la órbita está sobre el atractor.  El exponente de Lyapunov determina  la tasa de separación promedio y exponencial de dos condiciones iniciales relativamente cerca, o el promedio de la extensión en el espacio. UN vaor positivo significa caos, y un valor negativo implica un punto fijo o un ciclo encontrado.
+
+El exponente local de Lyapunov puede variar ampliamente o incluso ser negativo o infinito para un sistema caótico, como ocurre para el mapa logístico en $X=0.5$.  Más que eso, las órbitas algunas vece se quedan en una región del espacio por  un largo tiempo antes de caer en una región diferente, también puede ocurrir que ocurra otra órbita periódica o haya un escape a infinito.
+No importa cuántos calculos se hagan, no se puede estar completamente seguro de los resultados obtenidos. Ahora, describiremos algunos ejemplos clásicos.
+
+\subsection{Binary shift map.}
+Un ejemplo trivial es un mapa binario de desplazamiento: $f(x)= 2x$ (mod 1) y $f^{'}(x)=2$. Así, el exponente de Lyapunov es $\lambda = ln2 = 0.6931477181$. Si se utiliza el logaritmo de base 2 el exponente de Lyapunov es simplemente $\lambda =1$, y las unidades son bits.
+
+\subsection{Tent map.}
+ 
+Ahora, vamos a analizar el tent map, donde $f(x)= A min(X, 1-X)$  y además $|f^{'}(x)|= |A|$. El exponente de lyapunov en este caso es $\lambda = ln|A|$. Este valor es positivo para $|A|>1$ y negativo para $|A|<1$
+
+
+\subsection{Logistic map.}
+Para la ecuación logística ($f(x)= Ax(1-x)$) y $f^{'}(x)= A(1-2X)$. El cálculo puede hacerse de manera numérica de la siguiente manera:
+
+\begin{equation}
+\lambda = \lim_{N \rightarrow \infty }\frac{1}{N} \sum_{n=0}^{N-1} ln|A(1-2x_{n})| 
+\end{equation}
+
+EN $X= 0.5$, el logaritmo es menos infinito. Asi, es recomendable utilizar doble precisión. 
+
+\subsection{Exponentes de Lyapunov para mapas en dos dimensiones.}
+Supongamos que tenemos el siguiente mapa:
+
+\begin{equation}
+X_{n+1} =F(X_{n}, Y_{n})
+\end{equation}
+
+\begin{equation}
+Y_{n+1} =G(X_{n}, Y_{n})
+\end{equation}
+
+donde las condiciones iniciales están separadas por un infinitesimal $\Delta R$. A diferencia del mapa en una dimensión, la separación tiene una dirección asociada con ésta. 
+
+
+\subsubsection{Exponente de Lyapunov para dos dimensiones.}
+
+La fórmula para el exponente de Lyapunov para dos dimensiones es la siguiente:
+
+\begin{equation}
+\lambda_{1}= \lim_{N \rightarrow \infty}\frac{1}{2N} \sum_{n=0}^{N-1}\log \left[ \frac{(a+bY^{'}n)^{2} + (c+dY^{'}n)^{2}  }{1+Y^{'}n^{2}}  \right]
+\end{equation}
+
+donde $Y^{'} = \frac{\Delta Y}{\Delta X}$ es la tangente de la dirección de máximo crecimiento (vector tangente) el cual se calcula de la siguiente manera:
+
+\begin{equation}
+Y^{'}_{n+1}= \frac{c+dY^{'}n}{ a+bY^{'}n}
+\end{equation}
+
+
+\subsection{Mapa de Hénon.}
+
+
+Este mapa se define así:
+
+\begin{equation}
+X_{n+1}= 1- 1.4 X_{n}^{2}+ 0.3 Y_{n}
+\end{equation}
+
+\begin{equation}
+Y_{n+1}=  X_{n}
+\end{equation}
+
+
+Los parámetros elegidos producen caos. 
+La matriz Jacobiana de el mapa de Hénon es la siguiente:
+
+\begin{equation}
+J= \left( \begin{array}{cc}
+a & b  \\
+c & d  \\
+\end{array} \right)  
+= 
+\left( \begin{array}{cc}
+-2.8X & 0.3  \\
+1 & 0  \\
+\end{array} \right) 
+\end{equation}
+
+y el exponente de Lyapunov se calcula de la siguiente manera:
+
+\begin{equation}
+\lambda_{1}= \lim_{N \rightarrow \infty}\frac{1}{2N} \sum_{n=0}^{N-1}\log \left[ \frac{(-2.8X_{n} + 0.3Y ^{'}n )^{2} + 1 }{1+Y^{'}n^{2}}  \right]
+\end{equation}
+
+donde 
+
+\begin{equation}
+Y^{'}_{n+1}= \frac{1}{-2.8X_{n} + 0.3Y^{'}n }
+\end{equation}
+
+\section{Bifurcaciones.}
+
+Una bifurcación es un cambio cualitativo en el comportamiente dinámico de un sistema o la estructura topológica de su fase retrata uno o más parámetros que pasan a través de un valor crítico. Cualquier punto en el espacio de parámetros donde el sistema dinámico es estructuralmente inestable es un punto de bifurcación. Y el conjunto de todos esos puntos forman un conjunto de bifurcación. Este conjunto puede contener muchísimos puntos de manera infinita , pero usualmente tienen medida cero.
+
+Las bifurcaciones son importantes porque ellas proveen una fuerte evidencia de determinismo en sistemas aleatorios. Especialmente si los parámetros pueden cambiar de manera repetida hacia atrás y adelante  sobre el valor crítico. Algunos sistemas exhiben histéresis, en la cual la bifurcación ocurre en diferentes valores de el parámetro dependiento de la dirección en la cual ésta es cambiada. Es importante conocer dónde ocurren las bifurcaciones para evitar efectos indeseables en el sistema. Hay docenas de bifurcaciones diferentes y probablemente algunas no descubiertas. Hay varias maneras de clasificar las bifurcaciones:
+
+\begin{enumerate}
+\item Mapas y flujos. Sistemas discretos y contínuos pueden tener bifurcaciones. Algunas bifurcaciones ocurren en ambos sistemas y tienen nombres similares. Otras sólo ocurren en un tipo de sistema.
+\item Dimensión. La dimensión del sistema es el número de variables dinámicas. Algunas bifurcaciones ocurren únicamente cuando la dimensión excede un valor mínimo. Esto basta para examinar cada bifurcaciónen una dimensión mínima en la cual ésta ocurre.
+\item Codimensión. Hay bifurcaciones Codimensión-1 en las cuales sólo un parámetro es cambiado con otras constantes que haya tanido.
+\item Local y global. Las bifurcaciones en las cuales el punto de equilibro aparece, desaparece o cambia su estabilidad es llamado $local$. Aquellos que involucran una órbita o trayectoria, son llamados globales y son usualmente más difíciles de analizar. La distinción no siempre es obvia, ya que hay bifurcaciones con ambas características. 
+\item Contínuas o discontínuas. En una bifurcación contínua, un enigenvalor se vuelve estable o inestable. En una bifurcación discontínua, los eigenvalores aparecen o desaparecen. Una bifurcación contínua sin histéresis es llamada $explosiva$.
+\end{enumerate}
+\subsection{Bifurcaciones en un flujo de una dimensión.}
+Ya que las bifurcaciones locales son determinadas por las propiedades de los puntos de equilibrio, es recomendable asumir que el equilibro es en $x=0$. Y representar el flujo cerca del equilibro como:
+
+\begin{equation}
+\frac{dx}{dt}= f(x, \mu)
+\end{equation}
+
+
+donde $\mu$ es el parámetro de bifurcación, elegido de tal manera que la bifurcación ocurre cuando $\mu =0$. Siempre se pueden  redefinir las variables para satisfacer esas condiciones. Se considera que una forma normal es el polinomio más simple para representar cada tipo de bifurcación. La bifurcación la podemos imaginar como una expansión en series de Taylor del flujo en la vecindad de $x=0$ y $mu=0$. 
+
+
+\subsubsection{Fold.}
+El mecanismo básico para crear y destruir puntos de equilibrio es en el pliegue, que tiene una forma normal
+
+\begin{equation}
+f= \mu - x^{2}
+\end{equation}
+
+\subsubsection{Transcritical.}
+Una bifurcación transcrítica tiene la siguiente forma normal:
+
+\begin{equation}
+f= \mu x- x^{2}
+\end{equation}
+
+\subsubsection{Pitchfork.}
+Esti tipo de bifurcación es de la siguiente forma:
+
+\begin{equation}
+f= \mu x - x^{3}
+\end{equation}
+
+\subsubsection{Hopf bifurcation.}
+Este tipo de bifurcación es de dimensión mayor a uno. El atractor de Lorentz  tiene este tipo de bifurcación en $r=1$. La bifurcación está dada por la siguiente expresión:
+
+\begin{equation}
+\frac{dr}{dt}= r(\mu - r^{2})
+\end{equation}
+\subsection{Bifurcaciones en mapas de una dimensión.}
+\subsubsection{Fold.}
+Es un mecanismo para crear y destruir puntos fijos en mapas, la forma normal es de la siguiente manera:
+
+\begin{equation}
+f= \mu +X-X^{2}
+\end{equation}
+
+Esta bifurcación occurre cuando la función $f(X)$ es tangente a la línea de 45 grados.
+
+\subsubsection{Flip.}
+También es conocida como bifurcación subarmónica.  Su forma normal es de la siguiente manera:
+
+\begin{equation}
+f = -(1+\mu)X+ X^{3}
+\end{equation}
+Hay un punto fijo en $X^{*}=0$, pero también tiene dos puntos fijos estables en $X^{*} \simeq \pm \sqrt{\mu}$.
+
+\subsubsection{Transcritical.}
+
+Esta bifurcación es de la siguiente manera:
+\begin{equation}
+f= (1+\mu)X-X^{2}
+\end{equation}
+
+
+\subsubsection{Pitchfork.}
+De manera similar, la bifurcación de Pitchfork ocurre en un mapa en una dimensión con la siguiente forma normal:
+
+\begin{equation}
+f= (1+\mu)X+X^{3}
+\end{equation}
+
+\end{document}
+

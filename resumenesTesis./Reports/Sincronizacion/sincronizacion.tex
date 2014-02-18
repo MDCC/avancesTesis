@@ -1,0 +1,243 @@
+% LLNCStmpl.tex
+% Template file to use for LLNCS papers prepared in LaTeX
+%websites for more information: http://www.springer.com
+%http://www.springer.com/lncs
+
+\documentclass{llncs}
+%Use this line instead if you want to use running heads (i.e. headers on each page):
+%\documentclass[runningheads]{llncs}
+\usepackage{url}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{ntheorem}
+
+
+
+
+\setlength{\theorempreskipamount}{7mm}
+\setlength{\theorempostskipamount}{7mm}
+\theoremstyle{plane}
+\theorembodyfont{\normalfont}
+\theoremheaderfont{\scshape\large}
+\newtheorem{teo}{Teorema}
+\newtheorem{defi}{Definición}
+\newtheorem{ej}{Ejemplo}
+
+
+
+\begin{document}
+\title{Redes dinámicas y sincronización.}
+
+
+
+\subtitle{Conceptos.}
+
+%For a single author
+%\author{Author Name}
+
+%For multiple authors:
+\author{Marcos Daniel Calderón Calderón}
+
+
+\institute{Centro de Investigación en Matemáticas \\ \email{marcos.calderon@cimat.mx}}
+
+
+
+\maketitle
+
+\begin{abstract}
+Se presenta un pequeño resumen de sincronización en redes dinámicas.
+\end{abstract}
+\section{Resumen.}
+
+\subsection{Algunos conceptos de redes.}
+
+Las redes se pueden colasificar en varias formas de cuardo a sus propiedades. A continuación, mostramos las principales clasificaciones:
+
+\begin{itemize}
+\item Sincronas.
+
+\begin{enumerate}
+\item  Mensajes enviados con una unidad de tiempo.
+\item  Los nodos tienen acceso a un reloj común.
+\end{enumerate}
+
+\item Estáticas.
+\begin{enumerate}
+\item  Los nodos nunca se rompen o se eliminan.
+\item  Las aristas mantienen su formas y funciones.
+\end{enumerate}
+
+
+\item Asíncronas.
+\begin{enumerate}
+\item Los retardos en mensajes son arbitrarios.
+\item No tienen un reloj en común.
+\end{enumerate}
+
+
+\item Dinámicas.
+\begin{enumerate}
+\item Los nodos pueden entrar y salir.
+\item Las aristas pueden desaparecer y recuperarse.
+\end{enumerate}
+
+
+\end{itemize}
+
+
+En una red dinámica, la topología cambia con el tiempo. Los nodos y las aristas pueden entrar y salir, en este tipo de redes, se pueden establecer medidas de confiabilidad o de error. Las redes dinámicas cambian con el tiempo. Información entra y sale a un nodo. Los cambios ocurren constantemente en el sistema. Las redes dinámicas están en todos lados: Internet, Redes de Área Local, redes inalámbricas.
+
+\subsection{Modelo de Adversarios.}
+
+En este tipo de modelo de redes, la parte dinámica está controlada por un adversario, éste decide cuando y en dónde ocurren los cambios. También decide la desaparición y recuperación de aristas, la llegada y salida de nodos. En este tipo de modelo, es necesario limitar las capacidades del adversario: por ejemplo, mantener algún nivel de conectividad, y limitar el número de nodos que llegan para formar parte de la red.
+
+\subsection{Modelo estocástico.}
+
+En este modelo de red, la parte dinámica se describe por medio de un proceso probabilístico.
+Por ejemplo:
+Las vecindades de nuevos nodos son seleccionados de manera aleatorioa. 
+Recuperación o pérdida de aristas siguen alguna distribución de probabilidad.
+La llegada y salida de información se basa en alguna distribución de probabilidad. También es necesario definir algnas limitaciones: por ejemplo, definir un promedio de llegada de información a un nodo. También se necesita mantener un nivel de conectividad en la red.
+
+\subsection{Modelo de teoría de juegos.}
+
+En este tipo de modelo, cada nodo es un agente independiente, cada nodo tiene su función de utilizadad y se comporta de manera racional. También responde a la acción de otros agentes. La parte dinámica ocurre a través de sus interacciones con los demás. En los modelos anteriores, todos los nodos de la red están bajo una administración. Y la dinámica ocurría a través de influencia externa.
+
+
+Algunos problemas que utilizan esto son los siguientes:
+
+Spanning trees. Balanceo. Rutas de envío de información. Sistemas de espera.
+Evolución de redes.
+
+\subsubsection{Spanning trees.} Es una de las estructuras de redes más fundamentales.
+Es confrecuencia la base para varios sistemas distribuidos: elección del líder, clusterinf, routing y multicast.  El spanning tree en una red estática se basa en lo siguiente: cada nodo tiene un identificador único. El identificador más grande de todos los nodos hará que el nodo con dicho identificador se convierta en la raíz. 
+
+\section{Sincronización y Sincronizabilidad de Redes Dinámicas.}
+
+El caos tiene un comportamiento impredecible, además es muy sensible a las condiciones iniciales. Aunque un sistema caótico puede tener un atractor, es difícil determinar dónde se encuentra.
+Una pregunta interesante de responder es la siguiente: ¿Se pueden forzar a dos sistemas caóticos que sigan una misma ruta hacia el atractor? La respuesta es afirmativa.
+
+
+\subsection{Geometría: SIncronización de hyperplanos.}
+SUpongamos que tenemos dos sistemas caóticos de Lorenz. Entonces, se transmite una señal del primer sistema al segundo, dicha señal está representada por la variable $x$. Este esquema es conocido como \textit{reemplazo completo}. Esto nos da el siguiente sistema:
+
+\begin{equation}
+\frac{d x_{1}}{dt}=  -\sigma(y_{1}-x_{1})
+\end{equation}
+
+
+\begin{equation}
+\frac{d y_{1}}{dt}=  -x_{1}z_{1}+ rx_{1}- y_{1}
+\end{equation}
+
+
+
+\begin{equation}
+\frac{d y_{2}}{dt}=  -x_{1}z_{2}+ rx_{1}- y_{2}
+\end{equation}
+
+
+\begin{equation}
+\frac{d z_{1}}{dt}=  x_{1}y_{1} - b z_{1}
+\end{equation}
+
+
+\begin{equation}
+\frac{d z_{2}}{dt}=  x_{1}y_{2} - b z_{2}
+\end{equation}
+
+donde se han usado subíndices para etiquetar cada sistema. Se ha reemplazado $x_{2}$ por $x_{1}$ en el segundo conjunto de ecuaciones; además, se ha eliminado una ecuación porque al momento de sustituir, se obtenía una ecuación redundante. Se puede pensar que la variable $x_{1}$ maneja al segundo sistema. 
+
+
+
+El análisis del fenómeno de sincronización siempre ha estado sujeto a investigaciones en el campo de sistemas dinámicos. Este es un fenómeno básico en ciencia e ingeniería y su origen data desde el siglo XVII, cuando el científico Huygens entrontró que dos péndulos en algún momento sus movimientos iban a estar sincronizados, y esta fué quiza la primer noción de sincronización.
+
+La sincronización es posible si al menos dos sistemas dinámicos interactúan entre sí, pero es más interesante conocer qué es lo que ocurre cuendo hay cientos, miles o millones de sistemas dinámicos.  Los primeros trabajos en sincronización de sistemas dinámicos sólo se enfocaron de un pequeño número de sistemas individuales acoplado, pero muchos sistemas de la vida real donde la sincronzación es relevante, consisten en un gran número de indiviuos dinámcos que interactúan con estructuras complejas de acoplamiento. Para comprender mejor la situación, imagina las neuronas del cerebro que pueden tener conexiones cortas o largas con otras neuronas bajo una estructura compleja. 
+
+Ecuaciones de una red dinámica.
+Consideremmos una red no dirigida y sin pesos que está conformada po N nodos. Cada nodo de la red tiene las ecuaciones del sistema dinámico. Lo anterior se resume en la siguiente expresión:
+
+\begin{equation}
+x_{i}= F(x_{i})  - \sigma \sum_{j=1}^{N}l_{ij}Hx_{j} \quad ; \quad i = 1,2,...,N.
+\end{equation}
+
+donde $x_{i} \in R^{d}$ es el vector de estados, $F:R^{d} \longrightarrow R^{d} $ define el sistema dinámico individual por medio de sus ecuaciones. Estos sistemas dinámicos están acoplados por una fuerza de acoplamiento $sigma$ y una matriz de acoplamiento $L = (l_{ij})$. En este caso, L es llamada matriz Laplaciana: es una matriz simétrica: $L_{ij}= L_{ji}$, para todos los pares ($i, j$), además, $\sum_{j=1}^{N} L_{ij}=0$ para todo $i$. En otras palabras $L = D-A$ donde $A= (a_{ij})$ es la matriz de adyacencia binaria de $(V, E)$, un grafo no dirigido con un número de nodos $V$ y de aristas $E$. $D= d(_{ii})$ es una matriz diagonal donde 
+
+
+\begin{equation}
+d_{ii}= \sum_{j=1}^{N}a_{ij} ; \quad i = 1,...,N.
+\end{equation}
+
+Los elementos que no son cero de la matriz $H_{dxd}$ determinan los elementos acoplados de los osciladores, por ejemplo, esto significa que si un sistema dinámico de tres dimensiones (con varialbes de estado $x$, $y$, $z$) es acoplado a través del componente  $x$, la matriz $H$ será de la siguiente forma:
+
+\begin{equation}
+•
+\end{equation}
+
+
+
+En cada nodo de
+la conexión de una gráfica de un sistema dinámico se sienta y las ecuaciones del movimiento de la
+lectura de red dinámica
+
+/////
+
+Cuando se tiene un modelo de red dinámica para algún fenómeno específico, se puede estudiar su sincronizabilidad.
+
+Primero, es necesario contar con una definición de estado de sincronización de una red dinámica. 
+
+
+\section{Master Stability Functions.}
+
+\subsection{Matriz Laplaciana.}
+La matriz laplaciana es una representación matricial de un grafo.
+
+\begin{equation}
+ \textit{ l } _{i,j} := 
+   \left \{
+      \begin{array}{rcl}
+          k_{i} & si  & i = j \\
+            -1 & si & i \neq j  \text{ y }    n_{i}  \text{ es  adyacente  a }  n_{j} \\ 
+         0 & otro & caso
+      \end{array}
+   \right.
+\end{equation} 
+
+
+
+Considera una red de sistemas dinámicos acoplados que buscan sincronizarse. MSF es una poderosa herramienta matemática que da las condiciones necesarias y suficientes para estabilidad de la solución de sincronización. Usualmente, un MSF se refiere a un sistema en dimensiones bajas cuya estabilidad es asociada con la de una red en más dimensiones. 
+
+Un interés particular de un comportamiento dinámico ocurre en redes de sistemas acoplados o osciladores cuanto todos los subsistemas se comportan en la misma manera: hacen la misma cosa en el mismo tiempo. Tal comportamiento de una red simul un sistema contínuo que tienen un movimiento uniforme, los modelos de neuronas  se sincronizan, y sistemas de laseres acoplados también lo hacen. La pregunta aquí es: ¿Cuándo el comportamiento de sincronización llega a una fase de estabilidad, especialmente en lo que se refiere a sistemas acomplados en una red? Para contestar esta pregunta, lo que se hace es utilizar una ecuación que mide el grado de estabilidad alcanzado, existen varias medidas de estabilidad, por ejemplo, los exponentes de Lyapunov. Usando un Master Stability Diagram, podemos predecir inestabilidades que puedan ocurrir en modo espacial: BUrsting  o patrones de burbuja. Este tipo de diagrama hace esto obvio con sistemas particulares de acoplamiento que pueden tener un límite superior de el número de osciladores que pueden ser acoplados mientras logran estabilidad.  Se debe de asumir lo siguiente:
+
+1. Los osciladores acoplados (nodos)  son todos identicos.
+2. La misma función de los componentes para cada osciladors es utilizada para acoplar los otros osciladores.
+3. El recopilador de sincronización es un recopilador invariante. 
+4. Los nodos están acoplados en una manera arbitrario la cual está aproximada cerca del estado de sincronización por un operador lineal. 
+
+\section{Camino Aleatorio.}
+Un camino aleatorio es una formalización matemática de la trayectorio que resulta de hacer sucesivos pasos aleatorios. Por ejemplo, la ruta trazada por una molécula mientras viaja por un líquido on un gas, el camino que sigue un animal en la búsqueda de comida, el precio de una acción fluctuante y la situación financiera de un jugador pueden tratarse como un camino aleatorio.
+Matemáticamente se representa así:
+
+\begin{equation}
+X(t+ \tau) = X(t)+ \Phi(\tau)
+\end{equation}
+donde $\Phi$ es la variable aleatoria que describe la ley de probabilidad para tomar el siguiente paso y $\tau$ es el intervalo de tiempo entre pasos subsecuentes. A medida que la longitud y la dirección de un paso depende solo de la posición $X(t)$ y no de alguna posición previa, swe dice que el paseo aleatorio tiene la Propiedad de Markov.
+
+Un ejemplo de camino aleatorio  sencillo es moverse en la recta numérica, donde $\tau=1$ y $\Phi$ es una distribución de Bernuolli. Un paseo simple, discreto, unidimensional y sisn sesgo tiene la misma probabilidad de ir a la derecha que a la izquierda, es decir $p=0.5$. En un paseo aleatorio no sesgado, el valor es de cero. 
+
+En el caso de dos dimensiones, si un borracho está caminando aleatoriamente por una ciudad. En cada cruce, el borracho elige una de las cuatro posibles direcciones que dan a ese cruce (incluyendo aquella por la que ha venido) con la misma probabilidad. Esto sería un paseo aleatorio sobre el conjunto de todos los puntos del plano con coordenadas enteras. El problema de saber si el borracho llegará eventualemtne desde el bar a su casa, caminando al azar, tiene una respuesta positiva. Pero si realizamos un problema similar con tres o más dimensiones, no sucede así. En otrar palabras, un pájaro borracho podrá vagar al azar por el cielo por siempre jamás pero sin encontrar nunca su nido.  Esto significa que el modelo es recurrente en dimensiones 1 y 2, pero en dimensiones superiores a 2 es transistorio.
+
+
+\section{Modelo de Erdos Renyi.}
+
+El modelo de Erdos Renyi es un modelo utilizado para la generación de grafos aleatorios. Un nuevo nodo se enlaza con igual probabilidad que con el resto de la red, es decir posee una independencia estadística con el resto de los nodos de la red. Las aplicaciones de este modelo son muy limitadas debido a que pocasa redes realies se comportan tal y como se describe en el modelo.
+
+
+
+
+
+\end{document}
+
