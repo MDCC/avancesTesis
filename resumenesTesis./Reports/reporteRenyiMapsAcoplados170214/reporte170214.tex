@@ -24,7 +24,7 @@
 
 \begin{frontmatter}
 
-\title{Implementación de Renyi Maps acoplados y aplicación de pruebas NIST.}
+\title{Implementación de Renyi Maps acoplados (modificación) y aplicación de pruebas NIST.}
 
 
 
@@ -112,15 +112,12 @@ A continuación, se especifican algunos detalles importantes a tomar en cuenta a
 
 \begin{itemize}
 
-\En el criterio 1 y 2, es importante obtener valores de H que no sean muy grandes, esto se busca con la finalidad de no hacer perturbaciones muy grandes. Tambi
+\item En el criterio 1 y 2, es importante obtener valores de H que no sean muy grandes, esto se busca con la finalidad de no hacer perturbaciones muy grandes. Es necesario analizar los valores de H que son generados. 
 
 \item Se buscaron 80000 valores en la ejecución del programa; además, cada valor está compuesto de 32 bits cuando se guarda la información en un archivo binario. Por las características mencionadas anteriormente, se pueden leer \textbf{2,560,000 bits} para la aplicación de las pruebas NIST.
 
 \item Para equipos de cómputo de 32 bits, se utilizó el tipo de dato \textbf{unsigned long}, que está conformado de 4 bytes. Si el equipo de cómputo utilizado es de 64 bits, se recomienta utilizar el tipo de dato \textbf{unsigned int}, todavía no hay un estándar definido para el tamaño de los tipos de datos en los equipos de 64 bits.
 \end{itemize}
-
-
-
 
 
 \section{Resultados.}
@@ -136,15 +133,14 @@ donde:
 \begin{equation}
 H(X_{i,j-1},...,X_{N,j-1}) = \sum_{i=1}^{N}(X_{i,j-1}\mod 256).
 \end{equation}
-además, $\epsilon$ es un valor aleatorio del conjunto: ${\{-1, 0, 1 \}}$
+además, $\epsilon$ es un valor aleatorio del conjunto: ${\{-1,  1 \}}$
 
 
-
-Se ejecutó el siguiente código:
+En este ejemplo, se hizo una modificación en la forma en cómo se obtuvo H. Se ejecutó el siguiente código:
 
 \begin{itemize}
 \item \textbf{./assess 2560000}
-\item User Prescribed Input File: \textbf{binarioSUMA.dat}
+\item User Prescribed Input File: \textbf{binarioSUMAmod.dat}
 \item    Enter 0 if you DO NOT want to apply all of the
          statistical tests to each sequence and 1 if you DO. Enter chice: \textbf{1}
                   
@@ -160,8 +156,8 @@ Se ejecutó el siguiente código:
 
 Se obtuvieron los siguientes resultados:
 
-\begin{table}[!h]
-\caption{Resultados de las pruebas de aleatoriedad NIST a los datos binarioSUMA.dat .}
+\begin{table}[H]
+\caption{Resultados de las pruebas de aleatoriedad NIST a los datos binarioSUMAmod.dat .}
 \label{sample-table}
 \vskip 0.15in
 \begin{center}
@@ -173,35 +169,35 @@ Se obtuvieron los siguientes resultados:
 Prueba Aplicada &  P-Valor & Exito? \\
 \hline
 
-Aproximate Entropy    &   0.241029  & $\surd$ \\
+Aproximate Entropy    &   0.561487  & $\surd$ \\
 
-Block Frecuency  &  0.464753 &  $\surd$  \\
+Block Frecuency  &  0.123096 &  $\surd$  \\
 
-Cumulative Sums    &   Forward test:  0.628651, Reverse test: 0.848525  & $\surd$ \\
+Cumulative Sums    &   Forward test:  0.393884, Reverse test: 0.215339  & $\surd$ \\
 
-FFT    &   0.149985 &   $\surd$      \\
+FFT    &  0.235138 &   $\surd$      \\
 
-Frecuency     &  0.625019 &  $\surd$   \\
+Frecuency     &  0.216366 &  $\surd$   \\
 
-Linear Complexity      &  0.595287  & $\surd$ \\
+Linear Complexity      & 0.639128  & $\surd$ \\
 
-Longest Run      &   0.511949  &    $\surd$      \\
+Longest Run      &   0.680758  &    $\surd$      \\
 
-Non Overlapping Template      & P-valores aceptados: 145 de 148    &     $\surd$          \\
+Non Overlapping Template      & P-valores aceptados: 148 de 148    &     $\surd$          \\
 
-Overlapping Template      &  0.037821  &        $\surd$       \\
+Overlapping Template      &  0.679278  &        $\surd$       \\
 
 Random Excursions      & P-valores aceptados: 8 de 8  &     $\surd$          \\
 
 Random Excursions Variant & P-valores aceptados: 18 de 18  &    $\surd$        \\
 
-Rank &    0.111388    &       $\surd$      \\
+Rank &   0.286919   &       $\surd$      \\
 
-Runs &        0.957015  &     $\surd$        \\
+Runs &      0.091564 &     $\surd$        \\
 
 Serial &     P-valores aceptados: 2 de 2    &     $\surd$        \\
 
-Universal &     0.136601 &   $\surd$            \\
+Universal &     0.990027 &   $\surd$            \\
 
 \hline
 
@@ -226,14 +222,14 @@ donde:
 \begin{equation}
 H(X_{i,j-1},...,X_{N,j-1}) = \bigoplus _{i=1}^{N}(X_{i,j-1}).
 \end{equation}
-donde $\bigoplus$ representa la operación $XOR$, además $\epsilon$ es un valor aleatorio del conjunto: ${\{-1, 0, 1 \}}$
+donde $\bigoplus$ representa la operación $XOR$, además $\epsilon$ es un valor aleatorio del conjunto: ${\{-1, 1 \}}$
 
-
+En este ejemplo, se hizo una modificación en la forma en cómo se obtuvo H. Se ejecutó el siguiente código:
 Para el criterio 2, se ejecutó el siguiente código:
 
 \begin{itemize}
 \item \textbf{./assess 2560000}
-\item User Prescribed Input File: \textbf{binarioXOR.dat}
+\item User Prescribed Input File: \textbf{binarioXORmod.dat}
 \item    Enter 0 if you DO NOT want to apply all of the
          statistical tests to each sequence and 1 if you DO. Enter chice: \textbf{1}
                   
@@ -249,8 +245,8 @@ Para el criterio 2, se ejecutó el siguiente código:
 
 Se obtuvieron los siguientes resultados:
 
-\begin{table}[!h]
-\caption{Resultados de las pruebas de aleatoriedad NIST a los datos binarioXOR.dat .}
+\begin{table}[H]
+\caption{Resultados de las pruebas de aleatoriedad NIST a los datos binarioXORmod.dat .}
 \label{sample-table}
 \vskip 0.15in
 \begin{center}
@@ -262,35 +258,35 @@ Se obtuvieron los siguientes resultados:
 Prueba Aplicada &  P-Valor & Exito? \\
 \hline
 
-Aproximate Entropy    &   0.858228  & $\surd$ \\
+Aproximate Entropy    &   0.955023  & $\surd$ \\
 
-Block Frecuency  & 0.118270  &  $\surd$  \\
+Block Frecuency  & 0.932697  &  $\surd$  \\
 
-Cumulative Sums    &   Forward test: 0.021856, Reverse test: 0.035757  & $\surd$ \\
+Cumulative Sums    &   Forward test:0.532788, Reverse test: 0.466893  & $\surd$ \\
 
-FFT    &   0.787496 &   $\surd$      \\
+FFT    &   0.349856 &   $\surd$      \\
 
-Frecuency     &  0.022608 &  $\surd$   \\
+Frecuency     &  0.935243 &  $\surd$   \\
 
-Linear Complexity      &  0.791809  & $\surd$ \\
+Linear Complexity      &  0.014630  & $\surd$ \\
 
-Longest Run      &   0.378018  &    $\surd$      \\
+Longest Run      &  0.014097 &    $\surd$      \\
 
-Non Overlapping Template      & P-valores aceptados: 144 de 148    &     $\surd$          \\
+Non Overlapping Template      & P-valores aceptados: 145 de 148    &     $\surd$          \\
 
-Overlapping Template      &  0.457920 &        $\surd$       \\
+Overlapping Template      &  0.129367  &        $\surd$       \\
 
-Random Excursions      &  NOT APPLICABLE. &             \\
+Random Excursions      &  P-valores aceptados: 8 de 8  &      $\surd$          \\
 
-Random Excursions Variant & NOT APPLICABLE. &          \\
+Random Excursions Variant &  P-valores aceptados: 14 de 18  &     $\surd$        \\
 
-Rank &    0.278871   &       $\surd$      \\
+Rank &    0.001981  &       $ No. $      \\
 
-Runs &    0.019569  &     $\surd$        \\
+Runs &    0.865007  &     $\surd$        \\
 
 Serial &     P-valores aceptados: 2 de 2    &     $\surd$        \\
 
-Universal &      0.249147 &   $\surd$            \\
+Universal &      0.425674 &   $\surd$            \\
 
 \hline
 
@@ -338,7 +334,7 @@ Para el criterio 3, se ejecutó el siguiente código:
 
 Se obtuvieron los siguientes resultados:
 
-\begin{table}[!h]
+\begin{table}[H]
 \caption{Resultados de las pruebas de aleatoriedad NIST a los datos binarioXORcomp.dat .}
 \label{sample-table}
 \vskip 0.15in
@@ -392,12 +388,624 @@ Universal &     0.603939  &   $\surd$            \\
 \vskip -0.1in
 \end{table}
 
+\section{Resultados para H.}
+
+En este ejemplo, se tomaron 20,000 valores generados de H en cada uno de los criterios, como cada uno de estos valores está representado en 32 bits, el archivo binario estuvo compuesto de 640,000 bits.
+
+\subsection{Analisis de los valores H generados para el criterio 1.}
+
+\begin{table}[H]
+\caption{Resultados de las pruebas de aleatoriedad NIST a los datos HdeSuma.dat .}
+\label{sample-table}
+\vskip 0.15in
+\begin{center}
+\begin{small}
+\begin{sc}
+\begin{tabular}{lccr}
+\hline
+
+Prueba Aplicada &  P-Valor & Exito? \\
+\hline
+
+Aproximate Entropy    &   0.935134 & $\surd$ \\
+
+Block Frecuency  & 0.122908  &  $\surd$  \\
+
+Cumulative Sums    &   Forward test:0.738816, Reverse test: 0.596414  & $\surd$ \\
+
+FFT    &   0.818546 &   $\surd$      \\
+
+Frecuency     &  0.439818 &  $\surd$   \\
+
+Linear Complexity      &  0.813844  & $\surd$ \\
+
+Longest Run      &  0.108021 &    $\surd$      \\
+
+Non Overlapping Template      & P-valores aceptados: 147 de 148    &     $\surd$          \\
+
+Overlapping Template      &  0.058303  &        $\surd$       \\
+
+Random Excursions      &  P-valores aceptados: 8 de 8  &      $\surd$          \\
+
+Random Excursions Variant &  P-valores aceptados: 18 de 18  &     $\surd$        \\
+
+Rank &    0.847382   &        $\surd$         \\
+
+Runs &    0.697088  &     $\surd$        \\
+
+Serial &     P-valores aceptados: 2 de 2    &     $\surd$        \\
+
+Universal &      0.673427 &   $\surd$            \\
+
+\hline
+
+
+
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+\vskip -0.1in
+\end{table}
+
+
+
+\subsection{Analisis de los valores H generados para el criterio 2.}
+
+
+\begin{table}[H]
+\caption{Resultados de las pruebas de aleatoriedad NIST a los datos HdeXOR.dat .}
+\label{sample-table}
+\vskip 0.15in
+\begin{center}
+\begin{small}
+\begin{sc}
+\begin{tabular}{lccr}
+\hline
+
+Prueba Aplicada &  P-Valor & Exito? \\
+\hline
+
+Aproximate Entropy    &   0.197412  & $\surd$ \\
+
+Block Frecuency  & 0.009954 &  No. \\
+
+Cumulative Sums    &   Forward test:0.105981, Reverse test: 0.148928  & $\surd$ \\
+
+FFT    &   0.543220 &   $\surd$      \\
+
+Frecuency     &  0.075898 &  $\surd$   \\
+
+Linear Complexity      &  0.863083  & $\surd$ \\
+
+Longest Run      &  0.072816 &    $\surd$      \\
+
+Non Overlapping Template      & P-valores aceptados: 147 de 148    &     $\surd$          \\
+
+Overlapping Template      &  0.173029  &        $\surd$       \\
+
+Random Excursions      &  NO APLICABLE &       \\
+
+Random Excursions Variant &  NO APLICABLE  &      \\
+
+Rank &    0.217328   &       $\surd$       \\
+
+Runs &    0.953301 &     $\surd$        \\
+
+Serial &     P-valores aceptados: 2 de 2    &     $\surd$        \\
+
+Universal &      0.993846 &   $\surd$            \\
+
+\hline
+
+
+
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+\vskip -0.1in
+\end{table}
+
+
+\subsection{Analisis de los valores H generados para el criterio 3.}
+
+
+\begin{table}[H]
+\caption{Resultados de las pruebas de aleatoriedad NIST a los datos HdeXORcomp.dat .}
+\label{sample-table}
+\vskip 0.15in
+\begin{center}
+\begin{small}
+\begin{sc}
+\begin{tabular}{lccr}
+\hline
+
+Prueba Aplicada &  P-Valor & Exito? \\
+\hline
+
+Aproximate Entropy    &   0.161036  & $\surd$ \\
+
+Block Frecuency  & 0.944077  &  $\surd$  \\
+
+Cumulative Sums    &   Forward test:0.294090, Reverse test: 0.645302  & $\surd$ \\
+
+FFT    &   0.415401 &   $\surd$      \\
+
+Frecuency     &  0.640142 &  $\surd$   \\
+
+Linear Complexity      &  0.527570  & $\surd$ \\
+
+Longest Run      &  0.948689 &    $\surd$      \\
+
+Non Overlapping Template      & P-valores aceptados: 147 de 148    &     $\surd$          \\
+
+Overlapping Template      &  0.371232 &        $\surd$       \\
+
+Random Excursions      &  NO APLICABLE &      \\
+
+Random Excursions Variant &  NO APLICABLE  &      \\
+
+Rank &    0.301543  &      $\surd$      \\
+
+Runs &    0.787370  &     $\surd$        \\
+
+Serial &     P-valores aceptados: 2 de 2    &     $\surd$        \\
+
+Universal &      0.896941 &   $\surd$            \\
+
+\hline
+
+
+
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+\vskip -0.1in
+\end{table}
+
+
 
 \section{Conclusiones.}
 En general, los criterios 1 y 3 arrojan mejores resultados que el criterio 2. Si se tuviera que elegir entre el criterio 1 y el 3. Se puede concluir que el criterio 3 obtuvo un mejor desempeño de acuerdo a los p-valores obtenidos.
 
+Para el caso de los valores de H, otra vez, se obtuvieron mejores resultados en el criterio 1 y en el criterio 3.
+Sin embargo, las pruebas ''Random Excursions'' y ''Random Excursions Variant'' no siempre se pudieron aplicar.
 \section{Anexos.}
 
+\subsection{Código del criterio 1.}
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+#define RENYI_MAP(var, parametro, j) ((var)*(parametro)+((var)>>(j)))
+
+#define  MAX 4294967295 /*El valor de 2^32-1.*/
+#define TAMANIOCICLO 4294967296 /*EL valor de 2^32.*/
+#define noMapas 4 /*NUmero de mapas a utilizar.*/
+#define ITtotales 80000 /*Iteraciones totales para NIST.*/
+#define tamanioH 20000 /*Tamanio del arreglo de H.*/
+
+
+/*
+ File:   main.c
+ Author: daniel
+ El siguiente programa es un ejemplo de cuatro mapas caoticos RENYI acoplados.
+ Se utiliza la suma para lograr el acoplado.
+ Para declarar nuestras variables, utilizamos los siguientes componentes:
+ -Un arreglo que guarda el valor de los parametros para cada mapa.
+ -Un arreglo que guarda el valor de los valores calculados para cada mapa.
+*/
+
+
+int main(){
+ 
+   
+   /*Declaramos los arreglos que vamos a utilizar para guardar esto.*/
+   unsigned long Xn[noMapas];
+   unsigned long Xtotal[ITtotales]; 
+   unsigned long parametros[noMapas];
+   unsigned int i;
+   unsigned long arregloH[tamanioH];
+   int epsilon;
+   FILE *  archivobin; 
+   FILE *  archivoH;
+   
+
+   unsigned long H=0; 
+   unsigned int j=9; /*No mas de 16.*/
+   unsigned long iteraciones=0;
+   unsigned long IT = 80000;
+
+
+  /* Apertura del fichero de destino, para escritura en binario.*/
+   archivobin = fopen ("binarioSUMAmod.dat", "wb");
+   if (archivobin==NULL)
+   {
+   perror("No se puede abrir binarioSUMAmod.dat");
+   return -1;
+   }
+   
+   /* Apertura del archivo H para su escritura en binario.*/
+   archivoH = fopen ("HdeSuma.dat", "wb");
+   if (archivoH==NULL)
+   {
+   perror("No se puede abrir HdeSuma.dat");
+   return -1;
+   }
+   
+   
+   
+
+
+   /*Inicializamos nuestros parametros, en este punto se aplica el uso
+   de una llave, en este ejemplo todavia no elegimos una. Tambien,
+   los parametros son fijos en este ejemplo.*/
+   parametros[0]=131071;
+   Xn[0]=653;
+   parametros[1]=104729;
+   Xn[1]=769;
+   parametros[2]=524287;
+   Xn[2]=227;
+   parametros[3]=65537;
+   Xn[3]=823;
+                  
+   int contDeH=0;
+   
+   /*Primero, hacemos un ciclo inicial para calcular un nuevo valor para cada
+   uno de los mapas y calcular, por primera vez, el resultado de la operacion
+   XOR.*/
+   for( i =0; i<noMapas; i++){
+       Xn[i]= RENYI_MAP(Xn[i],parametros[i],j);
+       H+=Xn[i];
+   }
+    
+    arregloH[contDeH]=H; 
+    contDeH++;
+   
+   /*Tambien al primer H se le aplica el mod.*/
+   H%=256; 
+   
+   
+   /*Elegimos un epsilon aleatorio entre 1 y 16 (para operaciones de 32 bits).
+   En este caso, elegimos uno que este entre 0 y 15.*/
+   epsilon = 1;   
+  
+      
+   unsigned int k;
+   unsigned long newH;
+   
+  
+   do {
+        
+        newH = 0;
+        for(k=0;k<noMapas; k++){            
+            Xn[k]= RENYI_MAP(Xn[k],parametros[k],j) + epsilon*H;
+            Xtotal[iteraciones++] = Xn[k];
+             
+            newH+=(Xn[k]);      
+        }
+        H = newH;
+        arregloH[contDeH]=H;
+        
+   printf("\nla iteracion %d  para  %lu H es:  \n", contDeH,arregloH[contDeH] );
+
+        contDeH++;
+    
+        /*BUscamos un H pequeño: la perturbación no debe ser 
+        tan fuerte. Por tal motivo, se aplica una operación módulo.*/
+        H%=256;
+        
+        /*Ahora, elegimos un valor para epsilon.*/
+        epsilon = (H & 1)?1:-1;
+        
+        //printf("%d epsilon  %lu \n", epsilon, iteraciones-1); 
+     
+ 
+
+   } while (iteraciones < IT);
+
+   
+   /*Escribimos la informacion.*/
+   fwrite(Xtotal,4,80000,archivobin); 
+   fwrite(arregloH,4,20000,archivoH); 
+
+   if(!fclose(archivobin)){
+      printf( "\nArchivo binario de Mapas cerrado\n" );
+   }
+   else{
+      printf( "\nError: Archivo binario de Mapas no cerrado \n" );
+      return 1;
+   }
+   
+   if(!fclose(archivoH)){
+      printf( "\nArchivo binario DE H cerrado\n" );
+   }
+   else{
+      printf( "\nError: Archivo binario DE H no cerrado \n" );
+      return 1;
+   }
+   
+return 0;
+}
+\end{verbatim}
+
+\subsection{Código del criterio 2.}
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+#define RENYI_MAP(var, parametro, j) ((var)*(parametro)+((var)>>(j)))
+#define  MAX 4294967295 /*El valor de 2^32-1.*/
+#define TAMANIOCICLO 4294967296 /*EL valor de 2^32.*/
+#define noMapas 4 /*NUmero de mapas a utilizar.*/
+#define ITtotales 80000 /*Iteraciones totales para NIST.*/
+#define tamanioH 20000 /*Tamanio del arreglo de H.*/
+
+/*
+ File:   main.c
+ Author: daniel
+ El siguiente programa es un ejemplo de cuatro mapas caoticos RENYI acoplados.
+ Se utiliza la suma para lograr el acoplado.
+ Para declarar nuestras variables, utilizamos los siguientes componentes:
+ -Un arreglo que guarda el valor de los parametros para cada mapa.
+ -Un arreglo que guarda el valor de los valores calculados para cada mapa.
+*/
+
+int main(){
+ 
+   /*Declaramos los arreglos que vamos a utilizar para guardar esto.*/
+   unsigned long Xn[noMapas];
+   unsigned long Xtotal[ITtotales]; 
+   unsigned long parametros[noMapas];
+   unsigned long arregloH[tamanioH];
+   unsigned int i;
+   int epsilon;
+   FILE *  archivobin; 
+   FILE *  archivoH;
+  
+   unsigned long H=0; 
+   unsigned int j=9; /*No mas de 16.*/
+   unsigned long iteraciones=0;
+   unsigned long IT = 80000;
+
+   /*Apertura del fichero de destino, para escritura en binario.*/
+   archivobin = fopen ("binarioXORmod.dat", "wb");
+   if (archivobin==NULL)
+   {
+   perror("No se puede abrir binarioXORmod.dat");
+   return -1;
+   }
+   
+    /* Apertura del archivo H para su escritura en binario.*/
+   archivoH = fopen ("HdeXOR.dat", "wb");
+   if (archivoH==NULL)
+   {
+   perror("No se puede abrir HdeXOR.dat");
+   return -1;
+   }
+   
+   /*Inicializamos nuestros parametros, en este punto se aplica el uso
+   de una llave, en este ejemplo todavia no elegimos una. Tambien,
+   los parametros son fijos en este ejemplo.*/
+   parametros[0]=131071;
+   Xn[0]=653;
+   parametros[1]=104729;
+   Xn[1]=769;
+   parametros[2]=524287;
+   Xn[2]=227;
+   parametros[3]=65537;
+   Xn[3]=823;
+   int contDeH=0;
+                   
+   /*Primero, hacemos un ciclo inicial para calcular un nuevo valor para cada
+   uno de los mapas y calcular, por primera vez, el resultado de la operacion
+   XOR.*/
+   for( i =0; i<noMapas; i++){
+       Xn[i]= RENYI_MAP(Xn[i],parametros[i],j);
+       H^=Xn[i];
+   }
+   
+   arregloH[contDeH]=H; 
+   contDeH++;
+    
+   /*Tambien al primer H se le aplica el mod.*/
+   H%=256; 
+ 
+   /*Elegimos un epsilon aleatorio entre 1 y 16 (para operaciones de 32 bits).
+   En este caso, elegimos uno que este entre 0 y 15.*/
+   epsilon = 1;   
+   
+   unsigned int k;
+   unsigned long newH;
+
+   do {
+        
+        newH = 0;
+        for(k=0;k<noMapas; k++){            
+            Xn[k]= RENYI_MAP(Xn[k],parametros[k],j) + epsilon*H;  
+            Xtotal[iteraciones++] = Xn[k];
+            newH^=Xn[k];      
+        }
+        H = newH;
+        arregloH[contDeH]=H;
+        printf("\nla iteracion %d  para  %lu H es:  \n", contDeH,arregloH[contDeH] );
+        contDeH++;
+        /*BUscamos un H pequeño: la perturbación no debe ser 
+        tan fuerte. Por tal motivo, se aplica una operación módulo.*/
+        H%=256; 
+        
+        /*Ahora, elegimos un valor para epsilon.*/
+        epsilon = (H & 1)?1:-1;
+    
+   } while (iteraciones < IT);
+   
+   /*Escribimos la informacion.*/
+   fwrite(Xtotal,4,80000,archivobin); 
+   fwrite(arregloH,4,20000,archivoH); 
+  
+   if(!fclose(archivobin)){
+      printf( "\nArchivo binario cerrado\n" );
+   }
+   else{
+      printf( "\nError: Archivo binario no cerrado \n" );
+      return 1;
+   }
+   
+   if(!fclose(archivoH)){
+     printf( "\nArchivo binario DE H cerrado\n" );
+   }
+   else{
+      printf( "\nError: Archivo binario DE H no cerrado \n" );
+      return 1;
+   }
+   
+return 0;
+}
+\end{verbatim}
+
+\subsection{Código del criterio 3.}
+\begin{verbatim}
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+#define RENYI_MAP(var, parametro, j) ((var)*(parametro)+((var)>>(j)))
+#define  MAX 4294967295 /*El valor de 2^32-1.*/
+#define TAMANIOCICLO 4294967296 /*EL valor de 2^32.*/
+#define noMapas 4 /*NUmero de mapas a utilizar.*/
+#define ITtotales 80000 /*Iteraciones totales para NIST.*/
+#define tamanioH 20000 /*Tamanio del arreglo de H.*/
+
+/*
+ File:   main.c
+ Author: daniel
+ El siguiente programa es un ejemplo de cuatro mapas caoticos RENYI acoplados.
+ Para declarar nuestras variables, utilizamos los siguientes componentes:
+ -Un arreglo que guarda el valor de los parametros para cada mapa.
+ -Un arreglo que guarda el valor de los valores calculados para cada mapa.
+*/
+
+
+int main(){
+ 
+   
+   /*Declaramos los arreglos que vamos a utilizar para guardar esto.*/
+   unsigned long Xn[noMapas];
+   unsigned long Xtotal[ITtotales]; 
+   unsigned long parametros[noMapas];
+   unsigned long arregloH[tamanioH];
+   unsigned int i;
+   unsigned int epsilon;
+   unsigned long gamma;
+   unsigned long gammaComp;
+   FILE *  archivobin; 
+   FILE *  archivoH;
+   
+   unsigned long H=0; 
+   unsigned int j=9; /*No mas de 16.*/
+   unsigned long iteraciones=0;
+   unsigned long IT = 80000;
+
+  /* Apertura del fichero de destino, para escritura en binario.*/
+   archivobin = fopen ("binarioXORcomp.dat", "wb");
+   if (archivobin==NULL)
+   {
+   perror("No se puede abrir binarioXORcomp.dat");
+   return -1;
+   }
+   
+   /* Apertura del archivo H para su escritura en binario.*/
+   archivoH = fopen ("HdeXORcomp.dat", "wb");
+   if (archivoH==NULL)
+   {
+   perror("No se puede abrir HdeXORcomp.dat");
+   return -1;
+   }
+   
+   /*Inicializamos nuestros parametros, en este punto se aplica el uso
+    *de una llave, en este ejemplo todavia no elegimos una. Tambien,
+    *los parametros son fijos en este ejemplo.*/
+   parametros[0]=131071;
+   Xn[0]=653;
+   parametros[1]=104729;
+   Xn[1]=769;
+   parametros[2]=524287;
+   Xn[2]=227;
+   parametros[3]=65537;
+   Xn[3]=823;
+   int contDeH=0;
+                   
+   /*Primero, hacemos un ciclo inicial para calcular un nuevo valor para cada
+   uno de los mapas y calcular, por primera vez, el resultado de la operacion
+   XOR.*/
+   for( i =0; i<noMapas; i++){
+       Xn[i]= RENYI_MAP(Xn[i],parametros[i],j);
+       H^=Xn[i];
+   }
+   
+   arregloH[contDeH]=H; 
+   contDeH++;
+ 
+   /*Elegimos un epsilon aleatorio entre 1 y 16 (para operaciones de 32 bits).
+   En este caso, elegimos uno que este entre 0 y 15.*/
+   epsilon = 5;   
+  
+   gamma= pow(2,epsilon);
+   gamma-=1;
+   gammaComp= MAX-gamma;
+    
+   unsigned int k;
+   unsigned long newH;
+
+   do {
+        
+        newH = 0;
+        for(k=0;k<noMapas; k++){            
+            Xn[k]= gammaComp^RENYI_MAP(Xn[k],parametros[k],j)+ gamma^H;
+            Xtotal[iteraciones++] = Xn[k];
+            newH^=Xn[k];      
+        }
+        H = newH;
+        arregloH[contDeH]=H;
+        printf("\nla iteracion %d  para  %lu H es:  \n", contDeH,arregloH[contDeH] );
+        contDeH++;
+        /*Ahora, elegimos un valor para epsilon entre 1 y 8 bits.*/
+        epsilon = (H % 8) + 1;  
+
+   } while (iteraciones < IT);
+ 
+
+   /*Escribimos la informacion.*/
+   fwrite(Xtotal,4,80000,archivobin); 
+   fwrite(arregloH,4,20000,archivoH); 
+
+   if(!fclose(archivobin)){
+      printf( "\nArchivo binario cerrado\n" );
+   }
+   else{
+      printf( "\nError: Archivo binario no cerrado \n" );
+      return 1;
+   }  
+
+   if(!fclose(archivoH)){
+     printf( "\nArchivo binario DE H cerrado\n" );
+   }
+   else{
+      printf( "\nError: Archivo binario DE H no cerrado \n" );
+      return 1;
+   }
+   
+
+return 0;
+}
+\end{verbatim}
 
 \end{document}
 

@@ -9,7 +9,7 @@
 #define TAMANIOCICLO 4294967296 /*EL valor de 2^32.*/
 #define noMapas 4 /*NUmero de mapas a utilizar.*/
 #define ITtotales 80000 /*Iteraciones totales para NIST.*/
-
+#define tamanioH 20000 /*Tamanio del arreglo de H.*/
 
 
 /*
@@ -31,10 +31,11 @@ int main(){
    unsigned long Xtotal[ITtotales]; 
    unsigned long parametros[noMapas];
    unsigned int i;
+   unsigned long arregloH[tamanioH];
    int epsilon;
    FILE *  archivobin; 
+   FILE *  archivoH;
    
-
    unsigned long H=0; 
    unsigned int j=9; /*No mas de 16.*/
    unsigned long iteraciones=0;
@@ -42,15 +43,22 @@ int main(){
 
 
   /* Apertura del fichero de destino, para escritura en binario.*/
-   archivobin = fopen ("binarioSUMA.dat", "wb");
+   archivobin = fopen ("binarioSUMAmod.dat", "wb");
    if (archivobin==NULL)
    {
-   perror("No se puede abrir binarioSUMA.dat");
+   perror("No se puede abrir binarioSUMAmod.dat");
    return -1;
    }
    
-
-
+   /* Apertura del archivo H para su escritura en binario.*/
+   archivoH = fopen ("HdeSuma.dat", "wb");
+   if (archivoH==NULL)
+   {
+   perror("No se puede abrir HdeSuma.dat");
+   return -1;
+   }
+   
+   
    /*Inicializamos nuestros parametros, en este punto se aplica el uso
    de una llave, en este ejemplo todavia no elegimos una. Tambi��n,
    los parametros son fijos en este ejemplo.*/
@@ -61,56 +69,70 @@ int main(){
    parametros[2]=524287;
    Xn[2]=227;
    parametros[3]=65537;
-   Xn[3]=823;
-                   
+   Xn[3]=823;        
+   int contDeH=0;
+   
    /*Primero, hacemos un ciclo inicial para calcular un nuevo valor para cada
    uno de los mapas y calcular, por primera vez, el resultado de la operacion
    XOR.*/
    for( i =0; i<noMapas; i++){
        Xn[i]= RENYI_MAP(Xn[i],parametros[i],j);
-       H+=Xn[i]%256;
+       H+=Xn[i];
    }
+    
+   arregloH[contDeH]=H; 
+   contDeH++;
    
- 
+   /*Tambien al primer H se le aplica el mod.*/
+   H%=256; 
+   
    /*Elegimos un epsilon aleatorio entre 1 y 16 (para operaciones de 32 bits).
    En este caso, elegimos uno que este entre 0 y 15.*/
    epsilon = 1;   
-  
-      
+    
    unsigned int k;
    unsigned long newH;
-
+   
    do {
         
         newH = 0;
         for(k=0;k<noMapas; k++){            
             Xn[k]= RENYI_MAP(Xn[k],parametros[k],j) + epsilon*H;
-            Xtotal[iteraciones++] = Xn[k];
-             
-            newH+=(Xn[k]%256);      
+            Xtotal[iteraciones++] = Xn[k];      
+            newH+=(Xn[k]);      
         }
         H = newH;
-        /*Ahora, elegimos un valor para epsilon entre 1 y 8 bits.*/
-        epsilon = (H % 3) - 1;
-     
- 
+        arregloH[contDeH]=H;
+        printf("\nla iteracion %d  para  %lu H es:  \n", contDeH,arregloH[contDeH] );
+        contDeH++;
+        /*BUscamos un H pequeño: la perturbación no debe ser 
+        tan fuerte. Por tal motivo, se aplica una operación módulo.*/
+        H%=256;
+        
+        /*Ahora, elegimos un valor para epsilon.*/
+        epsilon = (H & 1)?1:-1;
 
    } while (iteraciones < IT);
-
+  
    /*Escribimos la informacion.*/
    fwrite(Xtotal,4,80000,archivobin); 
+   fwrite(arregloH,4,20000,archivoH); 
 
    if(!fclose(archivobin)){
-      printf( "\nArchivo binario cerrado\n" );
+      printf( "\nArchivo binario de Mapas cerrado\n" );
    }
    else{
-      printf( "\nError: Archivo binario no cerrado \n" );
+      printf( "\nError: Archivo binario de Mapas no cerrado \n" );
       return 1;
    }
    
+   if(!fclose(archivoH)){
+      printf( "\nArchivo binario DE H cerrado\n" );
+   }
+   else{
+      printf( "\nError: Archivo binario DE H no cerrado \n" );
+      return 1;
+   }
    
-   
-/*IMPRIMIR DATOS y procesar con NIST*/
-
 return 0;
 }

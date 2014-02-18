@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.2.12)  17 FEB 2014 12:54
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2014.2.12)  18 FEB 2014 15:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -500,6 +500,15 @@ LaTeX Warning: Label `sample-table' multiply defined.
 
 LaTeX Warning: Label `sample-table' multiply defined.
 
+
+LaTeX Warning: Label `sample-table' multiply defined.
+
+
+LaTeX Warning: Label `sample-table' multiply defined.
+
+
+LaTeX Warning: Label `sample-table' multiply defined.
+
 )
 \openout1 = `reporte170214.aux'.
 
@@ -621,30 +630,126 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-Overfull \hbox (28.13075pt too wide) in paragraph at lines 192--235
+Overfull \hbox (28.13075pt too wide) in paragraph at lines 166--209
  [] 
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
-Overfull \hbox (28.13075pt too wide) in paragraph at lines 281--324
+Overfull \hbox (23.99414pt too wide) in paragraph at lines 255--298
  [] 
  []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [4]
-Overfull \hbox (28.13075pt too wide) in paragraph at lines 370--413
+Overfull \hbox (28.13075pt too wide) in paragraph at lines 344--387
+ [] 
+ []
+
+[5]
+Overfull \hbox (23.99414pt too wide) in paragraph at lines 404--447
+ [] 
+ []
+
+[6]
+Overfull \hbox (23.99414pt too wide) in paragraph at lines 463--506
  [] 
  []
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (23.99414pt too wide) in paragraph at lines 521--564
+ [] 
+ []
 
-[5] [6] (./reporte170214.aux
+[7] [8]
+Overfull \hbox (13.65024pt too wide) in paragraph at lines 734--734
+[] \OT1/cmtt/m/n/12 El siguiente programa es un ejemplo de cuatro mapas caotico
+s RENYI acoplados.[] 
+ []
+
+[9]
+Overfull \hbox (7.47523pt too wide) in paragraph at lines 734--734
+[]   \OT1/cmtt/m/n/12 /*Primero, hacemos un ciclo inicial para calcular un nuev
+o valor para cada[] 
+ []
+
+
+Overfull \hbox (7.47523pt too wide) in paragraph at lines 734--734
+[]   \OT1/cmtt/m/n/12 uno de los mapas y calcular, por primera vez, el resultad
+o de la operacion[] 
+ []
+
+
+Overfull \hbox (13.65024pt too wide) in paragraph at lines 734--734
+[]   \OT1/cmtt/m/n/12 /*Elegimos un epsilon aleatorio entre 1 y 16 (para operac
+iones de 32 bits).[] 
+ []
+
+[10]
+Overfull \hbox (26.00024pt too wide) in paragraph at lines 734--734
+[]   \OT1/cmtt/m/n/12 printf("\nla iteracion %d  para  %lu H es:  \n", contDeH,
+arregloH[contDeH] );[] 
+ []
+
+[11]
+Overfull \hbox (13.65024pt too wide) in paragraph at lines 870--870
+[] \OT1/cmtt/m/n/12 El siguiente programa es un ejemplo de cuatro mapas caotico
+s RENYI acoplados.[] 
+ []
+
+[12] [13]
+Overfull \hbox (7.47523pt too wide) in paragraph at lines 870--870
+[]   \OT1/cmtt/m/n/12 /*Primero, hacemos un ciclo inicial para calcular un nuev
+o valor para cada[] 
+ []
+
+
+Overfull \hbox (7.47523pt too wide) in paragraph at lines 870--870
+[]   \OT1/cmtt/m/n/12 uno de los mapas y calcular, por primera vez, el resultad
+o de la operacion[] 
+ []
+
+
+Overfull \hbox (13.65024pt too wide) in paragraph at lines 870--870
+[]   \OT1/cmtt/m/n/12 /*Elegimos un epsilon aleatorio entre 1 y 16 (para operac
+iones de 32 bits).[] 
+ []
+
+
+Overfull \hbox (56.87526pt too wide) in paragraph at lines 870--870
+[]        \OT1/cmtt/m/n/12 printf("\nla iteracion %d  para  %lu H es:  \n", con
+tDeH,arregloH[contDeH] );[] 
+ []
+
+[14]
+Overfull \hbox (13.65024pt too wide) in paragraph at lines 1008--1008
+[] \OT1/cmtt/m/n/12 El siguiente programa es un ejemplo de cuatro mapas caotico
+s RENYI acoplados.[] 
+ []
+
+[15] [16]
+Overfull \hbox (7.47523pt too wide) in paragraph at lines 1008--1008
+[]   \OT1/cmtt/m/n/12 /*Primero, hacemos un ciclo inicial para calcular un nuev
+o valor para cada[] 
+ []
+
+
+Overfull \hbox (7.47523pt too wide) in paragraph at lines 1008--1008
+[]   \OT1/cmtt/m/n/12 uno de los mapas y calcular, por primera vez, el resultad
+o de la operacion[] 
+ []
+
+
+Overfull \hbox (13.65024pt too wide) in paragraph at lines 1008--1008
+[]   \OT1/cmtt/m/n/12 /*Elegimos un epsilon aleatorio entre 1 y 16 (para operac
+iones de 32 bits).[] 
+ []
+
+
+Overfull \hbox (56.87526pt too wide) in paragraph at lines 1008--1008
+[]        \OT1/cmtt/m/n/12 printf("\nla iteracion %d  para  %lu H es:  \n", con
+tDeH,arregloH[contDeH] );[] 
+ []
+
+[17] [18] (./reporte170214.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 )
@@ -653,30 +758,32 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4676 strings out of 493485
- 59328 string characters out of 3143526
+ 4680 strings out of 493485
+ 59373 string characters out of 3143526
  138569 words of memory out of 3000000
- 7877 multiletter control sequences out of 15000+200000
- 13990 words of font info for 54 fonts, out of 3000000 for 9000
+ 7880 multiletter control sequences out of 15000+200000
+ 14159 words of font info for 55 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,9n,30p,401b,315s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,9n,30p,401b,316s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on reporte170214.pdf (6 pages, 177785 bytes).
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on reporte170214.pdf (18 pages, 211204 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 126 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
