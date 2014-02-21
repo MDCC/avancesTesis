@@ -17,19 +17,48 @@ son acoplados, las salidas de estos mapas se utilizan para una operacion XOR.
 */
 
 
+
+
+unsigned int calcular_parametro(unsigned int q, unsigned int n, unsigned int i){
+    
+    printf("\n\n\n Calculo del parametro \n");
+    printf("EL valor de q es: %u \n",q);
+    printf("EL valor de n es: %u \n",n);
+    printf("EL valor de i es: %u \n",i);
+
+    
+    
+    unsigned int potencia =1;
+    unsigned int j;
+    printf("Calculo de la potencia (calculamos 2(a la)( n-i) ): \n");
+    for(j =0; j<(n-i); j++){
+        potencia*=2;
+    }
+    printf("  Potencia es: %u \n",potencia); 
+
+    printf("Ahora, lo que hacemos es la operacion q*2(a la )(n-i) \n");
+    unsigned int parametro = q*(potencia);
+    printf("  EL parametro es: %u \n \n \n",parametro);
+    return parametro;
+}
+
 int main(){
  
    
    /*Declaramos los arreglos que vamos a utilizar para guardar esto. EL tipo de dato será
    unsigned int, cuyo tamaño es de 34 bits (arquitectura de 64 bits).*/
    unsigned int Xtotal[ITtotales]; 
+   FILE *  archivobin; 
    unsigned int Xn1 = 653;
    unsigned int Xn2 = 769;
-   unsigned int param1 = 131071;
-   unsigned int param2 = 104729;
-   FILE *  archivobin; 
-
+   unsigned int n = 32;
+   unsigned int i=9; /*No mas de 16.*/
    unsigned int j=9; /*No mas de 16.*/
+   unsigned int q1 =  121;
+   unsigned int q2 =  319;
+   unsigned int param1 =calcular_parametro(q1, n, i);
+   unsigned int param2 =calcular_parametro(q2, n, i);
+ 
    unsigned int iteraciones=0;
    unsigned int IT = 80000;
 
@@ -41,6 +70,7 @@ int main(){
    return -1;
    }
    
+   printf("\n\n\n Operacion XOR en dos Renyis \n EL tamanio de unsigned int en maquina de 64 bits es:  %d", sizeof(int));
 
    while (iteraciones < IT) {
 
@@ -48,7 +78,7 @@ int main(){
             Xn2= RENYI_MAP(Xn2,param2,j);
             Xtotal[iteraciones++] = Xn1^Xn2;
  
-           printf("\nla iteracion %u  para  %u H es:  \n",iteraciones-1, Xtotal[iteraciones-1] );
+           //printf("\nla iteracion %u  para  %u H es:  \n",iteraciones-1, Xtotal[iteraciones-1] );
 
    } 
  

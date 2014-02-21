@@ -4,8 +4,6 @@
 
 
 #define RENYI_MAP(var, parametro, j) ((var)*(parametro)+((var)>>(j)))
-#define  MAX 4294967295 /*El valor de 2^32-1.*/
-#define TAMANIOCICLO 4294967296 /*EL valor de 2^32.*/
 #define ITtotales 80000 /*Iteraciones totales para NIST.*/
 
 
@@ -18,27 +16,17 @@ son acoplados, las salidas de estos mapas se utilizan para una operacion XOR.
 
 
 
-
-unsigned int calcular_parametro(unsigned int q, unsigned int n, unsigned int i){
-    
-    printf("\n\n\n Calculo del parametro \n");
-    printf("EL valor de q es: %u \n",q);
-    printf("EL valor de n es: %u \n",n);
-    printf("EL valor de i es: %u \n",i);
-
-    
-    
-    unsigned int potencia =1;
+unsigned long calcular_parametro(unsigned long q, unsigned int n, unsigned int i){    
+    unsigned long potencia =1;
     unsigned int j;
-    printf("Calculo de la potencia (calculamos 2(a la)( n-i) ): \n");
+    /*Calculo de la potencia (calculamos 2(a la)( n-i) ): */
     for(j =0; j<(n-i); j++){
         potencia*=2;
     }
-    printf("  Potencia es: %u \n",potencia); 
 
-    printf("Ahora, lo que hacemos es la operacion q*2(a la )(n-i) \n");
-    unsigned int parametro = q*(potencia);
-    printf("  EL parametro es: %u \n \n \n",parametro);
+    /*Ahora, lo que hacemos es la operacion q*2(a la )(n-i): */
+    unsigned long parametro = q*(potencia);
+    printf("  EL parametro es: %lu \n \n \n",parametro);
     return parametro;
 }
 
@@ -47,17 +35,24 @@ int main(){
    
    /*Declaramos los arreglos que vamos a utilizar para guardar esto. EL tipo de dato será
    unsigned int, cuyo tamaño es de 34 bits (arquitectura de 64 bits).*/
-   unsigned int Xtotal[ITtotales]; 
+   unsigned long Xtotal[ITtotales]; 
    FILE *  archivobin; 
-   unsigned int Xn1 = 653;
-   unsigned int Xn2 = 769;
+   unsigned long Xn1 = 7;
+   unsigned long Xn2 = 9;
    unsigned int n = 32;
-   unsigned int i=9; /*No mas de 16.*/
-   unsigned int j=9; /*No mas de 16.*/
-   unsigned int q1 =  121;
-   unsigned int q2 =  319;
-   unsigned int param1 =calcular_parametro(q1, n, i);
-   unsigned int param2 =calcular_parametro(q2, n, i);
+
+   /*Valores de i, j y q para el mapa 1.*/
+   unsigned int i1=9; 
+   unsigned int j1=9; 
+   unsigned long q1=13;
+   /*Valores de i, j y q para el mapa 2.*/
+   unsigned int i2=13; 
+   unsigned int j2=13; 
+   unsigned long q2=19;
+ 
+   /*Calculo de los parametros para cada mapa: 1 y 2 respectivamente.*/
+   unsigned long param1 =calcular_parametro(q1, n, i1);
+   unsigned long param2 =calcular_parametro(q2, n, i2);
  
    unsigned int iteraciones=0;
    unsigned int IT = 80000;
@@ -66,16 +61,18 @@ int main(){
    archivobin = fopen ("dosRenyis.dat", "wb");
    if (archivobin==NULL)
    {
-   perror("No se puede abrir binarioXORcomp.dat");
+   perror("No se puede abrir dosRenyis.dat");
    return -1;
    }
    
-   printf("\n\n\n Operacion XOR en dos Renyis \n EL tamanio de unsigned int en maquina de 64 bits es:  %d", sizeof(int));
+   printf("\n\n\n Operacion XOR en dos Renyis \n EL tamanio de unsigned long en maquina de 32 bits es:  %d", sizeof(long));
+
+
 
    while (iteraciones < IT) {
 
-            Xn1= RENYI_MAP(Xn1,param1,j);
-            Xn2= RENYI_MAP(Xn2,param2,j);
+            Xn1= RENYI_MAP(Xn1,param1,j1);
+            Xn2= RENYI_MAP(Xn2,param2,j2);
             Xtotal[iteraciones++] = Xn1^Xn2;
  
            //printf("\nla iteracion %u  para  %u H es:  \n",iteraciones-1, Xtotal[iteraciones-1] );
@@ -85,7 +82,6 @@ int main(){
 
    /*Escribimos la informacion.*/
    fwrite(Xtotal,4,80000,archivobin); 
-
 
    if(!fclose(archivobin)){
       printf( "\nArchivo binario cerrado\n" );
