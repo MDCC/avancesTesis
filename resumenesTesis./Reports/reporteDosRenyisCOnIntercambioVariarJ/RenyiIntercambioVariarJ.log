@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.17)  1 MAR 2014 02:39
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.17)  4 MAR 2014 15:50
 entering extended mode
  %&-line parsing enabled.
-**CryptographyWIthChaos.tex
-(./CryptographyWIthChaos.tex
+**RenyiIntercambioVariarJ.tex
+(./RenyiIntercambioVariarJ.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, loaded.
@@ -358,6 +358,9 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \Gin@req@height=\dimen118
 \Gin@req@width=\dimen119
 )
+(/usr/share/texmf/tex/latex/subfigure/subfigure.sty
+\c@subfigure=\count95
+)
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip44
@@ -378,13 +381,13 @@ Package: amsbsy 1999/11/29 v1.2d
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count95
+\inf@bad=\count96
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count96
-\leftroot@=\count97
+\uproot@=\count97
+\leftroot@=\count98
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count98
-\DOTSCASE@=\count99
+\classnum@=\count99
+\DOTSCASE@=\count100
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
@@ -393,15 +396,15 @@ LaTeX Info: Redefining \cdots on input line 467.
 \big@size=\dimen122
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count100
-\c@MaxMatrixCols=\count101
+\macc@depth=\count101
+\c@MaxMatrixCols=\count102
 \dotsspace@=\muskip10
-\c@parentequation=\count102
-\dspbrk@lvl=\count103
+\c@parentequation=\count103
+\dspbrk@lvl=\count104
 \tag@help=\toks20
-\row@=\count104
-\column@=\count105
-\maxfields@=\count106
+\row@=\count105
+\column@=\count106
+\maxfields@=\count107
 \andhelp@=\toks21
 \eqnshift@=\dimen123
 \alignsep@=\dimen124
@@ -416,8 +419,44 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(./CryptographyWIthChaos.aux)
-\openout1 = `CryptographyWIthChaos.aux'.
+(/usr/share/texmf-texlive/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count108
+\float@exts=\toks24
+\float@box=\box29
+\@float@everytoks=\toks25
+\@floatcapt=\box30
+)
+(./RenyiIntercambioVariarJ.aux
+
+LaTeX Warning: Label `caso1' multiply defined.
+
+
+LaTeX Warning: Label `caso1' multiply defined.
+
+
+LaTeX Warning: Label `caso1' multiply defined.
+
+
+LaTeX Warning: Label `caso1' multiply defined.
+
+
+LaTeX Warning: Label `caso1' multiply defined.
+
+
+LaTeX Warning: Label `caso7' multiply defined.
+
+
+LaTeX Warning: Label `caso7' multiply defined.
+
+
+LaTeX Warning: Label `caso7' multiply defined.
+
+
+LaTeX Warning: Label `caso7' multiply defined.
+
+)
+\openout1 = `RenyiIntercambioVariarJ.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
@@ -431,52 +470,82 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
-
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
+\scratchcounter=\count109
 \scratchdimen=\dimen129
-\scratchbox=\box29
-\nofMPsegments=\count108
-\nofMParguments=\count109
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count110
+\scratchbox=\box31
+\nofMPsegments=\count110
+\nofMParguments=\count111
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count112
 \MPscratchDim=\dimen130
-\MPnumerator=\count111
-\everyMPtoPDFconversion=\toks25
+\MPnumerator=\count113
+\everyMPtoPDFconversion=\toks27
 )
-Underfull \hbox (badness 1466) in paragraph at lines 27--28
-[]\OT1/ptm/m/n/10 Las os-cila-ciones de-ter-min-istas ocur-ri-das en fen[]omeno
-s
+LaTeX Font Info:    Calculating math sizes for size <24> on input line 21.
+ <es.jpg, id=1, 502.87875pt x 656.4525pt>
+File: es.jpg Graphic file (type jpg)
+ <use es.jpg>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 57.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+ <./es.jpg>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+[3]
+Overfull \hbox (1.2978pt too wide) in paragraph at lines 667--707
+ [] 
  []
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
+Overfull \hbox (4.44786pt too wide) in paragraph at lines 716--756
+ [] 
+ []
 
-] [2
+[4] [5
 
-]
-(./CryptographyWIthChaos.aux) ) 
+] (./RenyiIntercambioVariarJ.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 2983 strings out of 495061
- 40477 string characters out of 1182621
- 110915 words of memory out of 3000000
- 6164 multiletter control sequences out of 15000+50000
- 34510 words of font info for 65 fonts, out of 3000000 for 9000
+ 3166 strings out of 495061
+ 42920 string characters out of 1182621
+ 130658 words of memory out of 3000000
+ 6316 multiletter control sequences out of 15000+50000
+ 44679 words of font info for 94 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 27i,6n,27p,1228b,186s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8
-r.enc}</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf
--texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/
-share/texmf-texlive/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive
-/fonts/type1/urw/times/utmr8a.pfb>
-Output written on CryptographyWIthChaos.pdf (2 pages, 102336 bytes).
+ 27i,9n,27p,353b,275s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/t
+exmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/
+share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-texliv
+e/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/ti
+mes/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></us
+r/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on RenyiIntercambioVariarJ.pdf (5 pages, 228405 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
