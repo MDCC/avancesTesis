@@ -1,15 +1,32 @@
-\chapter*{Capítulo 2}
-\label{Fundamentos de Cifrado Basado en Caos}
-\section{Caos}
+\chapter{Caos Discretizado para la generación de números pseudoaleatorios en Criptografía.}
+\section{Introducción}
 
-Se dice que un mapa $f$ que está definido en el intervalo $I= [\alpha, beta]$ es caótico si se cumplen las siguientes condiciones:
+Los números aleatorios tienen un papel fundamental en Cryptorafía, se utilizan en muchas cosas, por ejemplo, para definir claves de cifrado o contraseñas. Actualemnte, se pueden generar números aleatorios de dos maneras: True Random Number Generators (TGNGs) y Pseudo Random Number Generators (PRNGs). Los primeros son dispositivos que explotan fenómenos físicos un un comportamiento verdaderamente estocástico; por ejemplo, el ruido electróncio de sistemas dinámicos caóticos no lineales, la secuencia obtenida de estos dispositivos tiene un grado intrínseco de impredecibilidad, que es medida mediante las herramientas te[oricas que se han desarrollado el área de Teoría de la Información. Del otro modo, PRNGs son máquinas de estado finito determinístas cuyo propósito es imitar el comportamiento aleatorio  de una secuencia de números verdaderamente aleatoria. Desde un punto de vista teórico, debido a su naturaliza determinista, PRNGs son potencialmente predecibles al observar sus secuencias generadas. Sin embargo, en la literatura existente, algunas familias de PRNGs son clasificados como ''seguros'', esto significa que su estructura algorítmica implica cálculos que en promedio, requieren una cantidad de tiempo de cálculo que es asintóticamente inviable con el tamaño del problema. Cabe señalar que dado un generador, incluso si éste pertenece a una familia  de 	PRNGs asintóticamente segura, puede generar secuencias de un periodo corto para varios valores tomados como semilla inicial. Por lo tanto, adermás de la robustez criptográrfica de su estructura algorítmica, un PRNG criptográfico debe generar secuencias que sean aceptables desde un punto de vista estadístico, ésto se logra cuando la secuencia generada se somente a un conjunto de pruebas estadísticas.
 
-\begin{enumerate}
-\item Los puntos periódicos de $f$ son densos en I.
-\item $f$ es una función transitiva en el intervalo $I$, esto significa que, dados dos subintervalos cualesquiera $U_{1}$ y $U_{2}$ en $I$, hay un punto $x_{0} \in U_{1}$y un $n>0$ tal que $f^{n}(x_{0}) \in U_{2}$.
-\item $f$ tiene dependencia  a las condiciones iniciales en $I$; esto significa que hay una constante de sensibilidad $\beta$ tal que para cualquier $x_{o} \in I$ y cualquier intervalo abierto $U$ sobre $x_{0}$, hay alguna semilla $y_{o} \in U$ Y $n >0$ tal que
+En este trabajo, proponemos utilizar algunos sistemas caóticos como un punto de partida para diseñar PRNGs basadosz en congruencias no lineales. En la sección 2 se reporta una breve comparación entre PRNGs lineales y no lineales,. Ya que nuestro propósito es proponer generadores congruenciales no lineales de ciertos mapas caóticos. En la sección 3 revisamos algúns funtamentos teóricos sobre los TRNGs basasos en una mezcla de sistema dinámicos estadísticamente estables, se hará un énfasis en los mapas Renyi. En la sección 4 discutimos el enlace que existe entre la dinámica de los sistemas caóticos y sistemas pseudo caóticos: para explicar cómo las dos dinámicas son relacionadas es necesario utilizar algunos resultados logrados con la Teoría Ergódica (esto es válido para los sistemas caóticos) sobre el múndo del pseudo caos discretizado. Hemos propuesto una interpretación más general y débil de la Teoría Shadowing propuesta por Coomes et al., enfocándonos en las medida de probabilidad, en vez de sólo una simple trayectoria caótica. En la sección 5 estudiamos cómo discretizar mapas Renyis, se discute cómo encontrar un periodo de mínima longitud para las trayectorias discretizadas. En la sección 6 presentamos dos métodos alternativos para el diseño de un PRNG basado en recurrencias no lineales derivadas del mapa Renyi.
+
+\section{Generadores congruenciales lineales vs. no lineales}
+
+Los sistemas criptográficos convencionales están basados en máquinas de estado finito, y el problema de generar números aleatorios puede ser analizado al hacer referencia a subconjuntos finitos de enteros. De acuerdo a lo anterior, sea $\Lambda_{M}= (0, ... , M)$ el conjunto de los primeros ($M+1$) enteros no negativos. Definimos la $j$-tupla $k_{0}, ... , k_{j-1} \in \Lambda_{M} $ como la semilla inicial de el generador, y definimos un generador congruencial como un método iterativo que genera la secuencia \{$k_{i} \in \Lambda_{M}, i \in \mathbb{N} $\}, donde 
+
+\begin{equation}\label{gcl}
+k_{n}= G(k_{n-1}, ... , k_{n-j}) \mod{M}, \quad n >j,
+\end{equation}
+
+para una cierta función $G: \Lambda _{M}^{J} \longrightarrow \mathbb{N}$. El generador congruencial es llamado lineal si la función $G$ es una combinación lineal de los $j$ números previos de la secuencia (con coeficientes en $\Lambda_{M}$), de otro modo, se dice que el generador tiene un comportamiento no lineal. El ejemplo más simple de un generador lineal de la forma \eqref{gcl} es el generador congruencial lineal (LCG) $k_{n}= ak_{n-1}+c \mod{M}$, mientras que para el Linear Feedback Shift Register (LFSR) con el polinomio $x^{3}+x+1$ se tiene que $M=2$, $\Lambda_{2}={0,1}$ y $G(k_{n-1}, k_{n-2}, k_{n-3})$= $k_{n-1}+ k_{n-3}$.Ejemplos de generadores congruenciales no lineales son el Nonlinear Feedback Shift Registers (NLFSRs) y el Generador Polinomial Congruencial en el cual $G(k_{n-1})= a_{p}k^{p}_{n-1}+ a_{p-1}k^{p-1}_{n-1}+...+a_{0}$. Se mostrará de una manera alternativa qu la función $G$ puede ser obtenida al discretizar un mapa caótico.
+
+Independientemente de la linealidad de $G$, un generador con memoria finita como en el caso de \eqref{gcl}, puede ser implementado en una máquina de estado finita, siendo el estado de la máquina en un tiempo $n$ la $j$-tupla $\sigma_{n}= (k_{n-1},...,k_{n-j}) \in \Sigma = \Lambda_{n}^{j}$. Como la cardinalidad de $\Sigma$ es finita y debido a la naturaleza determinista de la evolución de la máquina, para cualquier semilla inicial $\sigma_{0} \in \Sigma$  la secuencia \{$\sigma_{i}, i \in \mathbb{N}$\}, se tiene un periodo $\mu(\sigma_{0})$, y se llega al periodo después de $\eta(\sigma_{0})$ pasos. Un generador que para algún $\sigma_{0}$ genera una secuencia con un periodo igual a la cardinalidad de $\Sigma$ es conocimo como un generador de ciclo máximo.
+
+
+
+ller el  trece, falta leer mas de eesta ppppppppppppppppppppppparteeeeeeeeeeeeeeeeeee
+\section{Statistically Stable Mixing Systems}
+\subsection{Generador verdadero de números aleatorios con Mapas Renyi}
+
+COnsideremos un caso especial de mapas PWAE: las transformaciones de la familia Renyi
 
 \begin{equation}
-|f^{n}(x_{0}) - f^{n}(y_{0}) | > \beta.
+S_{\beta}(x)= \beta x \mod{1}, \quad \beta > 1, \quad \beta \in \mathbb{R},
 \end{equation} 
-\end{enumerate}
+
+donse se asume que el operador módulo se extiende hacia los números reales: $ \beta x \mod{1} =    \beta x   - \lfloor\beta x  \rfloor $. A partir de ahora, será $b= \lfloor \beta \rfloor$ la parte entera de $\beta$, mientras que $ \gamma = \beta \mod{1} $ será la parte fraccionaria. Si el parámetro $\beta$ asume valores enteros $b \in \mathbb{N}$ (esto significa que $\gamma =0 $) el mapa Renyi tiene 

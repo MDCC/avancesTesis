@@ -18,7 +18,30 @@ EL propósito de esta prueba es determinar si la longitud de la corrida más gra
 
 
 
-\section*{Prueba de la Frecuencia}
-\section*{Prueba de la Frecuencia}
+\section*{Prueba Binary Matrix Rank Test}
+Esta prueba consiste en revisar la dependencia lineal entre subcadenas de un tamaño fijo de la secuencia original, esto se logra mediante el siguiente procedimiento: se construyen matrices de fragmentos sucesivos de la secuencia generada, y se revida la dependencia lineal de las filas o columnas de las matrices creadas. La desviación del rango, o deficiencia del rango, de las matrices de un valor esperado teóricamente es lo que genera el estadístico de interés.
+
+\section*{Prueba (espectral) de la Transformada Discreta de Fourier}
+Esta prueba está basada en la transformada Discreta de Fourier. Se detectan posibles caracterísitcas de la serie de bits que deberían indicar una desviación de la suposición de aleatoriedad.
+
+Sea $x_{k}$ el $k-$ésimo bit, donde $k = 0, ... ,n-1$. Supongamos una codificación para los bits de $-1$ para el bit con valor cero y de $1$ para el bit uno. Utilizamos la siguiente expresión:
+
+\begin{equation}
+f_{j}= \sum_{k=0}^{n-1}x_{k} \exp \left(  2 \pi k j/n    \right)
+\end{equation}
+
+donde $\exp (  2 \pi kj/n ) = \cos  (  2 \pi  kj/n )  + \imath \sin (  2 \pi kj/n )  $, $j = 0, ... ,n-1$, además $ i = \sqrt{-1}$. Debido a la simetría de los valores de la transformada, únicamente los valores de $0$ a $(n/2 -1)$ son considerados. Ahora tomamos el módulo del número complejo $f_{j}$ y lo denotaremos por $\mod{j}$; baso la suposición de aleatoriedad de la serie $x_{j}$, se puede dar un intervalo de confianza para los valores de $\mod{j}$. Más específicamente, $95\%$ de los valores de $\mod{j}$ deberían ser menores que
+
+\begin{equation}
+h = \sqrt{\left( \log \frac{1}{0.05}n  \right)}.
+\end{equation}
+
+Un $p-valor$ basado en este umbral surge de la distribución binomial. Se $N_{l}$ el número de puntos más altos  menores que $h$, únicamente los primeros $\frac{n}{2}$ son considerados. Sea $N_{0} = .95N/2$ Y $d= (N_{1}- N_{0}) / \sqrt{n(0.95)(0.05)/4}$, el $p-valor$ es
+
+\begin{equation}
+2 \left( 1 - \phi \left(  \lvert d \rvert\ \right)  \right) = erfc \left( \frac{\lvert d \rvert\ }{ \sqrt{2}} \right)
+\end{equation} 
+
+
 \section*{Prueba de la Frecuencia}
 \section*{Prueba de la Frecuencia}
