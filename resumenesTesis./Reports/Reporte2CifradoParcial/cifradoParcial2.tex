@@ -1,0 +1,301 @@
+\documentclass[10pt]{IEEEtran}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure} 
+\usepackage{amsmath}
+\usepackage{float}
+
+
+
+\title {Cifrado parcial (Análisis de Código). Reporte 2.}
+
+\author{\IEEEauthorblockN{Marcos Daniel Calderón Calderón}\\
+\IEEEauthorblockA{Maestría en Ciencias de la Computación\\
+Centro de Investigación en Matemáticas (CIMAT)\\
+Guanajuato , Gto.\\
+marcos.calderon@cimat.mx}}
+
+
+\begin{document}
+\maketitle
+\begin{abstract}
+En este documento se explica de manera detallada el código de cifrado parcial.
+\end{abstract}
+\section{Explicación de código.}
+
+El código de cifrado parcial está formado de los siguientes pasos.
+
+
+\begin{enumerate}
+\item Se utilizan 4 mapas caóticos. Para la formación de estos mapas caóticos, se necesita lo siguiente:
+
+
+\begin{itemize}
+\item Un arreglo de tamaño 4 para almecenar los pesos no enteros (\textbf{float W[NN]}).
+\item Un arreglo de tamaño 4 para almacenar los parámetros no enteros y enteros respectivamente (\textbf{float be[	NN]}, \textbf{unsigned int beta[NN]}).
+\item Un arreglo de tamaño 4 para almacenar la clave no entera (\textbf{float Key[NN]}).
+
+\item 	Arreglos de tamaño 4 para almacenar los pesos y las condiciones iniciales enteras (\textbf{unsigned int W\_int[NN+1]},\textbf{ unsigned int IC\_int[NN]}).
+\end{itemize}
+
+
+\item Ahora, el siguiente paso fué inicializar los pesos enteros y no enteros, las condiciones iniciales, la clave, y los parámetros $beta$, a continuación se muestra la inicialización.
+
+
+\begin{table}[H]
+\centering
+\caption{Inicializaciones de mapas caoticos.}
+\begin{tabular}[c]{|c|c|c|c|c|}
+\hline
+\hline
+W[i]  	 &  W\_int[i] 	 &   IC[i] 	 &  Key[i] 	 &  be[i]  \\
+\hline
+\hline
+0.000000	 &  4294967295 & 	0.480000 & 	0.480000	 & 	2.000000    \\ 
+0.250000	 & 	1073741824 & 	0.530000	 & 	0.530000	 & 	3.000000  \\   
+0.500000	 & 	2147483648 & 	0.310000	 & 	0.310000	 & 	4.000000  \\   
+0.750000	 & 	3221225472 & 	0.680000	 & 	0.680000	 & 	5.000000 \\
+
+\hline
+\hline
+\end{tabular}
+\end{table}
+
+\item Una vez que hemos hecho las inicializaciones anteriores, ahora, lo que se hace es ejecutrar un ciclo 7 veces ($NumIt_i = 7$), en cada iteración, se calcular un valor para $h$ con los valores anteriores de los mapas caóticos, y después, se calculan nuevos valores para los mapas caóticos, se utiliza el siguiente código:
+
+
+\begin{verbatim}
+for(j=0; j<NumIt_i; j++)
+	{
+		h=0;
+		for(k = 0; k<NN; k++)
+			h+= W[k]*IC[k]; 
+		for(i=0; i<NN; i++)
+			IC[i] = (1.0 -ep)*Renyi(IC[i],be[i]) + ep*h;
+	}
+\end{verbatim}
+
+Resultado obtenido para la última iteración en este fragmento de código:
+\begin{table}[H]
+\centering
+\caption{Resultado última iteración.}
+\begin{tabular}[c]{|c|}
+\hline
+\hline
+ IC[i] 	 \\
+\hline
+\hline
+131.139221 \\
+ 181.190384 \\ 
+ 334.825470 \\
+ 279.543152 \\
+ 383.958374 \\  
+ 549.630310 \\
+ 1024.313232 \\
+
+\hline
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+\item Ahora, el siguiente paso consiste en inicializar los mapas caóticos enteros, esto se hace mediante una operación de casting sobre los valores obtenidos en el paso anterior para los macas caóticos no enteros, también, se hace la inicialización de la clave, en este caso, la clave toma el mismo valore que los valores iniciales para los mapas caóticos enteros. A continuación se muestra el código y los valores obtenidos.
+
+\begin{verbatim}
+for(i=0; i<NN; i++)
+	{
+		IC_int[i] = (unsigned int) IC[i];
+		Key[i] = IC_int[i];
+	}
+	
+\end{verbatim}
+
+
+\begin{table}[H]
+\centering
+\caption{Inicializaciones de mapa entero y clave.}
+\begin{tabular}[c]{|c|c|}
+\hline
+\hline
+IC\_int[i]	&   Key[i]  \\
+\hline
+\hline
+ 524 	&  	524.000000	  \\
+702	&  	702.000000	\\  
+1043	 &    1043.000000	  \\
+1926	  &   1926.000000	  \\
+
+\hline
+\hline
+\end{tabular}
+\end{table}
+
+
+\item Ahora, es necesario leer los archivos que contienen los datos que vamos a cifrar. Para lograr esta tarea, se utiliza la función \textbf{fseek} para posicionarnos en el último carácter del archivo leído (final del archivo), con la orden \textbf{SEEK\_END}, la operación anterior se ejecuta al desplazar la posición actual de lectura o escritural punto indicado, en este caso, indicamos el final der archivo. La función devuelve un cero si no ha habido problemas, también, se necesita un parámetro que indica el desplazamiento que se ha de realizar. a partir de la referencia indicada, en este caso, se indica que no ocurre ningún desplazamiento, nos quedamos en la posición final indicada. También se utiliza la función \textbf{ftell}, para archivos binarios se devuelve el número de bytes desde el  inicio hasta donde nos posicionamos en el archivo (el final). También, nos volvemos a posicionar en el inicio del archivo con la instrucción \textbf{rewind}.
+
+\item Almacenamos memoria para guardar la información leída, se guarda un espacio en memoria dinámica del tamaño del número de bytes leídos. 
+
+
+\item Como siguiente paso, es necesario declarar todas las variables que vamos a necesitar. A continuación, se da una lista de todos los valores que vamos a utilizar en el programa.
+
+
+
+\begin{itemize}
+
+\item	   $  Pack\_Size = 400.$ Este es el tamaño del paquete RTP recibido. 
+\item	   $   BlockSize = 8.$ Este es el tamaño de un bloque, todavía no se en que se utiliza.
+\item	 $pos\_f = 0.$
+\item	 $Num\_Blocks = 20.$
+\item	 $ Num\_bits\_encry = 32.$ Este número de bits se utiliza para cifrar.
+\item	 $ Bl\_Size\_byte = Pack_Size/Num\_Blocks.$ Esto es la operaciónÑ $\frac{400}{20}=20$ bytes.
+\item	 $ Bl\_Size\_bit = Bl\_Size\_byte*8=160.$ Número de bits.
+\item	 $ Num\_It = Bl_Size\_bit/Num\_bits\_encry. $
+\item	 $ rand\_Bl,temp. $
+\item	 $ pos\_byte. $
+\item    $ unsigned int Num\_pack = lSize/400.$
+\item	$ char *Pack\_temp.$
+\item	$ Pack\_temp = Dat.$
+
+\end{itemize}
+
+
+\item También declaramos una variable de tipo apuntador \textbf{Pack\_temp} que apunta al mismo arreglo que \textbf{Dat}.
+
+\item Declaramos un arreglo que tenga de casillas el número de bloques que conformarán a cada paquete RTP.
+      \textbf{unsigned int Blocks[Num\_Blocks]}.
+      
+\item Ahora, declaramos un arreglo de carácteres de tamaño cuatro y los inicializamos con las primeras letras minúsculas del alfabeto. El resultado es el siguiente:
+
+\begin{verbatim}
+char PText[(Num_bits_encry/8)];
+	//initialize Plain Text
+	for(i=0; i<(Num_bits_encry/8); i++){
+		PText[i] = (char)'a'+i;
+	}
+\end{verbatim}
+ 
+ 
+ \begin{verbatim}
+-- a ---- b ---- c ---- d 
+\end{verbatim}
+
+\item Ahora, el arreglo de nombre \textbf{Blocks} (de tamaño 20) se inicializa con los siguientes valores:
+
+\begin{verbatim}
+0 1 2 3 4 5 6 7 8 9 
+\end{verbatim}
+\begin{verbatim}
+10 11 12 13 14 15 16 17 18 19 
+\end{verbatim}
+
+\item Ahora, el siguiente paso es tomar el tiempo de ejecución del algoritmo.
+
+
+\item Una vez que han ocurrido todos los pasos anteriores, ahora es necesario ejecutar el algoritmo. Para cada uno de los $Num\_pack = 2547$ paquetes RTP, se hace lo siguiente:
+\begin{enumerate}
+\item Inicializamos el arreglo Blocks de la siguiente manera:
+\begin{verbatim}
+0 1 2 3 4 5 6 7 8 9 
+\end{verbatim}
+\begin{verbatim}
+10 11 12 13 14 15 16 17 18 19 
+\end{verbatim}
+
+\item Ahora, recorremos los bloques como indica el paper, lo que queremos es hacer el proceso de intercambio de bloques de un paquete RTP. Por lo tanto, este proceso comienza con la siguiente instrucción:
+
+
+\begin{verbatim}
+for(i=Num_Blocks; i>0; i--){//codigo}
+\end{verbatim}
+
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\section{Observaciones de código.}
+A continuación, se mencionan algunas observaciones que pueden ayudar a la optimización de código:
+
+\begin{enumerate}
+\item En el siguiente fragmento de código:
+\begin{verbatim}
+rand_Bl = IC_int[0]%i;
+			//shuffling 
+			temp = Blocks[i-1];
+			Blocks[i-1] = Blocks[rand_Bl];
+			Blocks[rand_Bl] = temp;
+\end{verbatim}
+
+puede ocurrir que $rand_Bl= (i-1)$, por lo tanto se hace un intercambio innecesario, y esto ocurre frecuentemente, como se puede observar en los siguientes resultados:
+
+\begin{verbatim}
+  aleatorio: 15     i-1:   15
+  aleatorio: 14     i-1:   14
+  aleatorio: 0     i-1:   0
+  aleatorio: 5     i-1:   5
+\end{verbatim}
+
+los resultados anteriores se obtuvieron al realizar 24 iteraciones del código mencionado, obtener cuatro coincidencias es un porcentaje alto, tomando en cuenta que ocurren miles de iteraciones para un archivo.
+
+
+
+\item EL siguiente paso es conocer la direccion endonde estamos ubicados, esto se hace al indicar el bloque que se va a intercambiar por el tamaño del bloque (\textbf{pos\_byte = Blocks[i-1]*Bl\_Size\_byte}).
+
+\item Ahora, se aplica un ciclo 5 veces, que es lo que vale la variable \textbf{Num\_It}, este valor se obtuvo al dividir lo siguiente: $ \frac{Bl\_Size\_bit}{Num\_bits\_encry}$. El numerador vale 160 (es el tamaño del bloque en bits)y el denominador vale 32. Adentro de ese ciclo, ocurren los siguientes proceso.
+\begin{itemize}
+\item Primero, se calcula un valor de h con los valores anteriores de los cuatro mapas caóticos.
+\item Ahora, con el valor de h calculado en el paso anterior, se calculan nuevos valores para los mapas caóticos Renyi. 
+
+\item Ahora, se enuentran los carácteres que se encuentran en el texto original en la posición \textbf{pos\_byte} y en los siguientes 3 lugares, recordemos que estos 4 carácteres se guardan en el arreglo \textbf{PText}.
+
+\item Ahora, ocurre el proceso de inversión de bits para cada bloque que se va a intercambiar, esto se hace por medio de un ciclo, donde la principal instrucción de terminación se puede ver abajo, también debemos recordar que  $BlockSize= 8$ y además $Num\_bits\_encry =32$. Cada vez que se ejecuta el ciclo, \textbf{pos\_f} vale cero inicialmente, y se va incrementando de acuerdo al valor que tome \textbf{p}: un valor aleatorio entre 0 y 7.
+
+\begin{verbatim}
+while(pos_f + BlockSize <
+ Num_bits_encry)
+\end{verbatim}
+
+\begin{table}[H]
+\centering
+\caption{Algunos valores de pos\_f.}
+\begin{tabular}[c]{|c|}
+\hline
+\hline
+pos\_f  \\
+\hline
+\hline
+0   \\
+\hline
+7   \\
+\hline
+8   \\
+\hline
+11   \\
+\hline
+18  \\
+\hline
+21 \\
+\hline
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+\end{itemize}
+
+\end{enumerate}
+
+
+\end{document}
+
+

@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.10pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Fundamentos.}{2}{0}{1}
+\beamer@sectionintoc {2}{Desarrollo del algoritmo de cifrado parcial.}{11}{0}{2}
+\beamer@sectionintoc {3}{Mapas ca\IeC {\'o}ticos.}{11}{0}{3}
+\beamer@sectionintoc {4}{Observaciones finales.}{13}{0}{4}

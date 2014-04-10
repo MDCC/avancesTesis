@@ -54,7 +54,7 @@ int main(){
    unsigned int IT = 80000;
 
   /* Apertura del fichero de destino, para escritura en binario.*/
-   archivobin = fopen ("dosRenyisIntercambio1.dat", "wb");
+   archivobin = fopen ("dosRenyisIntercambio1.dat", "rb");
    if (archivobin==NULL)
    {
    perror("No se puede abrir dosRenyisIntercambio1.dat");

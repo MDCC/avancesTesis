@@ -1,0 +1,10 @@
+\frametitle {  Observaciones finales. }
+
+
+\begin{itemize}
+\item Evitar el uso de memoria auxiliar, (arreglos auxiliares).
+
+\item Evitar operaciones innecesarias (verificar que siempre ocurran tareas significativas).
+
+\end{itemize}
+

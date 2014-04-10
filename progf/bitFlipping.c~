@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <time.h>
+
+void  imprimirArreglo1D( char *, unsigned int );
+void flippingBits(char *, unsigned int  );
+/*
+Este programa aplica la inversión de bits, que es un paso de cifrado de paquetes RTP. Se busca que este paso
+sea robusto, por tal motivo, la inversión de bits debe tener más aleatoriedad: desde la elección del bit de 
+referencia hasta la elección del bit a cambiar. Para este ejemplo, lo que se hace es dar un arreglo de 
+tamanio fijo, solo para hacer pruebas. 
+*/
+
+main(){
+
+/*Supongamos que T = 3, M=5.*/
+unsigned int tamanio = 20;
+unsigned int T = 3;
+unsigned int M = 5;
+unsigned int L = 5;
+char A[20]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t'};
+
+unsigned int k = 4;
+imprimirArreglo1D(A,20);
+flippingBits(A, k);
+imprimirArreglo1D(A,20);
+}
+
+
+void flippingBits(char * A, unsigned int k){
+
+	/*En este caso, lo que vamos a programar es la observacion a la mejora del paper, no es algo muy dificil,
+	pero solo lo hago para comprender el algoritmo.*/
+
+	A[3]= A[3]^(1<<k);
+
+
+}
+
+
+
+void  imprimirArreglo1D( char *A, unsigned int tamanio){
+
+        printf("\n");
+        unsigned int i;
+	for( i =0; i<tamanio; i++){
+		printf("%u  ", A[i]);
+	}
+        printf("\n");	
+
+}
+
+

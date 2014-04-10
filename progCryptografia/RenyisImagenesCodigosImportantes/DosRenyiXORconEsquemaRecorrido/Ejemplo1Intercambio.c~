@@ -97,7 +97,9 @@ int main(){
 
             Xtotal[iteraciones++] = Xn3;
  
+           if((iteraciones-1)<5){
            printf("\nla iteracion %u  valor:  %lu \n",iteraciones-1, Xtotal[iteraciones-1] );
+}
 
    } 
  

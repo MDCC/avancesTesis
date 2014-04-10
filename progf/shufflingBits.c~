@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <malloc.h>
+#include <time.h>
+
+void intercambiarArreglo( unsigned int * , unsigned int , unsigned int , unsigned int , unsigned int );
+void imprimirArreglo1D(unsigned int *, unsigned int);
+void shuffling(unsigned int * , unsigned int, unsigned int, unsigned int, unsigned int );
+
+/* */
+
+main(){
+
+/*Supongamos que vamos a trabajar con 128 bits.*/
+unsigned int tamanio = 128;
+unsigned int numBytes = 300;
+unsigned int numCeldas = 300/4;
+printf("\n\nEl numero de celdas es: %u \n\n",numCeldas);
+/*Almacenamos memoria donde se supone que esta el paquete RTP.*/
+unsigned int *A=(unsigned int *) calloc(numCeldas,sizeof(unsigned int));
+
+/*Supongamos que T = 3, M=5.*/
+unsigned int T = 3;
+unsigned int M = 5;
+unsigned int L = 5;
+
+
+printf("\n El tamanio de un int es:  %d \n",sizeof(int));
+
+unsigned int prueba = 0xFFFFFFFF;
+printf("\n EL mayor valore que un unsigned int es  %u  \n\n",prueba);
+printf("\n El valor de RAND_MAX  es:    %u  \n\n",RAND_MAX);
+/*Ahora, llenamos el arreglo dinamico creado con valores aleatorios, dichos valores,
+en este caso, representan una simulacion de los codigos del texto comprimido. Recordemos
+que rand() nos da un valor aleatorio entre 0 y 2 a la 31 menos 1*/
+srand (time(NULL));
+int i;
+for(i =0; i< numCeldas; i++){
+	A[i]= rand();
+}
+
+/*Ahora, imprimimos el arreglo que hemos llenado.*/
+imprimirArreglo1D(A, numCeldas);
+
+
+
+//printf("\n Ahora, el tamannioo de mi arreglo A es de  %d  \n\n",sizeof(A));
+/*Llamamos al metodo que vamos a utilizar.*/
+//shuffling(A, T, M, L, tamanio);
+
+}
+
+
+void shuffling(unsigned int * A , unsigned int T, unsigned int M, unsigned int L, unsigned int tamanio){
+/*unsigned int M=L;*/
+unsigned int i;
+unsigned int R;
+/*unsigned int T;*/
+srand (time(NULL));
+for(i =1; i<L; i++){
+	//Generate random number R
+	R= rand();
+	T= R%M+1;
+        printf("\n R: %u    T: %u    M: %u   \n", R, T, M);
+	imprimirArreglo1D(A, tamanio);
+	intercambiarArreglo(A, T, M, L, tamanio);
+	imprimirArreglo1D(A, tamanio);
+        M=M-1;
+}
+
+}
+
+void intercambiarArreglo( unsigned int * A , unsigned int T, unsigned int M, unsigned int L, unsigned int tamanio){
+
+/*Recordemos que los indices van de 0 a 19 (en este caso.)
+  Ademas, en este caso, tamanioBOloque es igual a 4.*/
+unsigned int tamanioBloque = tamanio/L;
+
+/*Ahora, hacemos el intercambio que sea necesario.*/
+unsigned int i;
+unsigned int auxiliar;
+for(i=0; i<tamanioBloque; i++){
+	auxiliar = A[tamanioBloque*(T-1)+i];
+        A[tamanioBloque*(T-1)+i]=A[tamanioBloque*(M-1)+i];
+        A[tamanioBloque*(M-1)+i]= auxiliar;
+}
+}
+
+void  imprimirArreglo1D( unsigned int *A, unsigned int tamanio){
+
+        printf("\n");
+        unsigned int i;
+	for( i =0; i<tamanio; i++){
+		printf("%u  ", A[i]);
+	}
+        printf("\n");	
+
+}
+
+
