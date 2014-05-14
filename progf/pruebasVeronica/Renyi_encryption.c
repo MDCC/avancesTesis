@@ -78,7 +78,7 @@ int main () {
 	//long long lSize;
 	//int lSize;
 	
-	pFile = fopen("/Users/veronicasuaste/Documents/Tesis/Idea1/test.mov", "rb");
+	pFile = fopen("test.mov", "rb");
 	//pFile = fopen("test.mov", "rb");
 	if(pFile==NULL) printf("No se pudo abrir el archivo \n");
 	
@@ -149,6 +149,9 @@ int main () {
 			Blocks[i-1] = Blocks[rand_Bl];
 			Blocks[rand_Bl] = temp;
 			
+                         
+			//printf("\n i: %u   aleatorio: %u",i, rand_Bl);
+
 			pos_byte = Blocks[i-1]*Bl_Size_byte; 
 			
 			for(j=0; j<Num_It; j++)
@@ -234,7 +237,7 @@ int main () {
 	printf("tsec = %f, tusec = %f, elapsed time = %f milliseconds\n",tsec,tusec,tsec+tusec);
 	printf("Megabits/sec = %f \n",((Num_pack*Pack_Size*8)/(1000.0*1000.0))/((tsec + tusec)/1000.));
 	
-	oFile =  fopen("/Users/veronicasuaste/Documents/Tesis/Idea7/test2.mov", "wb");
+	oFile =  fopen("test2.mov", "wb");
 	//oFile =  fopen("test2.mov", "wb");
 	// fwrite(Dat, 1, lSize,oFile);
 	fwrite(ShufDat, 1, lSize,oFile);
@@ -252,7 +255,7 @@ int main () {
 	for(i=0; i<Num_Blocks; i++)
 		Blocks[i] = i;
 	
-	pFile = fopen("/Users/veronicasuaste/Documents/Tesis/Idea7/test2.mov", "rb");
+	pFile = fopen("test2.mov", "rb");
 	//pFile = fopen("test2.mov", "rb");
 	if(pFile==NULL)printf("No se pudo abrir el archivo \n");
 	
@@ -342,7 +345,7 @@ int main () {
 		pos_pack+=400;
 	}
 	
-	oFile =  fopen("/Users/veronicasuaste/Documents/Tesis/Idea7/test3.mov", "wb");
+	oFile =  fopen("test3.mov", "wb");
     //oFile =  fopen("test3.mov", "wb");
 	fwrite(ShufDat, 1, lSize,oFile);
 	fclose(pFile);

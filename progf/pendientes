@@ -1,2 +1,0 @@
--El proceso de intercambio en finalBits.c y finalBitsPrueba.c es el mismo, solo despues fijate si es mejor el tuyo que el de veronica, ella no utiliza la variable M, aprovecha el for invertido.
--EL criterio de invercion de bits todavia no lo termino, falta ver como resolver eso de la referencia variable.

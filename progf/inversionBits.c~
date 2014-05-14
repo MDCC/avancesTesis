@@ -5,6 +5,9 @@
 
 void imprimirArreglo(unsigned char *, unsigned int);
 
+/*En este caso, se hace la inversion de bits de la misma forma que con Veronica, que es 
+como se explica en el criterio 2 de las observaciones.*/
+
 int main(){
 
 
@@ -13,6 +16,7 @@ int main(){
 	unsigned char textos[8]; 
         unsigned int tamanioArreglo = 8; 
 	unsigned int tamRTP=4; //4 bites para un RTP
+	unsigned int numBitsSegmento = tamRTP*8; /*Numero de bytes del segmento por el numero de bits.*/
 	unsigned int avCodigo=8;
 	unsigned int tamanioArchivo = 64;        
         unsigned int numPaquetesRTP=2;
@@ -20,8 +24,7 @@ int main(){
 	unsigned int irtp;
         unsigned int refRTP;
 	unsigned int bitRef;
-	unsigned int db;
-	unsigned int de;
+	unsigned int p;
 	unsigned int aleatorio;
 	unsigned int posicionInversion;
  
@@ -38,65 +41,39 @@ int main(){
 
         for(irtp=0; irtp < numPaquetesRTP; irtp++ ){
 		/*El tamanio del archivo es de */
+
+		refRTP=tamRTP*irtp;
+		bitRef=0;	
+                unsigned int iteraciones =0;	
+		while((bitRef+avCodigo) <numBitsSegmento){
                 
-                /*Tabajamos con el primer octeto de codigo.*/
-                refRTP=tamRTP*irtp;
-                aleatorio=rand()+1;
-                bitRef=(aleatorio %(avCodigo-2))+1;
+		        /*Tabajamos con el primer octeto de codigo.*/
+		        printf("\n bitRef: %u",bitRef);
+		        aleatorio=rand()+1;
+                        p=(aleatorio %(avCodigo-2))+1;
+		        bitRef+=p;
+                        printf("   p: %u   bitRefConP: %u",p,bitRef);
 		
-           
-  
-	        printf("\n bitRef es -- %u  \n", bitRef);
-		printf("\n El valor aleatorio es  %u  \n", aleatorio);
-
-               /*Si el numero aleatorio es impar...*/
-                if(aleatorio&1){  
-
-	                de= avCodigo -(bitRef+1);	
- 			
-	
- 			if(de!=0){	
-
+			
+		       /*Si el numero aleatorio es impar...*/
+		        if(aleatorio&1){  
 				//Estos son los step y el pos_F.	
-				posicionInversion=(aleatorio%(avCodigo -(bitRef+1))  )+1;
-				bitRef = (bitRef+posicionInversion);
-			
-		                textos[0+irtp*tamRTP]= textos[0+irtp*tamRTP]^(1<<(avCodigo -bitRef-1));
-                                      //  textos[0+irtp*tamRTP]= textos[0+irtp*tamRTP]^(1<<(de - posicionInversion));
-                             
-                                printf("de Obtenido: %u  \n", de );
-                                printf("Posicion Inversion en el de: %u  \n",posicionInversion );
-                                printf("Numero de inversion que se va a aplicar: %u  \n",1<<(avCodigo -bitRef-1 ));
-                                printf("Valor obtenido al final : %u  \n",textos[0+irtp*tamRTP] );
-			}
-			
-                }
-	        /*Si el numero aleatorio es par...*/
-                else{
-
-
-		        db=bitRef;//Bits a la izquierda
-
-
-			if(db!=0){
-
+				posicionInversion=(aleatorio%(avCodigo-p));
+				bitRef+=posicionInversion;
+				printf("   posInversion: %u   bitRefConINversion: %u",posicionInversion,bitRef);
+		        }
+			/*Si el numero aleatorio es par...*/
+		        else{
 				//Estos son los step y el pos_F.
-				posicionInversion=(aleatorio % bitRef)+1;
-			        bitRef = (bitRef-posicionInversion);				
+			        posicionInversion=(aleatorio % p);
+				bitRef-=posicionInversion;
+                                printf("   posInversion: %u   bitRefConINversion: %u",posicionInversion,bitRef);	
+		        }
 
-				textos[0+irtp*tamRTP]= textos[0+irtp*tamRTP]^ (1<<(avCodigo - bitRef-1));
-                                	//textos[0+irtp*tamRTP]= textos[0+irtp*tamRTP]^(1<<(avCodigo - (db-posicionInversion+1)));
-                              
-                                printf("db Obtenido: %u  \n", db );
-                                printf("Posicion Inversion en el db: %u  \n",posicionInversion );
-                                printf("Numero de inversion que se va a aplicar : %u  \n",(1<<(avCodigo - bitRef-1)) );
-                                printf("Valor obtenido al final : %u  \n",textos[0+irtp*tamRTP] );
-			}
-		       
-                }
-
-        }
-
+			textos[refRTP+(bitRef/8)]^=(1<<(avCodigo-(bitRef&7)-1));
+                        printf("   posicionArreglo: %u   cosaestrania: %u",refRTP+(bitRef/8),(1<<(avCodigo-(bitRef&7)-1)));
+		}/*Fin del While.*/
+        }/*Fin dei ciclo que reccorre los bloques.*/
 
 	imprimirArreglo(textos, 8);	
 	return 0;

@@ -1,0 +1,4 @@
+Version2
+Esta version tiene las siguientes caracteristicas.
+-El metodo de cifrado es el de VERONICA: operaciones ACOPLADAS.
+-La generacion de mapas caoticos es aquella donde se utilizan TODOS los octetos.

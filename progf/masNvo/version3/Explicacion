@@ -1,0 +1,4 @@
+Version3
+Esta version tiene las siguientes caracteristicas.
+-El metodo de cifrado es el mio: operaciones separadas, no se optimiza el proceso de intercambio de datos.
+-La generacion de mapas caoticos es aquella donde se utilizan TODOS los octetos.
