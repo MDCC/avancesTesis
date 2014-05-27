@@ -1,50 +1,61 @@
-This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2012/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tesisMDCC.aux
 A level-1 auxiliary file: capitulo1/capitulo1.aux
 A level-1 auxiliary file: capitulo2/capitulo2.aux
+A level-1 auxiliary file: capitulo3/capitulo3.aux
+A level-1 auxiliary file: capitulo4/capitulo4.aux
+A level-1 auxiliary file: capitulo5/capitulo5.aux
 A level-1 auxiliary file: anexos/anexos.aux
-The style file: alpha.bst
-I found no \citation commands---while reading file tesisMDCC.aux
-Database file #1: bibliography/bibliography.bib
-You've used 0 entries,
-            2543 wiz_defined-function locations,
-            561 strings with 4525 characters,
-and the built_in function-call counts, 24 in all, are:
-= -- 0
-> -- 0
+The style file: plain.bst
+Database file #1: bibliography.bib.bib
+Too many commas in name 1 of "T. Addabbo, M. Alioto, A. Fort, A. Pasini, S. Rocchi and V. Vignoli" for entry Addabbo
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "T. Addabbo, M. Alioto, A. Fort, A. Pasini, S. Rocchi and V. Vignoli" for entry Addabbo
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "T. Addabbo, M. Alioto, A. Fort, A. Pasini, S. Rocchi and V. Vignoli" for entry Addabbo
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "T. Addabbo, M. Alioto, A. Fort, A. Pasini, S. Rocchi and V. Vignoli" for entry Addabbo
+while executing---line 1090 of file plain.bst
+You've used 1 entry,
+            2118 wiz_defined-function locations,
+            511 strings with 4371 characters,
+and the built_in function-call counts, 355 in all, are:
+= -- 35
+> -- 13
 < -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 10
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
++ -- 6
+- -- 4
+* -- 28
+:= -- 64
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 5
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 2
-int.to.chr$ -- 1
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+cite$ -- 1
+duplicate$ -- 11
+empty$ -- 28
+format.name$ -- 4
+if$ -- 69
+int.to.chr$ -- 0
+int.to.str$ -- 1
+missing$ -- 1
+newline$ -- 8
+num.names$ -- 2
+pop$ -- 3
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 4
 quote$ -- 0
-skip$ -- 2
+skip$ -- 8
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
+substring$ -- 31
+swap$ -- 1
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 4
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 2
-(There was 1 error message)
+while$ -- 4
+width$ -- 2
+write$ -- 13
+(There were 4 error messages)

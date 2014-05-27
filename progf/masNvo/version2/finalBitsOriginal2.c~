@@ -46,8 +46,14 @@ int main(){
 	/***************** Ahora inicializamos los mapas caóticos Renyi. *******************/
 	unsigned int numeroMapas =4;
 	unsigned int Xn[numeroMapas]; 
-	unsigned char * prtXn = Xn;   //??????????????????????????????????????????????????????????????????????
+	unsigned char * prtXn = Xn;   
 	unsigned int parametros[numeroMapas];
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	unsigned int x1 = 43554;
+	unsigned int parametro1 = 243;
+	unsigned int parametro2= 234;
+	unsigned int x2 = 34344;
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	unsigned int H=0; 
 	unsigned int j=9; /*No mas de 16.*/
 	unsigned int epsilon;
@@ -155,22 +161,11 @@ int main(){
 
 		for(iSeg =NUMSEGMENTOS; iSeg >0; iSeg--){
 
-          
-			if(count>15){                                
-                        	count=0;
-				newH=0;
-				Xn[0]= RENYI_MAP(Xn[0],parametros[0],j)+ (epsilon*H);
-				newH^=Xn[0]; 
-                        	Xn[1]= RENYI_MAP(Xn[1],parametros[1],j)+ (epsilon*H);
-				newH^=Xn[1]; 
-				Xn[2]= RENYI_MAP(Xn[2],parametros[2],j)+ (epsilon*H);
-				newH^=Xn[2]; 
-				Xn[3]= RENYI_MAP(Xn[3],parametros[3],j)+ (epsilon*H);
-				newH^=Xn[3]; 
-				H = newH&255;		
-                        }
+                        x1 = RENYI_MAP(x1,parametro1,j);
+			x2 = RENYI_MAP(x2,parametro2,j);
+                                   
 
-			T = *(prtXn+count) %(iSeg);
+			T =  (x1 & x2) % (iSeg);
 			count++;
 	
 			/*Cambio de indices en el arreglo auxiliar.*/

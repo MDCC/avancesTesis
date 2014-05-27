@@ -4,6 +4,7 @@
 #include <sys/time.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
 /*Este programa es una version final del programa de cifrado con el criterio de tomar
 como referencia el bit de referencia anterior (lo que se vio en la platica en sala H).
@@ -20,7 +21,7 @@ intercambio de datos: se ahorra un ciclo.
 
 /*Prototipos de funciones.*/
 void imprimirArreglo1D(unsigned char *, unsigned int, unsigned int);
-void imprimirArregloIndices(unsigned int *, unsigned int);
+void imprimirArregloIndices(unsigned char *, unsigned int);
 void imprimirArreglofeo(unsigned char * segmentos, unsigned int tam);
 
 int main(){
@@ -31,7 +32,7 @@ int main(){
 	FILE * archivoCifrado;
         unsigned int tamanioArchivo; 
 	if ((archivobin = fopen ("test.mov", "rb")) ==NULL){
-	perror("No se puede abrir binario.dat");
+	perror("No se puede abrir archivo para cifrar.");
 	return -1;
 	}
 	fseek(archivobin,0,SEEK_END);
@@ -40,24 +41,30 @@ int main(){
 	unsigned char * datosArchivo = (unsigned char *)malloc(tamanioArchivo*sizeof(unsigned char));
 	unsigned char * datosAuxiliar = datosArchivo;
 	unsigned char * intercambioDatos = (unsigned char *)malloc(tamanioArchivo*sizeof(unsigned char));
+	unsigned char * intercambioArreglo = intercambioDatos;
 	fread(datosArchivo,1,tamanioArchivo,archivobin);
 	/***********************************************************************************/
 
 	/***************** Ahora inicializamos los mapas caóticos Renyi. *******************/
 	unsigned int numeroMapas =4;
         unsigned int Xn[numeroMapas]; 
-	unsigned char * prtXn = Xn;   
+
+	unsigned int x1 = 43554;
+	unsigned int parametro1 = 243;
+	unsigned int parametro2= 234;
+	unsigned int x2 = 34344;
+
+	unsigned char * prtXn =(unsigned char *) Xn;   
 	unsigned int parametros[numeroMapas];
 	unsigned int H=0; 
 	unsigned int j=9; /*No mas de 16.*/
 	unsigned int epsilon;
-
 	unsigned int i;
         for(i=0; i<tamanioArchivo; i++){
 		intercambioDatos[i] = datosArchivo[i];
 	}
 
-     
+    
 	/*Inicializamos nuestros parametros.*/
 	parametros[0]=131071;
 	Xn[0]=653;
@@ -100,7 +107,7 @@ int main(){
 	unsigned int tamRTP=400; 
 	unsigned int numPaquetesRTP=tamanioArchivo/tamRTP; 
 	//unsigned int Lsegmentos = 20;  /*Segmentos a permutar, orita lo puse fijo.*/
-	unsigned int segmentos[20];
+	unsigned char segmentos[20];
 
         /*Ejemplo de Valores de prueba permitidos para calcular BF.*/
 	unsigned int avCodigo=8;
@@ -117,16 +124,14 @@ int main(){
 	unsigned int numBitsRTP = tamRTP*8; /*Num. de bytes del segmento * numero de bits.*/
 	unsigned int T;  
 	register unsigned int irtp;
-	register unsigned int iTamSeg;
 	unsigned int auxiliar;
-	register unsigned int iSeg;
-	register unsigned int posicion1;
-	register unsigned int posicion2;
+	register unsigned char iSeg;
+        unsigned char * p1;
+	unsigned char * p2;
 	unsigned int bitRef;
 	unsigned int posicionInversion;
-	unsigned int refRTP;
-	unsigned int p;
-	unsigned int count=0;
+	unsigned char p;
+	unsigned char count=0;
         unsigned int limite;
 	/***********************************************************************************/
 
@@ -140,59 +145,53 @@ int main(){
         } 
         printf("Segundos = %ld, Microsegundos = %ld\n",tv1.tv_sec,tv1.tv_usec);
 	/***********************************************************************************/	
+	//imprimirArreglo1D( datosArchivo, tamanioArchivo, tamanioSegmento);
 
 	/*********** Proceso de cifrado para cada uno de los paquetes RTP ******************/
 	for(irtp=0; irtp < numPaquetesRTP; irtp++){
 
                 /*========= Proceso de Inversion de bits ==========================*/
-                refRTP=tamRTP*irtp;
 	        bitRef=0;	
 	        epsilon = (H & 15);
 	
                 while((bitRef+BF)<numBitsRTP){
-                        
-                        if(count > 15){
-                        	count=0;
-				newH=0;
-				Xn[0]= RENYI_MAP(Xn[0],parametros[0],j)+ (epsilon*H);
-				newH^=Xn[0]; 
-                        	Xn[1]= RENYI_MAP(Xn[1],parametros[1],j)+ (epsilon*H);
-				newH^=Xn[1]; 
-				Xn[2]= RENYI_MAP(Xn[2],parametros[2],j)+ (epsilon*H);
-				newH^=Xn[2]; 
-				Xn[3]= RENYI_MAP(Xn[3],parametros[3],j)+ (epsilon*H);
-				newH^=Xn[3]; 
-				H = newH&255;		
-                        }
-                                                           
-                      
-	       	 	p=( *(prtXn+count)  % (BF-2)  ) + 1;
 
-			count++;  
-                             
-                             
-		
-			bitRef+=p;
+			newH=0;
+			Xn[0]= RENYI_MAP(Xn[0],parametros[0],j)+ (epsilon*H);
+			newH^=Xn[0]; 
+                        Xn[1]= RENYI_MAP(Xn[1],parametros[1],j)+ (epsilon*H);
+			newH^=Xn[1]; 
+			Xn[2]= RENYI_MAP(Xn[2],parametros[2],j)+ (epsilon*H);
+			newH^=Xn[2]; 
+			Xn[3]= RENYI_MAP(Xn[3],parametros[3],j)+ (epsilon*H);
+			newH^=Xn[3]; 
+			H = newH&255;
 
 
-			/*Si un numero aleatorio es impar...*/
-			if(p&1){  
-                           posicionInversion = bitRef+( *(prtXn+count)  % (BF-p));  
-                                                                                 
-				
+			for( count=0; (count < 16)&&((bitRef+BF) < numBitsRTP); ) { 
+                           
+		                p=( prtXn[count]  % (BF-2)  ) + 1;
+
+				bitRef+=p;
+                                count++;  
+				/*Si un numero aleatorio es impar...*/
+				if(p&1){  
+		                	posicionInversion = bitRef+( prtXn[count]  % (BF-p));                                                       
+				}
+				/*Si el un numero aleatorio es par...*/
+				else{
+		                	posicionInversion = bitRef-( prtXn[count]  % p);			
+				}
+
+		                datosAuxiliar[posicionInversion>>3]^=flip[posicionInversion & 7];    
+		                count++;  
+                            
 			}
-			/*Si el un numero aleatorio es par...*/
-			else{
-                           posicionInversion = bitRef-( *(prtXn+count)  % p);		
-			}
-                        
-                 
-                        datosAuxiliar[posicionInversion>>3]^=flip[posicionInversion & 7];  
-                        count++;                      
+
+
                 }/*Fin del ciclo while para inversion de bits en el segmento.*/
 
-		
-                      
+	
 		/*========= Proceso de Permutacion ========================================*/
 		/*Primero, iniciamos el arreglo referencia.*/	
                 segmentos[0]=0;   segmentos[1]=1;   segmentos[2]=2;   segmentos[3]=3; 
@@ -201,6 +200,7 @@ int main(){
                 segmentos[12]=12; segmentos[13]=13; segmentos[14]=14; segmentos[15]=15; 
                 segmentos[16]=16; segmentos[17]=17; segmentos[18]=18; segmentos[19]=19; 
 	       	
+
                 /*limite se utiliza para ahorrar restas en el ciclo.*/
                 limite=NUMSEGMENTOS-1;
                 /*El ciclo realiza lo que dice al paper: aplicar intercambio hasta el
@@ -208,64 +208,47 @@ int main(){
 		tiene con quien intercambiarse.*/
 		for(iSeg =limite; iSeg >0; iSeg--){
         
-                          if(count > 15){
-                        	count=0;
-				newH=0;
-				Xn[0]= RENYI_MAP(Xn[0],parametros[0],j)+ (epsilon*H);
-				newH^=Xn[0]; 
-                        	Xn[1]= RENYI_MAP(Xn[1],parametros[1],j)+ (epsilon*H);
-				newH^=Xn[1]; 
-				Xn[2]= RENYI_MAP(Xn[2],parametros[2],j)+ (epsilon*H);
-				newH^=Xn[2]; 
-				Xn[3]= RENYI_MAP(Xn[3],parametros[3],j)+ (epsilon*H);
-				newH^=Xn[3]; 
-				H = newH&255;		
-                        }
+                        x1 = RENYI_MAP(x1,parametro1,j);
+			x2 = RENYI_MAP(x2,parametro2,j);
                             
-
-
-			T =  *(prtXn+count)  %(iSeg);
-
-			count++;
-                   
-			/*Cambio de indices en el arreglo auxiliar.*/
+			T =  (x1 & x2) %(iSeg);
+			
 		        auxiliar = segmentos[iSeg];
 			segmentos[iSeg] = segmentos[T];
 			segmentos[T] = auxiliar;
-
-                        /*Ahora se hace intercambio con el valor del ultimo elemento.*/
-                        posicion1=tamanioSegmento*segmentos[iSeg];
-		       	posicion2=tamanioSegmento*(iSeg) + refRTP;
-			for(iTamSeg=0; iTamSeg<tamanioSegmento; iTamSeg++){
-		                intercambioDatos[posicion2 + iTamSeg]=datosAuxiliar[posicion1+iTamSeg];
-			}   
-                        
+   
 		}/*Fin del for que recorre los segmentos del paquete RTP.*/
 
-                /*Ahora, como el ciclo anterior no toma en cuenta el primer elemento, es
-                necesario aplicar el intercambio en esta posicion...*/
-                posicion1=tamanioSegmento*segmentos[0];
-		posicion2=refRTP;
-		for(iTamSeg=0; iTamSeg<tamanioSegmento; iTamSeg++){
-			intercambioDatos[posicion2 + iTamSeg]=datosAuxiliar[posicion1+iTamSeg];
-		}     
-                
-        	/*Ahora, datosAuxiliar se mueve al siguiente paquete RTP.*/
-        	datosAuxiliar+= tamRTP;       
 
+		p2 =intercambioArreglo;
+		for(iSeg=0; iSeg<NUMSEGMENTOS; iSeg++){
+                        p1 =datosAuxiliar + tamanioSegmento*segmentos[iSeg];
+			memcpy(p2,p1, tamanioSegmento);
+		        p2+= tamanioSegmento; 
+		   
+		}/*Fin del for para la permutacion de segmentos*/
+
+
+        	/*Ahora, datosAuxiliar se mueve al siguiente paquete RTP.*/
+        	datosAuxiliar+= tamRTP; 
+		intercambioArreglo+=tamRTP;  
+		      
 	}/*Fin del ciclo de paquetes RTP.*/
 	/***********************************************************************************/
 
+	//imprimirArreglo1D( intercambioDatos, tamanioArchivo, tamanioSegmento);
  
-        /******************** Estructuras para medir el tiempo de calculo ******************/
+    /******************** Estructuras para medir el tiempo de calculo ******************/
         if (gettimeofday(&tv2,0) == -1) {
 		printf("ERROR time2\n");
 		exit(1);
 	}
 	printf("Segundos = %ld, Microsegundos = %ld\n",tv2.tv_sec,tv2.tv_usec);
+
 	
 	/*Tiempo transcurrido.*/
 	if (tv1.tv_usec > tv2.tv_usec) {  
+		//printf(" ======= \n");
 		tv2.tv_usec += 1000000;
 		tv2.tv_sec--; 
 	} 
@@ -275,9 +258,11 @@ int main(){
 	tusec = (tv2.tv_usec - tv1.tv_usec)/1000.;
 	
 	printf("MIlisegundos de tv_sec= %f, MIlisegundos de tv_usec = %f, TIempo total = %f Milisegundos \n",tsec,tusec,tsec+tusec);
-	printf("Megabits/sec = %f \n",((numPaquetesRTP*tamRTP*8)/(1000.0*1000.0))/((tsec + tusec)/1000.));
+	printf("Megabits/sec = %f \n",((numPaquetesRTP*tamRTP*8)/(1000.0*1000.0))/((tsec + tusec)/1000.0));
 	/***********************************************************************************/
    
+
+    
 	/*****************************Escritura de resultados*******************************/
         archivoCifrado =  fopen("cifrado.mov", "wb");
 	fwrite(intercambioDatos, 1,tamanioArchivo,archivoCifrado);
@@ -304,7 +289,7 @@ void imprimirArreglofeo(unsigned char * segmentos, unsigned int tam){
 }
 
 
-void imprimirArregloIndices(unsigned int * segmentos, unsigned int tam){
+void imprimirArregloIndices(unsigned char * segmentos, unsigned int tam){
         unsigned int i;
         printf("\n");
 	for( i =0; i<tam; i++){
@@ -332,3 +317,72 @@ void  imprimirArreglo1D( unsigned char *A, unsigned int tamanio, unsigned int ta
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------
+
+/*========= Proceso de Permutacion ========================================*/
+		/*Primero, iniciamos el arreglo referencia.*/	
+                //segmentos[0]=0;       segmentos[1]=1;   segmentos[2]=2;   segmentos[3]=3; 
+                //segmentos[4]=4;       segmentos[5]=5;   segmentos[6]=6;   segmentos[7]=7; 
+                //segmentos[8]=8;       segmentos[9]=9;   segmentos[10]=10; segmentos[11]=11; 
+                //segmentos[12]=12;     segmentos[13]=13; segmentos[14]=14; segmentos[15]=15; 
+                //segmentos[16]=16;     segmentos[17]=17; segmentos[18]=18; segmentos[19]=19; 
+	       	
+                /*limite se utiliza para ahorrar restas en el ciclo.*/
+                //limite=NUMSEGMENTOS-1;
+                /*El ciclo realiza lo que dice al paper: aplicar intercambio hasta el
+                segundo elemento, el primero no tiene caso porque no 
+		tiene con quien intercambiarse.*/
+           //for(iSeg =limite-1;iSeg > 0; iSeg--) {
+       
+			//X = RENYI_MAP(H,parametroShuffling1,jShuffling1);
+			//Y = RENYI_MAP(H,parametroShuffling2,jShuffling2);
+                
+                
+			//T =  (prtX & prtY) % (iSeg);
+
+		     //auxiliar = segmentos[iSeg];  // segmentos hacer unsigned char
+			//segmentos[iSeg] = segmentos[T];
+			//segmentos[T] = auxiliar;
+            //}  
+    
+		//}/*Fin del for que recorre los segmentos del paquete RTP.*/
+
+           // llenar pkt
+           //for(count = 0;count < limite;count++) {
+                /*Ahora se hace intercambio con el valor del ultimo elemento.*/
+			//memcpy(datosPkt[count],datosAuxiliares[segmento[count]]);
+                //datosAuxiliares[segmento[count]]) += tamRTP; 
+		 //} 
+      
+  
+	//}/*Fin del ciclo de paquetes RTP.*/
+	/***********************************************************************************/

@@ -1,3 +1,10 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{Addabbo}
+A.~Fort A. Pasini S.~Rocchi T.~Addabbo, M.~Alioto and V.~Vignoli.
+\newblock A class of maximum-periodo nonlinear congruential generators derived
+  from the rényi chaotic map.
+\newblock {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS}, 54(4):816--828,
+  2007.
 
 \end{thebibliography}
