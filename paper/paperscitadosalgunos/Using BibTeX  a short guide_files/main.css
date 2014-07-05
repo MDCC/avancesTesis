@@ -1,0 +1,120 @@
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	color: #ff9900;
+}
+
+a:visited {
+	color: #ff0000;
+}
+
+a:hover {
+	color: #cc0000;
+	background: #ffcc99;
+}
+
+UL.GS {
+	list-style-type:square;
+	padding-bottom: 0em;
+	padding-top: 0;
+}
+
+UL.GS LI {
+	color:#BBBBBB;
+	padding-top: 0.3em;
+	padding-bottom: 0em;
+}
+
+H2 {
+	color: #000000; 
+	font-family: Tahoma,Arial,Helvetica,sans-serif; 
+	font-weight: normal;
+}
+
+table.main {
+	font-size: 15px;
+	width: 800;
+	padding: 0em 0em;
+	border-collapse: collapse;
+}
+
+table.main td {
+	padding: 0em 0.5em;
+	vertical-align: baseline;
+	line-height: 140%;
+}
+
+table.main td.left {
+	padding: 0.3em 0.5em;
+	vertical-align: baseline;
+	text-align: right;
+	width: 110;
+	background-color: #bbbbbb;
+	color: #bbbbbb;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+}
+
+table.main tr {
+	align: top;
+	padding: 0em 0em;
+	padding-bottom: 0em;
+	padding-top: 0em;
+}
+
+
+span.highlight {
+	background-color: #ffff33;
+}
+
+dl.bold dt {
+	font-weight: bold;
+	padding-top: 0.5em;
+}
+
+div.navigation {
+  clear: both;
+  /* position: absolute;*/
+  /*float: left;*/
+  /*padding-left: 5px;*/
+  /*padding-right: 5px;*/
+  /* width: 18%;*/
+  /*font-family: Verdana, Geneva, Lucida, Helvetica, Arial, sans-serif;*/
+  /*background-color: #333399;*/
+  /*color: #CC4400;*/
+}
+
+.navigation .links {
+  text-align: right;
+  color: #CC4400;
+}
+
+div.navigation a:link {
+  text-decoration: none;
+  color: #CC4400;
+}
+
+div.navigation a:visited {
+  text-decoration: none;
+  color: #CC4400;
+}
+
+div.navigation a:hover {
+  background: white;
+  color: #CC4400;
+}
+
+
+div.navigation a.inactive {
+  color: #FF6633;
+}
+
+
+

@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0049)http://www.ece.ucdavis.edu/~jowens/biberrors.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta http-equiv="Content-Script-Type" content="text/javascript" charset="US-ASCII">
+    <title>Common Errors in Bibliographies</title>
+    <link rel="stylesheet" href="./Common Errors in Bibliographies_files/balletstyles.css" type="text/css">
+  </head>
+  <body> <!--bgcolor="#000000" text="#ffffff" link="#ffffff" vlink= "#999999">-->
+
+    <div id="mainpane">
+      <div id="onecol">
+	<h1>Common Errors in Bibliographies <span class="accent">John Owens</span></h1>
+
+	<p>First: Issues in text: how to cite properly.</p>
+
+	<ol>
+
+	  <li><p><b>Citations as words</b>: Huge pet peeve: Using
+	      citations as words. van Leunen: “Brackets
+	      are not words. A bracketed number is just a pointer, not
+	      a word. Never, ever, use a bracketed number as if it
+	      were the name of an author or a work.” (p. 20). So
+	      instead of “A similar strategy is described in
+	      [15].”), use instead “A similar strategy is
+	      discussed by AuthorOne et al. [15]”.
+
+	      The way you can get this right in your head is
+	      considering a journal that does citations as
+	      superscripts (like the old Graphics Hardware style). It
+	      looks really stupid to say “A similar strategy is
+	      discussed by <sup>15</sup>.” I don't like this
+	      particular style for citation, but it does make sure
+	      citations aren't used as words.
+	  </p></li>
+
+	  <li><p><b>Citing with LaTeX</b>: When writing citations in
+	      LaTeX, do them in this form:</p>
+
+	    <div id="onecolwide">
+	      <p><tt>text text text~\cite{Foo:2000:BAR}</tt></p></div>
+
+	    <p>The ~ means non-breaking space (which is what you
+	      want—you don't want a linebreak between the text and
+	      the
+	      citation).</p>
+
+	    <p>Also,
+	      do</p>	    <div id="onecolwide">
+	      <p> <tt>\cite{AuthorOne:2000:ABC,AuthorTwo:2002:DEF}</tt></p></div>
+	    <p>instead of</p>
+	    <div id="onecolwide">
+	      <p><tt>\cite{AuthorOne:2000:ABC}\cite{AuthorTwo:2002:DEF}.</tt></p></div>
+
+	    <p>Always alphabetize grouped citations so they
+	      appear in numerical order (instead of [8, 6, 10],
+	      arrange the citations so it looks like [6, 8,
+	      10]). <tt>\usepackage{cite}</tt> supposedly puts them in
+	      proper order for you automatically (!) and also changes
+	      [1,2,3,4,6] to [1–4,6] which is handy.</p></li>
+
+	  <li><p><b>Shortcite</b>: Use <tt>\shortcite</tt> when
+	      appropriate. <tt>\shortcite</tt> is used in sentences
+	      like “AuthorOne discusses this point further in
+	      her dissertation [AuthorOne 2002].” It looks silly
+	      to put AuthorOne's name twice. Instead,
+	      use <tt>\shortcite{AuthorOne:2002:AOT}</tt>, which makes
+	      the sentence “AuthorOne discusses this point
+	      further in her dissertation [2002].” Of course
+	      this only makes sense if you are using a citation format
+	      that lists author name / year (like Siggraph or most
+	      dissertation formats).
+	    </p>
+
+	    <p>I always use <tt>\shortcite</tt> in my text even when
+	      my bib style doesn't support it, in which case I use the
+	      following fix in my LaTeX preamble (this
+	      defines <tt>\shortcite</tt> if it's not already defined,
+	      otherwise it has no effect):</p>
+
+	    <div id="onecolwide">
+	      <p><tt>\providecommand{\shortcite}[1]{\cite{#1}}</tt></p>
+	    </div>
+
+	    <p>If you don't have this command, you'll see an error
+	      like:</p>
+
+	    <div id="onecolwide">
+	      <p><tt>! Undefined control sequence.<br>
+		  l.123 ...blah blah Author1 and Author2~\shortcite
+                  {Author1:1999:ABC} blah...</tt></p></div></li>
+
+	  <li><p><b>Sorting your references</b>: If at all possible,
+	      arrange your reference list in
+    	      alphabetical order by author's last name. Going in cited
+	      order is much less useful to readers of your paper. The
+	      only reason I've heard that cited-order is useful is in
+	      a survey article where nearby (and presumably related)
+	      citations from the paper are next to each other in the
+	      bibliography. I don't find this argument particularly
+	      compelling.
+	  </p></li>
+
+	</ol>
+
+	<p>Next: issues with bibliographies (your .bib file). Big
+	  picture: Don't trust the digital library to give you a perfect
+	  .bib file. Both ACM and IEEE (as well as many others) screw up
+	  bibliography entries in delightfully creative ways.</p>
+
+	<ol>
+
+	  <li><p><b>Names</b>: Make the names in the bibliography
+	      match what is printed on the paper. If the paper
+	      has <tt>First M. Last</tt> as the author, put that in
+	      your bibliography. If it has initials, use those. If it
+	      has crazy umlauts and accents, use those too. If it has
+	      initials, make sure they are separated by spaces:
+	      use <tt>J. D. Owens</tt> rather than <tt>J.D.
+		Owens</tt>. The latter leads bibtex to believe the first
+	      name is <tt>J.D.</tt> with no middle name/initial. (And
+	      then if your bibstyle abbreviates first names, you'll
+	      just get the initial <tt>J.</tt> without the middle
+	      initial, since bibtex doesn't think you have a middle
+	      name.)</p>
+
+	    <p>For hyphenated names with the second half uncapitalized
+	      (Wu-chun Feng, Wen-mei Hwu), put the hyphen and second
+	      half in brackets: <tt>Wu-{chun} Feng</tt>, <tt>Wen{-mei}
+	        Hwu</tt>.</p>
+
+	  </li>
+
+	  <li><p><b>Capitalization in titles</b>: Just like with
+	      authors, the capitalization on titles in your bibtex file
+	      should match what's on the paper. <b>The bib
+		style should enforce capitalization, not your
+		bibliography</b>—your bib should faithfully
+	      represent what's printed on the paper. </p>
+
+	    <p>Also, make sure, in your BibTeX file, that you
+	      properly bracket <tt>{}</tt> words in titles that must
+	      be capitalized, like GPU or PDE, or proper names.
+	      Example (the “Loop” should always be
+	      capitalized since it's a last name):</p>
+
+	    <div id="onecolwide">
+	      <p>
+		<tt>
+		  @inproceedings{Bischoff:2000:THI,<br>
+		  author = "Stephan Bischoff and Leif P. Kobbelt and Hans-Peter Seidel",<br>
+		  title = "Towards Hardware Implementation Of {L}oop Subdivision",
+		</tt>
+	      </p>
+	    </div>
+
+	    <p>You don't have to do this with venues (or anything
+	      else), just the title.</p>
+
+	    <p>Resist the temptation to double-brace the
+	      entire title as a manner of course: <tt>{{Title Title with
+		Title}}</tt>. This guarantees your title will always be
+	      capitalized. But many bib styles downcase all titles, in
+	      which case your title will stick out like a sore thumb.
+	      Instead, just put your title in single-braces or quotes
+	      and let the bib style do the right thing. </p>
+
+	    <p>(What is the right thing? In the US, publishers
+	      capitalize most words in titles [title case]; in the UK,
+	      publishers use the same capitalization rules as normal
+	      sentences [sentence case].
+	      [<a href="http://en.wikipedia.org/wiki/Title_case#Headings_and_publication_titles">Wikipedia
+		link.</a>] Markus
+	      Kuhn's <a href="http://www.cl.cam.ac.uk/~mgk25/publ-tips/#typography">thoughts
+		on the subject</a> are congruent with mine, that sentence
+	      case is preferable from an information-theoretic point of
+	      view, but in practice, authors should follow the
+	      conventions of their publication venue.)</p>
+
+	    <p>If the title is in all-caps, I usually rewrite it in
+	      title case.</p>
+
+	    <p>[ <a href="http://www.tex.ac.uk/cgi-bin/texfaq2html?label=capbibtex">Capitalisation
+		in BibTeX, from the TeX FAQ</a> ]</p></li>
+
+	  <li><p><b>Venues</b>: Both ACM and IEEE screw up venue names
+	      in
+	      different ways. Here's how IEEE formatted a recent venue
+	      name in a recent paper of mine:</p>
+
+	    <div id="onecolwide">
+	      <p><tt>booktitle={Intelligent Vehicles Symposium (IV),
+		  2011 IEEE},</tt>
+	    </p></div>
+
+	    <p><i>Never use the ACM or IEEE digital library's
+		citations
+		without fixing them.</i> For some reason the First
+	      Society of Computing and the World's Largest
+	      Professional Association for the Advancement of
+	      Technology have zero interest in making their
+	      capitalization correct. For instance,
+	      the <a href="http://portal.acm.org/citation.cfm?id=346883&coll=ACM&dl=ACM&CFID=30100801&CFTOKEN=20359021#">first
+		paper I ever wrote</a>, according to ACM, has the
+	      following title and booktitle:</p>
+
+	    <div id="onecolwide">
+	      <p><tt>title =
+		  {Polygon rendering on a stream architecture},<br>
+		  booktitle = {HWWS '00: Proceedings of the ACM
+		  SIGGRAPH/EUROGRAPHICS workshop on Graphics
+		  hardware},</tt></p></div>
+
+	    <p>when the paper has the major words in the title
+	      capitalized, and “workshop” and
+	      “hardware” should both be capitalized in the
+	      booktitle. I often review papers where citations have
+	      been taken directly from ACM with bizarre capitalization
+	      particularly in the booktitle. Fix these before you
+	      submit a paper.</p></li>
+
+	  <li><p><b>Months</b>: Include the month of publication
+	      in your bibliographies (simply for your own records: when
+	      you have two papers talking about a similar idea, one in
+	      January and one in November of the same year, maintaining
+	      the month lets you determine which came first. </p>
+
+	    <p>Always use three-letter abbreviations without quotes
+	      for months. These are built into bibtex. They allow the
+	      bib style to actually know what month it is, so the bib
+	      style can enforce a consistent style across all
+	      citations (1/2012? Jan. 2012? January 2012? Januar 2012
+	      [foreign language]?).</p>
+
+	    <div id="onecolwide">
+	      <p>
+		<tt>
+		  month = mar, <span style="color:blue">% most common - single month</span><br>
+		  month         = jun # "\slash "  # jul,  <span style="color:blue">% two months</span><br>
+		  month         = "18~"  # dec   <span style="color:blue">% day/month</span>
+		</tt>
+	      </p>
+	    </div>
+
+	    <p>Digital libraries often get these wrong (IEEE
+	      uses <tt>month={june}</tt>).</p></li>
+
+	  <li><p><b>Pages</b>: Always include pages if pages are
+	      available. Ranges of pages use the en-dash to separate
+	      them (that's two dashes): <tt>35--49</tt>. Some
+	      non-printed proceedings only assign a paper number, so
+	      for those I typically see (and use) something
+	      like <tt>12:1--12:10</tt>, where <tt>12</tt> is the
+	      paper number and the paper has <tt>10</tt> pages.</p>
+
+	    <p>Also, if the bib source says that your paper starts on
+	      page 1, double-check it. Make sure that it doesn't list
+	      every paper in the conference/journal starting on page 1
+	      (like the rocket scientists at IPDPS 2009 who decided it
+	      would be a good idea to assign neither page numbers nor
+	      paper IDs
+	      [<a href="http://dx.doi.org/10.1109/IPDPS.2009.5161065">example</a>]).
+	      It's a little embarrassing when you cite two papers in your
+	      article and they both start on page 1 of the same
+	      conference. (Usually, you should figure out the paper
+	      number <tt>n</tt> in the conference and
+	      use <tt>n:1--n:10</tt>. If you can't make your page numbers
+	      unique, leave them out entirely.)</p></li>
+
+	  <li><p><b>DOIs</b>: DOIs uniquely identify a paper. Even
+	      if your style doesn't use them, you should record them
+	      in your bibtex file. Store them as the numbers only (DOIs
+	      have the
+	      format <tt>http://dx.doi.org/numbers/numbers</tt>; store
+	      the part after <tt>http://dx.doi.org/</tt> only).
+	      Bibliography tools seem to use this format predominantly.</p></li>
+
+	  <li><p><b>URLs</b>: If you're putting a URL into your bibliography,
+	      wrap it in <tt>\url{}</tt> (and
+	      put <tt>\usepackage{url}</tt> in your LaTeX preamble) so
+	      it wraps nicely. If you add a DOI with a <tt>doi</tt>
+	      tag, you don't need to add the DOI as <tt>url</tt> as
+	      well.</p></li>
+
+	</ol>
+
+	<p>Let's see where digital libraries get these things
+	  wrong! Corrections are in blue.</p>
+
+	<div id="onecolwide">
+	  <p><b>IEEE:</b><br>
+	    <tt>@INPROCEEDINGS{5940539,<br>
+	      author={Glavtchev, V. and Muyan-Ozcelik, P. and Ota, J.M. and Owens, J.D.},<br>
+	      <span style="color:blue">  author        = {Vladimir Glavtchev and P{\i}nar Muyan-{\"{O}}z{\c{c}}elik
+                and Jeffery M. Ota and John D. Owens},</span><br>
+	      booktitle={Intelligent Vehicles Symposium (IV), 2011 IEEE},<br>
+	      <span style="color:blue">  booktitle     = {Proceedings
+		of the 2011 IEEE Intelligent Vehicles                  Symposium},
+	      </span><br>
+	      title={Feature-based speed limit sign detection using a graphics processing unit},<br>
+	      <span style="color:blue">  title         = {Feature-Based Speed Limit Sign Detection Using a Graphics
+                Processing Unit},
+	      </span><br>
+	      year={2011},<br>
+	      month={june},<br>
+	      <span style="color:blue">month=jun,</span><br>
+	      volume={},<br>
+	      number={},<br>
+	      pages={195 -200},<br>
+	      <span style="color:blue">pages={195--200},</span><br>
+	      doi={10.1109/IVS.2011.5940539},<br>
+	      ISSN={1931-0587},<br>
+	      }</tt></p></div>
+
+	<p>Problems with IEEE: Did not use the names that were printed
+	  on the paper; did not put accents on proper characters; did
+	  not separate first initial and middle initial with a space;
+	  venue title is strangely wrapped around with the comma; did
+	  not capitalize paper title as it was on the paper; did not
+	  use bibtex month abbreviations; did not use en-dash to
+	  separate out page numbers.</p>
+
+	<div id="onecolwide">
+	  <p><b>ACM:</b><br>
+	    <tt>@inproceedings{Davidson:2011:RPC:1964179.1964185,<br>
+	      author = {Davidson, Andrew and Owens, John D.},<br>
+	      title = {Register packing for cyclic reduction: a case study},<br>
+	      <span style="color:blue">  title         = {Register Packing for Cyclic Reduction: A Case Study},
+	      </span><br>
+	      booktitle = {Proceedings of the Fourth Workshop on General Purpose Processing on Graphics Processing Units},<br>
+	      series = {GPGPU-4},<br>
+	      year = {2011},<br>
+	      isbn = {978-1-4503-0569-3},<br>
+	      location = {Newport Beach, California},<br>
+	      pages = {4:1--4:6},<br>
+	      articleno = {4},<br>
+	      numpages = {6},<br>
+	      <s>url = {http://doi.acm.org/10.1145/1964179.1964185},</s><br>
+	      doi = {http://doi.acm.org/10.1145/1964179.1964185},<br>
+	      <span style="color:blue">	      doi = {10.1145/1964179.1964185},</span><br>
+	      acmid = {1964185},<br>
+	      publisher = {ACM},<br>
+	      address = {New York, NY, USA},<br>
+	      }</tt></p></div>
+
+	<p>Problems with ACM: Did
+	  not capitalize paper title as it was on the paper; added a
+	  URL that's redundant with the DOI; did not store DOI as
+	  numbers only. Notable: On this paper, ACM got the venue
+	  capitalization correct!</p>
+
+	<p>Also
+	  see <a href="http://freedom-to-tinker.com/blog/dwallach/public-service-rant-please-fix-your-bibliography">Dan
+	    Wallach</a>'s thoughts on the matter.</p>
+
+	<p>
+	  <a href="http://www.ece.ucdavis.edu/~jowens/">John Owens</a> |
+	  Last updated <script language="JavaScript">
+	    <!--
+	        document.write(document.lastModified);
+	        // -->
+	  </script>08/12/2013 03:39:14.
+	</p>
+      </div>
+    </div>
+  
+
+</body></html>

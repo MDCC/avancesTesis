@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://en.wikibooks.org/wiki/LaTeX/Hyperlinks -->
+<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>LaTeX/Hyperlinks - Wikibooks, open books for an open world</title>
+<meta name="generator" content="MediaWiki 1.24wmf7">
+<link rel="alternate" type="application/x-wiki" title="Edit" href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit">
+<link rel="edit" title="Edit" href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit">
+<link rel="shortcut icon" href="http://bits.wikimedia.org/favicon/wikibooks.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://en.wikibooks.org/w/opensearch_desc.php" title="Wikibooks (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikibooks.org/w/api.php?action=rsd">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Wikibooks Atom feed" href="http://en.wikibooks.org/w/index.php?title=Special:RecentChanges&feed=atom">
+<link rel="canonical" href="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/LaTeX Hyperlinks - Wikibooks, open books for an open world.html">
+<link rel="stylesheet" href="http://bits.wikimedia.org/en.wikibooks.org/load.php?debug=false&lang=en&modules=ext.flaggedRevs.basic%7Cext.gadget.extlinks%2CmySandbox%7Cext.geshi.language.latex%7Cext.geshi.local%7Cext.rtlcite%2Cwikihiero%7Cext.uls.nojs%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles&only=styles&skin=vector&*">
+<style>
+@-webkit-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-webkit-transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0)}}@-moz-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-moz-transform:translateY(-20px)}100%{opacity:1;-moz-transform:translateY(0)}}@-o-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-o-transform:translateY(-20px)}100%{opacity:1;-o-transform:translateY(0)}}@keyframes centralAuthPPersonalAnimation{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}.centralAuthPPersonalAnimation{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:centralAuthPPersonalAnimation;-moz-animation-name:centralAuthPPersonalAnimation;-o-animation-name:centralAuthPPersonalAnimation;animation-name:centralAuthPPersonalAnimation}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:0dcacc990dd02e7db9669ab3090b80f1 */
+.uls-menu a{cursor:pointer}.uls-menu.callout .caret-before{border-top:20px solid transparent;border-right:20px solid #C9C9C9;border-bottom:20px solid transparent;display:inline-block;left:-21px;top:30px;position:absolute}.uls-menu.callout .caret-after{border-top:20px solid transparent;border-right:20px solid #FCFCFC;border-bottom:20px solid transparent;display:inline-block;left:-20px;top:30px;position:absolute}.uls-ui-languages button{width:23%;text-overflow:ellipsis;margin-right:4%}button.uls-more-languages{width:auto}.settings-title{font-size:11pt}.settings-text{color:#555555;font-size:9pt}div.display-settings-block:hover .settings-text{color:#252525}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:22d1681fa868b4ff4fbcb1ec1e58a9ea */
+.tipsy{padding:5px;position:absolute;z-index:100000;cursor:default}.tipsy-inner{padding:5px 8px 4px 8px; background-color:#ffffff;border:solid 1px #a7d7f9;color:black;max-width:15em;border-radius:4px; }.tipsy-arrow{position:absolute;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALAgMAAADUwp+1AAAACVBMVEX5+fmn1/n///9s6BFKAAAAAXRSTlMAQObYZgAAACpJREFUCB1jZBD4wMiQMoeRcUU4I9uSaYxSE54xZjn8AtMgPkgcJA9UBwAeDw1Qrb3pVAAAAABJRU5ErkJggg==) no-repeat top left;background:url(//bits.wikimedia.org/static-1.24wmf7/resources/src/jquery.tipsy/images/tipsy.png?2014-05-29T15:05:00Z) no-repeat top left!ie;width:11px;height:6px} .tipsy-n .tipsy-arrow{top:0px;left:50%;margin-left:-5px} .tipsy-nw .tipsy-arrow{top:1px;left:10px} .tipsy-ne .tipsy-arrow{top:1px;right:10px} .tipsy-s .tipsy-arrow{bottom:0px;left:50%;margin-left:-5px;background-position:bottom left} .tipsy-sw .tipsy-arrow{bottom:0px;left:10px;background-position:bottom left} .tipsy-se .tipsy-arrow{bottom:0px;right:10px;background-position:bottom left} .tipsy-e .tipsy-arrow{top:50%;margin-top:-5px;right:1px;width:5px;height:11px;background-position:top right} .tipsy-w .tipsy-arrow{top:50%;margin-top:-5px;left:0px;width:6px;height:11px}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:6d3b0668ba20a341d787085a7f65c043 */
+@media print{#centralNotice{display:none}}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:ddb0c98a055632ae8e349c9cf48ac703 */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(//bits.wikimedia.org/static-1.24wmf7/resources/src/mediawiki.action/images/green-checkmark.png?2014-05-29T15:05:00Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:5f598e5ec19275aa6d4e8a1f968b7784 */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:869aa9133c31e6040d4830b259da96a8 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:9f9511aa4ef920d34591113e825e6a1e */
+#container{position:relative;min-height:100%}#container,video{width:100%;height:100%}#playerContainer{overflow:hidden;position:relative;height:100%;background:#000}#videoHolder{position:relative;overflow:hidden}.fullscreen #playerContainer{position:absolute !important;width:100% !important;height:100%! important;z-index:9999;min-height:100%;top:0;left:0;margin:0}.mwEmbedPlayer{width:100%;height:100%;overflow:hidden;position:absolute;top:0;left:0}.modal_editor{ left:10px;top:10px;right:10px;bottom:10px;position:fixed;z-index:100}.displayHTML a:visited{color:white}.loadingSpinner{width:32px;height:32px;display:block;padding:0px;background-image:url(//bits.wikimedia.org/static-1.24wmf7/extensions/MwEmbedSupport/MwEmbedModules/MwEmbedSupport/skins/common/images/loading_ani.gif?2014-05-29T15:08:20Z)}.mw-imported-resource{border:thin solid black}.kaltura-icon{background-image:url(//bits.wikimedia.org/static-1.24wmf7/extensions/MwEmbedSupport/MwEmbedModules/MwEmbedSupport/skins/common/images/kaltura_logo_sm_transparent.png?2014-05-29T15:08:20Z) !important;background-repeat:no-repeat;display:block;height:12px;width:12px;margin-top:2px !important;margin-left:3px !important}.mw-fullscreen-overlay{background:rgb(0,0,0) none repeat scroll 0% 0%;position:fixed;top:0pt;left:0pt;width:100%;height:100%;-moz-background-clip:border;-moz-background-origin:padding;-moz-background-inline-policy:continuous} .play-btn-large{width:70px;height:53px;background :url(//bits.wikimedia.org/static-1.24wmf7/extensions/MwEmbedSupport/MwEmbedModules/MwEmbedSupport/skins/common/images/player_big_play_button.png?2014-05-29T15:08:20Z);position :absolute;cursor :pointer;border :none !important;z-index :1}.play-btn-large:hover{background :url(//bits.wikimedia.org/static-1.24wmf7/extensions/MwEmbedSupport/MwEmbedModules/MwEmbedSupport/skins/common/images/player_big_play_button_hover.png?2014-05-29T15:08:20Z)}.carouselContainer{position :absolute;width :100%;z-index :2}.carouselVideoTitle{position :absolute;top :0px;left :0px;width :100%;background :rgba(0,0,0,0.8);color :white;font-size :small;font-weight :bold;z-index :2}.carouselVideoTitleText{display :block;padding :10px 10px 10px 20px}.carouselTitleDuration{position :absolute;top :0px;right :0px;padding :2px;background-color :#5A5A5A;color :#D9D9D9;font-size :smaller;z-index :2}.carouselImgTitle{position :absolute;width :100%;text-align :center;color :white;font-size :small;background :rgba(0,0,0,0.4)}.carouselImgDuration{position :absolute;top :2px;left :2px;background :rgba( 0,0,0,0.7 );color :white;padding :1px 6px;font-size :small}.carouselPrevButton,.carouselNextButton{display :block;position :absolute;bottom:23px}.carouselPrevButton{left :5px}.carouselNextButton{right:6px}.alert-container{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background-image:linear-gradient(bottom,rgb(215,215,215) 4%,rgb(230,230,230) 55%,rgb(255,255,255) 100%);background-image:-o-linear-gradient(bottom,rgb(215,215,215) 4%,rgb(230,230,230) 55%,rgb(255,255,255) 100%);background-image:-moz-linear-gradient(bottom,rgb(215,215,215) 4%,rgb(230,230,230) 55%,rgb(255,255,255) 100%);background-image:-webkit-linear-gradient(bottom,rgb(215,215,215) 4%,rgb(230,230,230) 55%,rgb(255,255,255) 100%);background-image:-ms-linear-gradient(bottom,rgb(215,215,215) 4%,rgb(230,230,230) 55%,rgb(255,255,255) 100%);background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0.04,rgb(215,215,215)),color-stop(0.55,rgb(230,230,230)),color-stop(1,rgb(255,255,255)));margin:auto;position:absolute;top:0;left:0;right:0;bottom:0;max-width:80%;max-height:30%}.alert-title{background-color :#E6E6E6;padding :5px;border-bottom :1px solid #D1D1D1;font-weight :normal !important;font-size:14px !important;-webkit-border-top-left-radius:3px;-moz-border-radius-topleft:3px;border-top-left-radius:3px;-webkit-border-top-right-radius:3px;-moz-border-radius-topright:3px;border-top-right-radius:3px }.alert-message{padding :5px;font-weight :normal !important;text-align:center;font-size:14px !important}.alert-buttons-container{text-align:center;padding-bottom:5px}.alert-button{background-color:#474747;color:white;-webkit-border-radius:.5em;-moz-border-radius:.5em;border-radius:.5em;padding:2px 10px;background-image:linear-gradient(bottom,rgb(25,25,25) 4%,rgb(47,47,47) 55%,rgb(71,71,71) 68%);background-image:-o-linear-gradient(bottom,rgb(25,25,25) 4%,rgb(47,47,47) 55%,rgb(71,71,71) 68%);background-image:-moz-linear-gradient(bottom,rgb(25,25,25) 4%,rgb(47,47,47) 55%,rgb(71,71,71) 68%);background-image:-webkit-linear-gradient(bottom,rgb(25,25,25) 4%,rgb(47,47,47) 55%,rgb(71,71,71) 68%);background-image:-ms-linear-gradient(bottom,rgb(25,25,25) 4%,rgb(47,47,47) 55%,rgb(71,71,71) 68%);background-image:-webkit-gradient( linear,left bottom,left top,color-stop(0.04,rgb(25,25,25)),color-stop(0.55,rgb(47,47,47)),color-stop(0.68,rgb(71,71,71)) )}.alert-text{color :black !important}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:136bae7a304c5ffb1c52e6408fed49a8 */
+.mw-mmv-overlay{position:fixed;top:0px;left:0px;right:0px;bottom:0px;z-index:1000;background-color:#000000}body.mw-mmv-lightbox-open{overflow-y:auto}body.mw-mmv-lightbox-open #mw-page-base,body.mw-mmv-lightbox-open #mw-head-base,body.mw-mmv-lightbox-open #mw-navigation,body.mw-mmv-lightbox-open #mw-footer,body.mw-mmv-lightbox-open #content{ display:none}body.mw-mmv-lightbox-open > :not(.mw-mmv-overlay,.mw-mmv-wrapper){ display:none}.mw-mmv-view-expanded{display:inline-block;border:1px solid #dddddd;padding:5px;padding-left:34px;background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiCiAgIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB2ZXJzaW9uPSIxLjEiCiAgIHdpZHRoPSIxMDAlIgogICBoZWlnaHQ9IjEwMCUiCiAgIHZpZXdCb3g9IjAgMCAyOSAyNCIKICAgaWQ9IkxheWVyXzEiCiAgIHhtbDpzcGFjZT0icHJlc2VydmUiPjxtZXRhZGF0YQogICBpZD0ibWV0YWRhdGExMyI+PHJkZjpSREY+PGNjOldvcmsKICAgICAgIHJkZjphYm91dD0iIj48ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD48ZGM6dHlwZQogICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPjxkYzp0aXRsZT48L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48ZGVmcwogICBpZD0iZGVmczExIiAvPgo8ZwogICBpZD0iZzMiPgoJPHBhdGgKICAgZD0iTSA4LDUuNiBWIDE2LjcgSCAyMi41IFYgNS42IEwgOCw1LjYgeiBtIDEyLjksOC44IEggOS41IGwgMy40LC00LjQgMC41LC0wLjIgMy4yLDMuNCAxLjcsLTEgMi42LDIuMiAwLDAgeiIKICAgaWQ9InBhdGg1IgogICBzdHlsZT0iZmlsbDojNzc3Nzc3IiAvPgoJPHBvbHlnb24KICAgcG9pbnRzPSI2LjUsNy4yIDYuNSwxOC40IDIyLjEsMTguNCAyMi4xLDE3LjYgNy4zLDE3LjYgNy4zLDcuMiAiCiAgIGlkPSJwb2x5Z29uNyIKICAgc3R5bGU9ImZpbGw6Izc3Nzc3NyIgLz4KPC9nPgo8L3N2Zz4=);background-image:url(//bits.wikimedia.org/static-1.24wmf7/extensions/MultimediaViewer/resources/mmv/img/expand.svg?2014-05-29T15:08:20Z)!ie;background-position:left;background-repeat:no-repeat}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:56389f2116de40de68259c5a45822a17 */
+#p-lang .uls-settings-trigger{background:transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAgCAMAAAAVMLmlAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAALpQTFRF////W1tbgICAWVlZgICAUVFRgICAWVlZhYWFUlJShYWFVFRUgYGBVVVVgYGBVVVVgICAVFRUVVVVVlZWgYGBgICAVFRUgYGBVFRUgICAgYGBVVVVVVVVgYGBVlZWgYGBVFRUgICAVFRUgICAVVVVgICAVlZWgICAVFRUgICAVVVVgICAVFRUgICAVlZWgICAVVVVgICAVVVVgICAVVVVgICAVVVVgICAVVVVgICAVVVVgICAVVVVgICA9Fa9bgAAADx0Uk5TAA4OFBQWFhcXGRlJSUtLWlpbXV9fYGFhZGRlZmlpa2twcIiIioqPj5GRn5+goKGh6+vv7/Dw+fn8/P7+YuRUVgAAAOlJREFUGBmNwcdWAgEURMFLFCUaAcWAEhQYHBRmCN3//1u+BYcVC6s4p2U3OLrrVxN7Xn7uELoH5w65Dx1g6JNnoLazfz++VnZehkZir4pQ3NjzBg5TwtgBhzFh6kDr294UobiykxZc7ezVdLyx8yrw6pM+8GjnDjsf7gj3/WpiJ7Vhl6OW3eC/mlKdo5teZSHNSoM24XqvTCHTvg0MdDIASpn08/6ZSlkJ6jMpLUBhLc3qKEwIIwUURoSJAs2ltC5AIZUWTbjcSulktJayCvCikx7wJG0VttrfEp5eLpfS4uLtgaOmVOeMP8BAM9RClMO9AAAAAElFTkSuQmCC) no-repeat right top;background:transparent url(//bits.wikimedia.org/static-1.24wmf7/extensions/UniversalLanguageSelector/resources/css/../images/cog-sprite.png?2014-05-29T15:10:00Z) no-repeat right top!ie;background-image:-webkit-linear-gradient(transparent,transparent),url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIxNCIgaGVpZ2h0PSIzMiI+PGRlZnM+PHBhdGggZD0iTTEzLjU4MiA2LjYzMmgtMS4wNjRjLS4xMzMtLjUzOC0uMzU0LTEuMDY1LS42NDUtMS41NTJsLjc1LS43NWMuMTY0LS4xNjQuMTY0LS40MjkgMC0uNTkzbC0xLjM1OS0xLjM2Yy0uMTY0LS4xNjQtLjQzLS4xNjQtLjU5NCAwbC0uNzUuNzVjLS40OS0uMjk0LTEuMDEyLS41MTItMS41NTEtLjY0NXYtMS4wNjRjMC0uMjMxLS4xODctLjQxOC0uNDE5LS40MThoLTEuOTE4Yy0uMjMxIDAtLjQxOC4xODctLjQxOC40MTh2MS4wNjNjLS41NDEuMTM1LTEuMDYyLjM1Mi0xLjU1Mi42NDZsLS43NS0uNzVjLS4xNjQtLjE2NC0uNDI5LS4xNjQtLjU5MyAwbC0xLjM2IDEuMzZjLS4xNjQuMTY0LS4xNjQuNDI5IDAgLjU5M2wuNzUuNzVjLS4yOTIuNDg4LS40OTQgMS4wMTUtLjYyNyAxLjU1MWgtMS4wNjRjLS4yMzEgMC0uNDE4LjE4Ny0uNDE4LjQxOXYxLjkxOGMwIC4yMzEuMTg3LjQxOC40MTguNDE4aDEuMDQ2Yy4xMzQuNTQyLjM1MSAxLjA2Mi42NDUgMS41NTFsLS43NS43NWMtLjE2NC4xNjQtLjE2NC40MjkgMCAuNTkzbDEuMzYgMS4zNmMuMTY0LjE2NC40MjkuMTY0LjU5MyAwbC43NS0uNzVjLjQ5MS4yOTYgMS4wMS40OTMgMS41NTEuNjI3djEuMDYzYy4wMDEuMjMzLjE4OC40Mi40MTkuNDJoMS45MThjLjIzMSAwIC40MTktLjE4Ny40MTktLjQxOHYtMS4wNjNjLjU0Mi0uMTM0IDEuMDYxLS4zMzMgMS41NTEtLjYyN2wuNzUuNzVjLjE2NC4xNjQuNDMuMTY0LjU5NCAwbDEuMzU5LTEuMzZjLjE2NC0uMTY0LjE2NC0uNDI5IDAtLjU5M2wtLjc1LS43NWMuMjk1LS40ODkuNTEtMS4wMTMuNjQ1LTEuNTUxaDEuMDY0Yy4yMy0uMDAyLjQxOC0uMTg5LjQxOC0uNDJ2LTEuOTE4YzAtLjIzMi0uMTg4LS40MTgtLjQxOC0uNDE4em0tNi41ODIgNC4wMTJjLTEuNDYxIDAtMi42NDUtMS4xODQtMi42NDUtMi42NDRzMS4xODQtMi42NDQgMi42NDUtMi42NDQgMi42NDUgMS4xODQgMi42NDUgMi42NDQtMS4xODQgMi42NDQtMi42NDUgMi42NDR6IiBpZD0iYSIvPjwvZGVmcz48dXNlIHhsaW5rOmhyZWY9IiNhIiBmaWxsPSIjODA4MDgwIi8+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxNikiIGZpbGw9IiM1NTUiLz48L3N2Zz4=);background-image:-webkit-linear-gradient(transparent,transparent),url(//bits.wikimedia.org/static-1.24wmf7/extensions/UniversalLanguageSelector/resources/css/../images/cog-sprite.svg?2014-05-29T15:10:00Z)!ie;background-image:linear-gradient(transparent,transparent),url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSIxNCIgaGVpZ2h0PSIzMiI+PGRlZnM+PHBhdGggZD0iTTEzLjU4MiA2LjYzMmgtMS4wNjRjLS4xMzMtLjUzOC0uMzU0LTEuMDY1LS42NDUtMS41NTJsLjc1LS43NWMuMTY0LS4xNjQuMTY0LS40MjkgMC0uNTkzbC0xLjM1OS0xLjM2Yy0uMTY0LS4xNjQtLjQzLS4xNjQtLjU5NCAwbC0uNzUuNzVjLS40OS0uMjk0LTEuMDEyLS41MTItMS41NTEtLjY0NXYtMS4wNjRjMC0uMjMxLS4xODctLjQxOC0uNDE5LS40MThoLTEuOTE4Yy0uMjMxIDAtLjQxOC4xODctLjQxOC40MTh2MS4wNjNjLS41NDEuMTM1LTEuMDYyLjM1Mi0xLjU1Mi42NDZsLS43NS0uNzVjLS4xNjQtLjE2NC0uNDI5LS4xNjQtLjU5MyAwbC0xLjM2IDEuMzZjLS4xNjQuMTY0LS4xNjQuNDI5IDAgLjU5M2wuNzUuNzVjLS4yOTIuNDg4LS40OTQgMS4wMTUtLjYyNyAxLjU1MWgtMS4wNjRjLS4yMzEgMC0uNDE4LjE4Ny0uNDE4LjQxOXYxLjkxOGMwIC4yMzEuMTg3LjQxOC40MTguNDE4aDEuMDQ2Yy4xMzQuNTQyLjM1MSAxLjA2Mi42NDUgMS41NTFsLS43NS43NWMtLjE2NC4xNjQtLjE2NC40MjkgMCAuNTkzbDEuMzYgMS4zNmMuMTY0LjE2NC40MjkuMTY0LjU5MyAwbC43NS0uNzVjLjQ5MS4yOTYgMS4wMS40OTMgMS41NTEuNjI3djEuMDYzYy4wMDEuMjMzLjE4OC40Mi40MTkuNDJoMS45MThjLjIzMSAwIC40MTktLjE4Ny40MTktLjQxOHYtMS4wNjNjLjU0Mi0uMTM0IDEuMDYxLS4zMzMgMS41NTEtLjYyN2wuNzUuNzVjLjE2NC4xNjQuNDMuMTY0LjU5NCAwbDEuMzU5LTEuMzZjLjE2NC0uMTY0LjE2NC0uNDI5IDAtLjU5M2wtLjc1LS43NWMuMjk1LS40ODkuNTEtMS4wMTMuNjQ1LTEuNTUxaDEuMDY0Yy4yMy0uMDAyLjQxOC0uMTg5LjQxOC0uNDJ2LTEuOTE4YzAtLjIzMi0uMTg4LS40MTgtLjQxOC0uNDE4em0tNi41ODIgNC4wMTJjLTEuNDYxIDAtMi42NDUtMS4xODQtMi42NDUtMi42NDRzMS4xODQtMi42NDQgMi42NDUtMi42NDQgMi42NDUgMS4xODQgMi42NDUgMi42NDQtMS4xODQgMi42NDQtMi42NDUgMi42NDR6IiBpZD0iYSIvPjwvZGVmcz48dXNlIHhsaW5rOmhyZWY9IiNhIiBmaWxsPSIjODA4MDgwIi8+PHVzZSB4bGluazpocmVmPSIjYSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxNikiIGZpbGw9IiM1NTUiLz48L3N2Zz4=);background-image:linear-gradient(transparent,transparent),url(//bits.wikimedia.org/static-1.24wmf7/extensions/UniversalLanguageSelector/resources/css/../images/cog-sprite.svg?2014-05-29T15:10:00Z)!ie;height:16px;width:14px;float:right;cursor:pointer}.skin-vector #p-lang .uls-settings-trigger{ margin-top:3px}#p-lang .uls-settings-trigger:hover{background-position:right -16px}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:154f5c3055164d8255cf00d5b6553fbd */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><style>
+.cite-accessibility-label{position:absolute !important; top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden}.mw-cite-backlink,.cite-accessibility-label{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:a59b70abe6ecaa39388bb79ebc509cb0 */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="http://bits.wikimedia.org/en.wikibooks.org/load.php?debug=false&lang=en&modules=site&only=styles&skin=vector&*">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwikibooks:resourceloader:filter:minify-css:7:4969bf752d40e7c60e4c1bc8e4153549 */</style>
+<script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/load.php"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/load(1).php"></script><style title="spinjs"></style>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"LaTeX/Hyperlinks","wgTitle":"LaTeX/Hyperlinks","wgCurRevisionId":2626832,"wgRevisionId":2626832,"wgArticleId":96276,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["LaTeX"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"LaTeX/Hyperlinks","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"previewDialog":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":false,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"value":{"levels":3,"quality":2,"pristine":3}}},"wgStableRevisionId":2626832,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikibooks"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":0,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":false,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,
+"useeditwarning":1,"prefershttps":1,"flaggedrevssimpleui":0,"flaggedrevsstable":0,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"multimediaviewer-enable":true,"mathJax":false,"echo-notify-show-link":true,"echo-show-alert":true,"echo-email-frequency":0,"echo-email-format":"html","echo-subscriptions-email-system":true,"echo-subscriptions-web-system":true,"echo-subscriptions-email-other":false,"echo-subscriptions-web-other":true,"echo-subscriptions-email-edit-user-talk":false,"echo-subscriptions-web-edit-user-talk":true,"echo-subscriptions-email-reverted":false,"echo-subscriptions-web-reverted":true,"echo-subscriptions-email-article-linked":false,"echo-subscriptions-web-article-linked":false,"echo-subscriptions-email-mention":false,"echo-subscriptions-web-mention":true,"echo-subscriptions-web-edit-thank":true,"echo-subscriptions-email-edit-thank":false,"uls-preferences":"","language":"en","variant-gan":"gan","variant-iu":"iu",
+"variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":true,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs102":false,"searchNs103":false,"searchNs108":false,"searchNs109":false,"searchNs110":false,"searchNs111":false,"searchNs112":true,"searchNs113":false,"searchNs828":false,"searchNs829":false,"gadget-extlinks":1,"gadget-commons-file":1,"gadget-toolboxcompat":1,"gadget-mySandbox":1,"variant":"en"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});},{},{});
+/* cache key: enwikibooks:resourceloader:filter:minify-js:7:e73467d824a33a6f2e827410e836befd */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/"><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.24wmf7/skins/vector/csshover.min.htc")}</style><![endif]--><link rel="stylesheet" href="http://en.wikibooks.org/w/index.php?title=MediaWiki:Common.css/LaTeX&action=raw&ctype=text/css"><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index.php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(1).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(2).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(3).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(4).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(5).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(6).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(7).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(8).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(9).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(10).php" type="text/javascript"></script><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(11).php" type="text/javascript"></script><link rel="stylesheet" href="http://en.wikibooks.org/w/index.php?title=MediaWiki:Perbook/LaTeX.css&action=raw&ctype=text/css"><script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(12).php" type="text/javascript"></script></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-LaTeX_Hyperlinks skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+			<div id="mw-js-message" style="display:none;"></div>
+							<div id="siteNotice"><div id="centralNotice"></div><!-- CentralNotice --><script>document.write("\u003Cdiv id=\"localNotice\" lang=\"en\" dir=\"ltr\"\u003E\u003Cp\u003EHere at Wikibooks we're proud of our \u003Ca href=\"/wiki/Wikibooks:Featured_books\" title=\"Wikibooks:Featured books\"\u003EFeatured books\u003C/a\u003E - the very best of Wikibooks.  Now you can give your opinion about books which are currently being suggested for Featured book status at \u003Ca href=\"/wiki/Wikibooks:Featured_books/Nominations\" title=\"Wikibooks:Featured books/Nominations\"\u003EFeatured book nominations\u003C/a\u003E\n\u003C/p\u003E\u003C/div\u003E");</script><div id="localNotice" lang="en" dir="ltr"><p>Here at Wikibooks we're proud of our <a href="http://en.wikibooks.org/wiki/Wikibooks:Featured_books" title="Wikibooks:Featured books">Featured books</a> - the very best of Wikibooks.  Now you can give your opinion about books which are currently being suggested for Featured book status at <a href="http://en.wikibooks.org/wiki/Wikibooks:Featured_books/Nominations" title="Wikibooks:Featured books/Nominations">Featured book nominations</a>
+</p></div></div>
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">LaTeX/Hyperlinks</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikibooks, open books for an open world</div>
+								<div id="contentSub"><span class="subpages">&lt; <a href="http://en.wikibooks.org/wiki/LaTeX" title="LaTeX">LaTeX</a></span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#mw-navigation">navigation</a>, 					<a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="wikitable collapsible selected" style="background-color: #efe; float: right; clear: right; border: 1px solid #8b8; padding: 0.5em; font-size: small; text-align: left; width: 20%; margin: 0.5em;">
+<tbody><tr>
+<th><span class="action"><a><img src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/MediaWiki_Vector_skin_right_arrow.png"></a></span>
+<div class="floatright"><a href="http://commons.wikimedia.org/wiki/File:LaTeX_logo.svg" class="image"><img alt="LaTeX logo.svg" src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/60px-LaTeX_logo.svg.png" width="60" height="25" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/92/LaTeX_logo.svg/90px-LaTeX_logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/92/LaTeX_logo.svg/120px-LaTeX_logo.svg.png 2x" data-file-width="1200" data-file-height="500"></a></div>
+<p><a href="http://en.wikibooks.org/wiki/LaTeX" title="LaTeX">LaTeX</a></p>
+</th>
+</tr>
+<tr style="display: none;">
+<td>Getting Started
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Introduction" title="LaTeX/Introduction">Introduction</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Installation" title="LaTeX/Installation">Installation</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages" title="LaTeX/Installing Extra Packages">Installing Extra Packages</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Basics" title="LaTeX/Basics">Basics</a></li>
+</ol>
+<p>Common Elements</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Document_Structure" title="LaTeX/Document Structure">Document Structure</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Text_Formatting" title="LaTeX/Text Formatting">Text Formatting</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting" title="LaTeX/Paragraph Formatting">Paragraph Formatting</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Colors" title="LaTeX/Colors">Colors</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Fonts" title="LaTeX/Fonts">Fonts</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/List_Structures" title="LaTeX/List Structures">List Structures</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Special_Characters" title="LaTeX/Special Characters">Special Characters</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Internationalization" title="LaTeX/Internationalization">Internationalization</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Rotations" title="LaTeX/Rotations">Rotations</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Tables" title="LaTeX/Tables">Tables</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Title_Creation" title="LaTeX/Title Creation">Title creation</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Page_Layout" title="LaTeX/Page Layout">Page Layout</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Importing_Graphics" title="LaTeX/Importing Graphics">Importing Graphics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions" title="LaTeX/Floats, Figures and Captions">Floats, Figures and Captions</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes" title="LaTeX/Footnotes and Margin Notes">Footnotes and Margin Notes</a></li>
+<li><strong class="selflink">Hyperlinks</strong></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing" title="LaTeX/Labels and Cross-referencing">Labels and Cross-referencing</a></li>
+</ol>
+<p>Mechanics</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Errors_and_Warnings" title="LaTeX/Errors and Warnings">Errors and Warnings</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Lengths" title="LaTeX/Lengths">Lengths</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Counters" title="LaTeX/Counters">Counters</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Boxes" title="LaTeX/Boxes">Boxes</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Rules_and_Struts" title="LaTeX/Rules and Struts">Rules and Struts</a></li>
+</ol>
+<p>Technical Texts</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Mathematics" title="LaTeX/Mathematics">Mathematics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics" title="LaTeX/Advanced Mathematics">Advanced Mathematics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Theorems" title="LaTeX/Theorems">Theorems</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Chemical_Graphics" title="LaTeX/Chemical Graphics">Chemical Graphics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Algorithms" title="LaTeX/Algorithms">Algorithms</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings" title="LaTeX/Source Code Listings">Source Code Listings</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Linguistics" title="LaTeX/Linguistics">Linguistics</a></li>
+</ol>
+<p>Special Pages</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Indexing" title="LaTeX/Indexing">Indexing</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Glossary" title="LaTeX/Glossary">Glossary</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management" title="LaTeX/Bibliography Management">Bibliography Management</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/More_Bibliographies" title="LaTeX/More Bibliographies">More Bibliographies</a></li>
+</ol>
+<p>Special Documents</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Letters" title="LaTeX/Letters">Letters</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Presentations" title="LaTeX/Presentations">Presentations</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Teacher%27s_Corner" title="LaTeX/Teacher&#39;s Corner">Teacher's Corner</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Curriculum_Vitae" title="LaTeX/Curriculum Vitae">Curriculum Vitae</a></li>
+</ol>
+<p>Creating Graphics</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Introducing_Procedural_Graphics" title="LaTeX/Introducing Procedural Graphics">Introducing Procedural Graphics</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/MetaPost" title="LaTeX/MetaPost">MetaPost</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Picture" title="LaTeX/Picture">Picture</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/PGF/TikZ" title="LaTeX/PGF/TikZ">PGF/TikZ</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/PSTricks" title="LaTeX/PSTricks">PSTricks</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Xy-pic" title="LaTeX/Xy-pic">Xy-pic</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Creating_3D_graphics" title="LaTeX/Creating 3D graphics">Creating 3D graphics</a></li>
+</ol>
+<p>Programming</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Macros" title="LaTeX/Macros">Macros</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Plain_TeX" title="LaTeX/Plain TeX">Plain TeX</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Creating_Packages" title="LaTeX/Creating Packages">Creating Packages</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Themes" title="LaTeX/Themes">Themes</a></li>
+</ol>
+<p>Miscellaneous</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Modular_Documents" title="LaTeX/Modular Documents">Modular Documents</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Collaborative_Writing_of_LaTeX_Documents" title="LaTeX/Collaborative Writing of LaTeX Documents">Collaborative Writing of LaTeX Documents</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Export_To_Other_Formats" title="LaTeX/Export To Other Formats">Export To Other Formats</a></li>
+</ol>
+<p>Help and Recommendations</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/FAQ" title="LaTeX/FAQ">FAQ</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Tips_and_Tricks" title="LaTeX/Tips and Tricks">Tips and Tricks</a></li>
+</ol>
+<p>Appendices</p>
+<ol>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Authors" title="LaTeX/Authors">Authors</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Links" title="LaTeX/Links">Links</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Package_Reference" title="LaTeX/Package Reference">Package Reference</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Sample_LaTeX_documents" title="LaTeX/Sample LaTeX documents">Sample LaTeX documents</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Index" title="LaTeX/Index">Index</a></li>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Command_Glossary" title="LaTeX/Command Glossary">Command Glossary</a></li>
+</ol>
+</td>
+</tr>
+<tr style="display: none;">
+<td>
+<p><small><a class="external text" href="http://en.wikibooks.org/w/index.php?title=Template:LaTeX/Top&action=edit">edit this box</a> • <a class="external text" href="http://en.wikibooks.org/w/index.php?title=Template:LaTeX/Contents&action=edit">edit the TOC</a></small></p>
+</td>
+</tr>
+</tbody></table>
+<p>LaTeX enables typesetting of hyperlinks, useful when the resulting format is PDF, and the hyperlinks can be followed. It does so using the package <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span>.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+<span class="toctoggle">&nbsp;[<a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Hyperref"><span class="tocnumber">1</span> <span class="toctext">Hyperref</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Commands"><span class="tocnumber">2.1</span> <span class="toctext">Commands</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#.5Chyperref"><span class="tocnumber">2.1.1</span> <span class="toctext">\hyperref</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#.5Curl"><span class="tocnumber">2.1.2</span> <span class="toctext">\url</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#.5Chref"><span class="tocnumber">2.1.3</span> <span class="toctext">\href</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Other_possibilities"><span class="tocnumber">2.2</span> <span class="toctext">Other possibilities</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#E-mail_address"><span class="tocnumber">2.2.1</span> <span class="toctext">E-mail address</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Local_file"><span class="tocnumber">2.2.2</span> <span class="toctext">Local file</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Hyperlink_and_Hypertarget"><span class="tocnumber">2.2.3</span> <span class="toctext">Hyperlink and Hypertarget</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization"><span class="tocnumber">3</span> <span class="toctext">Customization</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Troubleshooting"><span class="tocnumber">4</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Links_and_Equations_1"><span class="tocnumber">4.1</span> <span class="toctext">Problems with Links and Equations 1</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Links_and_Equations_2"><span class="tocnumber">4.2</span> <span class="toctext">Problems with Links and Equations 2</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Links_and_Pages"><span class="tocnumber">4.3</span> <span class="toctext">Problems with Links and Pages</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_bookmarks"><span class="tocnumber">4.4</span> <span class="toctext">Problems with bookmarks</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_tables_and_figures"><span class="tocnumber">4.5</span> <span class="toctext">Problems with tables and figures</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_long_caption_and_.5Clistoffigures_or_long_title"><span class="tocnumber">4.6</span> <span class="toctext">Problems with long caption and \listoffigures or long title</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_already_existing_.toc.2C_.lof_and_similar_files"><span class="tocnumber">4.7</span> <span class="toctext">Problems with already existing .toc, .lof and similar files</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_footnotes_and_special_characters"><span class="tocnumber">4.8</span> <span class="toctext">Problems with footnotes and special characters</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_Beamer"><span class="tocnumber">4.9</span> <span class="toctext">Problems with Beamer</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Problems_with_draft_mode"><span class="tocnumber">4.10</span> <span class="toctext">Problems with draft mode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Notes_and_References"><span class="tocnumber">5</span> <span class="toctext">Notes and References</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Hyperref">Hyperref</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=1" title="Edit section: Hyperref">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The package <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span><sup id="cite_ref-1" class="reference"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_note-1">[1]</a></sup> provides LaTeX the ability to create hyperlinks within the document. It works with <i>pdflatex</i> and also with standard "latex" used with dvips and ghostscript or dvipdfm to build a PDF file. If you load it, you will have the possibility to include interactive external links and all your internal references will be turned to hyperlinks. The compiler <i>pdflatex</i> makes it possible to create PDF files directly from the LaTeX source, and PDF supports more features than DVI. In particular PDF supports hyperlinks, and the only way to introduce them in LaTeX is using <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span>. Moreover, PDF can contain other information about a document such as the title, the author, etc., which can be edited using this same package.</p>
+<h2><span class="mw-headline" id="Usage">Usage</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=2" title="Edit section: Usage">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The basic usage with the standard settings is straightforward. Just load the package in the preamble:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">{</span><span class="re9">hyperref</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>This will automatically turn all your internal references into hyperlinks. It won't affect the way to write your documents: just keep on using the standard <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">label</span></span>-<span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">ref</span></span> system (discussed in the chapter on <a href="http://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing" title="LaTeX/Labels and Cross-referencing">Labels and Cross-referencing</a>); with <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> those "connections" will become links and you will be able to click on them to be redirected to the right page. Moreover the table of contents, list of figures/tables and index will be made of hyperlinks, too. The hyperlinks will not show-up if you are working in draft mode.</p>
+<h3><span class="mw-headline" id="Commands">Commands</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=3" title="Edit section: Commands">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The package provides some useful commands for inserting links pointing outside the document.</p>
+<h4><span class="mw-headline" id=".5Chyperref">\hyperref</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=4" title="Edit section: \hyperref">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Usage:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\hyperref</span><span class="sy0">[</span><span class="re2">label_name</span><span class="sy0">]{</span><span class="re9">''link text''</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>This will have the same effect as <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">ref</span><span class="sy0">{</span><span class="re9">label_name</span><span class="sy0">}</span></span> but will make the text <i>link text</i> a full link, instead. The two can be combined. If the lemma labelled as <span style="font-family: monospace; color: #C08020; font-weight: normal;">mainlemma</span> was number 4.1.1 the following example would result in</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="border-right:2px black solid;padding-right:3em;">
+<p><span class="mw-geshi latex source-latex">We use <span class="re12">\hyperref</span><span class="sy0">[</span><span class="re2">mainlemma</span><span class="sy0">]{</span><span class="re9">lemma \<span class="kw1">ref</span>*{mainlemma}</span> <span class="sy0">}</span>.</span></p>
+</td>
+<td style="padding-left:3em;">
+<p>We use lemma 4.1.1.</p>
+</td>
+</tr>
+</tbody></table>
+<p>with the hyperlink as expected. Note the "*" after <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">ref</span></span> for avoiding nested hyperlinks.</p>
+<h4><span class="mw-headline" id=".5Curl">\url</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=5" title="Edit section: \url">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Usage:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\url</span><span class="sy0">{</span><span class="re9">&lt;my_url&gt;</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>It will show the URL using a mono-spaced font and, if you click on it, your browser will be opened pointing at it.</p>
+<h4><span class="mw-headline" id=".5Chref">\href</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=6" title="Edit section: \href">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Usage:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\href</span><span class="sy0">{</span><span class="re9">&lt;my_url&gt;}{&lt;description&gt;</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>It will show the string <span style="font-family: monospace; color: #C08020; font-weight: normal;">description</span> using standard document font but, if you click on it, your browser will be opened pointing at <span style="font-family: monospace; color: #C08020; font-weight: normal;">my_url</span>. Here is an example:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\url</span><span class="sy0">{</span><span class="re9">http://www.wikibooks.org<span class="sy0">}</span><br>
+<span class="re12">\href</span>{http://www.wikibooks.org}{Wikibooks home</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Both point at the same page, but in the first case the URL will be shown, while in the second case the URL will be hidden. Note that, if you print your document, the link stored using <span class="mw-geshi latex source-latex"><span class="re12">\href</span></span> will not be shown anywhere in the document.</p>
+<h3><span class="mw-headline" id="Other_possibilities">Other possibilities</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=7" title="Edit section: Other possibilities">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Apart from linking to websites discussed above, <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> can be used to provide <i>mailto</i> links, links to local files, and links to anywhere within the PDF output file.</p>
+<h4><span class="mw-headline" id="E-mail_address">E-mail address</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=8" title="Edit section: E-mail address">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>A possible way to insert email links is by</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\href</span><span class="sy0">{</span><span class="re9">mailto:my_address@wikibooks.org}{my<span class="re10">\_</span>address@wikibooks.org</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>It just shows your email address (so people can know it even if the document is printed on paper) but, if the reader clicks on it, (s)he can easily send you an email. Or, to incorporate the <span style="font-family: monospace; color: #2020C0; font-weight: normal;">url</span> package's formatting and line breaking abilities into the displayed text, use<sup id="cite_ref-2" class="reference"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_note-2">[2]</a></sup></p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\href</span><span class="sy0">{</span><span class="re9">mailto:my_address@wikibooks.org}{<span class="re12">\nolinkurl</span>{my_address@wikibooks.org}</span> <span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>When using this form, note that the <span class="mw-geshi latex source-latex"><span class="re12">\nolinkurl</span></span> command is fragile and if the hyperlink is inside of a moving argument, it must be preceeded by a <span class="mw-geshi latex source-latex"><span class="re12">\protect</span></span> command.</p>
+<h4><span class="mw-headline" id="Local_file">Local file</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=9" title="Edit section: Local file">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Files can also be linked using the url or the href commands. You simply have to add the string <span style="font-family: monospace; color: #C08020; font-weight: normal;">run:</span> at the beginning of the link string:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\url</span><span class="sy0">{</span><span class="re9">run:/path/to/my/file.ext<span class="sy0">}</span><br>
+<span class="re12">\href</span>{run:/path/to/my/file.ext}{text displayed</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Following <a rel="nofollow" class="external free" href="http://tex.stackexchange.com/questions/46488/link-to-local-pdf-file" target="_blank">http://tex.stackexchange.com/questions/46488/link-to-local-pdf-file</a> the version with <tt>url</tt> does not always work, but <tt>href</tt> does.</p>
+<p>It is possible to use relative paths to link documents near the location of your current document; in order to do so, use the standard Unix-like notation (<tt>./</tt> is the current directory, <tt>../</tt> is the previous directory, etc.)</p>
+<h4><span class="mw-headline" id="Hyperlink_and_Hypertarget">Hyperlink and Hypertarget</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=10" title="Edit section: Hyperlink and Hypertarget">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>It is also possible to create an anchor anywhere in the document (with or without caption) and to link to it. To create an anchor, use:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\hypertarget</span><span class="sy0">{</span><span class="re9">label}{target caption</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>and to link to it, use:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\hyperlink</span><span class="sy0">{</span><span class="re9">label}{link caption</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>where the <span style="font-family: monospace; color: #C08020; font-weight: normal;">target caption</span> and <span style="font-family: monospace; color: #C08020; font-weight: normal;">link caption</span> are the text that is displayed at the target location and link location respectively.</p>
+<h2><span class="mw-headline" id="Customization">Customization</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=11" title="Edit section: Customization">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The standard settings should be fine for most users, but if you want to change something, that is also possible. There are several variables and two methods to pass those to the package. Options can be passed as an argument of the package when it is loaded (the standard way packages work), or the <span class="mw-geshi latex source-latex"><span class="re12">\hypersetup</span></span> command can be used as follows:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\hypersetup</span><span class="sy0">{</span><span class="re9">&lt;option1&gt; [<span class="re2">, ...</span>]</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>you can pass as many options as you want; separate them with a comma. Options have to be in the form:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex">variable_name=new_value</span></p>
+</td>
+</tr>
+</tbody></table>
+<p>exactly the same format has to be used if you pass those options to the package while loading it, like this:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">[</span><span class="re2">&lt;option1, option2&gt;</span><span class="sy0">]{</span><span class="re9">hyperref</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Here is a list of the possible variables you can change (for the complete list, see the official documentation). The default values are written in an upright font:</p>
+<p><a rel="nofollow" class="external text" href="http://www.tug.org/applications/hyperref/manual.html#x1-120003.8" target="_blank">Checkout 3.8 Big list at hyperref-manual at tug.org</a></p>
+<table class="wikitable">
+<tbody><tr>
+<th>variable</th>
+<th>values</th>
+<th>comment</th>
+</tr>
+<tr>
+<td><tt>bookmarks</tt></td>
+<td><tt>=true<i>,false</i></tt></td>
+<td>show or hide the bookmarks bar when displaying the document</td>
+</tr>
+<tr>
+<td><tt>unicode</tt></td>
+<td><tt>=false<i>,true</i></tt></td>
+<td>allows to use characters of non-Latin based languages in Acrobat’s bookmarks</td>
+</tr>
+<tr>
+<td><tt>pdfborder</tt></td>
+<td><tt>={<i>RadiusH</i> <i>RadiusV</i> <i>Width</i> [<i>Dash-Pattern</i>]}</tt></td>
+<td>set the style of the border around a link. The first two parameters (RadiusH, RadiusV) have no effect in most pdf viewers. <i>Width</i> defines the thickness of the border. <i>Dash-Pattern</i> is a series of numbers separated by space and enclosed by box-brackets. It is an optional parameter to specify the length of each line &amp; gap in the dash pattern. For example, {0 0 0.5 [3 3]} is supposed to draw a square box (no rounded corners) of width 0.5 and a dash pattern with a dash of length 3 followed by a gap of length 3. There is no uniformity in whether/how different pdf viewers render the dash pattern.</td>
+</tr>
+<tr>
+<td><tt>pdftoolbar</tt></td>
+<td><tt>=true<i>,false</i></tt></td>
+<td>show or hide Acrobat’s toolbar</td>
+</tr>
+<tr>
+<td><tt>pdfmenubar</tt></td>
+<td><tt>=true<i>,false</i></tt></td>
+<td>show or hide Acrobat’s menu</td>
+</tr>
+<tr>
+<td><tt>pdffitwindow</tt></td>
+<td><tt>=true<i>,false</i></tt></td>
+<td>resize document window to fit document size</td>
+</tr>
+<tr>
+<td><tt>pdfstartview</tt></td>
+<td><tt>={FitH},<i>{FitV}</i>,etc<sup id="cite_ref-3" class="reference"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_note-3">[3]</a></sup>.</tt></td>
+<td>fit the width of the page to the window</td>
+</tr>
+<tr>
+<td><tt>pdftitle</tt></td>
+<td><tt>={text}</tt></td>
+<td>define the title that gets displayed in the "Document Info" window of Acrobat</td>
+</tr>
+<tr>
+<td><tt>pdfauthor</tt></td>
+<td><tt>={text}</tt></td>
+<td>the name of the PDF’s author, it works like the one above</td>
+</tr>
+<tr>
+<td><tt>pdfsubject</tt></td>
+<td><tt>={text}</tt></td>
+<td>subject of the document, it works like the one above</td>
+</tr>
+<tr>
+<td><tt>pdfcreator</tt></td>
+<td><tt>={text}</tt></td>
+<td>creator of the document, it works like the one above</td>
+</tr>
+<tr>
+<td><tt>pdfproducer</tt></td>
+<td><tt>={text}</tt></td>
+<td>producer of the document, it works like the one above</td>
+</tr>
+<tr>
+<td><tt>pdfkeywords</tt></td>
+<td><tt>={text}</tt></td>
+<td>list of keywords, separated by brackets, example below</td>
+</tr>
+<tr>
+<td><tt>pdfnewwindow</tt></td>
+<td><tt>(=true<i>,false)</i></tt></td>
+<td>define if a new window should get opened when a link leads out of the current document</td>
+</tr>
+<tr>
+<td><tt>pagebackref</tt></td>
+<td><tt>(=false<i>,true)</i></tt></td>
+<td>activate back references inside bibliography. Must be specified as part of the <i>\usepackage{}</i> statement.</td>
+</tr>
+<tr>
+<td><tt>colorlinks</tt></td>
+<td><tt>(=false<i>,true)</i></tt></td>
+<td>surround the links by color frames (<tt>false</tt>) or colors the text of the links (<tt>true</tt>). The color of these links can be configured using the following options (default colors are shown):</td>
+</tr>
+<tr>
+<td><tt>hidelinks</tt></td>
+<td></td>
+<td>hide links (removing color and border)</td>
+</tr>
+<tr>
+<td><tt>linkcolor</tt></td>
+<td><tt>=red</tt></td>
+<td>color of internal links (sections, pages, etc.)</td>
+</tr>
+<tr>
+<td><tt>linktoc</tt></td>
+<td><tt>=<i>none</i>,section,<i>page</i>,<i>all</i></tt></td>
+<td>defines which part of an entry in the table of contents is made into a link</td>
+</tr>
+<tr>
+<td><tt>citecolor</tt></td>
+<td><tt>=green</tt></td>
+<td>color of citation links (bibliography)</td>
+</tr>
+<tr>
+<td><tt>filecolor</tt></td>
+<td><tt>=cyan</tt></td>
+<td>color of file links</td>
+</tr>
+<tr>
+<td><tt>urlcolor</tt></td>
+<td><tt>=magenta</tt></td>
+<td>color of URL links (mail, web)</td>
+</tr>
+<tr>
+<td><tt>linkbordercolor</tt></td>
+<td><tt>={1 0 0}</tt></td>
+<td>color of frame around internal links (if <tt>colorlinks=false</tt>)</td>
+</tr>
+<tr>
+<td><tt>citebordercolor</tt></td>
+<td><tt>={0 1 0}</tt></td>
+<td>color of frame around citations</td>
+</tr>
+<tr>
+<td><tt>urlbordercolor</tt></td>
+<td><tt>={0 1 1}</tt></td>
+<td>color of frame around URL links</td>
+</tr>
+</tbody></table>
+<p>Please note, that explicit RGB specification is only allowed for the border colors (like linkbordercolor etc.), while the others may only assigned to named colors (which you can define your own, see <a href="http://en.wikibooks.org/wiki/LaTeX/Colors" title="LaTeX/Colors">Colors</a>). In order to speed up your customization process, here is a list with the variables with their default value. Copy it in your document and make the changes you want. Next to the variables, there is a short explanations of their meaning:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\hypersetup</span><span class="sy0">{</span><br>
+&nbsp; &nbsp; bookmarks=true, &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">% show bookmarks bar?</span><br>
+&nbsp; &nbsp; unicode=false, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">% non-Latin characters in Acrobat’s bookmarks</span><br>
+&nbsp; &nbsp; pdftoolbar=true, &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">% show Acrobat’s toolbar?</span><br>
+&nbsp; &nbsp; pdfmenubar=true, &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">% show Acrobat’s menu?</span><br>
+&nbsp; &nbsp; pdffitwindow=false, &nbsp; &nbsp; <span class="co1">% window fit to page when opened</span><br>
+&nbsp; &nbsp; pdfstartview=<span class="sy0">{</span><span class="re9">FitH</span><span class="sy0">}</span>, &nbsp; &nbsp;<span class="co1">% fits the width of the page to the window</span><br>
+&nbsp; &nbsp; pdftitle=<span class="sy0">{</span><span class="re9">My title</span><span class="sy0">}</span>, &nbsp; &nbsp;<span class="co1">% title</span><br>
+&nbsp; &nbsp; pdfauthor=<span class="sy0">{</span><span class="re9">Author</span><span class="sy0">}</span>, &nbsp; &nbsp; <span class="co1">% author</span><br>
+&nbsp; &nbsp; pdfsubject=<span class="sy0">{</span><span class="re9">Subject</span><span class="sy0">}</span>, &nbsp; <span class="co1">% subject of the document</span><br>
+&nbsp; &nbsp; pdfcreator=<span class="sy0">{</span><span class="re9">Creator</span><span class="sy0">}</span>, &nbsp; <span class="co1">% creator of the document</span><br>
+&nbsp; &nbsp; pdfproducer=<span class="sy0">{</span><span class="re9">Producer</span><span class="sy0">}</span>, <span class="co1">% producer of the document</span><br>
+&nbsp; &nbsp; pdfkeywords=<span class="sy0">{</span><span class="re9">keyword1} {key2} {key3</span><span class="sy0">}</span>, <span class="co1">% list of keywords</span><br>
+&nbsp; &nbsp; pdfnewwindow=true, &nbsp; &nbsp; &nbsp;<span class="co1">% links in new window</span><br>
+&nbsp; &nbsp; colorlinks=false, &nbsp; &nbsp; &nbsp; <span class="co1">% false: boxed links; true: colored links</span><br>
+&nbsp; &nbsp; linkcolor=red, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">% color of internal links (change box color with linkbordercolor)</span><br>
+&nbsp; &nbsp; citecolor=green, &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">% color of links to bibliography</span><br>
+&nbsp; &nbsp; filecolor=magenta, &nbsp; &nbsp; &nbsp;<span class="co1">% color of file links</span><br>
+&nbsp; &nbsp; urlcolor=cyan &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">% color of external links</span><br>
+<span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>If you don't need such a high customization, here are some smaller but useful examples. When creating PDFs destined for printing, colored links are not a good thing as they end up in gray in the final output, making it difficult to read. You can use color frames, which are not printed:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">{</span><span class="re9">hyperref<span class="sy0">}</span><br>
+<span class="re12">\hypersetup</span>{colorlinks=false</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>or make links black:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">[</span><span class="re2">hidelinks</span><span class="sy0">]{</span><span class="re9">hyperref</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>When you just want to provide information for the Document Info section of the PDF file, as well as enabling back references inside bibliography:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">[</span>pdfauthor=<span class="sy0">{</span><span class="re9">Author's name</span><span class="sy0">}</span>,<span class="co1">%</span><br>
+pdftitle=<span class="sy0">{</span><span class="re9">Document Title</span><span class="sy0">}</span>,<span class="co1">%</span><br>
+pagebackref=true,<span class="co1">%</span><br>
+pdftex<span class="sy0">]{</span><span class="re9">hyperref</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>By default, URLs are printed using mono-spaced fonts. If you don't like it and you want them to be printed with the same style of the rest of the text, you can use this:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">urlstyle</span><span class="sy0">{</span><span class="re9">same</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=12" title="Edit section: Troubleshooting">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Problems_with_Links_and_Equations_1">Problems with Links and Equations 1</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=13" title="Edit section: Problems with Links and Equations 1">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Messages like the following</p>
+<pre>! pdfTeX warning (ext4): destination with the same identifier (name{
+equation.1.7.7.30}) has been already used, duplicate ignored
+</pre>
+<p>appear, when you have made something like</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">eqnarray</span><span class="sy0">}</span><span class="re1">a=b\<span class="kw1">nonumber</span></span><span class="re8">\end</span><span class="sy0">{</span><span class="re7">eqnarray</span></span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>The error disappears, if you use instead this form:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">eqnarray*</span><span class="sy0">}</span>a=b<span class="re8">\end</span><span class="sy0">{</span><span class="re7">eqnarray*</span></span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Beware that the shown line number is often completely different from the erroneous line.</p>
+<p>Possible solution: Place the <span style="font-family: monospace; color: #2020C0; font-weight: normal;">amsmath</span> package before the <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> package.</p>
+<h3><span class="mw-headline" id="Problems_with_Links_and_Equations_2">Problems with Links and Equations 2</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=14" title="Edit section: Problems with Links and Equations 2">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Messages like the following</p>
+<pre>! Runaway argument?
+{\@firstoffive }\fi ), Some text from your document here (\ref {re\ETC.
+Latex Error: Paragraph ended before \Hy@setref@link was complete.
+</pre>
+<p>appear when you use <code>\label</code> inside an <code>align</code> environment.</p>
+<p>Possible solution: Add the following to your preamble:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\AtBeginDocument</span><span class="sy0">{</span><span class="re9">\<span class="kw1">let</span><span class="re12">\textlabel</span><span class="sy0">\</span><span class="kw1">label</span></span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<h3><span class="mw-headline" id="Problems_with_Links_and_Pages">Problems with Links and Pages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=15" title="Edit section: Problems with Links and Pages">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Messages like the following:</p>
+<pre>! pdfTeX warning (ext4): destination with the same
+identifier (name{page.1}) has been already used,
+duplicate ignored
+</pre>
+<p>appear when a counter gets reinitialized, for example by using the command <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">mainmatter</span></span> provided by the book document class. It resets the page number counter to 1 prior to the first chapter of the book. But as the preface of the book also has a page number 1 all links to "page 1" would not be unique anymore, hence the notice that "duplicate has been ignored." The counter measure consists of putting <span class="mw-geshi latex source-latex">plainpages=false</span> into the <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> options. This unfortunately only helps with the page counter. An even more radical solution is to use the option <span class="mw-geshi latex source-latex">hypertexnames=false</span>, but this will cause the page links in the index to stop working.</p>
+<p>The best solution is to give each page a unique name by using the <span class="mw-geshi latex source-latex"><span class="re12">\pagenumbering</span></span> command:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\pagenumbering</span><span class="sy0">{</span><span class="re9">alph</span><span class="sy0">}</span> &nbsp; &nbsp;<span class="co1">% a, b, c, ...</span><br>
+... titlepage, other front matter ...<br>
+<span class="re12">\pagenumbering</span><span class="sy0">{</span><span class="re9">roman</span><span class="sy0">}</span> &nbsp; <span class="co1">% i, ii, iii, iv, ...</span><br>
+... table of contents, table of figures, ...<br>
+<span class="re12">\pagenumbering</span><span class="sy0">{</span><span class="re9">arabic</span><span class="sy0">}</span> &nbsp;<span class="co1">% 1, 2, 3, 4, ...</span><br>
+... beginning of the main matter (chapter 1) ...</span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Another solution is to use <span class="mw-geshi latex source-latex"><span class="re12">\pagenumbering</span><span class="sy0">{</span><span class="re9">alph</span><span class="sy0">}</span></span> before the command <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">maketitle</span></span>, which will give the title page the label page.a. Since the page number is suppressed, it won't make a difference to the output.</p>
+<p>By changing the page numbering every time before the counter is reset, each page gets a unique name. In this case, the pages would be numbered a, b, c, i, ii, iii, iv, v, 1, 2, 3, 4, 5, ...</p>
+<p>If you don't want the page numbers to be visible (for example, during the front matter part), use <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">pagestyle</span><span class="sy0">{</span><span class="re9">empty} ... \<span class="kw1">pagestyle</span>{plain</span><span class="sy0">}</span></span>. The important point is that although the numbers are not visible, each page will have a unique name.</p>
+<p>Another more flexible approach is to set the counter to something negative:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\setcounter</span><span class="sy0">{</span><span class="re9">page<span class="sy0">}{</span>-100<span class="sy0">}</span><br>
+... titlepage, other front matter ...<br>
+<span class="re12">\pagenumbering</span>{roman</span><span class="sy0">}</span> &nbsp; <span class="co1">% i, ii, iii, iv, ...</span><br>
+... table of contents, table of figures, ...<br>
+<span class="re12">\pagenumbering</span><span class="sy0">{</span><span class="re9">arabic</span><span class="sy0">}</span> &nbsp;<span class="co1">% 1, 2, 3, 4, ...</span><br>
+... beginning of the main matter (chapter 1) ...</span></p>
+</td>
+</tr>
+</tbody></table>
+<p>which will give the first pages a unique negative number.</p>
+<p>The problem can also occur with the <tt>algorithms</tt> package: because each algorithm uses the same line-numbering scheme, the line identifiers for the second and follow-on algorithms will be duplicates of the first.</p>
+<p>The problem occurs with equation identifiers if you use <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">nonumber</span></span> on every line of an eqnarray environment. In this case, use the *'ed form instead, e.g. <span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">eqnarray*</span><span class="sy0">}</span> ... <span class="re8">\end</span><span class="sy0">{</span><span class="re7">eqnarray*</span></span><span class="sy0">}</span></span> (which is an unnumbered equation array), and remove the now unnecessary <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">nonumber</span></span> commands.</p>
+<p>If your url's are too long and running off of the page, try using the <tt>breakurl</tt> package to split the url over multiple lines. This is especially important in a multicolumn environment where the line width is greatly shortened.</p>
+<h3><span class="mw-headline" id="Problems_with_bookmarks">Problems with bookmarks</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=16" title="Edit section: Problems with bookmarks">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The text displayed by bookmarks does not always look like you expect it to look. Because bookmarks are "just text", much fewer characters are available for bookmarks than for normal LaTeX text. Hyperref will normally notice such problems and put up a warning:</p>
+<pre>Package hyperref Warning:
+Token not allowed in a PDFDocEncoded string:
+</pre>
+<p>You can now work around this problem by providing a text string for the bookmarks, which replaces the offending text:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\texorpdfstring</span><span class="sy0">{</span><span class="re9">''TEX text''}{''Bookmark Text''</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Math expressions are a prime candidate for this kind of problem:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">section</span><span class="sy0">{</span> <span class="re9"><span class="re12">\texorpdfstring</span><span class="sy0">{</span><span class="re3">$E=mc^2$</span>}{E=mc2}</span> <span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>which turns <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">section</span><span class="sy0">{</span><span class="re9"><span class="re3">$E=mc^2$</span></span><span class="sy0">}</span></span> to <tt>E=mc2</tt> in the bookmark area. Color changes also do not travel well into bookmarks:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">section</span><span class="sy0">{</span> <span class="re9">\<span class="kw1">textcolor</span>{red}{Red&nbsp;!}</span> <span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>produces the string "redRed!". The command <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">textcolor</span></span> gets ignored but its argument (red) gets printed. If you use:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">section</span><span class="sy0">{</span> <span class="re9"><span class="re12">\texorpdfstring</span><span class="sy0">{\</span><span class="kw1">textcolor</span>{red}{Red&nbsp;!}}{Red\&nbsp;!}</span> <span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>the result will be much more legible.</p>
+<p>If you write your document in unicode and use the <span style="font-family: monospace; color: #C08020; font-weight: normal;">unicode</span> option for the <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> package you can use unicode characters in bookmarks. This will give you a much larger selection of characters to pick from when using <span class="mw-geshi latex source-latex"><span class="re12">\texorpdfstring</span></span>.</p>
+<h3><span class="mw-headline" id="Problems_with_tables_and_figures">Problems with tables and figures</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=17" title="Edit section: Problems with tables and figures">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The links created by <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> point to the label created within the float environment, which, as <a href="http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions#Labels_and_Cross-referencing" title="LaTeX/Floats, Figures and Captions">previously described</a>, must always be set after the caption. Since the caption is usually below a figure or table, the figure or table itself will not be visible upon clicking the link<sup id="cite_ref-4" class="reference"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_note-4">[4]</a></sup>. A workaround exists by using the package <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hypcap</span> <a rel="nofollow" class="external autonumber" href="http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/hypcap.pdf" target="_blank">[1]</a> with:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">[</span><span class="re2">all</span><span class="sy0">]{</span><span class="re9">hypcap</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>Be sure to call this package <i>after</i> loading <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span>.</p>
+<p>If you use the <span style="font-family: monospace; color: #2020C0; font-weight: normal;">wrapfig</span> package<sup id="cite_ref-5" class="reference"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_note-5">[5]</a></sup> mentioned in the "<a href="http://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions#Wrapping_text_around_figures" title="LaTeX/Floats, Figures and Captions">Wrapping text around figures</a>" section of the "Floats, Figures and Captions" chapter, or other similar packages that define their own environments, you will need to manually include <span class="mw-geshi latex source-latex"><span class="re12">\capstart</span></span> in those environments, <i>e.g.</i>:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re8">\begin</span><span class="sy0">{</span><span class="re9"><span class="re7">wrapfigure</span><span class="sy0">}{</span>R<span class="sy0">}{</span>0.5<span class="sy0">\</span><span class="kw1">textwidth</span><span class="sy0">}</span><br>
+&nbsp; <span class="re12">\capstart</span><br>
+&nbsp; <span class="re8">\begin</span><span class="sy0">{</span><span class="re7">center</span><span class="sy0">}</span><br>
+&nbsp; &nbsp; <span class="sy0">\</span><span class="kw1">includegraphics</span><span class="sy0">[</span><span class="re2">width=0.48\<span class="kw1">textwidth</span></span><span class="sy0">]{</span>filename<span class="sy0">}</span><br>
+&nbsp; <span class="re8">\end</span><span class="sy0">{</span><span class="re7">center</span><span class="sy0">}</span> &nbsp;<br>
+&nbsp; <span class="sy0">\</span><span class="kw1">caption</span><span class="sy0">{\</span><span class="kw1">label</span><span class="sy0">{</span>labelname<span class="sy0">}</span>a figure<span class="sy0">}</span><br>
+<span class="re8">\end</span><span class="sy0">{</span><span class="re7">wrapfigure</span></span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<h3><span class="mw-headline" id="Problems_with_long_caption_and_.5Clistoffigures_or_long_title">Problems with long caption and \listoffigures or long title</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=18" title="Edit section: Problems with long caption and \listoffigures or long title">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There is an issue when using <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">listoffigures</span></span> with <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> for long captions or long titles. This happens when the captions (or the titles) are longer than the page width (about 7-9 words depending on your settings). To fix this, you need to use the option breaklinks when first declaring:</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">usepackage</span><span class="sy0">[</span><span class="re2">breaklinks</span><span class="sy0">]{</span><span class="re9">hyperref</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>This will then cause the links in the <span class="mw-geshi latex source-latex"><span class="sy0">\</span><span class="kw1">listoffigures</span></span> to word wrap properly.</p>
+<h3><span class="mw-headline" id="Problems_with_already_existing_.toc.2C_.lof_and_similar_files">Problems with already existing .toc, .lof and similar files</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=19" title="Edit section: Problems with already existing .toc, .lof and similar files">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The format of some of the auxilliary files generated by latex changes when you include the <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> package. One can therefore encounter errors like</p>
+<pre>! Argument of \Hy@setref@link has an extra }.
+</pre>
+<p>when the document is typeset with <span style="font-family: monospace; color: #2020C0; font-weight: normal;">hyperref</span> for the first time and these files already exist. The solution to the problem is to delete all the files that latex uses to get references right and typeset again.</p>
+<h3><span class="mw-headline" id="Problems_with_footnotes_and_special_characters">Problems with footnotes and special characters</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=20" title="Edit section: Problems with footnotes and special characters">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>See the <a href="http://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes#Common_problems_and_workarounds" title="LaTeX/Footnotes and Margin Notes">relevant section</a>.</p>
+<h3><span class="mw-headline" id="Problems_with_Beamer">Problems with Beamer</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=21" title="Edit section: Problems with Beamer">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Using the command</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\hyperref</span><span class="sy0">[</span><span class="re2">some_label</span><span class="sy0">]{</span><span class="re9">some text</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>is broken when pointed at a label. Instead of sending the user to the desired label, upon clicking the user will be sent to the first frame. A simple work around exists; instead of using</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\phantomsection</span><span class="sy0">\</span><span class="kw1">label</span><span class="sy0">{</span><span class="re9">some_label</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>to label your frames, use</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\hypertarget</span><span class="sy0">{</span><span class="re9">some_label}{</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<p>and reference it with</p>
+<table style="margin-top: 1.5em; margin-bottom: 1.5em">
+<tbody><tr>
+<td style="padding-left:3em;">
+<p><span class="mw-geshi latex source-latex"><span class="re12">\hyperlink</span><span class="sy0">{</span><span class="re9">some_label}{some text</span><span class="sy0">}</span></span></p>
+</td>
+</tr>
+</tbody></table>
+<h3><span class="mw-headline" id="Problems_with_draft_mode">Problems with draft mode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=22" title="Edit section: Problems with draft mode">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><b>WARNING!</b> Please note that if you have activated the "draft"-option in your \documentclass declaration the hyperlinks will not show up in the table of contents!!!</p>
+<h2><span class="mw-headline" id="Notes_and_References">Notes and References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit&section=23" title="Edit section: Notes and References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist references" style="">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_ref-1"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.ctan.org/tex-archive/macros/latex/contrib/hyperref" target="_blank">Hyperref package webpage in CTAN</a></span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_ref-2"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://groups.google.com/group/comp.text.tex/browse_thread/thread/ae160fd2fc5680a5/71a5a7c7bfceb3cb?lnk=gst&q=email+url+hyperref#71a5a7c7bfceb3cb" target="_blank">"Email link with hyperref, url packages"</a>. <i>comp.text.tex User Group</i><span class="printonly">. <a rel="nofollow" class="external free" href="http://groups.google.com/group/comp.text.tex/browse_thread/thread/ae160fd2fc5680a5/71a5a7c7bfceb3cb?lnk=gst&q=email+url+hyperref#71a5a7c7bfceb3cb" target="_blank">http://groups.google.com/group/comp.text.tex/browse_thread/thread/ae160fd2fc5680a5/71a5a7c7bfceb3cb?lnk=gst&amp;q=email+url+hyperref#71a5a7c7bfceb3cb</a></span><span class="reference-accessdate">. Retrieved 2008</span>.</span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.btitle=Email+link+with+hyperref%2C+url+packages&amp;rft.atitle=comp.text.tex+User+Group&amp;rft_id=http%3A%2F%2Fgroups.google.com%2Fgroup%2Fcomp.text.tex%2Fbrowse_thread%2Fthread%2Fae160fd2fc5680a5%2F71a5a7c7bfceb3cb%3Flnk%3Dgst%26q%3Demail%2Burl%2Bhyperref%2371a5a7c7bfceb3cb&amp;rfr_id=info:sid/en.wikibooks.org:LaTeX/Hyperlinks"><span style="display: none;">&nbsp;</span></span></span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_ref-3"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text">Other possible values are defined in the <a rel="nofollow" class="external text" href="http://mirror.switch.ch/ftp/mirror/tex/macros/latex/contrib/hyperref/doc/manual.html#TBL-7-40-1" target="_blank">hyperref manual</a></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_ref-4"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.ctan.org/tex-archive/macros/latex/contrib/hyperref/README" target="_blank">http://www.ctan.org/tex-archive/macros/latex/contrib/hyperref/README</a></span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#cite_ref-5"><span class="cite-accessibility-label">Jump up </span>↑</a></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.ctan.org/tex-archive/macros/latex/contrib/wrapfig" target="_blank">Wrapfig package webpage in CTAN</a></span></li>
+</ol>
+</div>
+<p><br></p>
+<table width="100%" cellspacing="0" cellpadding="2" style="border: 1px solid black;" class="noprint">
+<tbody><tr>
+<td width="33%" bgcolor="#FFFFE0"><a href="http://en.wikibooks.org/wiki/LaTeX/Footnotes_and_Margin_Notes" title="LaTeX/Footnotes and Margin Notes">Previous: Footnotes and Margin Notes</a></td>
+<td width="33%" bgcolor="#FFFFE0" align="center"><a href="http://en.wikibooks.org/wiki/LaTeX" title="LaTeX">Index</a></td>
+<td width="33%" bgcolor="#FFFFE0" align="right"><a href="http://en.wikibooks.org/wiki/LaTeX/Labels_and_Cross-referencing" title="LaTeX/Labels and Cross-referencing">Next: Labels and Cross-referencing</a></td>
+</tr>
+</tbody></table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1086
+CPU time usage: 0.980 seconds
+Real time usage: 1.026 seconds
+Preprocessor visited node count: 2421/1000000
+Preprocessor generated node count: 16829/1500000
+Post‐expand include size: 28390/2048000 bytes
+Template argument size: 9732/2048000 bytes
+Highest expansion depth: 14/40
+Expensive parser function count: 0/500
+-->
+
+<!-- Saved in parser cache with key enwikibooks:pcache:idhash:96276-0!*!0!!en!4!* and timestamp 20140524062712 and revision id 2626832
+ -->
+<noscript>&lt;img src="//en.wikibooks.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /&gt;</noscript></div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&oldid=2626832">http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&amp;oldid=2626832</a>"					</div>
+													<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://en.wikibooks.org/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="http://en.wikibooks.org/wiki/Category:LaTeX" title="Category:LaTeX">LaTeX</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="http://en.wikibooks.org/w/index.php?title=Special:UserLogin&returnto=LaTeX%2FHyperlinks&type=signup">Create account</a></li><li id="pt-login"><a href="http://en.wikibooks.org/w/index.php?title=Special:UserLogin&returnto=LaTeX%2FHyperlinks" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li>						<li id="pt-mysandbox"><a href="http://en.wikibooks.org/wiki/Special:MyPage/sandbox?action=edit&redlink=1&editintro=Template%3AUser_sandbox&preload=Template%3AUser_sandbox%2Fpreload" title="Go to your sandbox">Sandbox</a></li></ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/LaTeX Hyperlinks - Wikibooks, open books for an open world.html" title="View the content page [alt-shift-c]" accesskey="c">Book</a></span></li>
+															<li id="ca-talk"><span><a href="http://en.wikibooks.org/wiki/Talk:LaTeX/Hyperlinks" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+						<h3 id="mw-vector-current-variant">
+													</h3>
+
+						<h3 id="p-variants-label" tabindex="0"><span>Variants</span><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/LaTeX Hyperlinks - Wikibooks, open books for an open world.html">Read</a></span></li>
+															<li id="ca-edit"><span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=edit" title="You can edit this page. Please use the preview button before saving [alt-shift-e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label" tabindex="0"><span>Actions</span><a href="http://en.wikibooks.org/wiki/LaTeX/Hyperlinks#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="http://en.wikibooks.org/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Wikibooks [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton">								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(//upload.wikimedia.org/wikibooks/en/b/bc/Wiki.png);" href="http://en.wikibooks.org/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal first" role="navigation" id="p-Navigation" aria-labelledby="p-Navigation-label">
+			<h3 id="p-Navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage"><a href="http://en.wikibooks.org/wiki/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main Page</a></li>
+													<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="Find help on how to use and edit Wikibooks">Help</a></li>
+													<li id="n-Browse"><a href="http://en.wikibooks.org/wiki/Wikibooks:Card_Catalog_Office" title="Check out what Wikibooks has to offer">Browse</a></li>
+													<li id="n-Cookbook"><a href="http://en.wikibooks.org/wiki/Cookbook:Table_of_Contents" title="Learn recipes from around the world">Cookbook</a></li>
+													<li id="n-Wikijunior"><a href="http://en.wikibooks.org/wiki/Wikijunior" title="Books for children">Wikijunior</a></li>
+													<li id="n-Featured-books"><a href="http://en.wikibooks.org/wiki/Wikibooks:Featured_books" title="The best of Wikibooks">Featured books</a></li>
+													<li id="n-recentchanges"><a href="http://en.wikibooks.org/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>
+													<li id="n-sitesupport"><a href="http://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&utm_medium=sidebar&utm_campaign=C13_en.wikibooks.org&uselang=en" title="Support Wikibooks">Donations</a></li>
+													<li id="n-randomrootpage"><a href="http://en.wikibooks.org/wiki/Special:RandomRootpage">Random book</a></li>
+													<li id="n-Using-Wikibooks"><a href="http://en.wikibooks.org/wiki/Using_Wikibooks">Using Wikibooks</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Community" aria-labelledby="p-Community-label">
+			<h3 id="p-Community-label">Community</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Reading-room"><a href="http://en.wikibooks.org/wiki/Wikibooks:Reading_room" title="Discuss Wikibooks-related questions and concerns with others">Reading room</a></li>
+													<li id="n-portal"><a href="http://en.wikibooks.org/wiki/Wikibooks:Community_Portal" title="Find your way around the Wikibooks community">Community portal</a></li>
+													<li id="n-currentevents"><a href="http://en.wikibooks.org/wiki/Wikibooks:Reading_room/Bulletin_Board" title="Important community news">Bulletin Board</a></li>
+													<li id="n-maintenance"><a href="http://en.wikibooks.org/wiki/Wikibooks:Maintenance" title="Frequent tasks that you can help with">Help out!</a></li>
+													<li id="n-Policies-and-guidelines"><a href="http://en.wikibooks.org/wiki/Wikibooks:Policies_and_guidelines" title="Pages detailing important rules and procedures">Policies and guidelines</a></li>
+													<li id="n-contact"><a href="http://en.wikibooks.org/wiki/Wikibooks:Contact_us" title="Alternative methods of communication">Contact us</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="http://en.wikibooks.org/wiki/Special:WhatLinksHere/LaTeX/Hyperlinks" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="http://en.wikibooks.org/wiki/Special:RecentChangesLinked/LaTeX/Hyperlinks" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+													<li id="t-upload"><a href="http://commons.wikimedia.org/wiki/Special:UploadWizard" title="Upload files [alt-shift-u]" accesskey="u">Upload file</a></li>
+													<li id="t-specialpages"><a href="http://en.wikibooks.org/wiki/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+													<li id="t-permalink"><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&oldid=2626832" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&action=info">Page information</a></li>
+						<li id="t-cite"><a href="http://en.wikibooks.org/w/index.php?title=Special:Cite&page=LaTeX%2FHyperlinks&id=2626832" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-lang" aria-labelledby="p-lang-label"><span class="uls-settings-trigger" tabindex="0" role="button" aria-haspopup="true" original-title="Language settings"></span>
+			<h3 id="p-lang-label">Languages</h3>
+
+			<div class="body">
+									<ul>
+													
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Sister_projects" aria-labelledby="p-Sister_projects-label">
+			<h3 id="p-Sister_projects-label">Sister projects</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Wikipedia"><a href="http://en.wikipedia.org/wiki/Main_Page">Wikipedia</a></li>
+													<li id="n-Wikiversity"><a href="http://en.wikiversity.org/wiki/Wikiversity:Main_Page">Wikiversity</a></li>
+													<li id="n-Wiktionary"><a href="http://en.wiktionary.org/wiki/Wiktionary:Main_Page">Wiktionary</a></li>
+													<li id="n-Wikiquote"><a href="http://en.wikiquote.org/wiki/Main_Page">Wikiquote</a></li>
+													<li id="n-Wikisource"><a href="http://en.wikisource.org/wiki/Main_Page">Wikisource</a></li>
+													<li id="n-Wikinews"><a href="http://en.wikinews.org/wiki/Main_Page">Wikinews</a></li>
+													<li id="n-Wikivoyage"><a href="http://en.wikivoyage.org/wiki/Main_Page">Wikivoyage</a></li>
+													<li id="n-Commons"><a href="http://commons.wikimedia.org/wiki/Main_Page">Commons</a></li>
+													<li id="n-Wikidata"><a href="http://www.wikidata.org/wiki/Wikidata:Main_Page">Wikidata</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-coll-print_export" aria-labelledby="p-coll-print_export-label">
+			<h3 id="p-coll-print_export-label">Print/export</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="http://en.wikibooks.org/w/index.php?title=Special:Book&bookcmd=book_creator&referer=LaTeX%2FHyperlinks">Create a collection</a></li>
+													<li id="coll-download-as-rl"><a href="http://en.wikibooks.org/w/index.php?title=Special:Book&bookcmd=render_article&arttitle=LaTeX%2FHyperlinks&oldid=2626832&writer=rl">Download as PDF</a></li>
+													<li id="t-print"><a href="http://en.wikibooks.org/w/index.php?title=LaTeX/Hyperlinks&printable=yes" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 April 2014, at 16:00.</li>
+											<li id="footer-info-copyright">Text is available under the <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike License.</a>; additional terms may apply.  By using this site, you agree to the <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy.</a></li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://en.wikibooks.org/wiki/Wikibooks:Welcome" title="Wikibooks:Welcome">About Wikibooks</a></li>
+											<li id="footer-places-disclaimer"><a href="http://en.wikibooks.org/wiki/Wikibooks:General_disclaimer" title="Wikibooks:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="http://en.m.wikibooks.org/wiki/LaTeX/Hyperlinks" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://wikimediafoundation.org/"><img src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="http://www.mediawiki.org/"><img src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mobile.desktop","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.extlinks","ext.gadget.mySandbox","mw.MwEmbedSupport.style","mmv.bootstrap.autostart","ext.eventLogging.subscriber","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage","ext.flaggedRevs.advanced"],null,true);
+}</script>
+<script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(13).php"></script>
+<script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/index(14).php"></script>
+<script src="./LaTeX Hyperlinks - Wikibooks, open books for an open world_files/load(2).php"></script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":160,"wgHostname":"mw1165"});
+}</script><div class="suggestions" style="display: none; font-size: 13px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div>
+	
+
+	</body></html>

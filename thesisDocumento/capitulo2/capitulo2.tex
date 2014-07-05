@@ -1,17 +1,46 @@
-\chapter{Caos}
+\chapter{Mapa caótico Renyi}
 
-\chapter{Introducción}
-El Caos es un fenómeno fascinante que ha sido observado en la naturaleza (clima, dinámica de satélites en el sistema solar, evolución en el tiempo del campo magnético de los cuerpos celestes, y el crecimiento de la población en el área de Ecología) y en el laboratorio (circuitos eléctricos, lásers, reacciones químicas, dinámica de fluídos, sistemas mecánicos, y dispositivos electromecánicos). El comportamiento caótico tiene numerosas aplicaciones en ingeniería en comunicaciones y eléctrica, en las tecnologías de la información y comunicación, en biología y medicina. 
-\section{Caos}
 
-Se dice que un mapa $f$ que está definido en el intervalo $I= [\alpha, beta]$ es caótico si se cumplen las siguientes condiciones:
-
-\begin{enumerate}
-\item Los puntos periódicos de $f$ son densos en I.
-\item $f$ es una función transitiva en el intervalo $I$, esto significa que, dados dos subintervalos cualesquiera $U_{1}$ y $U_{2}$ en $I$, hay un punto $x_{0} \in U_{1}$y un $n>0$ tal que $f^{n}(x_{0}) \in U_{2}$.
-\item $f$ tiene dependencia  a las condiciones iniciales en $I$; esto significa que hay una constante de sensibilidad $\beta$ tal que para cualquier $x_{o} \in I$ y cualquier intervalo abierto $U$ sobre $x_{0}$, hay alguna semilla $y_{o} \in U$ Y $n >0$ tal que
-
+\section{Proceso de discretización}
+El mapa caótico Renyi $\phi_{\beta} \colon [0,1) \longrightarrow [0,1)$ se define de la siguiente manera:
 \begin{equation}
-|f^{n}(x_{0}) - f^{n}(y_{0}) | > \beta.
-\end{equation} 
-\end{enumerate}
+\phi (x)= (\beta \cdot x) \mod 1
+\label{2a}
+\end{equation}
+donde $1 < \beta \in \mathbb{R}$; además, si $a$ y $b$ son números reales no negativos, se cumple lo siguiente: $b = a - \lfloor a/b \rfloor b$. La función suelo $\lfloor \cdot \rfloor$ regresa el mayor número entero menor o igual que el argumento.
+
+De aquí en adelante, $\tilde{x}$ será una representación en punto fijo de $n$ bits donde 
+\begin{equation}
+\tilde{x}= \mathbb{Q}: \; \tilde{x} = \frac{k}{2^{n}}, \;\;\;\;\;\; k \in \mathbb{N}, \;\;\;\;\;\; k < 2^{n}.
+\label{2b}
+\end{equation}
+
+De acuerdo a la ecuación~\ref{2b}, $\title{x}$ toma valores racionales en el intervalo $[0,1)$ y se tiene una cardinalidad de $2^{n}$.
+
+Para lograr una evaluación de precisión finita de la ecuación~\ref{2a}, se utiliza una aproximación por truncamiento de la siguiente manera:
+\begin{equation}
+\tilde{\phi}_{\beta}(\tilde{x})= (\beta \cdot \tilde{x})_{tr} \mod 1 = \lfloor (2^{n} \cdot \beta \cdot \tilde{x}) \mod 2^{n}  \rfloor \cdot 2^{-n}.
+\label{2c}
+\end{equation}
+
+La ecuación~\ref{2c} debe ser implementada en máquinas de estado finito; por lo tanto, $\beta$ puede ser, en general, cualquier número mayor que 1 cuya representación binaria requiera un número finito de dígitos. Por medio del isomorfismo $k = \tilde{x} \cdot 2^{n}$, el conjunto de posibles valores obtenidos en~\ref{2b} puede ser relacionado con el conjunto de números naturales
+\begin{equation}
+\Lambda_{n}= \{ k \in \mathbb{N}, \; 0 \leq k < 2^{n}  \}
+\label{2d}
+\end{equation}
+y una función $f \colon  \Lambda_{n} \longrightarrow \Lambda_{n}$ puede ser definida como 
+\begin{equation}
+\begin{array}{lll}
+f(k) & =2^{n}\tilde{\phi}_{\beta}(2^{-n}k)& = \lfloor  \beta \cdot  k \mod 2^{n} \rfloor \\
+&   = \lfloor \beta \cdot k \rfloor \mod 2^{n}.  & 
+\end{array}
+\label{2e}
+\end{equation}
+
+La función $f$ es equivalente a~\ref{2c}. La ecuación~\ref{2e} representa al Generador de Números Pseudoaleatorios que se utiliza en el trabajo descrito en este documento. 
+
+@@@@@@@@@@@@@@@@@@@@2Aqui voy jajaj
+
+
+
+

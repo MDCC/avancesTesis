@@ -1,0 +1,15 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Proposed scheme}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Secure random number generator based on chaotic maps}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Chaotic system generation}{subsection.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.2}{Bit flipping}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.3}{Segment shuffling}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{System analysis}{}% 7
+\BOOKMARK [1][-]{section.4}{Security analysis}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Ciphertext-only attack:}{section.4}% 9
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Chaotic generator}{subsection.4.1}% 10
+\BOOKMARK [3][-]{subsubsection.4.1.2}{Bit flipping/shuffle}{subsection.4.1}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Known-plaintext and chosen-plaintext attacks:}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Performance evaluation setup}{}% 13
+\BOOKMARK [1][-]{section.6}{Experimental results}{}% 14
+\BOOKMARK [1][-]{section.7}{Conclusion}{}% 15

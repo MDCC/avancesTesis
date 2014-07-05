@@ -1,0 +1,224 @@
+\begin{thebibliography}{26}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Incollection
+\bibitem[{Bernstein and Schwabe(2008)}]{Bernstein2008}
+\bibinfo{author}{Bernstein, D.J.}, \bibinfo{author}{Schwabe, P.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{New {AES} {S}oftware {S}peed {R}ecords}, in:
+  \bibinfo{booktitle}{Progress in Cryptology - {INDOCRYPT 2008}}. volume
+  \bibinfo{volume}{5365}, pp. \bibinfo{pages}{322--336}.
+\newblock \DOIprefix\doi{10.1007/978-3-540-89754-5_25}.
+%Type = Article
+\bibitem[{Capocelli et~al.(1992)Capocelli, Santis, Gargano and
+  Vaccaro}]{Capocelli1992}
+\bibinfo{author}{Capocelli, R.M.}, \bibinfo{author}{Santis, A.A.D.},
+  \bibinfo{author}{Gargano, L.}, \bibinfo{author}{Vaccaro, U.},
+  \bibinfo{year}{1992}.
+\newblock \bibinfo{title}{On the {C}onstruction of {S}tatistically
+  {S}ynchronizable {C}odes}.
+\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
+  \bibinfo{volume}{38}, \bibinfo{pages}{407--414}.
+\newblock \DOIprefix\doi{10.1109/18.119696}.
+%Type = Article
+\bibitem[{Ferguson and Rabinowitz(1984)}]{Ferguson1984}
+\bibinfo{author}{Ferguson, T.}, \bibinfo{author}{Rabinowitz, J.},
+  \bibinfo{year}{1984}.
+\newblock \bibinfo{title}{Self-{S}ynchronizing {H}uffman {C}odes}.
+\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
+  \bibinfo{volume}{30}, \bibinfo{pages}{687--693}.
+\newblock \DOIprefix\doi{10.1109/TIT.1984.1056931}.
+%Type = Misc
+\bibitem[{Gladman(2006)}]{Gladman2006}
+\bibinfo{author}{Gladman, B.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{{AES} and {C}ombined {E}ncryption/{A}uthentication
+  {M}odes}.
+%Type = Article
+\bibitem[{Hasimoto-Beltr\'{a}n(2008)}]{Hasimoto2008}
+\bibinfo{author}{Hasimoto-Beltr\'{a}n, R.}, \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{High-{P}erformance {M}ultimedia {E}ncryption {S}ystem
+  {B}ased on {C}haos}.
+\newblock \bibinfo{journal}{Chaos} \bibinfo{volume}{18}.
+%Type = Article
+\bibitem[{Hasimoto-Beltr\'{a}n and
+  Ram\'{\i}rez-Ram\'{\i}rez(2013)}]{Hasimoto2011}
+\bibinfo{author}{Hasimoto-Beltr\'{a}n, R.},
+  \bibinfo{author}{Ram\'{\i}rez-Ram\'{\i}rez, R.}, \bibinfo{year}{2013}.
+\newblock \bibinfo{title}{Cycle {D}etection for {S}ecure {C}haos-{B}ased
+  {E}ncryption}.
+\newblock \bibinfo{journal}{Communications in Nonlinear Science and Numerical
+  Simulations (CNSNS)} \bibinfo{volume}{16}, \bibinfo{pages}{3203--3211}.
+\newblock \DOIprefix\doi{10.1016/j.cnsns.2010.11.002}.
+%Type = Article
+\bibitem[{Hemami(2000)}]{Hemami2000}
+\bibinfo{author}{Hemami, S.S.}, \bibinfo{year}{2000}.
+\newblock \bibinfo{title}{Robust {I}mage {T}ransmission {U}sing
+  {R}esynchronizing {V}ariable-{L}ength {C}odes and {E}rror {C}oncealment}.
+\newblock \bibinfo{journal}{IEEE {J}ournal on Selected {A}reas in
+  {C}ommunications} \bibinfo{volume}{18}, \bibinfo{pages}{927--939}.
+\newblock \DOIprefix\doi{10.1109/49.848247}.
+%Type = Article
+\bibitem[{Huffman(1952)}]{Huffman1952}
+\bibinfo{author}{Huffman, D.A.}, \bibinfo{year}{1952}.
+\newblock \bibinfo{title}{A {M}ethod for the {C}onstruction of
+  {M}inimum-{R}edundancy {C}odes}.
+\newblock \bibinfo{journal}{Proceedings of the I.R.E.} \bibinfo{volume}{40},
+  \bibinfo{pages}{1098--1102}.
+\newblock \DOIprefix\doi{10.1109/JRPROC.1952.273898}.
+%Type = Article
+\bibitem[{Jakimoski and Subbalakshmi(2008)}]{Jakimoski2008}
+\bibinfo{author}{Jakimoski, G.}, \bibinfo{author}{Subbalakshmi, K.P.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Cryptanalysis of {S}ome {M}ultimedia {E}ncryption
+  {S}chemes}.
+\newblock \bibinfo{journal}{{IEEE} Transactions on {M}ultimedia}
+  \bibinfo{volume}{10}, \bibinfo{pages}{330--338}.
+\newblock \DOIprefix\doi{10.1109/TMM.2008.917355}.
+%Type = Inproceedings
+\bibitem[{Khanvilkar and Khokhar(2006)}]{Khanvilkar2006}
+\bibinfo{author}{Khanvilkar, S.}, \bibinfo{author}{Khokhar, A.},
+  \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{{NIS07}-1: {E}fficient {T}ransmission of {MP3}
+  {S}treams over {VPN}s}, in: \bibinfo{booktitle}{Global Telecommunications
+  Conference, 2006. GLOBECOM-06. IEEE}, pp. \bibinfo{pages}{1--5}.
+\newblock \DOIprefix\doi{10.1109/GLOCOM.2006.296}.
+%Type = Article
+\bibitem[{Kitakami and Nakamura(2005)}]{Kitakami2005}
+\bibinfo{author}{Kitakami, M.}, \bibinfo{author}{Nakamura, S.},
+  \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Burst {E}rror {R}ecovery for {H}uffman {C}oding}.
+\newblock \bibinfo{journal}{{IEICE} Transactions} \bibinfo{volume}{88-D},
+  \bibinfo{pages}{2197--2200}.
+%Type = Inproceedings
+\bibitem[{Liu and Eskicioglu(2003)}]{Liu2003}
+\bibinfo{author}{Liu, X.}, \bibinfo{author}{Eskicioglu, A.M.},
+  \bibinfo{year}{2003}.
+\newblock \bibinfo{title}{Selective {E}ncryption of {M}ultimedia {C}ontent in
+  {D}istribution {N}etworks: {C}hallenges and {N}ew {D}irections}, in:
+  \bibinfo{booktitle}{2nd Int. Conf. Communications, Internet, and Information
+  Technology}, pp. \bibinfo{pages}{527--533}.
+%Type = Misc
+\bibitem[{Maemo()}]{linkMaemo}
+\bibinfo{author}{Maemo}, .
+\newblock \bibinfo{title}{The {H}ome of {T}he {M}aemo {C}ommunity}.
+\newblock \URLprefix \url{http://maemo.org/}. \bibinfo{note}{[{A}vailable]}.
+%Type = Article
+\bibitem[{Maxted and Robinson(1985)}]{Maxted1985}
+\bibinfo{author}{Maxted, J.}, \bibinfo{author}{Robinson, J.},
+  \bibinfo{year}{1985}.
+\newblock \bibinfo{title}{Error {R}ecovery for {V}ariable {L}ength {C}odes}.
+\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
+  \bibinfo{volume}{31}, \bibinfo{pages}{794--801}.
+\newblock \DOIprefix\doi{10.1109/TIT.1985.1057110}.
+%Type = Misc
+\bibitem[{Meyer and Gadegast(1995)}]{Meyer1995}
+\bibinfo{author}{Meyer, J.}, \bibinfo{author}{Gadegast, F.},
+  \bibinfo{year}{1995}.
+\newblock \bibinfo{title}{Security {M}echanisms for {M}ultimedia {D}ata with
+  the {E}xample {MPEG-1} {V}ideo}.
+%Type = Article
+\bibitem[{Monaco and Lawler(1987)}]{Monaco1987}
+\bibinfo{author}{Monaco, M.}, \bibinfo{author}{Lawler, J.},
+  \bibinfo{year}{1987}.
+\newblock \bibinfo{title}{Corrections and {A}dditions to {'}{E}rror {R}ecovery
+  for {V}ariable {L}ength {C}odes{'} by {J}. {C}. {M}axted and {J}. {P}.
+  {R}obinson}.
+\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
+  \bibinfo{volume}{33}, \bibinfo{pages}{454--456}.
+\newblock \DOIprefix\doi{10.1109/TIT.1987.1057297}.
+%Type = Article
+\bibitem[{Montgomery and Abrahams(1986)}]{Montgomery1986}
+\bibinfo{author}{Montgomery, B.L.}, \bibinfo{author}{Abrahams, J.},
+  \bibinfo{year}{1986}.
+\newblock \bibinfo{title}{Synchronization of {B}inary {S}ource {C}odes}.
+\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
+  \bibinfo{volume}{32}, \bibinfo{pages}{849--854}.
+\newblock \DOIprefix\doi{10.1109/TIT.1986.1057238}.
+%Type = Manual
+\bibitem[{{National Institute of Standards and Technology (NIST)}()}]{NIST}
+\bibinfo{author}{{National Institute of Standards and Technology (NIST)}}, .
+\newblock \bibinfo{title}{{FIPS}-197: {A}dvanced {E}ncryption {S}tandard
+  ({AES})}.
+\newblock \URLprefix
+  \url{http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf}.
+  \bibinfo{note}{[{A}vailable]}.
+%Type = Inproceedings
+\bibitem[{Spanos and Maples(1995)}]{Spanos1995}
+\bibinfo{author}{Spanos, G.A.}, \bibinfo{author}{Maples, T.B.},
+  \bibinfo{year}{1995}.
+\newblock \bibinfo{title}{Performance {S}tudy of a {S}elective {E}ncryption
+  {S}cheme for the {S}ecurity of {N}etworked, {R}eal-{T}ime {V}ideo}, in:
+  \bibinfo{booktitle}{{F}ourth {I}nternational {C}onference on Computer
+  {C}ommunications and {N}etworks}, pp. \bibinfo{pages}{2--10}.
+\newblock \DOIprefix\doi{10.1109/ICCCN.1995.540095}.
+%Type = Article
+\bibitem[{Swaszek and DiCicco(1995)}]{Swaszek1995}
+\bibinfo{author}{Swaszek, P.}, \bibinfo{author}{DiCicco, P.},
+  \bibinfo{year}{1995}.
+\newblock \bibinfo{title}{More on the {E}rror {R}ecovery for
+  {V}ariable-{L}ength {C}odes}.
+\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
+  \bibinfo{volume}{41}, \bibinfo{pages}{2064--2071}.
+\newblock \DOIprefix\doi{10.1109/18.476338}.
+%Type = Article
+\bibitem[{Takishima et~al.(1994)Takishima, Wada and Murakami}]{Takishima1994}
+\bibinfo{author}{Takishima, Y.}, \bibinfo{author}{Wada, M.},
+  \bibinfo{author}{Murakami, H.}, \bibinfo{year}{1994}.
+\newblock \bibinfo{title}{Error {S}tates and {S}ynchronization {R}ecovery for
+  {V}ariable {L}ength {C}odes}.
+\newblock \bibinfo{journal}{IEEE Transactions on Communications}
+  \bibinfo{volume}{42}, \bibinfo{pages}{783--792}.
+\newblock \DOIprefix\doi{10.1109/TCOMM.1994.577107}.
+%Type = Inproceedings
+\bibitem[{Tang(1996)}]{Tang1996}
+\bibinfo{author}{Tang, L.}, \bibinfo{year}{1996}.
+\newblock \bibinfo{title}{Methods for {E}ncrypting and {D}ecrypting {MPEG}
+  {V}ideo {D}ata {E}fficiently}, in: \bibinfo{booktitle}{Proceedings of the 4th
+  ACM International Multimedia Conference}, \bibinfo{address}{Boston,
+  Massachusetts, USA}. pp. \bibinfo{pages}{219--230}.
+%Type = Article
+\bibitem[{Te-Chung and Kumar(2002)}]{Chung2002}
+\bibinfo{author}{Te-Chung, Y.}, \bibinfo{author}{Kumar, S.},
+  \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{A {L}ow {C}omplexity {E}rror {R}ecovery {T}echnique
+  for {W}avelet {I}mage {C}odecs with {I}nter-{S}ubband {D}ependency}.
+\newblock \bibinfo{journal}{IEEE Transactions on Consumer Electronics}
+  \bibinfo{volume}{48}, \bibinfo{pages}{973--981}.
+\newblock \DOIprefix\doi{10.1109/TCE.2003.1196428}.
+%Type = Article
+\bibitem[{Wen et~al.(2006)Wen, Kim and Villasenor}]{Jiangtao2006}
+\bibinfo{author}{Wen, J.}, \bibinfo{author}{Kim, H.},
+  \bibinfo{author}{Villasenor, J.D.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Binary {A}rithmetic {C}oding with {K}ey-{B}ased
+  {I}nterval {S}plitting}.
+\newblock \bibinfo{journal}{Signal Processing Letters, IEEE}
+  \bibinfo{volume}{13}, \bibinfo{pages}{69--72}.
+\newblock \DOIprefix\doi{10.1109/LSP.2005.861589}.
+%Type = Article
+\bibitem[{Wu and Kuo(2005)}]{Wu2005}
+\bibinfo{author}{Wu, C.}, \bibinfo{author}{Kuo, C.}, \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{Design of {I}ntegrated {M}ultimedia {C}ompression and
+  {E}ncryption {S}ystems}.
+\newblock \bibinfo{journal}{IEEE Transactions on Multimedia}
+  \bibinfo{volume}{7}, \bibinfo{pages}{828--839}.
+\newblock \DOIprefix\doi{10.1109/TMM.2005.854469}.
+%Type = Article
+\bibitem[{Zhou and Zhang(2002)}]{Zhou2002}
+\bibinfo{author}{Zhou, G.}, \bibinfo{author}{Zhang, Z.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Synchronization {R}ecovery of {V}ariable-{L}ength
+  {C}odes}.
+\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
+  \bibinfo{volume}{48}, \bibinfo{pages}{219--227}.
+\newblock \DOIprefix\doi{10.1109/18.971750}.
+
+\end{thebibliography}

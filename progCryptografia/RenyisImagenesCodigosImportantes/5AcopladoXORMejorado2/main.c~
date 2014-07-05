@@ -13,9 +13,7 @@
 /*
  File:   main.c
  Author: daniel
-Este programa es una modificacion de los mapas acoplados. El objetivo es evitar
-operaciones aritmeticas, llamadas a funciones, y todo tipo de operacion que haga
-que la ejecucion de un programa cifrado sea lenta. Esta es la version2.
+Este programa es una modificacion de los mapas acoplados.
 */
 
 int main(){
@@ -55,13 +53,13 @@ int main(){
     *de una llave, en este ejemplo todavia no elegimos una. Tambien,
     *los parametros son fijos en este ejemplo.*/
    parametros[0]=131071;
-   Xn[0]=653;
+   Xn[0]=91;
    parametros[1]=104729;
-   Xn[1]=769;
+   Xn[1]=237;
    parametros[2]=524287;
-   Xn[2]=227;
+   Xn[2]=31;
    parametros[3]=65537;
-   Xn[3]=823;
+   Xn[3]=53;
    int contDeH=0;
                    
    /*Primero, hacemos un ciclo inicial para calcular un nuevo valor para cada
@@ -88,6 +86,7 @@ int main(){
         newH = 0;
         for(k=0;k<noMapas; k++){            
             Xn[k]= RENYI_MAP(Xn[k],parametros[k],j) + (epsilon&H);
+		//printf("\n %u",Xn[k]);
             Xtotal[iteraciones++] = Xn[k];
             newH^=Xn[k];      
         }

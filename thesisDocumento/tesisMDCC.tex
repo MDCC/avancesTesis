@@ -1,15 +1,26 @@
-%\documentclass[10pt]{book}
-\documentclass[12pt,twoside]{report}
+%\documentclass[11pt,twoside]{book}
+\documentclass[11pt,twoside]{report}
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks   = true, %Colours links instead of ugly boxes
+  urlcolor     = blue, %Colour for external hyperlinks
+  linkcolor    = blue, %Colour of internal links
+  citecolor   = red, %Colour of citations
+}
+
 \usepackage{float}
 \usepackage{graphicx}
+
 \begin{document}
 
+%Inicio del titulo.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{titlepage}
 \begin{center}
 \vspace*{-1in}
@@ -49,23 +60,41 @@ Rogelio Hasimoto Beltrán\\
 \vspace*{0.1in}
 \end{center}
 \end{titlepage}
+%Fin del titulo.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %Ahora deseamos agregar una pagina en blanco sin numerar.
-%\newpage
-%\mbox{}
-%\thispagestyle{empty} % para que no se numere esta pagina
+\newpage
+\mbox{}
+\thispagestyle{empty} % para que no se numere esta pagina
 
 
 %Ahora, vamos a agregar una dedicatoria.
-%\chapter*{}
-%\pagenumbering{Roman}
-%\begin{flushright}
-%\textbf{Dedicado a: }
+\chapter*{}
+\pagenumbering{Roman}
+\begin{flushright}
+\textbf{Dedicado a: }
+\textit{Mi familia.}
+\end{flushright}
 
-%\textit{Mi familia.}
-%\end{flushright}
 
+
+
+% indice de contenidos
+\tableofcontents 
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lista de figuras} % para que aparezca en el indice de contenidos
+\listoffigures % indice de figuras
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Lista de tablas} % para que aparezca en el indice de contenidos
+\listoftables % indice de tablas
+
+% Agradecimientos
+\chapter*{Agradecimientos} % si no queremos que añada la palabra "Capitulo"
+\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
+\markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado 
 
 
 

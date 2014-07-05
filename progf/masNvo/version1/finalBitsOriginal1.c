@@ -10,14 +10,13 @@
 como referencia el bit de referencia anterior (lo que se vio en la platica en sala H).
 Version1
 Esta version tiene las siguientes caracteristicas.
--El metodo de cifrado es el mio: operaciones separadas, pero ahora se optimiza el proceso de 
-intercambio de datos: se ahorra un ciclo.
--La generacion de mapas caoticos es aquella donde se utilizan TODOS los octetos.*/
+-De los mapas caoticos se utilizan TODOS los octetos por medio de un apuntador.*/
 
 /*Definiciones necesarias: MAPA RENYI.*/
 #define RENYI_MAP(var, parametro, j) ((var)*(parametro)+((var)>>(j)))
 #define MAPAS 3
 #define NUMSEGMENTOS 20
+             
 
 /*Prototipos de funciones.*/
 void imprimirArreglo1D(unsigned char *, unsigned int, unsigned int);
@@ -106,7 +105,6 @@ int main(){
 	/************ Declaracion de variables para cifrado parcial ************************/
 	unsigned int tamRTP=400; 
 	unsigned int numPaquetesRTP=tamanioArchivo/tamRTP; 
-	//unsigned int Lsegmentos = 20;  /*Segmentos a permutar, orita lo puse fijo.*/
 	unsigned char segmentos[20];
 
         /*Ejemplo de Valores de prueba permitidos para calcular BF.*/
@@ -123,16 +121,15 @@ int main(){
 	unsigned int tamanioSegmento = tamRTP/NUMSEGMENTOS;
 	unsigned int numBitsRTP = tamRTP*8; /*Num. de bytes del segmento * numero de bits.*/
 	unsigned int T;  
-	register unsigned int irtp;
+	unsigned int irtp;
 	unsigned int auxiliar;
-	register unsigned char iSeg;
+	unsigned char iSeg;
         unsigned char * p1;
 	unsigned char * p2;
 	unsigned int bitRef;
 	unsigned int posicionInversion;
 	unsigned char p;
 	unsigned char count=0;
-        unsigned int limite;
 	/***********************************************************************************/
 
         /******************** Estructuras para medir el tiempo de calculo ******************/
@@ -157,13 +154,13 @@ int main(){
                 while((bitRef+BF)<numBitsRTP){
 
 			newH=0;
-			Xn[0]= RENYI_MAP(Xn[0],parametros[0],j)+ (epsilon*H);
+			Xn[0]= RENYI_MAP(Xn[0],parametros[0],j)+ (epsilon^H);
 			newH^=Xn[0]; 
-                        Xn[1]= RENYI_MAP(Xn[1],parametros[1],j)+ (epsilon*H);
+                        Xn[1]= RENYI_MAP(Xn[1],parametros[1],j)+ (epsilon^H);
 			newH^=Xn[1]; 
-			Xn[2]= RENYI_MAP(Xn[2],parametros[2],j)+ (epsilon*H);
+			Xn[2]= RENYI_MAP(Xn[2],parametros[2],j)+ (epsilon^H);
 			newH^=Xn[2]; 
-			Xn[3]= RENYI_MAP(Xn[3],parametros[3],j)+ (epsilon*H);
+			Xn[3]= RENYI_MAP(Xn[3],parametros[3],j)+ (epsilon^H);
 			newH^=Xn[3]; 
 			H = newH&255;
 
@@ -201,17 +198,15 @@ int main(){
                 segmentos[16]=16; segmentos[17]=17; segmentos[18]=18; segmentos[19]=19; 
 	       	
 
-                /*limite se utiliza para ahorrar restas en el ciclo.*/
-                limite=NUMSEGMENTOS-1;
-                /*El ciclo realiza lo que dice al paper: aplicar intercambio hasta el
-                segundo elemento, el primero no tiene caso porque no 
-		tiene con quien intercambiarse.*/
-		for(iSeg =limite; iSeg >0; iSeg--){
-        
+       
+                /*Hacemos intercambio en el arreglo segmentos.*/
+		for(iSeg =NUMSEGMENTOS; --iSeg;){  
+
                         x1 = RENYI_MAP(x1,parametro1,j);
 			x2 = RENYI_MAP(x2,parametro2,j);
                             
 			T =  (x1 & x2) %(iSeg);
+	
 			
 		        auxiliar = segmentos[iSeg];
 			segmentos[iSeg] = segmentos[T];
@@ -219,13 +214,12 @@ int main(){
    
 		}/*Fin del for que recorre los segmentos del paquete RTP.*/
 
-
+                /*Nueva forma para intercambiar datos.*/
 		p2 =intercambioArreglo;
 		for(iSeg=0; iSeg<NUMSEGMENTOS; iSeg++){
                         p1 =datosAuxiliar + tamanioSegmento*segmentos[iSeg];
 			memcpy(p2,p1, tamanioSegmento);
 		        p2+= tamanioSegmento; 
-		   
 		}/*Fin del for para la permutacion de segmentos*/
 
 

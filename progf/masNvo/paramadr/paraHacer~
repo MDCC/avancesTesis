@@ -81,3 +81,18 @@ for(irtp=0; irtp < numPaquetesRTP; irtp++){
   
 	}/*Fin del ciclo de paquetes RTP.*/
 	/***********************************************************************************/
+
+
+     p2    =  intercambioArreglo;
+              for(iSeg=0; iSeg<NUMSEGMENTOS; iSeg++){
+
+                        p1 =datosAuxiliar + tamanioSegmento*segmentos[iSeg];
+			p2  += tamanioSegmento;
+   
+			memcpy(p2,p1, tamanioSegmento);
+		   
+		}/*Fin del for para la permutacion de segmentos*/
+                
+                
+
+

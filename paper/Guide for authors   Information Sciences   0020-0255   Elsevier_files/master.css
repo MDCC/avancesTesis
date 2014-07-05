@@ -1,0 +1,2517 @@
+/*
+  Running Squiz Matrix
+  Developed by Squiz - http://www.squiz.net
+  Squiz, Squiz Matrix, MySource, MySource Matrix and Squiz.net are registered Trademarks of Squiz Pty Ltd
+  Page generated: 30 May 2014 15:51:38
+*/
+
+
+/* 
+ *  master.css | Main StyleSheet File
+ *  Table of content
+ *  1. Reset CSS
+ *  2. Generic styles for tags
+ *  3. Reusable classes
+ *  4. Components
+ *  5. Implementation Fixes
+ *  6. Implementation Fixes (bwalters)
+ *  7. Helpbox style settings
+ *  8. Open Access Table Overrides
+ *  9. Open Access Table CR - Dec 2013
+ * 10. New Boxed Layout Templates 
+ * 11. Wide Template additions - 12 Mar 2014 - lwoollett@squiz.co.uk
+ */
+
+/* 1. RESET */
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { margin:0; padding:0; }
+table { border-collapse:collapse; border-spacing:0; }
+fieldset, img, iframe { border:0; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal; }
+ol, ul { list-style:none; }
+caption, th { text-align:left; }
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal; }
+q:before, q:after { content:''; }
+abbr, acronym { border:0; }
+
+/* 2. GENERIC STYLES FOR TAGS */
+
+body { font: 12px/18px "Helvetica", sans-serif; margin:0 auto; width:960px; }
+a { color:#00759b; text-decoration:none; }
+a:hover { text-decoration:underline; }
+strong { font-weight:bold; }
+em { font-style: italic; }
+img { max-width:100%; }
+h1 { font-size:16px; font-weight: bold; color:#666; line-height:18px; margin-bottom:18px; }
+h2 { font-size:14px; font-weight:bold; line-height:18px; margin-bottom:15px; }
+h3 { color:#666666; font-size:13px; line-height:16px; margin-bottom:15px; }
+p { line-height:16px; margin-bottom: 12px; }
+ul { margin-left:20px; margin-bottom: 12px; }
+ul li { list-style: disc outside none; }
+ol { margin-left:20px; margin-bottom: 12px; }
+ol li { list-style: decimal outside none; }
+table { border-collapse:collapse; width:100% }
+td, th { border:1px #000 solid; padding:5px 10px; }
+th { font-size:14px; text-transform:uppercase; text-align:center; }
+form input::-moz-focus-inner {
+border: 0;
+padding:0;
+padding-bottom:1px;
+} /*Remove button padding in FF*/
+form input.submit { cursor:pointer; }
+form fieldset { margin-bottom:30px; }
+form fieldset div label { font-size:12px; }
+form fieldset label { font-size:13px; }
+form fieldset.buttons { text-align:right; }
+form fieldset.buttons table { float:right; }
+
+/* 3. REUSABLE CLASSES */
+
+.clear { clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
+.clearfix:before, .clearfix:after, .grid:before, .grid:after { content: '.'; display: block; overflow: hidden; visibility: hidden; font-size: 0; line-height: 0; width: 0; height: 0; }
+.clearfix:after, .grid:after { clear: both; }
+.clearfix, .grid { zoom: 1; }
+.hide { display:none; }
+.rss-feed { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat 0px -100px transparent; height:14px; margin-left:10px; padding:0 7px; width:14px; zoom:1; }
+.rss-feed span { display:none; }
+img.left { float:left; margin:0 15px 15px 0; }
+img.right { float:right; margin:0 0 15px 15px; }
+a.external { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -650px transparent; padding-right: 12px; }
+.media { margin: 0 0 15px 0; }
+.media p { color:#666666; font-size:11px; margin:5px 0 0; text-align:right; }
+.media img { display:block; }
+.media.right { float:right; margin:0 0 15px 15px; }
+/*.media.right p { text-align:left; }*/
+
+.media.right p { text-align:right; }
+.media.left { float:left; margin:0 15px 15px 0; }
+.media.left p { text-align:right; }
+.smallprint { color:#666666; }
+
+.visually-hidden { left: -99999px; position: absolute; width: 100%; }
+.hidden { display: none; }
+
+.button_main {
+    background-color: #D9EAF0;
+    border: 1px solid #00759b;
+    border-radius: 0.417em;
+    color: #006080;
+    display: inline-block;
+    padding: 0.2em 1em;
+}
+
+.button_main:hover,
+.button_main:focus {
+    text-decoration: none;
+    color: #fff;
+    background-color: #00759b;
+}
+
+.quote, blockquote {
+background: url(http://cdn.elsevier.com/assets/image/0006/147813/blockquote_gray.gif) no-repeat 0 4px;
+padding: 10px 20px 10px 50px;
+color: #555;
+font-style: italic;
+margin: 0 0 15px 0;
+font-size: 12px;
+}
+
+/* 4. COMPONENTS */
+
+/* 4.1 Header */
+.header { margin-top:25px; width:100%; }
+.header .logo { float:left; margin-right:35px; }
+.header .search { float:left; }
+.header .search input.text, .modular-search .text { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 0 transparent; border:0; float:left; height:24px; line-height:1; padding:0 15px; width:236px; }
+.header .search input.text:focus, .modular-search .text { outline: none; }
+
+ul.social-media-topbar li.follow-us { float: left; margin-left:50px; list-style:none; }
+.social-media-topbar li.follow-us { position:relative; font-size:12px; float:left; margin:0; }
+.social-media-topbar li.follow-us a.title { background:url('http://cdn.elsevier.com/assets/image/0019/685/small.png') scroll no-repeat right -198px transparent; padding-right:15px; line-height: 26px; }
+.social-media-topbar li.follow-us .wrapper { background:url('http://cdn.elsevier.com/assets/image/0019/676/box-on-hover-shadow.png') scroll no-repeat right bottom transparent; bottom:-136px; display:none; left:-11px; position:absolute; padding-bottom:23px; z-index:2500; }
+.social-media-topbar li.follow-us .wrapper div { background-color:white; border:1px solid #cfcfcf; padding:10px 30px 10px 10px; }
+.social-media-topbar li.follow-us .wrapper div a.box-title { background:url('http://cdn.elsevier.com/assets/image/0019/685/small.png') scroll no-repeat right -247px transparent; padding-right:15px; }
+.social-media-topbar li.follow-us .wrapper div ul { margin:0; margin-top:10px; }
+.social-media-topbar li.follow-us .wrapper div ul li { background-image:url('http://cdn.elsevier.com/assets/image/0019/685/small.png'); background-repeat:no-repeat; float:none; margin:0; padding:3px 0 3px 25px; list-style:none; }
+.social-media-topbar li.follow-us .wrapper div ul li.google { background: url("http://cdn.elsevier.com/assets/image/0006/111867/g-plus-share.png") no-repeat scroll 0 3px transparent; }
+.social-media-topbar li.follow-us .wrapper div ul li.twitter { background-position:0 -347px; }
+.social-media-topbar li.follow-us .wrapper div ul li.linkedin { background-position:0 -397px; }
+.social-media-topbar li.follow-us .wrapper div ul li.facebook { background-position:0 -447px; }
+.social-media-topbar li.follow-us:hover .wrapper { display:block; }
+
+/* new styles for adding follow us buttons horizontal in top bar*/
+
+.navFollowUs {
+    float:left;
+    width:180px;
+    margin:1px 0 0 35px;
+}
+.navFollowUs img{
+    position:relative;
+    top:4px;
+    margin-left:8px;
+}
+
+.header .search input.submit, .modular-search .submit { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 -24px transparent; border:0; border-radius:0; float:left; height:24px; margin:0; text-indent:-9999px; width:36px; outline:0; }
+.header .search input.submit { font-size: 0; } /* For IE6 */
+.header .search a.advance { line-height:26px; margin-left:30px; }
+.header .menu { background:url('http://www.elsevier.com/__data/assets/image/0015/681/menu-bg.jpg?v=0.1.5') scroll no-repeat center 0 white; clear:both; margin:15px 0 0; min-height:46px; position:relative; width:100%; z-index:1500; }
+.header .submenu-visible-position-left { background-position:center -92px; }
+.header .submenu-visible-position-right { background-position:center -46px; }
+.header .menu li { list-style:none; font-size:13px; font-weight:bold; float:left; padding:0 14px; }
+.header .menu li a { display:block; padding:10px 15px; }
+.header .menu li a:hover {cursor:default; text-decoration: none;}
+.header .menu li .submenu { background:url('http://www.elsevier.com/__data/assets/image/0004/61186/menu-bottom-shadow.png?v=0.0.4') scroll repeat-x center bottom transparent; display:none; /*visibility:hidden;*/ position:absolute; left:0; padding-bottom:11px; top:37px; z-index:1600; zoom:1; /*transition:visibility 0s linear 0s; -moz-transition:visibility 0s linear 0s; -webkit-transition:visibility 0s linear 0s; -o-transition:visibility 0s linear 0s;*/ }
+/*.header .menu li .submenu-wrapper { background:url('http://www.elsevier.com/__data/assets/image/0016/682/menu-submenu-divider.jpg?v=0.1.5') scroll repeat-x 0 0 white; border:1px solid #cfcfcf; border-radius: 0 0 5px 5px; overflow:hidden; zoom:1; }*/
+
+.header .menu li .submenu-wrapper { background:url('http://www.elsevier.com/__data/assets/image/0016/682/menu-submenu-divider.jpg?v=0.1.5') scroll repeat-x 0 0 transparent; border:1px solid #cfcfcf; border-radius: 0 0 5px 5px; overflow:hidden; zoom:1; }
+.header .menu li.position-right .submenu { left:auto; right:0; }
+.header .menu li .submenu .submenu-wrapper div { float:left; padding:25px 0 20px; width:208px; zoom:1; }
+.header .menu li .submenu .submenu-wrapper div strong { display:block; font-weight:normal; margin:0 15px 5px; min-height:36px; }
+.header .menu li .submenu .submenu-wrapper ul { margin:0; line-height:22px; }
+.header .menu li .submenu .submenu-wrapper ul li { float:none; margin:0; padding:0; zoom:1; }
+.header .menu li .submenu .submenu-wrapper ul li a { background-color:transparent; border:0; font-size:12px; line-height:14px; font-weight:normal; padding:5px 15px; /*transition-delay:0; -moz-transition-delay:0; -webkit-transition-delay:0; -o-transition-delay:0;*/ }
+.header .menu li .submenu .submenu-wrapper ul li a:hover { background-color:#00759b; color:white; cursor:pointer;}
+/*.header .menu li:hover a, .header .menu li.hover a { background-color:white; border:1px solid #cfcfcf; border-bottom-color:white; position:relative; padding:9px 14px; text-decoration:none; z-index:1700; }
+*/
+
+/*.header .menu li:hover a, .header .menu li.hover a { background-color:#fcfcfc; border:1px solid #cfcfcf; border-bottom-color:#fcfcfc; position:relative; padding:9px 14px; text-decoration:none; z-index:1700;*/ /*transition-delay:0.5s; -moz-transition-delay:0.5s; -webkit-transition-delay:0.5s; -o-transition-delay:0.5s;*//*}*/
+/*.header .menu li:hover .submenu, .header .menu li.hover .submenu { display:block;*/ /*visibility:visible; transition-delay:0.5s; -moz-transition-delay:0.5s; -webkit-transition-delay:0.5s; -o-transition-delay:0.5s;*//* }*/
+.header .help-and-faqs { float:right; font-weight:bold; line-height: 26px; }
+.header .help-and-faqs .japanContact { margin-right:20px; }
+
+/* styles for hoverIntent top bar - added by Dennis Smit 18 Oct 2013 */
+.header .menu li.hovering a { background-color:#fcfcfc; border:1px solid #cfcfcf; border-bottom-color:#fcfcfc; position:relative; padding:9px 14px; text-decoration:none; z-index:1700;}
+.header .menu li.hovering .submenu { display:block;}
+/*.header .menu li:hover a { background-color:#fcfcfc; border:1px solid #cfcfcf; border-bottom-color:#fcfcfc; position:relative; padding:9px 14px; text-decoration:none; z-index:1700;}
+.header .menu li:hover .submenu { display:block;}*/
+
+
+/* 4.2 Slider */
+.slider { margin-top:30px; width:100%; overflow:hidden; position:relative; zoom:1; }
+.slider .slides { height:473px; margin:0; zoom:1; }
+.slider .slides img { display: block; }
+.slider .slides > li { background:url('http://www.elsevier.com/__data/assets/image/0006/44961/slider-blank-bg.jpg?v=0.0.2') scroll no-repeat 0 0 white; display:none; font-weight:lighter; height:473px; list-style:none; overflow:hidden; width:960px; }
+.slider .slides > li:first-child, .slider .slides li.first { display:block; }
+.slider .slides li > .description { color:#666666; float:left; margin:50px 117px 0 30px; width:500px; }
+.slider .slides li > .description h2 { font-size:30px; line-height:36px; margin-bottom:70px; }
+.slider .slides li > .description p { margin-left:20px; }
+.slider .slides li > .description .main-line { font-size:25px; line-height:30px; }
+.slider .slides li > .description .second-line { font-size:18px; line-height:20px; margin-top:25px; }
+.slider .slides li > .link { display:block; float:left; height:387px; margin-top:28px; width:216px; }
+.slider .flex-control-nav { bottom:12px; margin:0; position:absolute; text-align:center; width:100%; z-index:1200; }
+.slider .flex-control-nav li { display:inline; height:17px; width:34px; }
+.slider .flex-control-nav li a { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat 12px -47px transparent; display:inline-block; height:17px; width:34px; }
+.slider .flex-control-nav li a {
+*display:inline; zoom:1; } /* IE7 Fix */
+.slider .flex-control-nav li a.flex-active { background-position:12px 3px; }
+.slider .flex-control-nav li a span { display:block; height:17px; visibility:hidden; width:34px; }
+/* Clearfix for the .slides element */
+.slides:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+html[xmlns] .slides { display: block; }
+* html .slides { height: 1%; }
+
+/* 4.3 News */
+.homepage-news { margin-top:45px; }
+.homepage-news .news-header { zoom:1; }
+.homepage-news .news-header h2 { float:left; width:48%; }
+.homepage-news .news-header .other { float:right; position:relative; text-align:right; z-index: 3000; /* Fix IE7 z-index bug on .wrapper */ }
+.homepage-news .news-header .other a.title { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -197px transparent; font-weight:bold; font-size:13px; margin-right:10px; padding-right:15px; }
+.homepage-news .news-header .other .wrapper { background:url('http://www.elsevier.com/__data/assets/image/0019/676/box-on-hover-shadow.png?v=0.1.3') scroll no-repeat right bottom transparent; display:none; position:absolute; padding-bottom:23px; right:0px; top:-10px; width:190px; z-index:1500; }
+/* .homepage-news .news-header .other .wrapper div { background-color:white; border:1px solid #cfcfcf; padding:9px 9px 9px 30px; } */
+
+.homepage-news .news-header .other .wrapper div { background-color:white; border:1px solid #cfcfcf; padding:9px 9px 9px 10px; }
+.homepage-news .news-header .other .wrapper div a.box-title { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -147px transparent; font-weight:bold; font-size:13px; padding-right:15px; }
+.homepage-news .news-header .other .wrapper div ul { margin:20px 0 0; }
+.homepage-news .news-header .other .wrapper div ul li { float:none; list-style:none; margin:0; }
+.homepage-news .news-header .other:hover .wrapper { display:block; }
+.homepage-news .news { clear:both; margin:0; overflow:hidden; }
+.homepage-news .news li { float:left; font-size:11px; line-height:14px; list-style:none; padding:20px 2.5% 0; width:28%; }
+.homepage-news .news li p { color:#757575; font-size:11px; line-height:14px; }
+.homepage-news .news li p.news-date { margin:0; }
+.homepage-news .news li h3 { font-size:13px; line-height:16px; margin-bottom:12px; }
+.homepage-news .news.loading { background:url('http://www.elsevier.com/__data/assets/image/0006/1500/ajax-loader.gif?v=0.0.2') scroll no-repeat center center transparent; }
+/* 4.4 Homepage boxes */
+.homepage-boxes { overflow:hidden; margin:20px 0 0; width:100%; }
+.homepage-boxes .box { float:left; height:130px; margin-left:18px; width:226px; }
+.homepage-boxes .box:first-child, .homepage-boxes .first { margin-left:0; }
+.homepage-boxes .search { position:relative; zoom:1; }
+.homepage-boxes .search input { bottom:14px; height:24px; position:absolute; }
+.homepage-boxes .search input.text { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 0 transparent; border:0; font-size:11px; line-height:1; left:7px; padding:0 8px; width:156px; }
+.homepage-boxes .search input.submit { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 -48px transparent; border:0; border-radius:0; margin:0; left:180px; text-indent:-9999px; width:36px; }
+.homepage-boxes .search input.submit { font-size: 0; } /* For IE6 */
+
+/* 4.5 Footer */
+.footer { clear:both; margin-top:40px; padding-bottom:50px; width:100%; }
+.footer .logo { display:block; float:left; overflow:hidden; width: 66px;}
+.footer .links { font-size:12px; float:right; margin:0; }
+.footer .links li { float:left; list-style:none; margin-left:30px; }
+.footer .links li.follow-us { position:relative; }
+.footer .links li.follow-us a.title { background:url('http://cdn.elsevier.com/assets/image/0019/685/small.png') scroll no-repeat right -197px transparent; padding-right:15px; }
+.footer .links li.follow-us .wrapper { background:url('http://cdn.elsevier.com/assets/image/0019/676/box-on-hover-shadow.png') scroll no-repeat right bottom transparent; bottom:-34px; display:none; left:-11px; position:absolute; padding-bottom:23px; z-index:1500;  }
+.footer .links li.follow-us .wrapper div { background-color:white; border:1px solid #cfcfcf; padding:10px 30px 10px 10px;width:110px; }
+.footer .links li.follow-us .wrapper div a.box-title { background:url('http://cdn.elsevier.com/assets/image/0019/685/small.png') scroll no-repeat right -247px transparent; padding-right:15px; }
+.footer .links li.follow-us .wrapper div ul { margin:0; }
+.footer .links li.follow-us .wrapper div ul li {float:none; margin:0; padding:3px 0 3px 0px; }
+.footer .links li.follow-us .wrapper div ul li.newsletter { background-position:0 -300px; }
+.footer .links li.follow-us .wrapper div ul li.twitter { background-position:0 -350px; }
+.footer .links li.follow-us .wrapper div ul li.linkedin { background-position:0 -400px; }
+.footer .links li.follow-us .wrapper div ul li.facebook { background-position:0 -450px; }
+.footer .links li.follow-us:hover .wrapper { display:block; }
+.footer .copyright-and-terms { float:right; margin-top:10px; }
+.footer .copyright-and-terms p { float:left; line-height:24px; margin:0 10px 0 0; }
+.footer .copyright-and-terms ul { float:left; margin:0; line-height:24px; }
+.footer .copyright-and-terms ul li { list-style:none; float:left; margin-left:30px; }
+/* 4.5.1 BigFooter */
+#bigfooter-subjects-listing { clear: both; width: 958px; overflow: hidden; border: 1px solid #cfcfcf; border-radius: 5px; }
+#bigfooter-subjects-listing h3 { margin: 19px 0 24px 34px; font-size: 14px; line-height: 1; font-weight: bold; }
+.bigfooter-subjects-listing-col { float: left; display: inline; width: 171px; margin: 0; padding: 0 34px 24px 34px; overflow: hidden; background: url(http://www.elsevier.com/__data/assets/image/0005/129623/bigfooter_column_bg.png?v=0.0.2) right top no-repeat; list-style: none; }
+.bigfooter-subjects-listing-col.last { background: none; }
+#bigfooter-subjects-listing a.bigfooter-current-subject { color: #000; font-weight: bold; }
+
+
+/* 4.6 Aside menu */
+.aside { background:url('http://www.elsevier.com/__data/assets/image/0019/667/asite-bg.png?v=0.1.3') scroll no-repeat right top transparent; clear:both; float:left; margin-top:20px; margin-bottom:20px; width:160px; }
+.aside h2 { color:#666666; font-size:16px; }
+.aside ul { margin:12px 0 0; }
+.aside ul li { list-style:none; zoom:1; }
+.aside ul li a { display:block; padding:4px 9px; zoom:1; }
+.aside ul li a:hover { color:black; text-decoration:none; }
+.aside ul li ul { margin:0; display:none; }
+.aside ul li ul li { }
+.aside ul li ul li a { padding-left:20px; }
+.aside ul li.active > a { color:black; font-weight:bold; }
+.aside ul li.active ul { display:block; }
+.aside ul li.hier > a { color:black; font-weight:bold; }
+.aside ul li.hier ul { display:block; }
+.aside ul li.with-submenu > a span { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -498px transparent; padding-right:14px; }
+/*.aside ul li.with-submenu ul { background:url('http://www.elsevier.com/__data/assets/image/0014/671/asite-bottom-bg.png?v=0.1.3') scroll no-repeat right bottom transparent; margin:0; padding-bottom:7px; } */
+
+.aside ul li.with-submenu ul { background:url('http://www.elsevier.com/__data/assets/image/0020/108362/LHNB-bg-trans.png?v=0.1.3') scroll no-repeat right bottom transparent; margin:0; padding-bottom:7px; }
+/*.aside ul li.with-submenu.active { background:url('http://www.elsevier.com/__data/assets/image/0003/669/asite-border-top.png?v=0.1.1') scroll no-repeat right top transparent; padding: 1px 0 0; }*/
+.aside ul li.with-submenu.active { background:url('http://www.elsevier.com/__data/assets/image/0003/108390/LHNB-bg-trans-2.png?v=0.1.1') scroll no-repeat right top transparent; padding: 1px 0 0; }
+.aside ul li.with-submenu.active > a { background-color:white; }
+/*.aside ul li.with-submenu.active > a span { background-position:right -548px; }*/
+.aside ul li.with-submenu > a span { display: block; }
+.aside ul li.with-submenu.active > a span { background-position: right -545px; }
+.aside ul li.with-submenu.active ul li { background-color:white; }
+.aside ul li.with-submenu.hier { background:url('http://www.elsevier.com/__data/assets/image/0003/669/asite-border-top.png?v=0.1.1') scroll no-repeat right top transparent; padding: 1px 0 0; }
+.aside ul li.with-submenu.hier > a { background-color:white; color:#00759B; font-weight:normal; }
+/*.aside ul li.with-submenu.hier > a span { background-position:right -198px; } */
+.aside ul li.with-submenu.hier > a span { background-position:right -195px; }
+.aside ul li.with-submenu.hier ul li { background-color:white; }
+.aside .product-details { background-color:white; border-bottom:1px solid #d7d7d7; padding-bottom:15px; }
+.aside .product-details .cover { background:url('http://www.elsevier.com/__data/assets/image/0014/104144/aside-cover-bg.jpg?v=0.1.1') scroll no-repeat right top; height:232px; margin:0 auto 17px; padding:17px 0 8px; text-align:center; width:150px; }
+.aside .product-details .button { background: url("http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6") no-repeat scroll 0 -40px transparent; color: #006080; display: block; font-size: 14px; height: 33px; line-height: 36px; margin: 8px 0 0; padding: 0; text-align: center; width: 162px; }
+.aside .important-links { border-bottom:1px solid #d7d7d7; font-size:14px; margin-top:4px; line-height:20px; }
+.aside .links { margin-top:4px; line-height:20px; }
+.search-filters { padding:0 7px; width:146px; }
+.search-filters h3 { color:#555555; font-size:12px; font-weight:bold; margin:0; padding-bottom:4px; }
+.search-filters ul { margin:0; }
+.search-filters div { padding-bottom:12px; }
+.search-filters a.more { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -197px transparent; padding:0 15px 0 7px; }
+.search-filters ul li { display:block; padding:4px 0; line-height:14px; margin:3px 0; overflow:hidden; }
+.search-filters ul li a { padding:0 7px; }
+.search-filters ul li a.remove { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat 0 -860px transparent; float:right; height:14px; padding:0; width:14px; zoom:1; margin-right:-4px; }
+.search-filters ul li a.remove span { display:none; }
+.search-filters ul li span { display:block; float:left; width:105px; }
+.search-filters ul li.active { background-color:#666666; border-radius:11px; color:white; padding:4px 9px; zoom:1; }
+
+/* 4.6 Main content */
+.content { float:left; margin-top:20px; padding-bottom:20px; width:800px; }
+.content .wrapper { padding-left:19px; overflow:visible; }
+body.one-column .content { width:960px; }
+body.one-column .content .wrapper { padding:0; }
+.content-full-width { float:left; margin-top:20px; padding-bottom:20px; }
+
+/* 4.7 Boxes */
+.boxes { clear:both; overflow:hidden; padding-bottom:30px; width:800px; zoom:1; }
+.boxes div { background:url('http://www.elsevier.com/__data/assets/image/0015/672/box-bg.jpg?v=0.1.1') scroll repeat-x 0 0 transparent; border:1px solid #d7d7d7; border-radius:5px; float:left; height:80px; margin:0 20px 20px 0; padding:9px; width:226px; zoom:1; }
+.boxes div h3 { margin:0; font-size:16px; line-height:20px; height:40px; }
+.boxes div h3 a { display:block; }
+.boxes div h3 a img { display:block; }
+.boxes div p { color:#4a4a4a; line-height:14px; margin:0; max-height:42px; overflow:hidden; }
+.boxes div.pdf h3 { background:url('http://www.elsevier.com/__data/assets/image/0004/679/file-pdf.png?v=0.1.1') scroll no-repeat right 0 transparent; padding-right:40px; }
+.boxes a.box { background:url('http://www.elsevier.com/__data/assets/image/0015/672/box-bg.jpg?v=0.1.1') scroll repeat-x 0 0 transparent; border:1px solid #d7d7d7; border-radius:5px; float:left; height:80px; margin:0 20px 20px 0; padding:9px; width:226px; zoom:1; }
+.boxes a.box span.header { margin:0; font-size:16px; line-height:20px; height:40px; display:block; }
+.boxes a.box span.introtext { color:#4a4a4a; line-height:14px; margin:0; max-height:42px; overflow:hidden; }
+.boxes a.box.pdf span.header { background:url('http://www.elsevier.com/__data/assets/image/0004/679/file-pdf.png?v=0.1.1') scroll no-repeat right 0 transparent; padding-right:40px; }
+.boxes a.box span { display: block; cursor: pointer; }
+.boxes a.box:hover { text-decoration: none; }
+.books { clear:both; overflow:hidden; padding-bottom:30px; width:800px; zoom:1; }
+.books .book { background:url('http://www.elsevier.com/__data/assets/image/0003/99318/books-bg.jpg?v=0.0.2') scroll repeat-x 0 0 transparent; border:1px solid #d7d7d7; border-radius:5px; float:left; height:80px; line-height:14px; margin:0 20px 20px 0; padding:8px; width:228px; display: block; }
+.books .book p { color:#4a4a4a; margin:0; padding:0; }
+.books .book h3 { font-weight:bold; margin:0 0 5px; padding:0; }
+.books .book span.header { font-weight:bold; margin:0 0 5px; padding:0; }
+.books .book h3 a { color:#4a4a4a; }
+.books .book span.header { color: #666666; display: block; }
+.books .book .thumbnail { display:block; float:left; margin-right:15px; }
+.books .book .thumbnail img { display:block; box-shadow: -2px 0px 5px 0px #000000; }
+.books .book .description { height:84px; overflow:hidden; }
+.books .book span.description { height:84px; overflow:hidden; display: block; }
+.books .book .description p { max-height:56px; }
+.books .book .description span.introtext { max-height:56px; color: #4A4A4A; text-decoration:none; }
+.books a.book { text-decoration: none; cursor: pointer; }
+.books a.book:hover { text-decoration: none; }
+.books a.book span { text-decoration: none; cursor: pointer; }
+.people { clear:both; overflow:hidden; padding-bottom:30px; width:800px; }
+.person { background:url('http://www.elsevier.com/__data/assets/image/0017/683/people-bg.jpg?v=0.1.3') scroll repeat-x 0 0 #f1f1f1; border:1px solid #d7d7d7; border-radius:5px; float:left; height:173px; margin:0 20px 20px 0; padding:14px; width:350px; }
+.person .thumbnail { display:block; float:left; margin-right:15px; }
+.person h3 { font-size:15px; font-weight:bold; margin-bottom:12px; }
+.person .job-title { height:48px; overflow:hidden; }
+.person .expertise { max-height:96px; overflow:hidden; }
+.person .expertise strong { display:block; }
+.person.right { float:right; margin:0 0 20px 20px; }
+.files { clear:both; overflow:hidden; padding-bottom:30px; width:800px; }
+.files.two-in-a-row { width:532px; padding-right:268px; }
+.files div { background:url('http://www.elsevier.com/__data/assets/image/0015/672/box-bg.jpg?v=0.1.1') scroll repeat-x 0 0 transparent; border:1px solid #d7d7d7; border-radius:5px; float:left; height:80px; margin:0 20px 20px 0; padding:6px 9px 9px; width:226px; }
+.files div h3 { margin:0; font-size:16px; line-height:18px; padding:5px 70px 6px 0; }
+.files div h3 a { display:block; height:36px; }
+.files div p { color:#4a4a4a; line-height:16px; margin:4px 0 0; max-height:48px; overflow:hidden; }
+.files div.pdf h3 { background:url('http://www.elsevier.com/__data/assets/image/0004/679/file-pdf.png?v=0.1.1') scroll no-repeat right 0 transparent; }
+
+/* 4.8 Lists */
+.sections { clear:both; margin:0; overflow:hidden; }
+.sections li { list-style:none; margin:0 0 40px; zoom:1; }
+.sections li h2, .sections li h3 { font-size:13px; }
+.sections li h2 a, .sections li h3 a { color:black; }
+.sections li .thumbnail { display:block; float:left; margin-right:15px; overflow:hidden; }
+.sections li .description { margin-left:85px; }
+.sections.industry-standards li .description { margin-left:110px; }
+.sections li .more { clear:both; }
+.article-list { clear:both; margin:0; overflow:hidden; zoom:1; }
+.article-list li { background:url('http://www.elsevier.com/__data/assets/image/0018/666/articles-list-bg.jpg?v=0.1.3') scroll repeat-x 0 0 transparent; border:1px solid #d7d7d7; border-radius:5px; float:left; list-style:none; margin:0 0 20px 0; padding:9px 9px 0; }
+.article-list li h3 { font-size:15px; font-weight:bold; }
+.covers-list { clear:both; margin:0; overflow:hidden; }
+.covers-list h2, .covers-list h3 { font-size:12px; font-weight:bold; margin:0; }
+.covers-list li { margin-bottom:40px; }
+.covers-list li .thumbnail { display:block; float:left; margin-right:10px; }
+.covers-list li .description { margin-left:65px; }
+.covers-list li .description p { margin-bottom:6px; }
+.covers-list li .description p.links { margin:0; }
+.covers-list li .description .links a { margin-right:30px; }
+.search-results { clear:both; margin:0; overflow:visible; }
+.search-results h2 { font-size:12px; font-weight:bold; margin:0; }
+.search-results li { margin-bottom:40px; list-style:none; }
+.search-results li p { margin-bottom:6px; }
+.search-results li p.links { margin:0; }
+.search-results li .links a { margin-right:25px; }
+.publications { clear:both; margin:0; overflow:hidden; }
+.publications li { font-size:13px; list-style:none; margin-bottom:25px; }
+.publications li p { margin:0; }
+.publications li p.date { color:#666666; font-size:11px; margin:0; }
+.publications li h3 { margin:0; }
+.book-series { margin:0; }
+.book-series li { list-style:none; overflow:hidden; position:relative; padding-right:78px; }
+.book-series li h3 { font-weight:bold; margin-bottom:4px; }
+.book-series li p { line-height:14px; }
+.book-series li .cover { display:block; float:left; margin-right:15px; }
+.book-series li .cover img { display:block; }
+.book-series li .buy { bottom:10px; position:absolute; right:15px; }
+.search-results li .links a, .search-results li .links .dropdown-trigger {
+    margin-right:20px;
+}
+
+/* 4.9 Columns */
+.columns-layout { margin-top:20px; overflow:hidden; padding-bottom:20px; width:100%; }
+.columns-layout .main { float:left; overflow:hidden; width:839px; }
+.columns-layout .advertisment { float:left; overflow:hidden; width:121px; }
+.columns-layout .column-wide { margin-right:11px; }
+.columns-layout .column-medium { float:left; margin-right:11px; width:328px; }
+.columns-layout .column-short { float:left; margin-right:11px; width:150px; }
+
+/* 4.10 Boxes */
+.advertisment p { color:#8f8f8f; font-size:11px; margin:0; }
+.pod-box { background:url('http://www.elsevier.com/__data/assets/image/0008/44963/pod-box.jpg?v=0.0.2') scroll repeat-y -656px 0 white; margin-bottom:20px; }
+.pod-box p { margin:0; }
+.pod-box ul { margin:0; }
+.pod-box ul li { border-top:1px solid #c0c0c0; list-style:none; /*overflow:hidden;*/ padding:12px 15px 7px; }
+.pod-box ul li ol li {border:none; margin:0; padding:0;}
+.pod-box ul li:first-child, .pod-box ul li.first-child { border-top:0; }
+.pod-box ul li h3 { font-weight:bold; margin-bottom:0; }
+.pod-box ul li a.buy { background:url('http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6') scroll no-repeat 0 0 transparent; color:#006080; display:block; font-size:13px; float:right; line-height:29px; margin:0 0 0 10px; height:29px; padding:0; text-align:center; width:68px; }
+.pod-box ul li .thumbnail { display:block; float:left; margin-right:10px; }
+.pod-box ul li a.more { font-size:14px; font-weight:bold; }
+.pod-box .box-header { background:url('http://www.elsevier.com/__data/assets/image/0008/44963/pod-box.jpg?v=0.0.2') scroll no-repeat 0 0 #c0c0c0; height:58px; width:100%; }
+.pod-box .box-header h2 { padding:15px 20px 0; margin:0; }
+.pod-box .box-footer { background:url('http://www.elsevier.com/__data/assets/image/0008/44963/pod-box.jpg?v=0.0.2') scroll no-repeat -328px bottom white; height:6px; width:100%; }
+.pod-box .book-series li { padding-right:93px; }
+.abstr-index-list table tr td {border:1px solid #ccc; vertical-align:top}
+
+/* pod-box varieties */
+.box-reviews strong { display:block; text-align:right; }
+.box-available-volumes h3 { font-weight:bold; padding-right:78px; margin-bottom:0px; }
+.box-available-volumes p { padding-right: 78px; }
+.pod-box-long { background:url('http://www.elsevier.com/__data/assets/image/0009/44964/pod-box-long.jpg?v=0.0.2') scroll repeat-y -1654px 0 white; width:827px; }
+.pod-box-long .box-header { background:url('http://www.elsevier.com/__data/assets/image/0009/44964/pod-box-long.jpg?v=0.0.2') scroll no-repeat 0 0 #c0c0c0; }
+.pod-box-long .box-footer { background:url('http://www.elsevier.com/__data/assets/image/0009/44964/pod-box-long.jpg?v=0.0.2') scroll no-repeat -827px bottom white; }
+.pod-box .pagination { border-top:1px solid #c0c0c0; padding:15px 0 5px; }
+.details-box { background:url('http://www.elsevier.com/__data/assets/image/0005/44960/details-box.jpg?v=0.0.2') scroll repeat-y -300px 0 white; }
+.details-box p { border-bottom:1px solid #c0c0c0; margin:0; padding:6px 11px; }
+.details-box p span { font-weight:lighter; }
+.details-box .box-header { background:url('http://www.elsevier.com/__data/assets/image/0005/44960/details-box.jpg?v=0.0.2') scroll no-repeat 0 0 #c0c0c0; }
+.details-box .box-header p { border-bottom-color:#878787; }
+.details-box .box-header-gradient { background:url('http://www.elsevier.com/__data/assets/image/0005/44960/details-box.jpg?v=0.0.2') scroll no-repeat -150px 0 white; border:none; text-align:center; }
+.details-box .box-header-gradient p { font-size:18px; line-height:24px; padding: 8px 11px 1px; }
+.details-box .box-content { }
+.details-box .box-footer { background:url('http://www.elsevier.com/__data/assets/image/0005/44960/details-box.jpg?v=0.0.2') scroll no-repeat 0 bottom white; height:17px; width:100%; }
+.product-card { background:url('http://www.elsevier.com/__data/assets/image/0007/44962/product-card.jpg?v=0.0.2') scroll repeat-y -1654px 0 #f4f4f4; margin-bottom:20px; width:827px; }
+.product-card .box-content { background:url('http://www.elsevier.com/__data/assets/image/0007/44962/product-card.jpg?v=0.0.2') scroll no-repeat 0 0 transparent; min-height:249px; overflow:hidden; zoom:1; }
+.product-card .box-content h1 { font-size:20px; line-height:20px; margin-bottom:6px; }
+.product-card .box-content .subtitle { font-size:14px; }
+.product-card .box-content .cover-preview { font-size:13px; font-weight:bold; float:left; padding-left:1px; text-align:center; width:148px; }
+.product-card .box-content .cover-preview .cover { display:block; margin:0 auto; padding:15px 0 7px; }
+.product-card .box-content .cover-preview a.external { background-position:right -700px; padding-right:15px; }
+.product-card .box-content .description { background-color:white; border:1px solid #d5d5d5; float:left; min-height:217px; padding:15px 20px; width:496px; }
+.product-card .box-content .description p { line-height:14px; margin-bottom:8px; }
+.product-card .box-content .description .description-long { display:none; }
+.product-card .box-content .description .banner { overflow:hidden; width:100%; }
+.product-card .box-content .description .banner .picture { float:left; width:280px; }
+.product-card .box-content .description .banner-description { float:left; width:304px; margin-right:20px; padding-top:80px; }
+.product-card .box-content .description .banner-description p { color:#666666; font-size:22px; line-height:24px; margin-bottom:24px; }
+.product-card .box-content .description .banner-description p.slogan { font-size:28px; line-height:30px; }
+.product-card .box-content .buttons { float:left; width:110px; }
+.product-card .box-content .buttons ul { margin:17px 0 0; }
+.product-card .box-content .buttons ul li { border-bottom:1px solid #bfbfbf; list-style:none; padding:10px 9px; }
+.product-card .box-content .buttons ul li:first-child, .product-card .box-content .buttons ul li.first-child { border-top:1px solid #bfbfbf; }
+.product-card .box-content .buttons ul li a.buy { background:url('http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6') scroll no-repeat -80px 0 transparent; color:#006080; display:block; font-size:13px; line-height:29px; height:29px; padding:0 5px; text-align:center; width:83px; }
+.product-card .box-content .buttons ul li a.buy span { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -700px transparent; padding-right:15px; }
+.product-card .box-content .buttons ul li a.ordering-options { background:url('http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6') scroll no-repeat 0 -80px transparent; color:white; display:block; font-size:15px; font-weight:bold; height:35px; padding:5px 18px; width:64px; }
+.product-card .box-content .buttons ul li a.ordering-options span { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -817px transparent; padding-right:15px; }
+.product-card .box-content .buttons ul li a.book-conference { background:url('http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6') scroll no-repeat 0 -80px transparent; color:white; display:block; font-size:13px; font-weight:bold; height:35px; padding:5px 10px; width:82px; }
+.product-card .box-content .buttons ul li a.book-conference span { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -739px transparent; padding-right:15px; }
+.product-card .box-content .buttons ul li a.buy-book-series { background:url('http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6') scroll no-repeat 0 -80px transparent; color:white; display:block; font-size:13px; height:35px; padding:5px 10px; width:82px; }
+.product-card .box-content .buttons ul li a.buy-book-series span { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -739px transparent; padding-right:15px; }
+.product-card .box-content .buttons ul li a.order-now { background:url('http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6') scroll no-repeat 0 -80px transparent; color:white; display:block; font-size:13px; height:45px; line-height:45px; padding:0; text-align:center; width:102px; }
+.product-card .box-content .buttons ul li a.order-now span { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat right -739px transparent; padding-right:15px; }
+.product-card .box-content .buttons ul li a.button { background:url('http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6') scroll no-repeat 0 -40px transparent; color:#006080; display:block; font-size:14px; height:33px; line-height:36px; margin:8px 0 0; padding:0; text-align:center; width:162px; }
+.product-card .box-content .share-this { float:left; width:30px; }
+.product-card .box-content .share-this ul { margin:17px auto; width:16px; }
+.product-card .box-content .share-this ul li { background-image:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11'); background-repeat:no-repeat; height:16px; list-style:none; margin:0; padding:0 0 10px; overflow:hidden; width:16px; }
+.product-card .box-content .share-this ul li a { display:block; height:16px; padding-left:16px; }
+.product-card .box-content .share-this ul li.favorite { background-position:0 -780px; }
+.product-card .box-content .share-this ul li.twitter { background-position:0 -350px; }
+.product-card .box-content .share-this ul li.linkedin { background-position:0 -400px; }
+.product-card .box-content .share-this ul li.facebook { background-position:0 -450px; }
+.product-card .box-footer { background:url('http://www.elsevier.com/__data/assets/image/0007/44962/product-card.jpg?v=0.0.2') scroll no-repeat -827px bottom transparent; height:25px; width:827px; }
+.abp .description { background:url('http://www.elsevier.com/__data/assets/image/0004/44959/abp-logo.jpg?v=0.0.2') scroll no-repeat right top transparent; }
+.product-card-book { }
+.product-card-multivolume-book { }
+.product-card-multivolume-book .box-content .description { width:477px; }
+.product-card-multivolume-book .box-content .buttons { width:129px; }
+.product-card-multivolume-book .box-content .buttons ul li { padding:10px 14px; }
+.product-card-conference { }
+.product-card-conference .box-content .description { margin-left:22px; width:604px; }
+.product-card-conference .box-content .buttons { width:129px; }
+.product-card-conference .box-content .buttons ul li { padding:10px 14px; }
+.product-card-electronic { }
+.product-card-electronic .box-content .description { margin-left:22px; width:604px; }
+.product-card-electronic .box-content .buttons { width:129px; }
+.product-card-electronic .box-content .buttons ul li { padding:10px 14px; }
+.product-card-journal { }
+.product-card-journal .box-content .description { width:421px; }
+.product-card-journal .box-content .buttons { width:185px; }
+.product-card-journal .box-content .buttons ul li { font-size:15px; padding:10px 11px; }
+.product-card-journal .box-content .buttons ul li a.external { background-position:right -700px; padding-right:17px; }
+/* pagination */
+.pagination { padding:15px 0 5px; text-align:center; }
+.pagination a { margin:0 7px; padding:0 8px; }
+.pagination span { font-weight:bold; margin:0 7px; padding:0 8px; }
+.advance-search { overflow:hidden; padding-bottom:80px; }
+.advance-search .column { float:left; margin:10px 56px 0; overflow:hidden; width:365px; }
+.advance-search fieldset { width:365px; }
+.advance-search fieldset.simple-searchfield { margin-bottom:35px; }
+.advance-search fieldset.publication-subject select { height:113px; width:100%; }
+.advance-search fieldset.publication-type input { margin:0 10px; }
+.advance-search fieldset.publication-type label { display:block; padding:4px 0; }
+.advance-search fieldset.publication-date .row { margin:10px 0; }
+.advance-search fieldset.publication-date .row label { display:block; float:left; margin-left:10px; width:80px; }
+.advance-search fieldset.simple-searchfield label { display:block; }
+.advance-search fieldset.simple-searchfield input.text { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 0 transparent; border:0; float:left; height:24px; line-height:1; padding:0 15px; width:298px; }
+.advance-search fieldset.simple-searchfield input.submit { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 -24px transparent; border:0; border-radius:0; float:left; height:24px; margin:0; text-indent:-9999px; width:36px; }
+.advance-search fieldset.simple-searchfield input.submit { font-size: 0; } /* For IE6 */
+.advance-search fieldset.sci-verse { background:url('http://www.elsevier.com/__data/assets/image/0010/99847/advance-search-sciverse-bg.jpg?v=0.0.4') scroll no-repeat 0 0 transparent; height:130px; position:relative; width:365px; zoom:1; }
+.advance-search fieldset.sci-verse input { bottom:14px; height:24px; position:absolute; }
+.advance-search fieldset.sci-verse input.text { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 0 transparent; border:0; font-size:12px; line-height:1; left:20px; padding:0 8px; width:271px; }
+.advance-search fieldset.sci-verse input.submit { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 -48px transparent; border:0; border-radius:0; margin:0; left:307px; text-indent:-9999px; width:36px; }
+.advance-search fieldset.sci-verse input.submit { font-size: 0; } /* For IE6 */
+.add-extra-keywords { margin-bottom:25px; overflow:hidden; }
+.add-extra-keywords input.text { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 0 transparent; border:0; float:left; height:24px; line-height:1; padding:0 15px; width:270px; }
+.add-extra-keywords input.submit { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 -72px transparent; border:0; border-radius:0; color:#00759B; float:left; font-size:12px; font-weight:bold; height:24px; margin:0; text-transform:none; width:42px; }
+.product-list { display:inline; float:left; width:612px; }
+/*.product-list .sort-options { background:url('http://www.elsevier.com/__data/assets/image/0011/99884/product-list-bg.jpg?v=0.1.1') scroll no-repeat 0 0 transparent; height:150px; zoom:1; }*/
+
+.product-list .sort-options-top { height: 10px; background: url('http://www.elsevier.com/__data/assets/image/0003/100677/product-list-bg-new.png?v=0.1.1') scroll no-repeat 0 0 transparent; zoom:1; }
+.product-list .sort-options { background:url('http://www.elsevier.com/__data/assets/image/0016/105622/product-list-bg-new-2.png?v=0.1.3') scroll no-repeat -1224px 0 transparent; zoom:1; }
+.product-list .sort-options .row.letters { background: url("http://www.elsevier.com/__data/assets/image/0003/100677/product-list-bg-new.png?v=0.1.1") repeat-y scroll -1224px 0 transparent; }
+.product-list .sort-options-bottom { height: 10px; background: url('http://www.elsevier.com/__data/assets/image/0003/100677/product-list-bg-new.png?v=0.1.1') scroll no-repeat -612px bottom transparent; zoom:1; }
+.product-list .sort-options label { color:#555555; display:block; }
+.product-list .sort-options .row { clear:both; overflow:hidden; padding:9px 12px; zoom:1; }
+.product-list .sort-options .sorting { }
+.product-list .sort-options .letters { border-top:1px solid #e3e3e3; }
+.product-list .sort-options .letters a { padding:0 4px; }
+.product-list .sort-options .letters a.active { color:black; font-weight:bold; }
+.product-list .sort-options .sort-by { float:left; width:63%; overflow:hidden; zoom:1; }
+.product-list .sort-options .sort-by ul { margin:0; zoom:1; }
+.product-list .sort-options .sort-by ul li { list-style:none; }
+.product-list .sort-options .subject-area { float:left; width:37%; overflow:hidden; zoom:1; }
+.product-list .sort-options .subject-area select { width:100%; }
+.product-list .results-details { margin:15px 0 15px; }
+.product-list .results-details h2 { font-weight:normal; margin-top:10px; }
+.product-list .listing { margin:0; }
+.product-list .listing li { list-style:none; }
+.product-list .listing li p { color:#444444; }
+.search-in-product-list { background:url('http://www.elsevier.com/__data/assets/image/0012/99885/search-in-product-list.jpg?v=0.1.1') scroll no-repeat -131px bottom transparent; display:inline; float:left; margin-left:20px; padding-bottom:5px; width:131px; }
+.search-in-product-list .box-wrapper { background:url('http://www.elsevier.com/__data/assets/image/0012/99885/search-in-product-list.jpg?v=0.1.1') scroll no-repeat 0 0 transparent; }
+.search-in-product-list h2 { font-weight:normal; margin:0; padding:9px; }
+.search-in-product-list div { }
+.search-in-product-list label { color:#555555; }
+.search-in-product-list ul { margin:0; }
+.search-in-product-list ul li { list-style:none; line-height:16px; padding:4px 0; }
+.search-in-product-list .search { padding:0 9px; }
+.search-in-product-list .search a { display:block; margin:5px 0; }
+.search-in-product-list .search input.text { border:0; background:url('http://www.elsevier.com/__data/assets/image/0004/99886/short-input-field.png?v=0.1.3') scroll no-repeat 0 0 transparent; height:24px; line-height:24px; margin-bottom:5px; padding:0 10px; width:93px; zoom:1; }
+.search-in-product-list .other { border-top:1px solid #e3e3e3; padding:9px 0 0 0; }
+.search-in-product-list .other label { display:block; margin:0 9px; }
+.search-in-product-list .other ul { margin:0 9px; }
+.search-tips { color:#CC0000; margin:10px 0; font-size:14px; }
+.search-tips a { font-style:italic; }
+.advance-your-search { overflow:hidden; zoom:1; }
+.advance-your-search .query { float:left; margin:0 20px 10px 0; }
+.advance-your-search .query input.text { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 0 transparent; border:0; float:left; height:24px; line-height:1; padding:0 15px; width:240px; }
+.advance-your-search .query input.submit { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 -24px transparent; border:0; border-radius:0; float:left; height:24px; margin:0; text-indent:-9999px; width:36px; }
+.advance-your-search .query input.submit { font-size: 0; } /* For IE6 */
+.advance-your-search .advance { float:left; line-height:24px; position:relative; zoom:1px; z-index:1000; }
+.advance-your-search .advance a { display:block; padding:0 15px; }
+.advance-your-search .active a { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat 122px -537px transparent; border:1px solid #cfcfcf; border-bottom:0; background-color:#fcfcfc; color:black; padding:6px 29px 3px 14px; }
+.advance-your-search .sorting { float:right; line-height:24px; }
+.advance-your-search .advance-form { background:url('http://www.elsevier.com/__data/assets/image/0004/100678/advance-your-search-bg.jpg?v=0.1.1') scroll no-repeat 0 0 transparent; clear:both; display:none; height:200px; margin-bottom:20px; padding-bottom:10px; position:relative; top:-1px; zoom:1; z-index:990; }
+.advance-your-search .advance-form .column { float:left; margin:0 2%; overflow:hidden; width:45%; zoom:1; }
+.advance-your-search .advance-form fieldset.publication-date { padding:20px 0 15px; }
+.advance-your-search .advance-form fieldset.publication-date .row { margin:10px 0; }
+.advance-your-search .advance-form fieldset.publication-date .row label { display:block; float:left; margin-left:10px; width:80px; }
+.advance-your-search .advance-form fieldset.simple-searchfield { padding:20px 0 15px; }
+.advance-your-search .advance-form fieldset.simple-searchfield label { display:block; }
+.advance-your-search .advance-form fieldset.simple-searchfield input.text { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 0 transparent; border:0; float:left; height:24px; line-height:1; padding:0 15px; width:280px; }
+.advance-your-search .advance-form fieldset.simple-searchfield input.submit { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 -24px transparent; border:0; border-radius:0; float:left; height:24px; margin:0; text-indent:-9999px; width:36px; }
+.advance-your-search .advance-form fieldset.simple-searchfield input.submit { font-size: 0; } /* For IE6 */
+.advance-your-search .advance-form fieldset.only-input input.text { background:url('http://www.elsevier.com/__data/assets/image/0018/100683/advanced-your-search-input.jpg?v=0.1.1') scroll no-repeat 0 0 transparent; border:0; float:left; height:24px; line-height:1; padding:0 15px; width:280px; }
+.product-deeper-page .columns-layout { width:auto; padding-left:12px; }
+.product-deeper-page .columns-layout .main { margin-right:12px; width:655px; }
+.product-deeper-page .columns-layout .column-wide { margin:0; }
+.product-deeper-page .pod-box { background:url('http://www.elsevier.com/__data/assets/image/0015/104145/pod-box-medium.jpg?v=0.1.1') scroll repeat-y -1310px 0 white; }
+.product-deeper-page .pod-box .box-header { background:url('http://www.elsevier.com/__data/assets/image/0015/104145/pod-box-medium.jpg?v=0.1.1') scroll repeat-y 0 0 white; }
+.product-deeper-page .pod-box .box-footer { background:url('http://www.elsevier.com/__data/assets/image/0015/104145/pod-box-medium.jpg?v=0.1.1') scroll repeat-y -655px bottom white; }
+.breadcrumb-wrapper { overflow:hidden; padding-bottom:5px; zoom:1; }
+.breadcrumb-wrapper .breadcrumb { margin:0; padding:11px 13px; }
+.breadcrumb-wrapper .open-access { background:url('http://www.elsevier.com/__data/assets/image/0016/104146/open-access.jpg?v=0.1.1') scroll no-repeat 0 0 white; display:block; float:right; height:38px; width:44px; }
+.breadcrumb-wrapper .open-access span { display:none; }
+
+
+/* 4.11 Inner top level navigation */
+
+#inner-top-level-nav {
+  width: 780px;
+  height: 54px;
+  overflow: hidden;
+  margin: 0 0 24px 0;
+  padding: 13px 0;
+  text-align: center;
+}
+#inner-top-level-nav ul {
+  width: 778px;
+  height: 52px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+  list-style: none;
+}
+#inner-top-level-nav ul li {
+  float: left;
+  diplay: inline;
+  overflow: hidden;
+  background: transparent url(http://www.elsevier.com/__data/assets/image/0010/129817/inner_top_level_nav_bg.png?v=0.0.6) repeat-x;
+  line-height: 1;
+  list-style: none;
+}
+#inner-top-level-nav ul li a {
+  float: left;
+  diplay: block;
+  width: 126.50px;
+  overflow: hidden;
+  padding: 19px 0;
+  border-right: 1px solid #d2d2d2;
+  background: transparent url(http://www.elsevier.com/__data/assets/image/0010/129817/inner_top_level_nav_bg.png?v=0.0.6) 0px 0px repeat-x;
+  color: #00759b;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+#inner-top-level-nav ul li.last a {
+  width: 127.50px;
+  border-right: none;
+}
+#inner-top-level-nav ul li a:hover, #inner-top-level-nav ul li.selected a {
+  background: transparent url(http://www.elsevier.com/__data/assets/image/0010/129817/inner_top_level_nav_bg.png?v=0.0.6) 0px -52px repeat-x;
+  color: #000;
+}
+/* the styles below are overwritten in nav generator (bg version) */
+#inner-top-level-nav ul.inner-top-level-nav-x6 li a {
+  width: 128.66px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x6 li.last a {
+  width: 129.66px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x5 li a {
+  width: 154.60px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x5 li.last a {
+  width: 155.60px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x4 li a {
+  width: 193.50px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x4 li.last a {
+  width: 194.50px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x3 li a {
+  width: 258.33px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x3 li.last a {
+  width: 259.33px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x2 li a {
+  width: 388.00px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x2 li.last a {
+  width: 389.00px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x1 li a {
+  width: 777.00px;
+}
+#inner-top-level-nav ul.inner-top-level-nav-x1 li.last a {
+  width: 778.00px;
+}
+
+/* 5. IMPLEMENTATION FIXES */
+
+/* Advanced search fix */
+.advance-form form fieldset label { font-size: inherit; }
+.advance-form fieldset { margin-bottom: 0px; }
+#advance-your-search-button a { background: url("http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11") no-repeat scroll right -193px transparent; }
+/* Guide For Authors Fix */
+div.guide-for-authors th, div.guide-for-authors td { border:0px; }
+/* PodBox fixes */
+div.pod-box th, div.pod-box td { padding: 5px; border:none; }
+/* Popups styles */
+.details-box .box-header-gradient, .details-box .box-content { position: relative; }
+.details-box span.popup-content { z-index: 1000; background: #DFDFDF; padding: 10px; left: 155px; position: absolute; top: 0; width: 200px; }
+/* ImpactFactor Box fix */
+.details-box .box-header-gradient { min-height: 13px; }
+/* Subjects content page fixes*/
+.subjectContent td, .subjectContent th { border: none; }
+/*Browsepage count fix*/
+.count { color: #555555; }
+div.sort-by .active { color:#000; font-weight:bold; }
+/*Change tooltip cursor*/
+.popup:hover { cursor: help; }
+/* Subpage layout Implementation fixes */
+.product-deeper-page #columns-layout { padding-left: 0px; }
+.product-deeper-page #columns-layout .aside { margin-top: 0px; margin-right: 12px; }
+.product-deeper-page #columns-layout .aside a.external { white-space: nowrap; }
+/* H2 Colour fix on product pages */
+.column-medium .box-header h2, .column-wide .box-header h2 { color: #00759B }
+input.text-submit-wide { background:url('http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5') scroll no-repeat 0 -96px transparent; border:0; border-radius:0; color:#00759B; float:left; font-size:12px; font-weight:bold; height:24px; margin:0; padding-left: 23px; text-transform:none; width: 103px; cursor: pointer; }
+input.text-submit-wide.right { float: right; margin-right: 6px; }
+.ordering-info ul li div.description { min-height: 30px; }
+.ordering-info ul li div.description p { width: 95%; }
+/* Implementation quick fix - RHS Search Box */
+.search-in-product-list .box-wrapper { background:url('http://www.elsevier.com/__data/assets/image/0012/99885/search-in-product-list.jpg?v=0.1.1') scroll no-repeat 0 0 #F5F5F5; }
+.search-in-product-list .other { border-left: 1px solid #E6E6E6; border-right: 1px solid #E6E6E6; }
+/* --- Journal Footer --- */
+.journal-footer { background: #F3F3F3; padding: 10px; clear: both; display: block; margin-right: 11px; width: 808px; }
+.journal-footer ul.footer-col { float: left; margin: 0; padding: 0 12px 0 0; width: 105px; }
+.journal-footer ul.footer-col.last { padding: 0; }
+.journal-footer ul.footer-col li { list-style: none outside none; margin: 10px 0; padding: 0; }
+.journal-footer ul.footer-col li.bold { font-weight: bold; }
+#columns-layout .subpageWrapper { float: left; width: 839px; overflow: hidden; }
+/* RHS Search Button */
+/* Button look changed acc to recommendations from the client from mantis ticket #16119 
+.search-in-product-list .search .text-adv{ 
+  background: url("http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5") scroll no-repeat 0 0 transparent;
+  border: 0; 
+  float: left;
+  height: 24px;
+  line-height: 1;
+  padding: 0 15px;
+  width: 45px; 
+}
+
+.search-in-product-list .search .submit-adv{
+  background: url("http://www.elsevier.com/__data/assets/image/0014/105260/search-main.png?v=0.1.5") scroll no-repeat 0 -24px transparent;
+  border: 0; 
+  float: left;
+  height: 24px;
+  margin: 0;
+  text-indent: -9999px;
+  width: 37px;
+  cursor: pointer;
+}
+*/
+.search-in-product-list .search input.text-adv { border:0; background:url('http://www.elsevier.com/__data/assets/image/0004/99886/short-input-field.png?v=0.1.3') scroll no-repeat 0 0 transparent; height:24px; line-height:24px; margin-bottom:5px; padding:0 10px; width:93px; zoom:1; }
+/* Journals - most cited fix */
+div.most_cited th, div.most_cited td, .most-cited-sub .pod-box th, .most-cited-sub .pod-box td { padding: 0px 5px; }
+div.most_downloaded th, div.most_downloaded td, div.most-downloaded-sub .pod-box th, div.most-downloaded-sub .pod-box td { padding: 0px 5px; }
+div.recent_articles th, div.recent_articles td, div.recent-articles-sub .pod-box th, div.recent-articles-sub .pod-box td { padding: 0px 5px; }
+/* Active state fix on search results and browse pages */
+.product-list .sort-options .letters span.active { color: #000; font-weight: bold; }
+/* Guide for authors formatting */
+span.italic { font-style: italic; }
+span.superscript { font-size:xx-small; vertical-align:super; }
+.guide-for-authors .pod-box ul li ul { list-style: inside disc; margin-left: 15px; margin-bottom:15px; }
+.guide-for-authors .pod-box ul li ul li { list-style: inside disc; border-top: none; padding: 0px; }
+.guide-for-authors .pod-box ul li ol li { list-style: decimal;}
+.guide-for-authors .pod-box ul li p { margin-bottom: 10px; }
+/* Products - Authors fix */
+.column-wide .description ul { list-style: none outside none }
+.column-wide .description ul li { list-style: none outside none }
+/* Books - Included in series lay fix */
+.included-series h2 { margin-bottom: 0px; }
+/* Subjects Landing page List Styles */
+ul.subjects-list { margin-botton: 0px; list-style: none; display: block; }
+ul.subjects-list li { list-style: none; }
+ul.subjects-list li a.expand { background: transparent url(http://www.elsevier.com/__data/assets/image/0012/103116/plus_item.gif?v=0.1.1) no-repeat 0 -5px; width: 16px; height: 16px; outline: none; display: inline; }
+ul.subjects-list li a.expand.sub-expanded { background: transparent url(http://www.elsevier.com/__data/assets/image/0020/105572/minus_item.gif?v=0.1.1) no-repeat 0 -5px; }
+ul.subjects-list li a.expand span { text-indent: -9999px; overflow: hidden; width: 16px; height: 16px; display: inline-block; }
+ul.subjects-list li ul { list-style: none; background: transparent url(http://www.elsevier.com/__data/assets/image/0011/103115/sub_line.gif?v=0.1.1) repeat-y 0 0; margin-bottom: 0px; margin-left: 0px; }
+ul.subjects-list li ul li { margin-left: 25px; list-style: none; list-style-image: url(http://www.elsevier.com/__data/assets/image/0010/103114/sub_item.gif?v=0.1.1); list-style-position: inside; background: transparent url(http://www.elsevier.com/__data/assets/image/0011/103115/sub_line.gif?v=0.1.1) repeat-y 0 0; }
+/* Icons fix on Journals homepage */
+.description .open-access { display:block; float:right; }
+.description .open-access img { width:80px; }
+/* Fixes spacing in most-cited pod box on journals */
+.most_cited tr.row-space td { padding-bottom: 15px; }
+.most-cited-sub tr.row-space td { padding-bottom: 15px; }
+.most_downloaded tr.row-space td { padding-bottom: 15px; }
+.most-downloaded-sub tr.row-space td { padding-bottom: 15px; }
+.recent_articles tr.row-space td { padding-bottom: 15px; }
+.recent-articles-sub tr.row-space td { padding-bottom: 15px; }
+/* Journals Subpage - Editorial Board lay fixes */
+.editorial-board p { margin-bottom: 10px; }
+/* Semi wide column for book pods */
+
+.column-semi { margin:0; width: 655px; float: left; }
+.column-semi .box-header h2 { color: #00759B; }
+.column-semi .pod-box { background:url('http://www.elsevier.com/__data/assets/image/0015/104145/pod-box-medium.jpg?v=0.1.1') scroll repeat-y -1310px 0 white; }
+.column-semi .pod-box .box-header { background:url('http://www.elsevier.com/__data/assets/image/0015/104145/pod-box-medium.jpg?v=0.1.1') scroll repeat-y 0 0 white; }
+.column-semi .pod-box .box-footer { background:url('http://www.elsevier.com/__data/assets/image/0015/104145/pod-box-medium.jpg?v=0.1.1') scroll repeat-y -655px bottom white; }
+/* View more for product pods fix */
+span.read-more { font-style: normal; }
+/* IE Hack for FB searches as they are not picking this property up properly - have no idea why */
+.header .search input.text, .advance-your-search .query input.text { line-height: 24px\9; }
+/* Order Buy two button fix */
+.book-series li div.description.two_buttons .buy.buy_order_2 { bottom: 5px; position: absolute; right: 15px; }
+.book-series li div.description.two_buttons .buy { bottom: 40px; }
+.ordering-info ul li div.description.two_buttons { min-height: 55px; }
+.ordering-info .pod-box ul li a.buy { width: 100px; background: url("http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6") no-repeat scroll -75px 0 transparent; }
+/* Pubdisplay table on Ordering Information jounral subpage */
+table.pubdisplay { width: 350px; text-align: center; margin-left: 30px; }
+table.pubdisplay th { text-transform: capitalize; font-size: 13px; font-weight: bold; background: #E5E5E5; }
+/* Impact Box fix when there is no content in the box header */
+.impactSpacer { height: 8px; display: block; }
+/* Form for Editorial Board members tweaks */
+.form-submit-button input { float: right; background: url("http://www.elsevier.com/__data/assets/image/0011/44966/buttons.png?v=0.0.6") no-repeat scroll -75px 0 transparent; width: 100px; height: 29px; display: block; color: white; margin: 0 0 0 10px; text-align: center; border: none; cursor: pointer; }
+.form-editorial-board td { width: 50%; }
+/* Editorial Board Fixes */
+.editorial-board .pod-box .book-series li { padding-right: 20px; }
+.editorial-board .thumbnail-right { float: right; display: block; margin: 0px 0px 5px 10px; }
+.editorial-board .pod-box ul li h3 { margin-bottom: 5px; }
+/* ----- Mantis related implementation tweaks ----- */
+/* Post Beta */
+.article-list li { width: 97%; }
+ul.subjects-list li ul li.last { background: none; list-style: none inside url("http://www.elsevier.com/__data/assets/image/0009/108279/sub_item_last.gif?v=0.1.1"); }
+/* Column width fix for IE7 */
+.header .menu li.el815 .submenu { width: 626px; }
+.header .menu li.el152726 .submenu { width: 418px; }
+/* Fix for Industry Standards */
+.sections li .thumbnail { width: 85px; }
+.sections li .description { margin-left: 0px; }
+/* Experts landing fix */
+.people.fullwidth .person { height: auto; width: 93%; }
+.homepage-boxes .search.sciverse-direct input.submit { background: url("http://www.elsevier.com/__data/assets/image/0017/108341/home-button.png?v=0.1.3") no-repeat 0 0 transparent; }
+/* BG fix for aside column */
+.aside { background: url("http://www.elsevier.com/__data/assets/image/0006/108348/aside-separator.png?v=0.1.3") no-repeat scroll right top transparent; position: relative; }
+
+/*
+.aside-footer { background: url("http://www.elsevier.com/__data/assets/image/0003/108345/aside-separator-end.jpg?v=0.1.1") no-repeat scroll right top #FFF; margin: 0; padding: 0; width: 7px; height: 50px; display: block; position: absolute; bottom: 0px; right: 0px; }
+/*
+
+/* Fix for Ticket: #102854 */
+/* .aside-fill { background: url("http://www.elsevier.com/__data/assets/image/0006/108357/aside-separator-fill.png?v=0.1.3") repeat-y scroll right top transparent; display: block; height: 50px; margin: 0; padding: 0; width: 160px; position: absolute; top: 900px; } */
+/* for products content */
+span.subscript { font-size:xx-small; vertical-align:sub; }
+/* Browse years fix */
+.product-list .sort-options .letters div.pubyear { display: inline; white-space: nowrap; }
+/* IE7 Fix for border-top */
+.header .menu li a { zoom:1; }
+.header .menu li a:hover { zoom:1; }
+/* To fix IE8 issue with disappearing logo */
+#header a.logo img { width: auto; max-width: none; }
+/* Browse pages more-less bg icon */
+ul.moreless li.readmore a { background: url("http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11") no-repeat scroll right -198px transparent; padding-right: 15px; width: 65px; }
+/* Products Active State */
+.aside ul.browsebooks .id99774 a, .aside ul.journ li.id99775 a, .aside ul.all-c .id99776 a, .aside ul.elect .id99779 a, .aside ul.bibli .id99780 a, .aside ul.newsl .id99781 a, .aside ul.wpsfi .id99787 a { color: #000 !important; font-weight: bold !important; }
+/* Press Relaeases Fix */
+.publications li p { white-space: pre-wrap; }
+.publications li p a.readmore { white-space: nowrap; }
+.aside ul li.with-submenu ul.books { width: auto !important; }
+/* All pods wrapper */
+#columns-layout .all-pods { display: inline-block; width: 678px; }
+/* -------------------- Boxed Layout -------------------- */
+
+/* --- Overall styles --- */
+.boxed .right { float: right; }
+.boxed .left { float: left; }
+.boxed .rounded-box-wide.rb-right, .boxed .rounded-box.rb-right { float: right; }
+.boxed .rounded-box-wide.rb-left, .boxed .rounded-box.rb-left { float: left; }
+/* ---- Boxed Layout 1 ---- */
+.boxed > p { margin-bottom: 20px; }
+.content-box { background: none; }
+.content-box .box-header { border-radius: 5px 5px 0px 0px; }
+.content-box .box-footer { border-radius: 0px 0px 5px 5px; }
+.content-box .box-header h2 { color: #000; font-weight: normal; }
+.content-box { background: none; }
+.content-box .box-header { width: 100%; background: #c0c0c0 url("http://www.elsevier.com/__data/assets/image/0015/111066/content-wide-bg-2.png?v=0.1.1") no-repeat 0 0; }
+.content-box .box-footer { width: 100%; background: transparent url("http://www.elsevier.com/__data/assets/image/0015/111066/content-wide-bg-2.png?v=0.1.1") no-repeat -781px -4px; height: 6px; }
+.content-box .box-content { border-left: 1px solid #d9d9d9; border-right: 1px solid #d9d9d9; padding: 23px 18px 5px; }
+.content-box .box-content h2 { margin-bottom: 8px; }
+.content-box .box-content p { margin-bottom: 20px; line-height: 20px; }
+.content-box .box-content p:last-child { margin-bottom: 0px; clear: both; }
+.content-box p span.red { color: #9b0000; }
+.content-box .box-content .mediabox { padding-bottom: 8px; background: transparent url("http://www.elsevier.com/__data/assets/image/0016/111067/content-media-shadow.png?v=0.1.1") no-repeat bottom right; display: block; margin-bottom: 18px; }
+.content-box .box-content .mediabox img { display: block; }
+.mediabox.right { float: right; margin-left: 20px; }
+.mediabox.left { float: left; margin-right: 20px; }
+.content-box-small { width: 380px; margin-right: 21px; float: left; }
+.content-box-small.end { margin-right: 0px; }
+.content-box-small .box-header { width: 100%; background: #c0c0c0 url("http://www.elsevier.com/__data/assets/image/0018/111069/content-small-bg.png?v=0.1.1") no-repeat 0 0; }
+.content-box-small .box-footer { width: 100%; background: transparent url("http://www.elsevier.com/__data/assets/image/0018/111069/content-small-bg.png?v=0.1.1") no-repeat -380px -4px; height: 6px; }
+.content-box.slider { margin-top: 0px; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; margin-bottom: 20px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; }
+.content-box-small.slider .flex-viewport { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; overflow: hidden; }
+.content-box.slider .slides { height: auto; }
+.content-box.slider .slides li { width: auto; height: auto; font-weight: normal; background: none; }
+.content-box.slider .slides li .slide-content { margin: 30px 20px; }
+.content-box.slider .slides { color: #FFF; }
+.content-box.slider .slide-content h2 { font-size: 58px; line-height: 60px; }
+.content-box.slider .slide-content p { font-size: 26px; line-height: 28px; margin-bottom: 28px; }
+.boxed .boxes a.box span.introtext { font-weight: lighter; margin-top: 12px; max-height: 32px; font-size: 11px; }
+.boxed .boxes a.box { margin: 0 21px 20px 0 }
+.boxed .boxes a.box:nth-child(3n) {
+margin-right: 0px;
+}
+.boxed .boxes a.box.third { margin-right: 0px; }
+/*.content-box-small:nth-child(odd){margin-right: 0px;}*/
+
+.pod-box.content-box .box-content ul li { list-style: disc inside none; padding: 0px; margin-bottom: 5px; border: 0px; vertical-align: middle; }
+.box.button.third { margin-right: 0px; }
+div.free-text { line-height: 16px; margin-bottom: 20px; display: inline-block; width: 100%; }
+div.free-text p:last-child { margin-bottom: 0px; }
+.content-box.slider .slides li a { color: #FFF; }
+.content-box.slider .slides li a:hover { color: #FFF; text-decoration: none; }
+.content-box.slider .slides li a, .content-box.slider .slides li a.external { background: none; overflow: hidden; }
+/* ---- Boxed Layout 2&3 ---- */
+.content-box.tabbed-content { width: 780px; }
+.content-box.tabbed-content .box-footer { background: white url("http://www.elsevier.com/__data/assets/image/0015/111075/tabbed-bottom.png?v=0.1.1") no-repeat 0 -8px; height: 17px; }
+.content-box.tabbed-content .box-content { padding: 20px 22px 14px 22px; min-height: 250px; }
+.content-box.tabbed-content .box-content h2 { color: #666666; margin-bottom: 22px; }
+.content-box.tabbed-content .box-content h3 { color: #666666; font-size: 14px; font-weight: bold; line-height: 18px; margin-bottom: 15px; }
+.content-box.tabbed-content .box-content p { line-height: 16px; margin-bottom: 22px; letter-spacing: 0.3px; }
+.boxed .tabbed-content div.rounded-box, .boxed .tabbed-content div.rounded-box-wide { width: 206px; border: 1px solid #d2d2d2; border-radius: 5px; padding: 20px 17px; background: #FFF; }
+.content-box.tabbed-content .box-content img.nomargin { margin: 0px; padding: 0px; }
+.boxed .tabbed-content div.rounded-box-wide { width: 366px; margin-bottom: 30px; }
+.boxed .tabbed-content div.rounded-box-wide img { margin: -11px 0px 5px 5px; }
+.boxed .tabbed-content div.rounded-box-wide p { margin-bottom: 0px; width: 95%; }
+.boxed .tabbed-content div.rounded-box.right, .boxed .tabbed-content div.rounded-box.rb-right { margin-left: 50px; }
+.boxed .tabbed-content div.rounded-box.left, .boxed .tabbed-content div.rounded-box.rb-left { margin-right: 50px; }
+.boxed .tabbed-content img { margin-bottom: 22px; }
+.tabbed-content .box-content a.btn-mgn { height: 17px; width: 156px; display: block; background: transparent url("http://www.elsevier.com/__data/assets/image/0013/111073/tabbed-buttons.png?v=0.1.1") no-repeat 0 -30px; padding: 7px 20px; color: #FFF; margin-bottom: 17px; }
+.tabbed-content .box-content a.btn-tick { height: 15px; width: 188px; display: block; background: transparent url("http://www.elsevier.com/__data/assets/image/0013/111073/tabbed-buttons.png?v=0.1.1") no-repeat 0 -60px; padding: 7px 20px; color: #FFF; margin-bottom: 17px; }
+.tabbed-content .box-content a.btn-flower { height: 15px; width: 138px; display: block; background: transparent url("http://www.elsevier.com/__data/assets/image/0013/111073/tabbed-buttons.png?v=0.1.1") no-repeat 0 -90px; padding: 7px 20px; color: #FFF; margin-bottom: 17px; }
+.tabbed-content .box-content a.btn-plain { height: 15px; width: 169px; display: block; background: transparent url("http://www.elsevier.com/__data/assets/image/0013/111073/tabbed-buttons.png?v=0.1.1") no-repeat 0 0; padding: 7px 20px; color: #FFF; margin-bottom: 15px; }
+
+
+.boxed-button-2 img, .boxed-button-2 div {
+    float: left;
+    margin: 8px;
+    height: 86px;
+    width: 66px;
+}
+.boxed-button-2 div {
+    margin:8px 0;
+}
+.boxed-button-2 {
+    background: url(http://cdn.elsevier.com/assets/image/0016/127501/homepage_background_btn1.png) top left no-repeat;
+    float: left;
+    width: 246px;
+    height: 100px;
+    font-size: 11px;
+    margin: 20px 20px 20px 0;
+}
+.boxed-button-2 div a {
+    background: none;
+    font-weight: bold;
+}
+.boxed-button-2 div {
+    width: 156px;
+}
+.boxed-button-2 p {
+    margin-top:10px;
+}
+.boxed-button-2.border-collapse {
+    margin-right: 0;
+}
+/* Added by GW 6.11.2012 */
+
+.tabs-number-2 li { width:50%; }
+.tabs-number-3 li { width:33.333%; }
+.tabs-number-4 li { width:25%; }
+.tabs-number-5 li { width:20%; }
+.tabs-number-6 li { width:16.666%; }
+.tabs-normal { clear:both; }
+.tabs-normal .tab { border:0px 1px solid #d2d2d2; border-top:0; }
+.tabs-normal .tabs-menu { height:74px; margin:0; overflow:hidden; zoom:1; }
+.tabs-normal .tabs-menu li { background:none transparent; display:block; float:right; font-size:14px; font-family:Helvetica, sans-serif; height:74px; list-style:none; text-align:center; position:relative; zoom:1; }
+.tabs-normal .tabs-menu li a { background: url('http://www.elsevier.com/__data/assets/image/0011/111080/tab-normal-bg.jpg?v=0.1.1') repeat-x scroll top left; border-top:1px solid #d2d2d2; border-bottom:1px solid #d2d2d2; border-left:1px solid #d2d2d2; color:#1881a4; display:block; line-height:18px; outline:none; overflow:hidden; padding: 0 25px; zoom:1; }
+.tabs-normal .tabs-menu li.first { border-radius:7px 0 0 0; }
+.tabs-normal .tabs-menu li.first a { border-left:1px solid #d2d2d2; border-radius:7px 0 0 0; }
+.tabs-normal .tabs-menu li.last { border-radius:0 7px 0 0; }
+.tabs-normal .tabs-menu li.last a { border-right:1px solid #d2d2d2; border-radius:0 7px 0 0; }
+.tabs-normal .tabs-menu li.ui-tabs-active { background: url('http://www.elsevier.com/__data/assets/image/0017/111077/tab-active-bg.jpg?v=0.1.1') repeat-x scroll top left; }
+.tabs-normal .tabs-menu li.ui-tabs-active a { border-color:#b3b3b3; border-style:solid; border-width:1px; background: url('http://www.elsevier.com/__data/assets/image/0018/111078/tab-active-left-bg.jpg?v=0.1.1') no-repeat scroll top left; color:black; }
+.tabs-normal .tabs-menu li.ui-tabs-active a:hover { text-decoration:none; }
+.tabs-process { clear:both; }
+.tabs-process .tab { border:0px 1px solid #d2d2d2; border-top:0; }
+.tabs-process .tabs-menu { height:74px; margin:0; overflow:hidden; zoom:1; }
+.tabs-process .tabs-menu li { background:none transparent; display:block; float:right; font-size:14px; font-family:Helvetica, sans-serif; height:74px; list-style:none; text-align:center; position:relative; zoom:1; }
+.tabs-process .tabs-menu li a { background: url('http://www.elsevier.com/__data/assets/image/0011/111080/tab-normal-bg.jpg?v=0.1.1') repeat-x scroll top left; border-top:1px solid #d2d2d2; border-bottom:1px solid #d2d2d2; color:#1881a4; display:block; line-height:18px; outline:none; overflow:hidden; padding: 0 25px; zoom:1; }
+.tabs-process .tabs-menu li span { background: url('http://www.elsevier.com/__data/assets/image/0019/111079/tab-normal-arrow.png?v=0.1.1') no-repeat scroll top left; display:block; height:73px; position:absolute; top:0px; right:-20px; width:20px; z-index:201; zoom:1; }
+.tabs-process .tabs-menu li.first { border-radius:7px 0 0 0; }
+.tabs-process .tabs-menu li.first a { border-left:1px solid #d2d2d2; border-radius:7px 0 0 0; }
+.tabs-process .tabs-menu li.last { border-radius:0 7px 0 0; }
+.tabs-process .tabs-menu li.last a { border-right:1px solid #d2d2d2; border-radius:0 7px 0 0; }
+.tabs-process .tabs-menu li.last span { display:none; }
+.tabs-process .tabs-menu li.ui-tabs-active { background: url('http://www.elsevier.com/__data/assets/image/0017/111077/tab-active-bg.jpg?v=0.1.1') repeat-x scroll top left; }
+.tabs-process .tabs-menu li.ui-tabs-active a { border-color:#b3b3b3; background: url('http://www.elsevier.com/__data/assets/image/0018/111078/tab-active-left-bg.jpg?v=0.1.1') no-repeat scroll top left; color:black; }
+.tabs-process .tabs-menu li.ui-tabs-active a:hover { text-decoration:none; }
+.tabs-process .tabs-menu li.ui-tabs-active span { background: url('http://www.elsevier.com/__data/assets/image/0016/111076/tab-active-arrow.png?v=0.1.1') no-repeat scroll top left; }
+/* END Added by GW 6.11.2012 */
+
+
+
+/* Quickfixes */
+#tabbed ul.tabs-menu li { cursor: pointer; }
+#tabbed.tabs-normal .tabs-menu li.ui-state-active a { border-right: 1px solid #B3B3B3; }
+.content-box .tabs-process.box-header { background: none; height: auto; }
+.content-box .tabs-process.box-header ul li { padding: 0px; border-top: none; overflow: visible; }
+.content-box .tabs-normal.box-header { background: none; height: auto; }
+.content-box .tabs-normal.box-header ul li { padding: 0px; border-top: none; overflow: visible; }
+.tabs-process .tabs-menu { background: transparent url("http://www.elsevier.com/__data/assets/image/0012/111081/tabbed-ul-bg.png?v=0.1.1") repeat-x 0 0; }
+.tabs-normal .tabs-menu { background: transparent url("http://www.elsevier.com/__data/assets/image/0012/111081/tabbed-ul-bg.png?v=0.1.1") repeat-x 0 0; }
+/* Different tabs widths */
+.tabs-process .tabs-menu.tabs_2 li { width: 50%; }
+.tabs-process .tabs-menu.tabs_4 li { width: 25%; }
+.tabs-process .tabs-menu.tabs_3 li { width: 33.333%; }
+.tabs-process .tabs-menu.tabs_5 li { width: 20%; }
+.tabs-process .tabs-menu.tabs_6 li { width: 16.666%; }
+.tabs-normal .tabs-menu.tabs_2 li { width: 50%; }
+.tabs-normal .tabs-menu.tabs_4 li { width: 25%; }
+.tabs-normal .tabs-menu.tabs_3 li { width: 33.333%; }
+.tabs-normal .tabs-menu.tabs_5 li { width: 20%; }
+.tabs-normal .tabs-menu.tabs_6 li { width: 16.666%; }
+/* --- Tabbed Navigation End --- */
+
+.content-box-small.slider .flex-viewport { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; overflow: hidden; -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); }
+/* crazy fix from chrome&safari */
+
+.content-box.slider { overflow: hidden; position:relative; }
+/* ---- Boxed Layout 4 ---- */
+.pod-box.content-box.content-slider .box-content ul li { list-style: none inside none; display: block; }
+.pod-box.content-box.content-slider .box-content ul li div.wrapper { margin: 23px 18px 5px; display: block; padding: 0px; }
+.pod-box.content-box.content-slider .box-content ul li p { margin-bottom: 5px; }
+.content-box.content-slider .box-content { padding: 0px; }
+.content-slider .flex-control-nav { bottom:12px; margin:0; text-align:center; width:100%; z-index:1200; }
+.content-slider .flex-control-nav li { display:inline; height:17px; width:34px; }
+.content-slider .flex-control-nav li a { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat 12px -47px transparent; display:inline-block; height:17px; width:34px; }
+.content-slider .flex-control-nav li a {
+*display:inline; zoom:1; } /* IE7 Fix */
+.content-slider .flex-control-nav li a.flex-active { background-position:12px 3px; }
+.content-slider .flex-control-nav li a span { display:block; height:17px; visibility:hidden; width:34px; }
+.pod-box.content-box.content-slider .box-content ul li .wrapper ul li { list-style: disc inside none; display: list-item; }
+/* Full width slider */
+.content-box.slider.fullwidth .slide-content p { font-size: 17px; line-height: 19px; margin-bottom: 22px; }
+.content-box.slider.fullwidth .flex-viewport { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; overflow: hidden; -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC); }
+/* ---- Boxed Layout 5 ---- */
+.boxed table { border: 1px solid #bcbcbc; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; border-collapse: separate; float: left; margin: 12px 0 35px 0; box-shadow: 0 9px 8px -10px rgba(50, 50, 50, 0.34); }
+.boxed table th { color: #000000; font-size: 13px; text-transform: none; }
+.boxed table td { color: #383838; font-size: 12px; }
+.boxed table td, .boxed table th { border-left: 1px solid #bcbcbc; border-top: 1px solid #bcbcbc; border-right: 0; border-bottom: 0; padding: 8px; text-align: left; }
+.boxed table th { background: #ffffff; background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNmU2ZTYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); background: -moz-linear-gradient(top, #ffffff 0%, #e6e6e6 102%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(102%, #e6e6e6)); background: -webkit-linear-gradient(top, #ffffff 0%, #e6e6e6 102%); background: -o-linear-gradient(top, #ffffff 0%, #e6e6e6 102%); background: -ms-linear-gradient(top, #ffffff 0%, #e6e6e6 102%); background: linear-gradient(to bottom, #ffffff 0%, #e6e6e6 102%); border-top: none; }
+.boxed table td:first-child, .boxed table th:first-child { border-left: none; }
+.boxed table th:first-child { -moz-border-radius: 6px 0 0 0; -webkit-border-radius: 6px 0 0 0; border-radius: 6px 0 0 0; }
+.boxed table th:last-child { -moz-border-radius: 0 6px 0 0; -webkit-border-radius: 0 6px 0 0; border-radius: 0 6px 0 0; }
+.boxed table th:only-child { -moz-border-radius: 6px 6px 0 0; -webkit-border-radius: 6px 6px 0 0; border-radius: 6px 6px 0 0; }
+.boxed table tr:last-child td:first-child { -moz-border-radius: 0 0 0 6px; -webkit-border-radius: 0 0 0 6px; border-radius: 0 0 0 6px; }
+.boxed table tr:last-child td:last-child { -moz-border-radius: 0 0 6px 0; -webkit-border-radius: 0 0 6px 0; border-radius: 0 0 6px 0; }
+.boxed table tr:nth-child(odd) {
+background: #f7f7f7;
+}
+.results-details .results-pagination { float: right; }
+/* Table Imp fixes */
+.boxed table tr td.center-align { text-align: center; }
+.boxed table tr:first-child td { border-top: 0px; }
+.boxed table thead tr th { border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #BCBCBC; }
+.boxed table td img { max-width: none; }
+.boxed table th img { max-width: none; }
+
+/* --- css file end --- */
+
+/* Added bwalters 29.11.12 */
+
+.results-details .results-pagination { float: right; }
+.search-in-exhibition-list { background: url("http://cdn.elsevier.com/assets/image/0019/115642/search-in-exhibition-list.jpg") no-repeat scroll -231px bottom transparent; display: inline; float: left; margin-left: 20px; padding-bottom: 5px; width: 231px; }
+.exhibition-list { display: inline; float: left; width: 512px; }
+.search-in-exhibition-list .box-wrapper { background: url("http://cdn.elsevier.com/assets/image/0019/115642/search-in-exhibition-list.jpg") no-repeat scroll 0 0 transparent; }
+.search-in-exhibition-list h2 { font-weight: normal; margin: 0; padding: 9px; }
+.search-in-exhibition-list div { }
+.search-in-exhibition-list label { color: #555555; }
+.search-in-exhibition-list ul { margin: 0; }
+.search-in-exhibition-list ul li { line-height: 16px; list-style: none outside none; padding: 4px 0; }
+.search-in-exhibition-list .search { padding: 0 9px; }
+.search-in-exhibition-list .search a { display: block; margin: 5px 0; }
+.search-in-exhibition-list .search input.text { background: url("http://cdn.elsevier.com/assets/image/0004/99886/short-input-field.png") no-repeat scroll 0 0 transparent; border: 0 none; height: 24px; line-height: 24px; margin-bottom: 5px; padding: 0 10px; width: 93px; }
+.search-in-exhibition-list .other { border-top: 1px solid #E3E3E3; padding: 9px 0 0; }
+.search-in-exhibition-list .other label { display: block; margin: 0 9px; }
+.search-in-exhibition-list .other ul { margin: 0 9px; }
+.exhibition-list .listing { padding:0; margin:0; }
+.exhibition-list .listing li { border-bottom: 1px dashed #EBEBEB; list-style: none outside none; padding: 5px 0; }
+.search-in-exhibition-list select { width: 100%; }
+/* ---- Social Media icons & Breadcrumb ---- */
+.footer .links li.follow-us .wrapper div ul li.google { background: transparent url("http://www.elsevier.com/__data/assets/image/0006/111867/g-plus-share.png?v=0.1.1") no-repeat 0 0; }
+.content-breadcrumb .follow-us { float: right; }
+.content-breadcrumb p.breadcrumb { float: left; padding: 0px; width: 75%; }
+.content-breadcrumb { overflow: visible; padding: 0px 13px 0px 13px; }
+#content h1.short { width: 75%; }
+.content.rel { position: relative }
+.content-breadcrumb.right { position: absolute; right: 0px; }
+.content-breadcrumb .wrapper { text-align: right; }
+.content-breadcrumb .follow-us { position:relative; }
+.content-breadcrumb .wrapper { right: 0px; bottom:-139px; display:none; position:absolute; padding-bottom:23px; z-index:1500; }
+/* bottom: -127px */
+
+.content-breadcrumb .wrapper div { background-color:white; padding:10px 0px 10px 10px; }
+.content-breadcrumb .wrapper div ul li { background-image:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11'); background-repeat:no-repeat; float:none; margin:0; padding:3px 0 3px 25px; }
+.content-breadcrumb .wrapper div ul li.twitter { background-position:0 -350px; }
+.content-breadcrumb .wrapper div ul li.linkedin { background-position:0 -400px; }
+.content-breadcrumb .wrapper div ul li.facebook { background-position:0 -450px; }
+.content-breadcrumb .wrapper div ul li.google { background: transparent url("http://www.elsevier.com/__data/assets/image/0006/111867/g-plus-share.png?v=0.1.1") no-repeat 0 0; }
+.content-breadcrumb .follow-us:hover .wrapper { display:block; }
+.content-breadcrumb .wrapper div ul, .content-breadcrumb .wrapper div ul li { list-style: none inside none; }
+.content-breadcrumb .wrapper a, .content-breadcrumb .wrapper ul { background-color: white; }
+.content-breadcrumb .wrapper div ul li a.external { background: none !important; }
+/* Social Media Top Bar */
+.content-breadcrumb a.title { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat left -197px #FFF; padding-left:28px; }
+.content-breadcrumb .wrapper div a.box-title { background:url('http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11') scroll no-repeat left -247px #FFF; padding-left:28px; }
+.content-breadcrumb .wrapper { background: none; }
+.content-breadcrumb .wrapper div { background: transparent; }
+.content-breadcrumb .wrapper div ul { margin: 0; /*  padding: 15px 10px 15px 25px; */
+  text-align: left; padding: 15px 15px 15px 30px; }
+.content-breadcrumb .wrapper div ul { border:1px solid #CFCFCF; margin-top: 10px; }
+.content-breadcrumb .wrapper, .content-breadcrumb .wrapper div { margin: 0px; padding: 0px; }
+.follow-us p { margin-bottom: 0px; }
+.content-breadcrumb .follow-us, .content-breadcrumb .breadcrumb { margin-bottom: 10px; }
+/* --- */
+
+.follow-us p { float: left; }
+.follow-us .top-share { float: left; margin-left: 5px; margin-bottom: 0px; }
+.follow-us .top-share li { display: block; float: left; width: 20px; height: 20px; background: transparent url("http://www.elsevier.com/__data/assets/image/0019/685/small.png?v=0.1.11") no-repeat 0 0; margin-left: 5px; }
+.follow-us .top-share li a { width: 20px; height: 20px; display: block; }
+.follow-us .top-share li span { text-indent: -9999px; display: inline-block; }
+.follow-us .top-share li a.external { background: none !important; }
+.follow-us .top-share li.twitter { background-position: 0 -350px; }
+.follow-us .top-share li.facebook { background-position: 0 -450px; }
+.follow-us .top-share li.linkedin { background-position: 0 -400px; }
+.follow-us .top-share li.google { background: transparent url("http://www.elsevier.com/__data/assets/image/0006/111867/g-plus-share.png?v=0.1.1") no-repeat 0 0; }
+.content-breadcrumb p.breadcrumb { margin-bottom: 23px; }
+/* ---- Social Media icons & Breadcrumb End ---- */
+
+/* 7. HELPBOX STYLE SETTINGS */
+
+/*lightbox & editor board*/
+
+.lightbox, .editboard_box, .helpbox, .helpbox_small { position: fixed; z-index: 10002; left: 50%; top: 50%; margin: -250px 0 0 -308px; width: 630px; height: 468px; padding: 48px 8px 0px 9px; overflow: hidden; background: transparent url('http://www.elsevier.com/__data/assets/image/0011/117596/bg_lightbox.png?v=0.1.1') no-repeat; }
+.helpbox { background: transparent url('http://www.elsevier.com/__data/assets/image/0003/117597/bg_lightbox_large.png?v=0.1.1') no-repeat; width:760px; margin-left: -373px; z-index: 10002; }
+.helpbox_medium { background: transparent url('http://www.elsevier.com/__data/assets/image/0004/117598/bg_lightbox_medium.png?v=0.1.1') no-repeat; width:760px; margin-left: -373px; height: 368px; margin-top:-200px; z-index: 10002; }
+.editboard_box { display:none; }
+.helpbox .btn_close, .lightbox .btn_close, .editboard_box .btn_close, .helpbox .btn_close { position: absolute; z-index: 10002; right: 28px; top: 20px; width: 20px; height: 20px; cursor: pointer; background-color: transparent; }
+.viewerCanvas { width:  630px; height: 430px; }
+.viewerHelpbox { width:  760px; height: 445px; }
+.helpbox_medium .viewerHelpbox { height: 345px; }
+.editboard_inner { padding: 15px 20px; height: 430px; overflow:auto; }
+.editboard_inner h2 { margin-bottom: 20px 0 3px 0; }
+.editboard_inner h4 { margin: 20px 0 5px 0; }
+.editboard_inner h5 { font-weight:bold; }
+.editboard_inner p { margin-bottom:5px; }
+.succes_box { position: fixed; display:none; z-index: 10; left: 50%; top: 50%; margin: -100px 0 0 -239px; height:215px; width: 461px; padding: 48px 8px 0px 9px; overflow: hidden; background: transparent url('http://www.elsevier.com/__data/assets/image/0005/117599/bg_lightbox_small.png?v=0.1.1') no-repeat; }
+.succes_box .btn_close { position: absolute; z-index: 10; right: 28px; top: 20px; width: 20px; height: 20px; cursor: pointer; background-color: transparent; }
+.succes_box p { height:45px }
+/* ----- Boxed Layout New Functionalities ----- */
+
+/* Halfwidth text */
+div.free-text.halfwidth { width: 380px; margin-right: 21px; float: left; text-align: left; }
+div.free-text.halfwidth.end { margin-right: 0px; }
+/* No header for content boxes */
+.content-box .box-header.noheader { background: url(http://www.elsevier.com/__data/assets/image/0004/120658/content-wide-bg-2-inverted.png?v=0.1.1) no-repeat scroll 0px -48px transparent; height: 6px; width: 100%; }
+.content-box.content-box-small .box-header.noheader { background: url(http://www.elsevier.com/__data/assets/image/0003/120657/content-small-bg-inverted.png?v=0.1.1) no-repeat scroll 0px -48px transparent; height: 6px; width: 100%; }
+.content-box .box-content.reduce-top { padding-top: 10px; }
+/* Buttons Set related */
+.boxes.buttons-set { padding-bottom: 0px; }
+/* ----- Boxed Layout New Functionalities End ----- */
+
+/* Open Access Tables Override */
+
+/* Open Access Tables */
+.open-access-table { border-collapse: separate; box-shadow:         0 9px 8px -10px rgba(50, 50, 50, 0.34); -webkit-box-shadow: 0 9px 8px -10px rgba(50, 50, 50, 0.34); -moz-box-shadow:    0 9px 8px -10px rgba(50, 50, 50, 0.34); margin-bottom: 10px; }
+.open-access-table .row-fill, .open-access-table th { background: none repeat scroll 0 0 #F7F7F7; }
+.open-access-table td, .open-access-table th { border: 1px solid #BCBCBC; border-bottom:none; color: #383838; text-align: left; text-transform: none; padding: 6px; font-size: 1em; }
+.open-access-table td:first-child, .open-access-table th:first-child { border-right:none; }
+.open-access-table th:first-child { border-radius:5px 0 0 0; }
+.open-access-table th:last-child { border-radius:0 5px 0 0; }
+.open-access-table tr:last-child td:first-child { border-radius: 0 0 0 5px; border-bottom: 1px solid #BCBCBC; }
+.open-access-table tr:last-child td:last-child { border-radius:0 0 5px 0; border-bottom: 1px solid #BCBCBC; }
+
+/* Journal Search Buttons in Tabbed */
+
+.findjournalsearch { float:right; position:relative; background-image:url(http://www.elsevier.com/__data/assets/image/0007/131002/Search-for-a-journal.png?v=0.1.1); background-repeat:no-repeat; background-position:left; width:380px; height:40px;}
+.label_journalfindersearch {position:absolute; left:10px; top:11px; color:#fff; font-weight:bold; font-size:14px;}
+.text_journalfindersearch {line-height:1em; margin-left:190px; height: 20px; line-height:1; margin-top:9px; width:138px; border:none; padding:0; background-color:transparent; outline:none;}
+.submit_journalfindersearch {width:25px; height:25px; padding:0; margin:0; background-color:transparent; border:none; cursor:pointer; text-indent: -9000px; text-transform: capitalize;}
+
+
+
+.lb-screen {
+    background: url('http://www.elsevier.com/__data/assets/image/0011/148736/screen.png?v=0.0.2') repeat;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99998;
+}
+.lb-content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    margin: 50px auto;
+    padding: 20px;
+    position: relative;
+    width: 800px;
+    z-index: 99999;
+}
+.lb-close {
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAB2JJREFUeNqsWVtMFFcYPjOz6y5XERQRlYtFFqsIhVKj1CoosErBNq2Vi6aYNk1afWibKBAUmzZINeKLD1VJ0CYNafFCqg9crLVewCYYKVQtiGBRGCitVblfdnd6ZjK7PXP2nJmBdpIvM3N25pxv//8//20YoP9gZvCcoON54f9anNEY0/sHBA1ywkyJMhrkGGyc0SCodVYlzOggSSKEAyePLipg1wJhXFPizDRIimAxgqwKWRpJB+Valawe9eLEWMq1mkQdyJl0TZK0giyjkySLgSOMaRFFYcfuBQJpBVk1NaOS4jCCHAYGOeNEcXI25Bo908gKQGXnshSSBsoZlyzAFrYjsCFknfeaZBmVTYNK0KABToWog0BwCrm3YWQdpE3GqKicQ6TmhBFHSGioZ35BYfz69etWBQcFhRqNRi8GHpOTk8MDf/7F/3T1auPRsiO329vahmSCOGzYn0ClK6Cqx4niqkYJznLC29vb/E1l5WZraupWk8nk5zTK/v5+MD4+DsLCwlyGOjU1NVxTV//tzrx3a/5+8mQUDk0iwAmTNpqLIErMBOEJ4QPhDxEIsQhiCcQyiNgNG1PS+vr7fxQEgZ+YmOBPnjzJp6en815eXgokJibyR48e5UdHR3nxWb6v71ryxhSrOIc81wsQiyHmy2v5yGubMJNicKKitMwQ3hCilOZBBEOEQ0RBxKRt2myFC7eKC9fW1vIWi8WNII6YmBi+qalJIgulfS9jyxuvy2Sj5LmD5bX85LXNMhcXUZpdOkk71S3+Q/OixYt9b926VTo/MDDi9OnTYPfu3WA6R1FRESgsLASDg4OP4l9O2Pug4/5TODwBMU4wAztiBgKH+UuSbTrt0lT9/YXc6OXL19bV1YG8vLxp52vXrl8HAf7+AJrE7Li4OMOpiooWzC05CJFMmprVGY0M65KS5q1b+2rGyMiIJEl0S65cuRIkJCS4EZs3dy7YnpsLPDw8XGP5BQWgt7cXrFm9OiPNag1EbJEjRDgXP1bFPaG+lPv4k083chxnFlUON4Vr4WVRUaCxsRFcuXIFFOTnu8ZDQ0JAQ0MDOHHiBCg9eNA1brPZQElJCWBZltuzNz9dJWgohMgSkhKW5KriYmPjxQeqqqoULwwPD4OxsTHpev/+/RLZJeHh4NKlS2DhwoXSOLRJxTsXLl4EdrsdJMTHJRCCBU5SQQzdSKhdmmV4wonPQFKzFgQHu6k4NSUFVFZWulQsEvP19ZWuq6urwfYdO9wM+ObNRhAdHe2Y4++/9fmzZ2IwGEM21STuV1k9uWikxeINVTVLdOakox5KLycnB0CfKt0rSG4XSbpnct3d3dDnMGx8fLw/JQlXHKyeesk/IMAkRxjqg10PH4KhoSHF2N27d6m+QFS9eJjMZk6PazNoFGPSKl0POiUGQUFBxAcjIiJAXW0tmAt3uZME3Hhg3759wOFwgNLSUreJnXPBHGBYLWHGJapWxwgDA39MPH36bCAgIAAEL1igmMDHx0ci6Vz4/Pnz4M233nZtsOLiYvDe+x8AG/SITtghLNBbwMRlsKuzc1CjlqKqXiDlkr+0tDSLP2ZkZCgejoyMdJEUbTIX+s2amlqwdVuWi+zatYmKd5KTk8AcPz/wQ0NTq0pJotAqR3BLLCGbN3BGw+SWzMwNMG6D8vJyyR+KU/TxfdCB90juSFQ1jOfAAcc7OztBbV295NwPHykDw4j9Hj9+AoSHhYIDJYcq7jQ3PUbCp1voxNM8ViV8Ol2Ux+3m5s9eio2NKysrA8UHDshTKM1JtEmbg274OTnZ4OtTFaC1reNezLLIAsQtTdBckwhOo1ZSSPnR457e7OysZBiruYddXeDOnV/dbQZKVKAE/VWrXgHnzp4R3dLkO7k7Dz3quj+AJSN2TKIOVPW0utyN7IOOjudDI6P9aampiZmZmZL6xTCp2H0UollZ28CZqu+A2WQChZ9/eayy4qtblMTZRilHFFmTUU7pvCBmQwSIngQiRPRCECsg4vbk5++FLuh3Mb/8ra2Nh86eh76W9/Dw5E0mM2+Y9S9SrZv4azcapFwUvvN43xeHi8Q55LmWynMHyWvNltc2yVzc8lFaOMXt1eQMr6lW67KyI2Ufrlj+opj5S+VHe3s7gPkq3EyMGB6BxbJU2t3i0XLvfvfewqKT9RfOtiC2OEGon4iqZzQqUFrd5DwbPtq167WsrOykxDWro8Uwq7BZQbBdvv5za9XZczfKj5VdRgip1UvESpRULrMq5bKRcJb+kKenpwd04qGBgYEmGzCyPb29Y91dHT3jI0MjSLk8RTnbVDoomp06GlmOcM0SNqaABAy0trdPo6anNiC0yOKtHBJJhhCWSWTthNYOtf+kpw9Ka5BpZeWkto6DQs6h0oIU1NqOtL4oSwGj0c0jdfRonTxic1erP0or+hhC6aDWGndQeqVaWZOgt+Os1RJnVKSJL0Zr2urq5ev92KD2oYHR8WWEmr7p/GKiuYCaxKfzCUdQ+Uqiq4cxk49cM51D+C8fxf4RYABOlK9mhtLFVgAAAABJRU5ErkJggg==);    cursor: pointer;
+    height: 42px;
+    position: absolute;
+    right: -21px;
+    top: -21px;
+    width: 42px;
+}
+.survey-main-content iframe {
+    width: 100%;
+    height: 1030px;
+}
+.survey-accept, .survey-decline {
+    display:block;
+    background:#F09E01;
+    padding:5px 20px;
+    border-radius:         4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius:    4px;
+    box-shadow:         2px 2px 2px #ababab;
+    -webkit-box-shadow: 2px 2px 2px #ababab;
+    -moz-box-shadow:    2px 2px 2px #ababab;
+    color:#fff;
+    float:left;
+}
+.survey-accept:hover, .survey-decline:hover {
+    background:#ce8602;
+/* Commented on: 6 Jun 2013 by Bwalters
+    margin:1px 0 0 1px;
+    padding:5px 19px 5px 20px;
+    box-shadow:         1px 1px 1px #ababab;
+    -webkit-box-shadow: 1px 1px 1px #ababab;
+    -moz-box-shadow:    1px 1px 1px #ababab;
+
+}
+.survey-decline:hover {
+    margin:1px 0 0 21px; */
+}
+.survey-decline {
+    margin-left:20px;
+}
+
+/* ------------------------------------------ */
+/* Show / Hide Feature for Boxed Layouts elements */
+/* ------------------------------------------ */
+div.free-text h2 span.text{
+   float: left;
+}
+div.free-text span.icon{
+   background: transparent url(http://www.elsevier.com/__data/assets/image/0009/149787/show-hide-icon.png?v=0.1.3) no-repeat; /* show-hide-icon.png */
+   width: 15px;
+   height: 15px;
+   display: block;
+   float: left;
+   margin-left: 10px;
+   cursor: pointer;
+}
+div.free-text span.hide{
+   background-position: 0 0;
+}
+div.free-text span.show{
+   background-position: 0 -15px;
+}
+div.pod-box .box-header span.icon{
+   margin-right: 14px;
+   margin-top: 14px;
+   display: block;
+   float: right;
+   background: transparent url(http://www.elsevier.com/__data/assets/image/0009/149787/show-hide-icon.png?v=0.1.3) no-repeat; /* show-hide-icon.png */
+   width: 15px;
+   height: 15px;
+   cursor: pointer;
+}
+div.pod-box .box-header span.hide{
+   background-position: 0 0;
+}
+div.pod-box .box-header span.show{
+   background-position: 0 -15px;
+}
+
+/* rounded corners for header when box is collapsed */
+div.pod-box div.box-header.rounded {
+    background: url("http://www.elsevier.com/__data/assets/image/0005/153770/bg-title-box.png?v=0.0.4") left 0; 
+    position: relative;
+}
+div.pod-box div.box-header.rounded .clear {
+    background: url("http://www.elsevier.com/__data/assets/image/0005/153770/bg-title-box.png?v=0.0.4") right 0;
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    visibility: visible;
+}
+
+/* Tabbed box */
+#tabbed.hide-box .box-header, #tabbed.show-box .box-header{
+   position: relative;
+}
+#tabbed.hide-box .box-header span.icon, #tabbed.show-box .box-header span.icon{
+   right: 5px;
+   top: 30px;
+   position: absolute;
+   z-index: 1000;
+   display: block;
+   float: right;
+   background: transparent url(http://www.elsevier.com/__data/assets/image/0009/149787/show-hide-icon.png?v=0.1.3) no-repeat; /* show-hide-icon.png */
+   width: 15px;
+   height: 15px;
+   cursor: pointer;
+}
+#tabbed.hide-box .box-header span.hide, #tabbed.show-box .box-header span.hide{
+   background-position: 0 0;
+}
+#tabbed.hide-box .box-header span.show, #tabbed.show-box .box-header span.show{
+   background-position: 0 -15px;
+}
+.content-box .box-header h2.show-hide{
+   float: left;
+   width: 90%
+}
+.content-box.content-box-small .box-header h2.show-hide{
+   float: left;
+   width: 80%
+}
+
+#tabbed.hide-box div.box-header.rounded, #tabbed.show-box div.box-header.rounded{
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+/* ------------------------------------------ */
+/* Show / Hide Feature for Boxed Layouts elements - End */
+/* ------------------------------------------ */
+
+
+
+/*  ============================================= *
+ *    Modular Search
+ *  ============================================= */
+.modular-search table {
+    width: auto;
+    border: 0;
+    padding: 0;
+    border-collapse: collapse;
+    width:100%;
+    max-width:395px;
+}
+.modular-search td {
+    padding: 0;
+    border: 0;
+    border-collapse: collapse;
+}
+.modular-search .text {
+    width:100%;
+}
+.log-in-form label {
+    width:50px;
+    float:left;
+    text-align:right;
+    padding-right:20px;
+    margin-top:10px;
+}
+.log-in-form input {
+    float:left;
+    width:210px;
+    margin-top:10px;
+    padding:3px
+}
+.dropdown-wrapper {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9f9f9), color-stop(100%, #fff));
+    background-image: -webkit-linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    background-image: -moz-linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    background-image: -ms-linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    background-image: -o-linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    background-image: linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00#f9f9f9', endColorstr='#1a#fff', GradientType=0);
+-moz-box-shadow: 0px 0px 15px #888;
+-webkit-box-shadow: 0px 0px 15px #888;
+box-shadow: 0px 0px 15px #888;
+    width:300px;
+    right: 0;
+    margin-top: 2em;
+    z-index:99;
+}
+.dropdown-content:before {
+    content: "▲";
+    position: absolute;
+    bottom: 100%;
+    font-size: 2em;
+    height: 16px;
+    color: #f9f9f9;
+    right: 20px;
+}
+.log-in-form input[type="submit"], .modal-box a {
+    float:right;
+    width:100px;
+    font-size:1.2em;
+    color: #4e93af;
+    border:1px solid #4e93af;
+    border-radius:         5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius:    5px;
+    background:#dceaf1;
+    padding: 4px 10px;
+    margin-right:8px
+}
+.log-in-form a {
+    float:left;
+}
+.log-in-form div {
+    float:left;
+}
+.dropdown-trigger {
+    background: none repeat scroll 0 0 #DCEAF1 !important;
+    border: 1px solid #4E93AF;
+    border-radius: 5px 5px 5px 5px;
+    color: #4E93AF;
+    padding: 4px 10px;
+    cursor:pointer;
+}
+.dropdown-trigger:after {
+    content: "▾";
+}
+.modal-box {
+    width:auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9f9f9), color-stop(100%, #fff));
+    background-image: -webkit-linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    background-image: -moz-linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    background-image: -ms-linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    background-image: -o-linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    background-image: linear-gradient(top, #f9f9f9 0%, #fff 100%);
+    /* Commented on: 1 Nov 2013 by Bwalters
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#fff', GradientType=0);
+*/
+    box-shadow:         2px 2px 10px rbga(0,0,0,0.9);
+    -webkit-box-shadow: 2px 2px 10px rbga(0,0,0,0.9);
+    -moz-box-shadow:    2px 2px 10px rbga(0,0,0,0.9);
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    display:inline-block;
+}
+.modal-box span {
+    display:block;
+    margin:10px 0;
+    font-size:1.3em;
+}
+.modal-box img {
+    float:left;
+    margin-right:20px;
+}
+/* Awards 2013 pod date colour */
+.awards-pr-wrapper p { color: #666; }
+/* Table styles allowing authors to align table content to top or bottom*/
+table .bottom {
+    vertical-align: bottom;
+}
+table .top {
+    vertical-align: top;
+}
+
+
+/* 9. Open Access Table CR - Dec 2013 Start */
+.boxed .open-access table{
+   color: #383838;
+   float: none;
+   border-color: #ccc;
+   margin-bottom: 30px;
+   position: relative;
+}
+.boxed .open-access table th{
+   background-color: #f0f0f0;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#f0f0f0), to(#d6d6d6));
+   background-image: -webkit-linear-gradient(top, #f0f0f0, #d6d6d6);
+   background-image:    -moz-linear-gradient(top, #f0f0f0, #d6d6d6);
+   background-image:      -o-linear-gradient(top, #f0f0f0, #d6d6d6);
+   background-image:         linear-gradient(to bottom, #f0f0f0, #d6d6d6);   
+   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f0f0f0', endColorstr='#D6D6D6'); /* IE6 & IE7 */ 
+   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f0f0f0', endColorstr='#D6D6D6')";    /* IE8 */ 
+   padding-top: 14px;
+   padding-bottom: 20px;
+   text-align: center;
+   clear: both;
+}
+.boxed .open-access table thead th.highlight{
+   background-color: #d3dce0;
+   background-image: -webkit-gradient(linear, left top, left bottom, from(#d3dce0), to(#bec7ca));
+   background-image: -webkit-linear-gradient(top, #d3dce0, #bec7ca);
+   background-image:    -moz-linear-gradient(top, #d3dce0, #bec7ca);
+   background-image:      -o-linear-gradient(top, #d3dce0, #bec7ca);
+   background-image:         linear-gradient(to bottom, #d3dce0, #bec7ca);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#d3dce0', EndColorStr='#bec7ca');
+}
+.boxed .open-access table tr{
+   background: #ffffff;
+   clear: both;
+}
+.boxed .open-access table tr:nth-child(2n){
+   background: #f2f2f2;    
+}
+.boxed .open-access table tr.odd td{
+   background: #f2f2f2;    
+}
+.boxed .open-access table tr:nth-child(2n) td.highlight{
+   background: #d8e2e5;
+}
+.boxed .open-access table tr.odd td.highlight{
+   background: #d8e2e5;
+}
+.boxed .open-access table td, .boxed table th{
+   padding: 13px;
+}
+.boxed .open-access table ul, .boxed .open-access table li{
+   margin: 0px; 
+   list-style: disc inside none;
+}
+.boxed .open-access a{
+   color: #006080;
+}
+.boxed .open-access a.oa-popup{
+   border-bottom: dashed 1px #006080;
+   text-decoration: none;    
+}
+.boxed .open-access a.oa-popup:hover{
+   text-decoration: none;    
+}
+.boxed .open-access table tr td{
+   border-color: #ccc;
+}
+.open-access-buttons{
+   margin: 0px auto 20px;
+   display: table;
+}
+div.free-text{
+   position: relative;
+}
+a.oa-popup{
+   border-bottom: 1px dashed #006080;
+   text-decoration: none;
+}
+a.oa-popup:hover{
+   text-decoration: none;
+}
+
+/* buttons */
+.oa-button{
+   display: inline-block;
+   background: #d9eaf0;
+   border: #00759b 1px solid;
+   border-radius: 6px;
+   color: #006080;
+   padding: 5px 10px;
+   text-align: center;
+   margin-left: 23px;
+}
+.oa-button:hover{
+   text-decoration: none;
+}
+.oa-button:first-child, .oa-button.first{
+   margin-left: 0px;
+}
+/* icons */
+.icon{
+   width: 16px;
+   height: 16px;
+   display: block;
+   float: left;
+   line-height: 16px;
+   vertical-align: middle;
+/*   background: transparent url("/__data/assets/image/0010/167599/oa-icons.png") no-repeat 0 0;*/
+   background: transparent url("http://www.elsevier.com/__data/assets/image/0010/167599/oa-icons.png?v=0.1.1") no-repeat 0 0;
+   margin: 0px 10px 0px 0px;
+}
+.open-access table .icon{
+   margin: 0px 10px 10px 0px;
+}
+.icon-orange-blind{
+   background-position: -16px 0;    
+}
+.icon-green-orange-blind{
+   background-position: 0 0;    
+}
+/* Arrow Box */
+.arrow-box{ 
+  position: relative; 
+  background: #ffffff; 
+  border: 1px solid #a4a4a4; 
+  width: 299px;
+  border-radius: 5px;
+  padding: 12px;
+  color: #111111;
+  z-index: 1000;
+  position: absolute;
+  zoom: 1;
+  -webkit-box-shadow: 0 0 28px -5px #A0A0A0;
+  -moz-box-shadow: 0 0 28px -5px #A0A0A0;
+  box-shadow: 0 0 28px -5px #A0A0A0;
+} 
+.arrow-box p{
+  margin-bottom: 0px;
+}
+.arrow-box::after, .arrow-box::before{ 
+  bottom: 100%; 
+  left: 90px; 
+  border: solid transparent; content: " ";
+  height: 0; 
+  width: 0; 
+  position: absolute; 
+  pointer-events: none; 
+  z-index: 1000;
+} 
+.arrow-box.arrow-box-right::after, .arrow-box.arrow-box-right::before{
+  left: 239px;    
+}
+.arrow-box::after{ 
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #ffffff;
+  border-width: 13px; 
+  z-index: 1000;
+  margin-left: -13px; 
+}
+.arrow-box::before{ 
+  border-color: rgba(164, 164, 164, 0); 
+  border-bottom-color: #a4a4a4; 
+  border-width: 14px; 
+  margin-left: -14px; 
+  z-index: 1000;
+}
+/* Popup contents */
+.oa-popup-content{
+   display: none;
+}
+.open-access-buttons{
+   position: relative;
+}
+div.free-text.popups{
+   position: relative;
+}
+/* Open Access Table CR - Dec 2013 End */
+
+/* 10. New Boxed Layout Templates Start */
+/* == Buttons fixes - Type 1 == */
+.boxed.nbt .buttons-box.buttons-one .box.button{
+   margin-right: 0px;
+   width: 762px;
+}
+.boxed.nbt .buttons-box.buttons-two .box.button{
+   width: 360px;
+   margin-right: 20px;
+}
+.boxed.nbt .buttons-box.buttons-two .box.button:nth-child(2n){
+   margin-right: 0px;
+}
+.boxed.nbt .buttons-box.buttons-three .box.button{
+   margin-right: 21px;
+   width: 226px;
+}
+.boxed.nbt .buttons-box.buttons-three .box.button:nth-child(3n){
+   margin-right: 0px;
+}
+.boxed.nbt .buttons-box.buttons-four .box.button{
+   margin-right: 20px;
+   width: 160px
+}
+.boxed.nbt .buttons-box.buttons-four .box.button:nth-child(4n){
+   margin-right: 0px;
+}
+/* == Buttons fixes - Type 2 == */
+.boxed.nbt .boxed-button-2{
+   border-radius: 5px;
+   border: 1px solid #bcbcbc;
+   margin-top: 0px;
+   background: transparent url("http://www.elsevier.com/__data/assets/image/0009/176238/buttons_2_bg_new.png?v=0.1.1") repeat-x 0 0;
+   height: 98px;
+}
+.boxed.nbt .boxed-button-2 div{
+   overflow: hidden;
+   margin: 6px 0px;
+}
+.boxed.nbt .boxed-button-2 img{
+   margin: 6px 8px;
+}
+.boxed.nbt .buttons-type-two.buttons-one .boxed-button-2{
+   margin-right: 0px;
+   width: 779px;
+}
+.boxed.nbt .buttons-type-two.buttons-one .boxed-button-2 div{
+   width: 675px;
+}
+.boxed.nbt .buttons-type-two.buttons-two .boxed-button-2{
+   margin-right: 20px;
+   width: 378px;
+}
+.boxed.nbt .buttons-type-two.buttons-two .boxed-button-2 div{
+   width: 275px;
+}
+.boxed.nbt .buttons-type-two.buttons-two .boxed-button-2:nth-child(2n){
+   margin-right: 0px;
+}
+.boxed.nbt .buttons-type-two.buttons-three .boxed-button-2{
+   margin-right: 21px;
+   width: 244px;
+}
+.boxed.nbt .buttons-type-two.buttons-three .boxed-button-2 div{
+   width: 142px;
+}
+.boxed.nbt .buttons-type-two.buttons-three .boxed-button-2:nth-child(3n){
+   margin-right: 0px;
+}
+.boxed.nbt .buttons-type-two.buttons-four .boxed-button-2{
+   width: 178px;
+   margin-right: 20px;
+}
+.boxed.nbt .buttons-type-two.buttons-four .boxed-button-2 div{
+   width: 95px;
+}
+.boxed.nbt .buttons-type-two.buttons-four .boxed-button-2:nth-child(4n){
+   margin-right: 0px;
+}
+
+
+/* Advertisers Tweaks */
+.img-right {
+    float: right;
+}
+.textbox-right {
+    float: right;
+    position: relative;
+}
+.textbox-right .oa-popup {
+    border: none;
+}
+/* 10. New Boxed Layout Templates End */
+
+/*
+ * 11. Wide Template additions
+ * Added by lwoollett@squiz.co.uk
+ */
+
+/*
+ *  style-wide.css 
+ *  Table of content
+ *  1. Body background
+ *  2. Secondary text navigation
+ *  3. Boxes
+ *  4. No left column
+ *  5. Carousel Box
+ *  6. NBT fixes for Boxed Components
+ */
+
+
+@font-face {
+    font-family: 'zapf_dingbatsregular';
+    src: url('http://www.elsevier.com/__data/assets/file/0010/183178/zapfdingbatsitc-webfont.eot?v=0.1.1');
+    src: url('http://www.elsevier.com/__data/assets/file/0010/183178/zapfdingbatsitc-webfont.eot?v=0.1.1?#iefix') format('embedded-opentype'),
+         url('http://www.elsevier.com/__data/assets/file/0005/183182/zapfdingbatsitc-webfont.woff?v=0.1.1') format('woff'),
+         url('http://www.elsevier.com/__data/assets/file/0004/183181/zapfdingbatsitc-webfont.ttf?v=0.1.1') format('truetype'),
+         url('http://www.elsevier.com/__data/assets/file/0011/183179/zapfdingbatsitc-webfont.svg?v=0.1.1#zapf_dingbatsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Wide content Def */
+body.content-wide .aside{
+   display: none;
+}
+body.content-wide .content{
+   width: 100%
+}
+
+hr {
+    height: 1px;
+    border: none;
+    margin: 0;
+    background-color: #d2d2d2;
+    box-shadow: 2px 0 0 #DDDDDD, -2px 0 0 #DDDDDD;
+}
+
+ /* 1. Body background */
+ body.bg_gray-gradient {
+     background: url(http://www.elsevier.com/__data/assets/file/0007/177208/bg_gray-gradient.png?v=0.2.1) top left repeat-x #f0f0f0;
+ }
+
+ /* 2. Secondary text navigation */
+ .sec_menu_box {
+     overflow: hidden;
+     padding: 1px 0 20px 0;
+ }
+.nbt .sec_menu_box{
+   padding: 20px 0px;
+   margin-top: -20px;
+}
+
+ .sec_menu_box h3 {
+     color: #666666;
+     float: left;
+     margin: 0;
+     font-weight: bold;
+     font-size: 18px;
+ }
+ .sec_menu_box h3 a {
+     color: #666666;
+ }
+ .sec_menu {
+     float: right;
+     list-style: none;
+     margin: 0;
+ }
+ .sec_menu li {
+     display: inline-block;
+     *display:inline;
+     *zoom: 1;
+     margin-left: 30px;
+ }
+.nbt .sec_menu .cta_button {
+    display: block;
+    background-color: #00759b;
+    padding: 4px 9px;
+    margin-top: -4px;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size:12px;
+    line-height: normal
+}
+ .sec_menu li a{
+  color: #006080;
+ }
+
+ .sec_menu li > a.active{
+     color: #000000;
+     font-weight: bold;
+ }
+
+ /* 2. Secondary text navigation */
+
+/* Boxes fix for Wide Content boxes */
+
+.wide-box.top-corners{
+   border-top: 1px solid #DDD;
+}
+
+.wide-box.bottom-corners{
+  margin-bottom: 20px;
+  border-bottom: 1px solid #DDD;
+}
+
+ .top-corners {
+     border-radius: 6px 6px 0 0;
+ }
+ .bottom-corners {
+     border-radius: 0 0 6px 6px;
+ }
+ .wide-box.top-corners .wide-box-gradient {
+     border-radius: 6px 6px 0 0;
+ }
+ .wide-box.top-corners .wide-box-shadow {
+     border-radius: 6px 6px 0 0;
+ }
+ .wide-box.bottom-corners .wide-box-gradient {
+     border-radius: 0 0 6px 6px;
+ }
+ .wide-box.bottom-corners .wide-box-shadow {
+     border-radius: 0 0 6px 6px;
+ }
+
+ .wide-box-image.top-corners, .top-corners.no-gradient {
+     border-radius: 6px 6px 0 0;
+ }
+ .wide-box-image.bottom-corners, .bottom-corners.no-gradient {
+     border-radius: 0 0 6px 6px;
+ }
+
+ .top-corners .wide-box-sub.has-color {
+     border-radius: 6px 6px 0 0;
+ }
+ .bottom-corners .wide-box-sub.has-color {
+     border-radius: 0 0 6px 6px ;
+ }
+
+.wide-box-sub h1{
+  font-size: 18px;    
+}
+.wide-box-sub h2{
+  font-size: 24px;
+  font-weight: normal;
+}
+.wide-box-sub, .wide-box-sub p{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+   color: #848484;
+}
+
+.wide-box-sub a.external{
+   background: none;
+}
+
+/* Text Colours fix*/
+.wide-box.white, .wide-box.white p, .wide-box.white h1,.wide-box.white h2{
+   color: #FFF;
+}
+.wide-box.black, .wide-box.black p, .wide-box.black h1,.wide-box.black h2{
+   color: #848484;
+}
+.wide-box.grey, .wide-box.grey p, .wide-box.grey h1,.wide-box.grey h2{
+   color: #666;
+}
+
+ .white { color: #ffffff; }
+ .black { color: #000000; }
+ .gray { color: #666666; }
+
+ .gradient-down {
+    background: #f1f1f1;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YxZjFmMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #f1f1f1 0%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(100%,#ffffff));
+    background: -webkit-linear-gradient(top,  #f1f1f1 0%,#ffffff 100%);
+    background: -o-linear-gradient(top,  #f1f1f1 0%,#ffffff 100%);
+    background: -ms-linear-gradient(top,  #f1f1f1 0%,#ffffff 100%);
+    background: linear-gradient(to bottom,  #f1f1f1 0%,#ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#ffffff',GradientType=0 );
+ }
+ .gradient-up {
+    background: #ffffff;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMWYxZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f1f1f1));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f1f1f1 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#f1f1f1 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f1f1f1 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f1f1f1',GradientType=0 );
+ }
+ .gradient-reflection {
+    background: #f1f1f1;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YxZjFmMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMWYxZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #f1f1f1 0%, #ffffff 50%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(50%,#ffffff), color-stop(100%,#f1f1f1));
+    background: -webkit-linear-gradient(top,  #f1f1f1 0%,#ffffff 50%,#f1f1f1 100%);
+    background: -o-linear-gradient(top,  #f1f1f1 0%,#ffffff 50%,#f1f1f1 100%);
+    background: -ms-linear-gradient(top,  #f1f1f1 0%,#ffffff 50%,#f1f1f1 100%);
+    background: linear-gradient(to bottom,  #f1f1f1 0%,#ffffff 50%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#f1f1f1',GradientType=0 );
+ }
+
+.wide-box .bg-grey{
+   background: #CCC;
+}
+
+ .wide-box-shadow img.sh_img {
+     display: none;
+     max-width: 100%;
+     position: absolute;
+ }
+ .wide-box-shadow.shadow-top img.sh_img_top {
+     display: block;
+     top: 0;
+     left: 0;
+     right: 0;
+ }
+ .wide-box-shadow.shadow-right img.sh_img_right, .top-corners .wide-box-shadow.shadow-right img.sh_img_right-border {
+     display: block;
+     top: 0;
+     right: 0;
+ }
+ .wide-box-shadow.shadow-bottom img.sh_img_bottom {
+      display: block;
+     bottom: 0;
+     left: 0;
+     right: 0;
+ }
+ .wide-box-shadow.shadow-left img.sh_img_left, .top-corners .wide-box-shadow.shadow-left img.sh_img_left-border {
+     display: block;
+     top: 0;
+     left: 0;
+ }
+ .top-corners .wide-box-shadow.shadow-left img.sh_img_left, .top-corners .wide-box-shadow.shadow-right img.sh_img_right {
+     display: none;
+ }
+
+
+ .wide-box {
+     width: 100%;
+     background-color: #fff;
+     box-shadow: 2px 0 0 #DDDDDD, -2px 0 0 #DDDDDD;
+     position: relative;
+ }
+ .wide-box-sub {
+     width: 93.75%;
+     padding: 3.125%;
+ }
+
+.wide-box.grey .wide-box-sub, .wide-box.grey .wide-box-sub p{
+   color: #666;
+}
+
+.nbt .wide-box a {
+   font-size: 18px;
+   color: #00759b;
+   padding: 10px 0;
+
+   margin-right: 5px;
+}
+
+.nbt a.arrow {
+    font-size: 18px;
+    color: #00759b;
+    display: block;
+    padding: 10px 0;
+}
+
+.nbt .cta_button span {
+    background-color: #00759B;
+    border-radius: 6px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-weight: normal;
+    padding: 7px 10px;
+}
+.nbt .cta_button.arrow span {
+    padding: 5px 5px 5px 0;
+}
+
+ /* 4. No left column */
+.content-wide .content {
+    width: 100%;
+}
+.content-wide .content .wrapper {
+    padding-left: 0;
+}
+.content-wide .content .content-box.tabbed-content {
+    width: 100%;
+}
+
+.content-wide .content .content-box.tabbed-content .box-footer {
+    background: #FFF;
+    border-bottom: 1px solid #DEDEDE;
+    border-left: 1px solid #DEDEDE;
+    border-right: 1px solid #DEDEDE;
+    margin-bottom: 20px;
+    width: auto;
+}
+
+/* Free Text */
+.nbt .free-text{
+   float: left;
+}
+.content .nbt div.free-text.halfwidth.end, 
+.content .nbt div.free-text.thirds.end, 
+.content .nbt div.free-text.quarter.end {
+    margin-right: 0;
+}
+.content .nbt div.free-text.halfwidth {
+    margin-right: 2.2%;
+    width: 48.8%;
+}
+.content .nbt div.free-text.thirds {
+    margin-right: 3%;
+    width: 31.2%;
+}
+.content .nbt div.free-text.quarter {
+    margin-right: 2.2%;
+    width: 23.2%;
+}
+
+.content-wide .content .boxes {
+    width: 100%;
+}
+
+.content-wide .content .boxed.nbt .buttons-box.buttons-two .box.button:nth-child(2n), 
+.content-wide .content .boxed.nbt .buttons-box.buttons-three .box.button:nth-child(3n), 
+.content-wide .content .boxed.nbt .buttons-box.buttons-four .box.button:nth-child(4n) {
+    margin-right: 0;
+}
+.content-wide .content .boxed.nbt .buttons-box.buttons-two .box.button.last,
+.content-wide .content .boxed.nbt .buttons-box.buttons-three .box.button.last,
+.content-wide .content .boxed.nbt .buttons-box.buttons-four .box.button.last {
+    margin-right: 0;
+}
+
+.content-wide .content .boxed.nbt .buttons-box.buttons-one .box.button {
+    margin-right: 0;
+    width: 97.7%;
+}
+.content-wide .content .boxed.nbt .buttons-box.buttons-two .box.button {
+    margin-right: 1.95%;
+    width: 46.8%;
+}
+.content-wide .content .boxed.nbt .buttons-box.buttons-three .box.button {
+    margin-right: 2.2%;
+    padding: 0.97%;
+    width: 29.7%;
+}
+.content-wide .content .boxed.nbt .buttons-box.buttons-four .box.button {
+    margin-right: 2.1%;
+    width: 21.3%;
+}
+
+/*
+.content-wide .content .boxed.nbt .buttons-type-two .boxed-button-2 {
+    background: #ffffff;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMWYxZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f1f1f1));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f1f1f1 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#f1f1f1 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f1f1f1 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f1f1f1',GradientType=0 );
+}
+*/
+
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-two .boxed-button-2:nth-child(2n),
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-three .boxed-button-2:nth-child(3n),
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-four .boxed-button-2:nth-child(4n) {
+    margin-right: 0;
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-two .boxed-button-2.last,
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-three .boxed-button-2.last,
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-four .boxed-button-2.last {
+    margin-right: 0;
+}
+ 
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-one .boxed-button-2 {
+    margin-right: 0;
+    width: 99.4%;
+    overflow: hidden;
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-one .boxed-button-2 img {
+    height: auto;
+    margin: 1%;
+    width: 8.3%;  
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-one .boxed-button-2 div {
+    width: 88%;
+    height: auto; 
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-two .boxed-button-2 {
+    margin-right: 2.1%;
+    width: 48.6%;
+    overflow: hidden;
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-two .boxed-button-2 img {
+    height: auto;
+    margin: 2% 2.6%;
+    width: 18%;  
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-two .boxed-button-2 div {
+    width: 74%;
+    height: auto; 
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-three .boxed-button-2 {
+    margin-right: 2.2%;
+    width: 31.6%;
+    overflow: hidden;
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-three .boxed-button-2 img {
+    height: auto;
+    margin: 2% 2.6%;
+    width: 28%;  
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-three .boxed-button-2 div {
+    width: 64%;
+    height: auto;  
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-four .boxed-button-2 {
+    margin-right: 2.1%;
+    width: 23.1%;
+    overflow: hidden;
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-four .boxed-button-2 img {
+    height: auto;
+    margin: 3%;
+    width: 37.3%;  
+}
+.content-wide .content .boxed.nbt .buttons-type-two.buttons-four .boxed-button-2 div {
+    width: 54%;
+    height: auto; 
+} 
+
+.content-wide .content .content-box.content-box-small .box-header h2.show-hide,
+.content-wide .content .content-box .box-header h2.show-hide {
+    width: auto;
+}
+
+.content-wide .content .content-box-small.halfwidth {
+    margin-right: 2.2%;
+    width: 48.7%; 
+}
+.content-wide .content .content-box-small.halfwidth.end {
+    margin-right: 0%;
+}
+.content-wide .content .content-box-small.halfwidth .box-footer,
+.content-wide .content .content-box .box-footer {
+    background: #FFF;
+    border-bottom: 1px solid #DEDEDE;
+    border-left: 1px solid #DEDEDE;
+    border-right: 1px solid #DEDEDE;
+    margin-bottom: 20px;
+    width: auto;
+}
+.content-wide .content .content-box-small .box-header,
+.content-wide .content div.pod-box div.box-header {
+    border: 1px solid #BCBCBC;
+    width: auto;
+    background: #fefefe;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2YwZjBmMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2U2ZTZlNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmMWYxZjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #fefefe 0%, #f0f0f0 50%, #e6e6e6 50%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(50%,#f0f0f0), color-stop(50%,#e6e6e6), color-stop(100%,#f1f1f1));
+    background: -webkit-linear-gradient(top,  #fefefe 0%,#f0f0f0 50%,#e6e6e6 50%,#f1f1f1 100%);
+    background: -o-linear-gradient(top,  #fefefe 0%,#f0f0f0 50%,#e6e6e6 50%,#f1f1f1 100%);
+    background: -ms-linear-gradient(top,  #fefefe 0%,#f0f0f0 50%,#e6e6e6 50%,#f1f1f1 100%);
+    background: linear-gradient(to bottom,  #fefefe 0%,#f0f0f0 50%,#e6e6e6 50%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#f1f1f1',GradientType=0 );
+}
+.content-wide .content .content-box-small .box-header.noheader,
+.content-wide .content div.pod-box div.box-header.noheader {
+    background: none;
+    border-color: #D9D9D9;
+    border-bottom: none;
+    filter: none;
+}
+.content-wide .content  div.pod-box div.box-header.rounded {
+    border-radius: 5px;
+}
+.content-wide .content  div.pod-box div.box-header.rounded .clear {
+    display: none;
+}
+
+.nbt a.arrow span:before{
+    font-family: 'zapf_dingbatsregular';
+    content: '\279C\00a0';
+    font-style: normal;
+    margin-left: -1px;
+}
+ 
+.nbt .cta_button.arrow span span{
+    font-family: 'zapf_dingbatsregular';
+    content: '\279C\00a0';
+    font-style: normal;
+    margin-left: -2px;
+}
+
+/* ----- 5. Carousel box ----- */
+.nbt .slider .slides{
+   height: auto;
+}
+.nbt .slider .slides li{
+   height: auto;
+}
+.nbt .wide-slider{
+   -moz-border-radius: 6px;
+   -webkit-border-radius: 6px;
+   border-radius: 6px;
+   box-shadow: 2px 0 0 #DDDDDD, -2px 0 0 #DDDDDD;
+}
+.nbt .slider .link.external{
+   background: none;
+}
+
+/* Arrows */
+.nbt .flex-direction-nav {
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
+.nbt .flex-prev,
+.nbt .flex-next {
+    background: url("http://www.elsevier.com/__data/assets/image/0009/180675/homepage-sprite.png?v=0.1.1") no-repeat scroll 0 0 transparent;
+    height: 101px;
+    margin-top: -50px; /* Vertically center */
+    position: absolute;
+    top: 50%;
+    width: 22px;
+}
+.nbt .flex-next {
+    background-position: -150px 0;
+    right: 0;
+}
+.nbt .flex-next:hover,
+.nbt .flex-next:focus {
+    background-position: -200px 0;
+}
+.nbt .flex-prev {
+    background-position: -250px 0;
+    left: 0;
+}
+.nbt .flex-prev:hover,
+.nbt .flex-prev:focus {
+    background-position: -300px 0;
+}
+.nbt .flex-prev.flex-disabled:hover,
+.nbt .flex-prev.flex-disabled:focus {
+    background-position: -250px 0;
+}
+.nbt .flex-next.flex-disabled:hover,
+.nbt .flex-next.flex-disabled:focus {
+    background-position: -150px 0;
+}
+.ir {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    /* IE7 Hack to make sure it works in ie8 compat mode */
+    *line-height: 0;
+    *text-indent: 0;
+}
+#content .wide-slider.slider .flex-control-nav li, #content .wide-slider.slider .flex-control-nav li a{
+   height: 20px;
+}
+#content .wide-slider.slider .flex-control-nav li a:hover{
+   cursor: pointer;
+}
+#content .wide-slider .pause-btn{
+   background: transparent url("http://www.elsevier.com/__data/assets/image/0003/180822/pause_btn.gif?v=0.1.3") no-repeat center 0;
+   height: 20px;
+}
+.wide-slider.slider .slides li > .description h2{
+   margin-bottom: 20px;
+}
+
+/* ---- 6. NBT fixes for Boxed Components ---- */
+
+/* Background fix for NBT */
+.nbt .content-box .box-content{
+   background: #FFF;
+}
+.nbt .box-content.content-slider {
+   overflow: hidden;
+   position: relative;
+}
+
+/* Components font fixes acc to Mantis ticket: 0022389 */
+.content-wide div.free-text,.content-wide div.free-text p{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+   color: #848484;
+}
+.content-wide div.free-text h1{
+   color: #666;
+   font-size: 18px;
+}
+.content-wide div.free-text h2{
+   font-size: 24px;
+   line-height: 26px;
+   color: #000;
+}
+.content-wide .tabbed-content li a{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+}
+.content-wide .box-content, .content-wide .box-content p{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+}
+.nbt a.cta_button {
+   font-size: 18px;
+   line-height: 18px;
+}
+.content-wide .content-box .box-content h2{
+   color: #000;
+}
+.content-wide .boxed .boxes a.box span.introtext{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+   color: #848484;
+}
+.content-wide .content .content-box.content-box-small .box-header h2.show-hide, .content-wide .content .content-box .box-header h2.show-hide, .content-wide .content-box .box-header h2{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+   color: #848484;
+}
+.content-wide .content-box .box-content, .content-wide .content-box .box-content p{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+   color: #848484;
+}
+.content-wide .slider .slides li > .description h2, .slider .slides li > .description h3{
+   margin-left: 20px;
+}
+.content-wide .slider .slides li > .description p{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+   color: #848484;
+}
+
+.content-wide .content-box.slider.fullwidth .slide-content p{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+}
+.content-wide .boxed-button-2 p{
+   font-size: 16px;
+   font-weight: normal;
+   line-height: 22px;
+   color: #848484;
+}
+.content-wide .wide-box-shadow.shadow-top img.sh_img_top, .content-wide .wide-box-shadow.shadow-bottom img.sh_img_bottom{
+   left: 35px; /* 3.64% */
+}
+.nbt .wide-slider{
+   border-top: 1px solid #DDD;
+   border-bottom: 1px solid #DDD;
+}
+
+/* Additional styles for wide template - added 24 april by Dennis Smit  */
+
+.overwrite_right_image {
+   margin-right: -32px;
+   max-width: 440px;
+}
+.overwrite_left_image {
+   margin-left: -30px;
+}
+/* Additional styles for wide template - added 8 May 2014 by Dennis Smit  */
+/* container for banner */
+.corporateBanner {position: relative; height: 178px; width: 960px; margin:0; padding:0;}
+
+/* positioning left classes for headers in banner */
+.corporateBanner h2.bannerLeft {position: absolute; top:40px; left: 65px; color: #fff!important;}
+.corporateBanner h1.bannerLeft {position: absolute; top:90px; left: 65px; color: #fff!important; width:auto!important; font-weight:normal;}
+
+/* positioning right classes for headers in banner */
+.corporateBanner h2.bannerRight {position: absolute; top:40px; right: 20px; color: #fff!important;text-align: right;}
+.corporateBanner h1.bannerRight {position: absolute; top:80px; right: 20px; color: #fff!important; width:auto!important; font-weight:normal;text-align: right;}
+
+/* positioning left/right classes for image in banner */
+.corporateBanner img.bannerLeft {position: absolute; top:30px; left: 65px; color: #fff!important; width:auto!important;}
+.corporateBanner img.bannerRight {position: absolute; top:30px; right: 20px; color: #fff!important;}
+
+/* font-size classes for header text in banner */
+.corporateBanner h1.large {font-size:26px!important; font-weight:normal;}
+.corporateBanner h2.large {font-size:24px!important;}
+.corporateBanner h3.large {font-size:22px!important;}
+.corporateBanner h4.large {font-size:20px!important;}
+
+/* font-size classes for header text in content area */
+.content_area .nbt h1.large {font-size:26px!important; font-weight:normal;}
+.content_area .nbt h2.large {font-size:24px!important;}
+.content_area .nbt h3.large {font-size:22px!important;}
+.content_area .nbt h4.large {font-size:20px!important;}
+.content_area .nbt p.small {font-size:12px!important;}
+
+
+/* color grey classes for headers in banner*/
+.corporateBanner h1.grey {color:#848484!important;}
+.corporateBanner h2.grey {color:#848484!important;}
+.corporateBanner h3.grey {color:#848484!important;}
+.corporateBanner h4.grey {color:#848484!important;}
+
+/* color grey classes for headers in content area*/
+.content_area .nbt h1.grey {color:#848484!important;}
+.content_area .nbt h2.grey {color:#848484!important;}
+.content_area .nbt h3.grey {color:#848484!important;}
+.content_area .nbt h4.grey {color:#848484!important;}
+
+/* color white class for P in content area*/
+.content_area .nbt p.white {color:#fff!important;}
+
+/* Additional styles for wide template - added 26 May 2014 by Dennis Smit  */
+
+/* positioning left classes for headers in content area */
+.wide-box h2.bannerLeft {position: absolute; top:40px; left: 65px; color: #fff!important;}
+.wide-box h1.bannerLeft {position: absolute; top:90px; left: 65px; color: #fff!important; width:auto!important; font-weight:normal;}
+
+/* positioning right classes for headers in content area */
+.wide-box h2.bannerRight {position: absolute; top:40px; right: 20px; color: #fff!important; text-align: right;}
+.wide-box h1.bannerRight {position: absolute; top:90px; right: 20px; color: #fff!important; width:auto!important; font-weight:normal; text-align: right;}
+
+/* positioning left/right classes for image in content area */
+.wide-box img.bannerLeft {position: absolute; top:30px; left: 65px; color: #fff!important; width:auto!important;}
+.wide-box img.bannerRight {position: absolute; top:30px; right: 20px; color: #fff!important;}

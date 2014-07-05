@@ -1,0 +1,640 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0050)http://jpcozar-public.wikidot.com/instalarstylatex -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public</title>
+    
+    
+        
+    <script type="text/javascript" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/beacon.js"></script><script type="text/javascript" async="" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/vglnk.js"></script><script type="text/javascript" async="" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/quant.js"></script><script type="text/javascript" async="" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/ga.js"></script><script type="text/javascript" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/init.combined.js"></script>
+    <script type="text/javascript">
+        var URL_HOST = 'www.wikidot.com';
+        var URL_DOMAIN = 'wikidot.com';
+        var USE_SSL =  true ;
+        var URL_STATIC = 'http://d3g0gp89917ko0.cloudfront.net/v--3b8418686296';
+        // global request information
+        
+        var WIKIREQUEST = {};
+        WIKIREQUEST.info = {};
+        
+        WIKIREQUEST.info.domain = "jpcozar-public.wikidot.com";
+        WIKIREQUEST.info.siteId = 94995;
+        WIKIREQUEST.info.categoryId = 524144;
+        WIKIREQUEST.info.themeId = 2437;
+        WIKIREQUEST.info.requestPageName = "instalarstylatex";
+        OZONE.request.timestamp = 1401460044;
+        OZONE.request.date = new Date();
+        WIKIREQUEST.info.lang = 'en';
+                WIKIREQUEST.info.pageUnixName = "instalarstylatex";
+        WIKIREQUEST.info.pageId = 3274229;
+                        WIKIREQUEST.info.lang = "en";
+        OZONE.lang = "en";
+    </script>
+    
+    
+
+
+    
+        <script type="text/javascript">
+    
+        require.config({
+            baseUrl: URL_STATIC + '/common--javascript',
+            paths: {
+                'jquery.ui': 'jquery-ui-1.10.3.custom.min',
+                'jquery.form': 'jquery.form'
+            }
+        });
+    
+    </script>
+    
+    
+            
+    
+    
+    <meta http-equiv="content-language" content="en">
+    <script type="text/javascript" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/WIKIDOT.combined.js"></script>
+        
+    
+    <style type="text/css">
+body {
+  background-position: center 24px;
+}
+</style>
+<style type="text/css" id="internal-style">
+        
+        /* modules */
+@import url(http://d3g0gp89917ko0.cloudfront.net/v--3b8418686296/common--modules/css/wiki/pagestagcloud/PagesTagCloudModule.css);
+
+
+        
+        		
+        /* theme */
+                    @import url(http://d3g0gp89917ko0.cloudfront.net/v--3b8418686296/common--theme/base/css/style.css);
+                    @import url(http://d3g0gp89917ko0.cloudfront.net/v--3b8418686296/common--theme/webbish2/css/style.css);
+            </style>
+
+        
+     
+         
+    <link rel="shortcut icon" href="http://jpcozar-public.wikidot.com/local--favicon/favicon.gif">
+    <link rel="icon" type="image/gif" href="http://jpcozar-public.wikidot.com/local--favicon/favicon.gif">
+	
+        	<link rel="apple-touch-icon" href="http://jpcozar-public.wikidot.com/common--images/apple-touch-icon-57x57.png">
+    	<link rel="apple-touch-icon" sizes="72x72" href="http://jpcozar-public.wikidot.com/common--images/apple-touch-icon-72x72.png">
+    	<link rel="apple-touch-icon" sizes="114x114" href="http://jpcozar-public.wikidot.com/common--images/apple-touch-icon-114x114.png">    
+        
+    
+            <link rel="alternate" type="application/wiki" title="Edit this page" href="javascript:WIKIDOT.page.listeners.editClick()">
+    
+        <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-18234656-1']);
+        _gaq.push(['_setDomainName', 'none']);
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_trackPageview']);
+
+        _gaq.push(['old._setAccount', 'UA-68540-5']);
+        _gaq.push(['old._setDomainName', 'none']);
+        _gaq.push(['old._setAllowLinker', true]);
+        _gaq.push(['old._trackPageview']);
+
+                _gaq.push(['userTracker._setAccount', 'UA-7272425-1']);
+        _gaq.push(['userTracker._trackPageview']);
+            </script>
+    
+    <script type="text/javascript">
+        window.google_analytics_uacct = 'UA-18234656-1';
+        window.google_analytics_domain_name = 'none';
+    </script>
+    
+    <script type="text/javascript" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/NewPageHelperModule.js"></script><script type="text/javascript" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/getads.js"></script><script type="text/javascript" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/getads.js"></script></head><body id="html-body"><div id="skrollr-body"><a name="page-top"></a>
+<div id="navi-bar">
+  <a class="logo" href="http://www.wikidot.com/">
+    <span>Wikidot.com</span>
+  </a>
+  
+  <div class="new-site">
+    <form method="get" action="http://www.wikidot.com/new-site">
+      <input class="text empty" type="text" name="address" value="site-name">.<a class="vglnk" rel="nofollow" href="http://wikidot.com/"><span>wikidot</span><span>.</span><span>com</span></a>
+    </form>
+  </div>
+  
+    <div class="share">
+    <span>Share on</span>
+    <a class="twitter" target="_blank" rel="nofollow" href="http://twitter.com/home?status=Instalar%20un%20nuevo%20estilo%20(.sty)%20en%20LaTeX%20-%20jpcozar-public+http%3A%2F%2Fjpcozar-public.wikidot.com%2Finstalarstylatex" title="Share on Twitter"><img src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/twitter.png" alt="twitter"></a>  
+    <a class="facebook" target="_blank" rel="nofollow" href="http://www.facebook.com/share.php?u=http%3A%2F%2Fjpcozar-public.wikidot.com%2Finstalarstylatex&t=Instalar%20un%20nuevo%20estilo%20(.sty)%20en%20LaTeX%20-%20jpcozar-public" title="Share on Facebook"><img src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/facebook.gif" alt="Facebook"></a>  
+    <a class="delicious" target="_blank" rel="nofollow" href="http://delicious.com/save" title="Share on Delicious"><img src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/delicious.png" alt="Delicious"></a>
+    <a class="digg" target="_blank" rel="nofollow" href="http://digg.com/submit?url=http%3A%2F%2Fjpcozar-public.wikidot.com%2Finstalarstylatex&title=Instalar%20un%20nuevo%20estilo%20(.sty)%20en%20LaTeX%20-%20jpcozar-public" title="Post to Digg"><img src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/digg.png" alt="Digg"></a>
+    <a class="reddit" href="http://www.reddit.com/submit?url=http%3A%2F%2Fjpcozar-public.wikidot.com%2Finstalarstylatex" rel="nofollow" target="_blank" title="Post to Reddit"><img src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/reddit.png" alt="Reddit" border="0"></a>
+    <a class="stumbleupon" href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fjpcozar-public.wikidot.com%2Finstalarstylatex" rel="nofollow" target="_blank" title="Post to StumbleUpon"><img src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/stumble.png" alt="Reddit" border="0"></a>
+  </div>
+    
+      <a class="join" href="javascript:;" onclick="WIKIDOT.page.listeners.join(event, &#39;unified&#39;)">Join this site</a>
+    
+      <div class="action-buttons">
+      <a href="javascript:;" onclick="WIKIDOT.page.listeners.editClick(event)" title="Click here to edit contents of this page.">Edit</a>
+      <a href="javascript:;" onclick="WIKIDOT.page.listeners.historyClick(event)" title="Check out how this page has evolved in the past.">History</a>
+      <a href="javascript:;" onclick="WIKIDOT.page.listeners.editTags(event)" title="Edit tags for this page.">Tags</a>
+      <a href="javascript:;" onclick="WIKIDOT.page.listeners.viewSourceClick(event)" title="View wiki source for this page without editing.">Source</a>
+    </div>
+    
+  <a class="random-site" href="http://jpcozar-public.wikidot.com/random-site.php" title="Go to a random Wikidot site.">Explore »</a>
+  </div>
+<div id="navi-bar-shadow">&nbsp;</div>
+
+
+<script type="text/javascript">
+  //<![CDATA[
+  $j(function(){
+    var uri = window.location.href;
+    var title = document.title
+    
+    $j('#navi-bar .share a').each(function(){
+      $t = $j(this);
+      var u = $t.attr('href');
+      u = u.replace(/TITLE/, encodeURIComponent(title)).replace(/URI/, encodeURIComponent(uri));
+      $t.attr('href', u);
+    });
+    
+    $j('#navi-bar .share .facebook').click(function(e){
+      window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(uri)+'&t='+encodeURIComponent(title),'sharer','toolbar=0,status=0,width=626,height=436');
+      e.preventDefault();
+    });
+    $j('#navi-bar .share .delicious').click(function(e){
+      window.open('http://delicious.com/save?v=5&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550');
+      e.preventDefault();
+    });
+  });
+  
+	$j('#navi-bar .new-site form').submit(function(e){
+	  e.preventDefault();
+	  var $i = $j('#navi-bar .new-site form input.text');
+	  if($i.hasClass('empty')){
+	    	var w = new OZONE.dialogs.ErrorDialog();
+  			w.content = "You need to enter a valid web address for your new wiki.";
+  			w.show();
+  			return;
+    }
+    var siteName = $i.attr('value');
+    siteName = siteName.replace(/^\s+/, '').replace(/\s+$/,'');
+		var p = {};
+		p.action = 'wiki/special/NewWikiWidgetAction';
+		p.event = 'newWiki';
+		p.siteName = siteName;
+		OZONE.ajax.requestModule(null, p, function(r){
+		  if(r.status == 'site_exists'){
+		    window.location.href = 'http://' + siteName + '.' + URL_DOMAIN;
+		    return;
+		  }
+		  if(!WIKIDOT.utils.handleError(r)) {return;}
+  		// seems fine.
+  		window.location.href='http://'+URL_HOST+'/new-site/address/'+r.unixName;
+		});
+	});
+	$j('#navi-bar .new-site form input.text').focus(function(){
+	  var $t = $j(this);
+	  if($t.hasClass('empty')){
+	    $t.removeClass('empty');
+	    $t.attr('value', '');
+	  }
+	});
+	//]]>
+</script>
+
+
+<div id="container-wrap-wrap">
+    <div id="container-wrap">
+        <div id="container">
+            <div id="header">
+              <h1><a href="http://jpcozar-public.wikidot.com/"><span>jpcozar-public</span></a></h1>
+                
+                
+                <!-- google_ad_section_start(weight=ignore) -->
+                
+                <div id="search-top-box" class="form-search">
+    <form id="search-top-box-form" action="http://jpcozar-public.wikidot.com/dummy" class="input-append">
+        <input id="search-top-box-input" class="text empty search-query" type="text" size="15" name="query" value="Search this site" onfocus="if(YAHOO.util.Dom.hasClass(this, &#39;empty&#39;)){YAHOO.util.Dom.removeClass(this,&#39;empty&#39;); this.value=&#39;&#39;;}"><input class="button btn" type="submit" name="search" value="Search">
+    </form>
+</div>
+                
+                
+                    <div id="top-bar">
+                        
+
+<ul>
+<li><a href="javascript:;">example menu</a>
+<ul>
+<li><a class="newpage" href="http://jpcozar-public.wikidot.com/example-item-1">example item 1</a></li>
+<li><a class="newpage" href="http://jpcozar-public.wikidot.com/example-item-2">example item 2</a></li>
+</ul>
+</li>
+<li><a href="http://jpcozar-public.wikidot.com/contact">contact</a></li>
+</ul>
+
+                    </div>
+                
+                <div id="login-status"><a href="javascript:;" onclick="WIKIDOT.page.listeners.createAccount(event)" class="login-status-create-account btn">Create account</a> <span>or</span> <a href="javascript:;" onclick="WIKIDOT.page.listeners.loginClick(event)" class="login-status-sign-in btn btn-primary">Sign in</a> </div>
+                <div id="header-extra-div-1"><span></span></div><div id="header-extra-div-2"><span></span></div><div id="header-extra-div-3"><span></span></div>
+            </div>
+            
+            <div id="content-wrap">
+                
+                    <div id="side-bar">
+                        
+
+
+                        
+
+<h2><span>Documentación Debian</span></h2>
+<ul>
+<li><a href="http://jpcozar-public.wikidot.com/documentacion-debian">Debian</a></li>
+</ul>
+<h2><span>Documentación Ubuntu</span></h2>
+<ul>
+<li><a href="http://jpcozar-public.wikidot.com/start">Ubuntu</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/start#toc0">FAQ's Ubuntu</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/start#toc1">Ubuntu Desktop</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/start#toc2">Ubuntu Server</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/start#toc5">Comentarios</a></li>
+</ul>
+<h2><span>Forum</span></h2>
+<ul>
+<li><a href="http://jpcozar-public.wikidot.com/forum:start">Forum</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/forum:recent-posts">Recent posts</a></li>
+</ul>
+<h2><span>Tags de las Páginas</span></h2>
+	<div class="pages-tag-cloud-box">
+									<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/31892" style="font-size: 80%; color: rgb(100, 100, 128);">31892</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/alsa" style="font-size: 80%; color: rgb(100, 100, 128);">alsa</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/amarok" style="font-size: 80%; color: rgb(100, 100, 128);">amarok</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/apache2" style="font-size: 80%; color: rgb(100, 100, 128);">apache2</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/bluetooth" style="font-size: 80%; color: rgb(100, 100, 128);">bluetooth</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/bug" style="font-size: 80%; color: rgb(100, 100, 128);">bug</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/check_md_raid" style="font-size: 80%; color: rgb(100, 100, 128);">check_md_raid</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/check_smartmon" style="font-size: 80%; color: rgb(100, 100, 128);">check_smartmon</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/compiz" style="font-size: 80%; color: rgb(8, 8, 64);">compiz</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/crontab" style="font-size: 80%; color: rgb(100, 100, 128);">crontab</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/ddns" style="font-size: 80%; color: rgb(100, 100, 128);">ddns</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/din%C3%A1mico" style="font-size: 80%; color: rgb(100, 100, 128);">dinámico</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/duro" style="font-size: 80%; color: rgb(100, 100, 128);">duro</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/ed2k" style="font-size: 80%; color: rgb(100, 100, 128);">ed2k</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/firefox" style="font-size: 80%; color: rgb(100, 100, 128);">firefox</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/inferior" style="font-size: 80%; color: rgb(100, 100, 128);">inferior</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/intrepid" style="font-size: 80%; color: rgb(100, 100, 128);">intrepid</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/iperf" style="font-size: 80%; color: rgb(100, 100, 128);">iperf</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/last.fm" style="font-size: 80%; color: rgb(100, 100, 128);">last.fm</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/mdadm" style="font-size: 80%; color: rgb(100, 100, 128);">mdadm</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/nagios" style="font-size: 80%; color: rgb(8, 8, 64);">nagios</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/nokia" style="font-size: 80%; color: rgb(100, 100, 128);">nokia</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/pdftk" style="font-size: 80%; color: rgb(100, 100, 128);">pdftk</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/raid" style="font-size: 80%; color: rgb(100, 100, 128);">raid</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/rsync" style="font-size: 80%; color: rgb(8, 8, 64);">rsync</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/streaming" style="font-size: 80%; color: rgb(100, 100, 128);">streaming</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/tama%C3%B1o" style="font-size: 80%; color: rgb(100, 100, 128);">tamaño</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/toshiba" style="font-size: 80%; color: rgb(100, 100, 128);">toshiba</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/ubuntu" style="font-size: 80%; color: rgb(100, 100, 128);">ubuntu</a>
+							<a class="tag" href="http://jpcozar-public.wikidot.com/system:page-tags/tag/vlc" style="font-size: 80%; color: rgb(100, 100, 128);">vlc</a>
+						</div>
+	
+
+<h2><span>Administración</span></h2>
+<ul>
+<li><a href="http://jpcozar-public.wikidot.com/system:recent-changes">Cambios recientes</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/system:list-all-pages">Listar todas las páginas</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/system:page-tags-list">Tags de las páginas</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/nav:side">Editar este Panel</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/start">Página Principal</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/system:join">Cómo unirte?</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/system:members">Miembros</a></li>
+<li><a href="http://jpcozar-public.wikidot.com/admin:manage">Administrador</a></li>
+</ul>
+<h2><span>Nueva Página</span></h2>
+
+<div class="new-page-box" style="text-align: center; margin: 1em 0;">
+	<form action="http://jpcozar-public.wikidot.com/dummy.html" method="get" onsubmit="WIKIDOT.modules.NewPageHelperModule.listeners.create(event);">
+		<input class="text" name="pageName" type="text" size="15" maxlength="128" style="margin: 1px">
+				<input type="submit" class="button" value="Nueva Página" style="margin: 1px;">
+																
+	</form>
+</div>
+
+<p style="text-align: center;"><span style="font-size:80%;"><a href="http://jpcozar-public.wikidot.com/nav:side">editar este panel</a></span></p>
+
+                        
+
+
+                    </div>
+                
+                
+                <!-- google_ad_section_end -->
+                
+                <div id="main-content">
+                    <div id="action-area-top"></div>
+                    
+                    
+                        <div id="page-title">
+                            Instalar un nuevo estilo (.sty) en LaTeX
+                        </div>
+                    
+
+                    
+
+                                                                <div class="wd-adunit">
+            <div class="chitika-probe" style="display: none">
+                <a href="http://jpcozar-public.wikidot.com/instalarstylatex#">link</a><span>text</span>
+            </div>
+            
+            <script type="text/javascript">
+              ( function() {
+                function rgb2hex(rgb) {
+                    rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+                    function hex(x) {
+                        return ("0" + parseInt(x).toString(16)).slice(-2);
+                    }
+                    return hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+                }
+                if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+                var $p = $j('.chitika-probe');
+                var colorSiteLink = rgb2hex($p.find('a').css('color'));
+                var colorText = rgb2hex($p.find('span').css('color'));
+                var unit = {"publisher":"wikidot","width":468,"height":60,"sid":"above_content","color_site_link": colorSiteLink, "color_bg": "rgba(0, 0, 0, 0)", "color_text": colorText};
+                var placement_id = window.CHITIKA.units.length;
+                window.CHITIKA.units.push(unit);
+                document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.src = '//cdn.chitika.net/getads.js';
+                try { document.getElementsByTagName('head')[0].appendChild(s); } catch(e) { document.write(s.outerHTML); }
+            }());
+            </script><div id="chitikaAdBlock-0" class="chitikaAdContainer"><iframe class="chitikaAdBlock" frameborder="0" height="60" id="ch_ad0-0" marginheight="0" marginwidth="0" scrolling="no" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public.html" width="468" style="margin: 0px; padding: 0px;"></iframe></div>
+            
+            </div>
+            
+
+
+                    <div id="page-content">
+                        
+
+<p>Los pasos para instalar un nuevo estilo (cv.sty, por ejemplo) en LaTeX, serían los siguientes:<br>
+Nos vamos al directorio siguiente:</p>
+<div class="code">
+<pre><code>$ cd /usr/share/texmf/tex/latex</code>
+</pre></div>
+<br>
+Y creamos el directorio con el nombre del estilo:
+<div class="code">
+<pre><code>$ sudo mkdir cv
+$ sudo chmod 755 cv</code>
+</pre></div>
+<br>
+A continuación, suponiendo que el estilo está en el siguiente directorio: <em>/home/jpcozar/Documentos-Javi/Curriculum-latex/LatexPacket/cv</em>, lo copiamos al directorio recién creado:
+<div class="code">
+<pre><code>$  cp /home/jpcozar/Documentos-Javi/Curriculum-latex/LatexPacket/cv/* ./cv/</code>
+</pre></div>
+<br>
+Y por último:
+<div class="code">
+<pre><code>texhash</code>
+</pre></div>
+<p>Y ya estaría el nuevo estilo instalado</p>
+
+                    </div>
+
+                                                        <div class="wd-adunit">
+            <div class="chitika-probe" style="display: none">
+                <a href="http://jpcozar-public.wikidot.com/instalarstylatex#">link</a><span>text</span>
+            </div>
+            
+            <script type="text/javascript">
+              ( function() {
+                function rgb2hex(rgb) {
+                    rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/);
+                    function hex(x) {
+                        return ("0" + parseInt(x).toString(16)).slice(-2);
+                    }
+                    return hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+                }
+                if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+                var $p = $j('.chitika-probe');
+                var colorSiteLink = rgb2hex($p.find('a').css('color'));
+                var colorText = rgb2hex($p.find('span').css('color'));
+                var unit = {"publisher":"wikidot","width":300,"height":250,"sid":"below_content","color_site_link": colorSiteLink, "color_bg": "rgba(0, 0, 0, 0)", "color_text": colorText};
+                var placement_id = window.CHITIKA.units.length;
+                window.CHITIKA.units.push(unit);
+                document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.src = '//cdn.chitika.net/getads.js';
+                try { document.getElementsByTagName('head')[0].appendChild(s); } catch(e) { document.write(s.outerHTML); }
+            }());
+            </script><div id="chitikaAdBlock-1" class="chitikaAdContainer"><iframe class="chitikaAdBlock" frameborder="0" height="250" id="ch_ad1-0" marginheight="0" marginwidth="0" scrolling="no" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public.html" width="300" style="margin: 0px; padding: 0px;"></iframe></div>
+            
+            </div>
+                    
+
+
+                    
+                        <div class="page-tags">
+                            <span>
+                                <a href="http://jpcozar-public.wikidot.com/system:page-tags/tag/latex#pages">latex</a><a href="http://jpcozar-public.wikidot.com/system:page-tags/tag/sty#pages">sty</a><a href="http://jpcozar-public.wikidot.com/system:page-tags/tag/tex#pages">tex</a>
+                            </span>
+                        </div>
+                    
+
+                    <div id="page-info-break"></div>
+                    
+                        <div id="page-options-container">
+                            <div id="page-info">page revision: 3, last edited: <span class="odate time_1239208343 format_%25e%20%25b%20%25Y%2C%20%25H%3A%25M%20%28%25O%20ago%29" style="display: inline;">8 Apr 2009, 11:32 (1877 days ago)</span></div>
+            <div id="page-options-bottom" class="page-options-bottom">
+            <a href="javascript:;" class="btn btn-default" id="edit-button">Edit</a>
+<a href="javascript:;" class="btn btn-default" id="tags-button">Tags</a>
+<a href="javascript:;" class="btn btn-default" id="history-button">History</a> 
+<a href="javascript:;" class="btn btn-default" id="files-button">Files</a> <a href="javascript:;" class="btn btn-default" id="print-button">Print</a> <a href="javascript:;" class="btn btn-default" id="site-tools-button">Site tools</a>
+<a href="javascript:;" class="btn btn-default" id="more-options-button">+&nbsp;Options</a> 
+</div>
+<div id="page-options-bottom-2" class="page-options-bottom form-actions" style="display:none">
+    <a href="javascript:;" class="btn btn-default" id="edit-sections-button">Edit Sections</a>
+    <a href="javascript:;" class="btn btn-default" id="edit-append-button">Append</a>
+    <a href="javascript:;" class="btn btn-default" id="edit-meta-button">Edit Meta</a>
+    <a href="javascript:;" class="btn btn-default" id="watchers-button">Watchers</a> 
+    <a href="javascript:;" class="btn btn-default" id="backlinks-button">Backlinks</a> 
+    <a href="javascript:;" class="btn btn-default" id="view-source-button">Page Source</a> 
+    <a href="javascript:;" class="btn btn-default" id="parent-page-button">Parent</a> 
+    <a href="javascript:;" class="btn btn-default" id="page-block-button">Lock Page</a>    
+    <a href="javascript:;" class="btn btn-default" id="rename-move-button">Rename</a> 
+    <a href="javascript:;" class="btn btn-default" id="delete-button">Delete</a> 
+</div>
+<div id="page-options-area-bottom">
+</div>
+
+                        </div>
+                    
+                    <div id="action-area" style="display: none;"></div>
+                </div>
+            </div>
+            
+            
+            
+            <div id="footer" style="display: block; visibility: visible;">
+                <div class="options" style="display: block; visibility: visible;">
+    <a href="http://www.wikidot.com/doc" id="wikidot-help-button">Help</a>
+    &nbsp;|
+    <a href="http://www.wikidot.com/legal:terms-of-service" id="wikidot-tos-button">Terms of Service</a>
+    &nbsp;|
+    <a href="http://www.wikidot.com/legal:privacy-policy" id="wikidot-privacy-button">Privacy</a>
+    &nbsp;|
+    <a href="javascript:;" id="bug-report-button" onclick="WIKIDOT.page.listeners.pageBugReport(event)">Report a bug</a>
+    &nbsp;|
+    <a href="javascript:;" id="abuse-report-button" onclick="WIKIDOT.page.listeners.flagPageObjectionable(event)">Flag as objectionable</a>
+</div>
+Powered by <a href="http://www.wikidot.com/">Wikidot.com</a> 
+            </div>
+            
+                <div id="license-area" class="license-area">
+                    Unless otherwise stated, the content of this page is licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 License</a>
+                </div>
+            
+            
+            
+
+
+
+            <div id="extrac-div-1"><span></span></div><div id="extrac-div-2"><span></span></div><div id="extrac-div-3"><span></span></div>
+            
+            
+            
+            
+                <div id="footer-bar">
+  <div>
+     </div>
+  <h2>Other interesting sites</h2>
+  
+  <div class="units">
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://tauren.wikidot.com/">
+              <img class="thumbnail" alt="" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/80.jpg">
+            </a>
+            <h3><a target="_blank" href="http://tauren.wikidot.com/">Tauren Ate My Grandma</a></h3>
+            <div class="desc">          
+              has moved!
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://katerina-aroni.wikidot.com/">
+              <img class="thumbnail" alt="" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/80(1).jpg">
+            </a>
+            <h3><a target="_blank" href="http://katerina-aroni.wikidot.com/">katerina-aroni</a></h3>
+            <div class="desc">          
+              
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://aqwwiki.wikidot.com/">
+              <img class="thumbnail" alt="" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/80(2).jpg">
+            </a>
+            <h3><a target="_blank" href="http://aqwwiki.wikidot.com/">.</a></h3>
+            <div class="desc">          
+              
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://fondationscp.wikidot.com/">
+              <img class="thumbnail" alt="" src="./Instalar un nuevo estilo (.sty) en LaTeX - jpcozar-public_files/80(3).jpg">
+            </a>
+            <h3><a target="_blank" href="http://fondationscp.wikidot.com/">Fondation SCP - France</a></h3>
+            <div class="desc">          
+              Branche Francophone.
+            </div>
+          </div>
+        </div>
+        </div>
+  </div>
+
+            
+        </div>
+        
+    </div>
+<!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->
+<div id="extra-div-1"><span></span></div><div id="extra-div-2"><span></span></div><div id="extra-div-3"><span></span></div>
+<div id="extra-div-4"><span></span></div><div id="extra-div-5"><span></span></div><div id="extra-div-6"><span></span></div>
+</div></div><div id="dummy-ondomready-block" style="display: none;"></div>
+    <!-- Google Analytics load -->
+    <script type="text/javascript">
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <!-- Quantcast -->
+    <script type="text/javascript">
+    _qoptions={
+        qacct:"p-edL3gsnUjJzw-"
+    };
+    (function() {
+        var qc = document.createElement('script'); qc.type = 'text/javascript'; qc.async = true;
+        qc.src = ('https:' == document.location.protocol ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(qc, s);
+    })();
+    </script>
+    <noscript>
+        &lt;img src="<a class="vglnk" rel="nofollow" href="http://pixel.quantserve.com/pixel/p-edL3gsnUjJzw-.gif"><span>http</span><span>://</span><span>pixel</span><span>.</span><span>quantserve</span><span>.</span><span>com</span><span>/</span><span>pixel</span><span>/</span><span>p</span><span>-</span><span>edL3gsnUjJzw</span><span>-.</span><span>gif</span></a>" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/&gt;
+    </noscript>
+
+
+
+<script type="text/javascript">
+  var vglnk = { api_url: '//api.viglink.com/api',
+                key: '3755fbf465dcd24d7f23d703cb98f0bd' };
+
+  (function(d, t) {
+    var s = d.createElement(t); s.type = 'text/javascript'; s.async = true;
+    s.src = ('https:' == document.location.protocol ? vglnk.api_url :
+             '//cdn.viglink.com/api') + '/vglnk.js';
+    var r = d.getElementsByTagName(t)[0]; r.parentNode.insertBefore(s, r);
+  }(document, 'script'));
+</script>
+<div id="page-options-bottom-tips" style="display: none;">
+    
+</div>
+<div id="page-options-bottom-2-tips" style="display: none;">
+    
+    
+    
+    <div id="discuss-button-hovertip">
+        If you want to discuss contents of this page - this is the easiest way to do it.    </div>
+    
+    
+    
+    
+    
+    
+            
+        
+        
+        
+        
+    </div><div id="odialog-hovertips" style="position: absolute; z-index: 100; top: 0px; width: 100%;"><div id="edit-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        Click here to edit contents of this page.    </div></div><div id="edit-sections-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        Click here to toggle editing of individual sections of the page (if possible).         Watch headings for an "edit" link when available.    </div></div><div id="edit-append-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        Append content without editing the whole page source.    </div></div><div id="history-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        Check out how this page has evolved in the past.    </div></div><div id="files-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        View and manage file attachments for this page.    </div></div><div id="site-tools-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        A few useful tools to manage this Site.    </div></div><div id="backlinks-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        See pages that link to and include this page.    </div></div><div id="rename-move-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        Change the name (also URL address, possibly the category) of the page.    </div></div><div id="view-source-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+        View wiki source for this page without editing.    </div></div><div id="parent-page-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">  
+        View/set parent page (used for creating breadcrumbs and structured layout).    </div></div><div id="abuse-report-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+            Notify administrators if there is objectionable content in this page.        </div></div><div id="bug-report-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+            Something does not work as expected? Find out what you can do.        </div></div><div id="wikidot-help-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+            General <a class="vglnk" rel="nofollow" href="http://wikidot.com/"><span>Wikidot</span><span>.</span><span>com</span></a> documentation and help section.        </div></div><div id="wikidot-tos-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+            <a class="vglnk" rel="nofollow" href="http://wikidot.com/"><span>Wikidot</span><span>.</span><span>com</span></a> Terms of Service - what you can, what you should not etc.        </div></div><div id="wikidot-privacy-button-hovertip" class="hovertip " style="visibility: visible; opacity: 1; position: absolute; display: none; border: 1px solid black;"><div class="content">
+            <a class="vglnk" rel="nofollow" href="http://wikidot.com/"><span>Wikidot</span><span>.</span><span>com</span></a> Privacy Policy.          
+        </div></div></div></body></html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0057)http://www.economics.utoronto.ca/osborne/latex/BIBTEX.HTM -->
+<html lang="en"><!--Generated from C:\XY\WWW\LATEX\BIBTEX by Xy2HTML Version 2.06--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using BibTeX: a short guide</title>
+<meta name="keywords" content="BibTeX, text2bib, author-date BibTeX style, te.bst">
+<meta name="alias" content="http://www.economics.utoronto.ca/osborne/latex/bibtex">
+<meta name="description" content="How to use BibTeX, especially if you want to use an author-date reference style">
+<meta name="abstract" content="How to use BibTeX, especially if you want to use an author-date reference style">
+<link rel="STYLESHEET" type="text/css" href="./Using BibTeX  a short guide_files/main.css">
+<link rel="icon" type="image/png" href="http://www.economics.utoronto.ca/osborne/favicon.png">
+
+</head>
+
+<body>
+
+<table class="main">
+<tbody><tr>
+  <td class="left"> </td>
+  <td><font face="Tahoma, Arial, Helvetica" color="#FF0000" size="+2"><b>Using BibTeX: a short guide</b></font>
+  </td><td></td>
+</tr>
+
+<tr>
+  <td class="left"><font face="Tahoma, Arial, Helvetica" color="#996600"><b>author</b></font></td>
+  <td><a href="http://www.economics.utoronto.ca/osborne/index.html">Martin J. Osborne</a></td>
+</tr>
+
+<tr>
+  <td class="left"><font face="Tahoma, Arial, Helvetica" color="#996600"><b>introduction</b></font></td>
+  <td>BibTeX automates most of the work involved in managing references for use in LaTeX files.  You need to type each reference only once, and your citations and reference list are automatically outputted consistently, in a style of your choosing.  But if you're an economist, you probably don't use it, and don't know many people who do.
+<p>
+I believe that there are two main reasons for its limited use, especially by economists.
+</p><ul>
+   <li>You need to transform your existing references into BibTeX format.  If you want to add a reference to a paper you're writing and you're not using BibTeX, it's easy to either copy and paste the reference from another of your papers, or from some other source.  To convert a reference to BibTeX format takes somewhat more work.  A solution is to use
+<a href="http://theory.economics.utoronto.ca/text2bib">text2bib</a>, which is intended to convert references in almost any reasonable text format to BibTeX.
+   </li><li>You want a citation in your paper to look like "Nash (1950)" and you want a reference to look something like
+<blockquote>
+Nash, John F., Jr. (1950), "Equilibrium points in <i>N</i>-person games", <i>Proceedings of the National Academy of Sciences of the United States of America</i> 36, 48–49.
+</blockquote>
+The default BibTeX style produces a result that is not even close.  Dozens of BibTeX styles are available, but my efforts to find one that produces citations and references like these were fruitless.  A solution is to use <a href="http://www.economics.utoronto.ca/osborne/latex/TEBST.HTM">te.bst</a> (the style used by <a href="http://econtheory.org/">Theoretical Economics</a>).  [Since I posted the first version of this page, Christian Odendahl
+has pointed out a <a href="http://shirotakeda.org/en/tex/econ-bst.html">style with similar features</a>.  He notes that when using this style it is necessary to use <code>\citet</code> rather than <code>\cite</code> to produce a citation like "Nash (1950)".]
+</li></ul>
+</td>
+</tr>
+
+<tr>
+  <td class="left"><font face="Tahoma, Arial, Helvetica" color="#996600"><b>advantages</b></font></td>
+  <td>BibTeX references are stored in a plain text database with a simple format.  When you want to refer to an item in the database, you write <code>\cite{&lt;label&gt;}</code>, where <code>&lt;label&gt;</code> is the label attached to the reference in the database.  A style file determines how your citation appears in your text and at the end of your paper.
+<p>
+Using BibTeX has several significant benefits:
+</p><ul class="gs">
+<li><font color="black">You need to type each reference only once.  Once it is in your database, it can be used in any file you write.</font>
+</li><li><font color="black">The style of all your citations in any given paper will be consistent.  If, for example, the style you use causes <code>\cite{arrow72}</code> to produce "Arrow (1972)", then you'll never find "Arrow [1972]" in your paper.</font>
+</li><li><font color="black">If you cite more than one paper by the same author in the same year, BibTeX will append the appropriate letters to the years—you don't need to fiddle around with them and change "Arrow (1972)" to "Arrow (1972a)" when you add a reference to another paper by Arrow in 1972.</font>
+</li><li><font color="black">You never need to fuss with the style of the list of references at the end of your paper.  All you need to do is say <code>\bibliography{research}</code> and all the items you cite will be extracted from your <code>research.bib</code> bibliography file, ordered correctly, and formatted at the end of your paper according to the style file you specify.</font>
+</li><li><font color="black">Every paper you cite will appear in the bibliography, and every paper in the bibliography will be one you cite (unless you explicitly specify otherwise)—without your having to do any manual check.</font>
+<ul>
+</ul></li></ul></td>
+</tr>
+
+<tr>
+  <td class="left"><font face="Tahoma, Arial, Helvetica" color="#996600"><b>how to</b></font></td>
+  <td>To use BibTeX, here's what you need to do.
+<dl class="bold">
+<dt>Create a bibliography database
+</dt><dd>A BibTeX database is a plain text file.  You can find the full specification in <i>LaTeX: A document preparation system</i> by Leslie Lamport (ISBN 0-201-15790-X).  The file should be given the extension <code>bib</code>.
+<p>
+Here are some ways to create a database: (1) convert references from text format using <a href="http://theory.economics.utoronto.ca/text2bib">text2bib</a>; (2) convert references in some other format using tools available on the net; (3) export references from Google Scholar into BibTeX after choosing BibTeX in the "Bibliography manager" section of your Scholar Preferences; (4) type the database
+from scratch.
+</p><p>
+However you create it, here's how it will look:
+</p><pre>@article{ahu61,
+       author={Arrow, Kenneth J. and Leonid Hurwicz and Hirofumi Uzawa},
+       title={Constraint qualifications in maximization problems},
+       journal={Naval Research Logistics Quarterly},
+       volume={8},
+       year = 1961,
+       pages = {175-191}
+     }
+
+@book{ab94,
+       author = {Charalambos D. Aliprantis and Kim C. Border},
+       year = {1994},
+       title = {Infinite Dimensional Analysis},
+       publisher = {Springer},
+       address = {Berlin}
+     }
+
+@incollection{m85,
+       author={Maskin, Eric S.},
+       year={1985},
+       title={The theory of implementation in {N}ash equilibrium: a survey},
+       booktitle={Social Goals and Social Organization},
+       editor={Leonid Hurwicz and David Schmeidler and Hugo Sonnenschein},
+       pages={173-204},
+       publisher={Cambridge University Press},
+       addess={Cambridge}
+     }
+</pre>
+Notes:
+<ul>
+   <li>The order of the fields is unimportant.
+   </li><li>The string following the item type (in the first example above, that's "ahu61") is a <i>label</i> that you use to refer to the item when you cite it.  You can choose any label you want.
+   </li><li>Several types in addition to article, book, and incollection are available.
+   </li><li>For each types, some fields are mandatory and some are optional.  As you would expect, the mandatory fields are more or less the minimal ones necessary to identify the item.
+   </li><li>Names: BibTeX interprets "Arrow, Kenneth J.", "Kenneth J. Arrow", and "Kenneth Joseph Arrow" to refer to an author whose last name is "Arrow" and whose forenames are "Kenneth J." or "Kenneth Joseph".  So if you want to refer to an item by John Maynard Smith (whose last name was "Maynard Smith"), you need to format the name as "Maynard Smith, John" or alternatively "John {Maynard Smith}". 
+[It's not exactly the case that BibTeX takes the string following the last space to be the last name.  If that string is preceded by a string or strings that start with lowercase letters, those strings as well as the final string are treated as the last name.  For example, if you write "Ernesto Guevara de la Serna", BibTeX interprets "de la Serna" to be the last name (which of course is wrong: you
+need to write "Guevara de la Serna, Ernesto).]
+   </li><li>An "and" appears between every pair of authors.  (Of course, when the reference is formatted only the "ands" specified by the style appear.)
+   </li><li>Note that in the last reference, the first letter of "Nash" is enclosed in braces.  That tells BibTeX that if a style calls for titles to use "sentence capitalization" (only the first letter of the title and the first letter of any proper nouns are capitalized) then the first letter of "Nash" should remain uppercase and <i>not</i> be lowercased
+   </li><li>Your <code>bib</code> file can contain references you don't cite.  BibTeX will put in the list of references at the end of your paper only the ones that you cite (unless you explicitly tell it otherwise).
+</li></ul>
+
+</dd><dt>Create a LaTeX file
+</dt><dd>Your LaTeX file needs to include citations, a reference to the BibTeX style file you want to use, and a command to generate the list of references; in addition, some BibTeX style files require a companion LaTeX style file.
+<p>
+Here is an example, with the lines related to BibTeX highlighed.
+</p><pre>\documentclass[12pt]{article}
+<span class="highlight">\usepackage{natbib}</span>
+
+\begin{document}
+
+\title{BibTeX in action}
+\author{Martin J. Osborne}
+\date{2008-1-13}
+
+\maketitle
+
+\section{Introduction}
+This document illustrates the use of BibTeX\@.  You may want to refer to
+<span class="highlight">\cite{ahu61}</span> or <span class="highlight">\cite{ab94}</span> or <span class="highlight">\cite{m85}</span>.  Or you may want to cite a
+specific page in a reference, like this: see <span class="highlight">\citet[p.~199]{m85}</span>.  Or
+perhaps you want to cite more than one paper by Maskin: <span class="highlight">\cite{m85, m99}</span>.
+Or you want to make a parenthetical reference to one or more articles, in
+which case the \verb+\citealt+ in the \texttt{te.bst} bibliography style
+omits the parentheses around the year (<span class="highlight">\citealt{ahu61}</span>).
+
+<span class="highlight">\bibliographystyle{te}</span>
+
+<span class="highlight">\bibliography{research}</span>
+
+\end{document}
+</pre>
+The roles of the highlighted items are as follows.
+<ul>
+   <li>To start at the end, the last highlighted line tells BibTeX to create a list of references using those in the BibTeX file <code>research.bib</code>.
+   </li><li>The next-to-last line tells BibTeX to use the style file <code>te.bst</code> when formatting the references.  You can of course use any style you want.  To get this one, go to <a href="http://www.economics.utoronto.ca/osborne/latex/TEBST.HTM">this page</a>.
+   </li><li>The first highlighted line tells LaTeX to use a style that produces the right sort of citations in the text (matched with the format of the references produced by <code>te.bst</code>.  You probably have this file already (assuming you have some implementation of TeX on your computer).  If you don't, you can get it on
+<a href="http://tug.ctan.org/cgi-bin/ctanPackageInformation.py?id=natbib">this CTAN page</a>.
+   </li><li>The remaining highlighted strings are citations.
+</li></ul>
+<p>
+
+When you run the LaTeX file through LaTeX and BibTeX (instructions below), you'll get output for the body of the document that looks roughly like this:
+</p><blockquote>
+This document illustrates the use of BibTeX.  You may want to refer to Arrow et al. (1961) or Aliprantis and Border (1994) or Maskin (1985).  Or you may want to cite a specific page in a reference, like this: see Maskin (1985, p. 199).  Or perhaps you want to cite more than one paper by Maskin: Maskin (1985, 1999).  Or you want to make a parenthetical reference to one or more articles, in which
+case the \citealt in the te.bst bibliography style omits the parentheses around the year (Arrow et al. 1961).
+</blockquote>
+
+A few more options for the <code>\cite</code> command are available.  Here they are:
+<table class="main">
+<tbody><tr>
+<td><code>\citet{key}</code></td><td>Jones et al. (1990)</td>
+</tr>
+<tr>
+<td><code>\citet*{key}</code></td><td>Jones, Baker, and Smith (1990)</td>
+</tr>
+<tr>
+<td><code>\citep{key}</code></td><td>(Jones et al. 1990)</td>
+</tr>
+<tr>
+<td><code>\citep*{key}</code></td><td>(Jones, Baker, and Smith 1990)</td>
+</tr>
+<tr>
+<td><code>\citep[p.~99]{key}</code></td><td>(Jones et al., 1990, p. 99)</td>
+</tr>
+<tr>
+<td><code>\citep[e.g.][]{key}</code></td><td>(e.g. Jones et al., 1990)</td>
+</tr>
+<tr>
+<td><code>\citep[e.g.][p.~99]{key}</code></td><td>(e.g. Jones et al., 1990, p. 99)</td>
+</tr>
+<tr>
+<td><code>\citeauthor{key}</code></td><td>Jones et al.</td>
+</tr>
+<tr>
+<td><code>\citeauthor*{key}</code></td><td>Jones, Baker, and Smith</td>
+</tr>
+<tr>
+<td><code>\citeyear{key}</code></td><td>1990</td>
+</tr>
+<tr>
+<td><code>\citeapos{key}</code>*</td><td>Jones et al.'s (1990)</td>
+</tr>
+</tbody></table>
+<p>
+*Assumes \citeapos is defined in your style or document like this:
+</p><blockquote>
+<code>\def\citeapos#1{\citeauthor{#1}'s (\citeyear{#1})}</code>
+</blockquote>
+(Thanks to Christopher M. Duncombe Rae for pointing out this simple way of generating a possessive citation.)
+<p>
+The list of references will look like this:
+</p><blockquote>
+Aliprantis, Charalambos D. and Kim C. Border (1994), <i>Infinite Dimensional Analysis</i>. Springer, Berlin.
+<p>
+Arrow, Kenneth J., Leonid Hurwicz, and Hirofumi Uzawa (1961),
+  "Constraint qualifications in maximization problems." <i>Naval
+  Research Logistics Quarterly</i>, 8, 175–191.
+</p><p>
+Maskin, Eric S. (1999), "Nash equilibrium and welfare optimality."
+  <i>Review of Economic Studies</i>, 66, 23–38.
+</p><p>
+Maskin, Eric S. (1985), "The theory of implementation in Nash equilibrium: a survey." In <i>Social Goals and Social Organization</i> (Leonid Hurwicz, David Schmeidler, and Hugo Sonnenschein, eds.), 173–204, Cambridge University Press.
+</p></blockquote>
+
+To change the format, you can in principle edit the BibTeX style file, <code>te.bst</code>.  However, the language in which this style file is written is arcane, and changes that are more than trivial are tricky.  A better way to proceed is to create a new style file from scratch, using the <a href="http://tug.ctan.org/tex-archive/macros/latex/contrib/custom-bib/">custom-bib package</a> (that's
+how I created <code>te.bst</code>).  You run TeX on a file, which asks you a long list of questions about the features of the style you would like.  You'll probably not be completely clear about your preferred answers to all the questions on your first attempt, but two or three runs should produce a format to your liking.
+
+</dd><dt>Run LaTeX and BibTeX
+</dt><dd>Finally, you need to run your file through LaTeX, then BibTeX, then a couple more times through LaTeX.
+<p>
+Typically, running LaTeX means typing <code>latex &lt;filename&gt;</code> at the command prompt and running BibTeX means typing <code>bibtex &lt;filename&gt;</code>.  If you are using a program (like <a href="http://www.toolscenter.org/">TeXnicCenter</a>) with a graphical interface to TeX, you probably need to click on a button.  If you are using <a href="http://www.bakoma-tex.com/">BaKoMa TeX
+Word</a>, you don't need to do anything to run LaTeX (it runs automatically); to get BibTeX to run you may need to click on the "Refresh document references ..." button (red arrows on a yellow background).
+</p></dd></dl>
+
+</td>
+</tr>
+
+<tr>
+  <td class="left"> </td>
+  <td><font size="-2"><i>Page first posted 2008-1-13; last modified 2012-6-20     All material copyright © <a href="http://www.economics.utoronto.ca/osborne/index.html"></a></i><a href="http://www.economics.utoronto.ca/osborne/index.html">Martin J. Osborne</a><i> 2008</i></font></td>
+</tr>
+
+</tbody></table>
+
+
+
+
+</body></html>

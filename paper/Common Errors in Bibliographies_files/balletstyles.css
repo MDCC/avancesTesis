@@ -1,0 +1,859 @@
+</* adapted from http://www.coudal.com/writing.php, thanks! --JDO */
+/* other material from http://wellstyled.com/css-2col-fluid-layout.html */
+
+/* 			_______________________	*/
+/*			STYLES FOR SCREENS		*/
+
+/*			Codename: Quatro
+
+   Coudal Partners, Copyright 2004
+   A bit of an experiment in organization 
+   and deployment. It wouldn't be much 
+   fun if it was strictly conventional.
+   Now would it?
+
+   400 North May Street
+   City of Chicago
+   312 243 1107
+   
+   
+
+   office@coudal.com
+
+   Brought to you by Jewelboxing
+   http://www.jewelboxing.com
+   */
+
+
+/* 			_______________________	*/
+/*			VARIABLE PALETTE		*/
+/*			change reading nav too	*/
+
+
+/*			set h2s back to 62	*/
+
+body 		{
+  border-top: 2px solid #7F7E7E;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  text-align: center;	
+  background-color: #FFF;
+}
+
+a:link		{ color: #3F60FB; text-decoration: none; padding-bottom: 0px; border-bottom: 1px solid #CCC; }
+
+.accent 	{ color: #7F7E7E; } 
+
+.indent		{
+                  margin: 0 0 0 2.5em; 
+                  }
+
+a			{ }
+a:visited	{ color: #222; text-decoration: none; padding-bottom: 0px; border-bottom: 1px solid #CCC;} 
+a:active	{ color: #777; text-decoration: none; padding-bottom: 0px; border-bottom: 1px solid #CCC;} 
+a:hover		{ color: #7F7E7E; text-decoration: none; padding-bottom: 0px; border-bottom: 1px solid #CCC;} 
+
+
+img.ico		{
+                  border: 0;
+                  margin-left: 1px;
+                  margin-right: 1px;
+                  background-color: #7F7E7E;
+                  }
+
+img.lin		{
+                  border: 0;
+                  margin: 0;
+                  border: 0;
+                  background-color: #AB601F;
+                  }
+
+.ads		{
+                  font-size: 10px;
+                  line-height: 12px;
+                  font-family: Verdana, Geneva, Arial, sans-serif;
+                  text-transform: none;
+                  letter-spacing: 0;
+                  }
+
+/* 			_______________________	*/
+/*			THE BASICS				*/
+
+p	        {
+                  font-family: Verdana, Geneva, Arial, sans-serif;
+                  color: #222;
+                  margin: 0;
+                  padding: 0px 0px 7px 0px;
+                  /* max-width: 66ex;  */
+                  }
+
+ul, ol, li, dt, td	{
+                  font-family: Verdana, Geneva, Arial, sans-serif;
+                  color: #222;
+                  margin: 0;
+                  font-size: 11px;
+                  /* max-width: 55ex;  */
+                  }
+
+dd	{
+                  font-family: Verdana, Geneva, Arial, sans-serif;
+                  color: #222;
+                  margin: 0 0 0 8ex;
+                  /* max-width: 55ex;  */
+                  }
+
+p.aside		{
+                  float: left;
+                  margin: 4px 14px 9px 0px;
+                  width: 256px;	
+                  font-size: 11px;
+                  line-height: 13px;
+                  font-style: oblique;
+                  text-align: center;
+                  color: #444;		
+                  }
+
+blockquote	{
+                  margin: 0px 14px 7px 14px;
+                  font-size: 11px;
+                  line-height: 13px;
+                  font-family: Verdana, Geneva, Arial, sans-serif;
+                  }
+
+img.wrap 	{
+                  display: block;
+                  border: 0;
+                  margin: 3px 10px 6px 0px;
+                  }
+
+img.col		{
+                  display: block;
+                  border: 0;
+                  margin-left: 14px;
+                  }
+
+
+img.std		{
+                  display: block;
+                  border: 0;
+                  margin: 0;
+                  padding: 0;
+                  }
+
+img.arc		{
+                  display: block;
+                  border: 0;
+                  margin: 10px 0px 7px 0px;
+                  }
+
+#callout 	{
+                  width: 220px;
+                  margin: 0px 0px 0px -14px;
+                  padding-top: 10px;
+                  padding-bottom: 3px;
+                  border-top: 1px solid #CCC;
+                  border-bottom: 1px solid #CCC;
+                  }	
+
+
+/* 			_______________________	*/
+/*			THE MASTHEAD			*/
+
+#eyebrow	{
+                  position: relative;
+                  /* height: 84px; */
+                  /* width: 840px; */
+                  margin: 17px auto 0px auto;
+                  border-bottom: 3px double #CCC;
+                  
+                  }
+
+#eyebrowwide	{
+                  position: relative;
+                  height: 84px;
+                  width: 840px;
+                  margin: 17px auto 10px auto;
+                  border-bottom: 3px double #CCC;
+                  
+                  }
+
+#eyepop		{
+                  position: absolute;
+                  width: 510px;
+                  left: 14px;
+                  top: 13px;
+                  text-align: left;
+                  background-color: #FFF;
+                  z-index: 10;
+                  visibility: hidden;
+                  }
+
+
+#eyepop2		{ 
+                          position: absolute;
+                          width: 510px;
+                          left: 14px;
+                          top: 13px;
+                          text-align: left;
+                          background-color: #FFF;
+                          z-index: 20;
+                          visibility: hidden;
+                          }		
+
+#eyetext	{
+                  /* position: absolute; */
+                  /* width: 550px; */
+                  width: 100%;
+                  left: 14px;
+                  right: 14px;
+                  top: 13px;
+                  text-align: left;
+                  margin: 17px auto 0px auto;
+                  border-bottom: 3px double #CCC;
+                  }
+
+#eyecp		{
+                  position: absolute;
+                  width: 200px;
+                  left: 550px;
+                  top: 20px;
+                  text-align: right;
+                  }
+
+#eyehuh		{
+                  position: absolute;
+                  width: 200px;
+                  left: 552px;
+                  top: 45px;
+                  text-align: right;
+                  }
+
+#eyecrois	{
+                  /* position: absolute; */
+                  /* left: 660px; */
+                  float: right;
+                  margin-right: 2px;
+                  top: 2px;
+                  }
+
+#eyecrois a:link	{ padding: 0; border: none; }
+#eyecrois a:visited	{ padding: 0; border: none; }
+#eyecrois a:active	{ padding: 0; border: none; }
+#eyecrois a:hover	{ padding: 0; border: none; }
+
+/* 			_______________________	*/
+/*			STRUCTURAL 				*/
+
+#enclose 	{
+/*                  width: 100%;
+                  height: 100%;
+                  margin-right: auto;
+                  margin-left: auto;
+                  text-align: center;*/
+                  }	
+
+#frame		{
+                  width: 840px;
+                  margin-right: auto;
+                  margin-left: auto;
+                  margin-top: 10px;
+                  margin-bottom: 0px;
+                  text-align: center;
+                  border-top: 3px double #CCC;
+                  
+                  }
+
+#framein	{
+                  /* width: 840px; */
+                  width: 100%;
+                  margin: 0px auto 0px auto;
+                  text-align: center;
+                  }
+
+#widescreen	{
+                  position: relative;
+                  height: 280px;
+                  width: 816px;
+                  margin: 0px auto 0px auto;
+                  }
+
+
+#widescrtxt	{
+                  position: absolute;
+                  left: 385px;
+                  top: 251px;
+                  font-family: Verdana, Geneva, Arial, sans-serif;
+                  color: #FFF;
+                  font-size: 11px;
+                  line-height: 15px;
+                  text-align: left;
+                  width: 600px;
+                  }
+
+#covervid	{
+                  width: 816px;
+                  margin: 20px auto 20px auto;
+                  padding: 0;
+                  background-color: #FFF;
+                  text-align: center;
+                  }
+
+#coverten	{
+                  position: relative;
+                  height: 276px;
+                  width: 816px;
+                  margin: 0px auto 0px auto;
+                  padding-top: 26px;
+                  background-color: #FFF;  
+                  }
+
+#footer 	{
+                  position: relative;
+                  width: 820px;
+                  height: 120px;
+                  border-top: 3px double #CCC;
+                  text-align: left;
+                  padding-top: 9px;
+                  margin: 0px auto 0px auto;
+                  text-align: center;
+                  clear: both;		
+                  }
+
+
+/* 			_______________________	*/
+/*			THE COLUMNS			 	*/
+
+
+#stdcol 	{
+                  border-right: 1px solid #CCC;
+                  padding: 0px 20px 40px 14px;
+                  margin: 0px 0px 0px 0px;
+                  text-align: left;
+                  float: left;
+                  }
+
+#stdtext	{
+                  /* width: 181px; */
+                  width: 20%;
+                  font-size: 11px;
+                  line-height: 15px;
+                  }
+
+#enclose2	{
+                  width: 393px;
+                  border-right: 1px solid #CCC;
+                  padding: 0px 0px 0px 0px;
+                  margin: 0px 0px 0px 0px;
+                  text-align: left;
+                  float: left;
+                  }
+
+
+#twocol42 	{
+                  
+                  padding: 0px 44px 40px 14px;
+                  margin: 0px 0px 0px 0px;
+                  
+                  }
+
+#pixframe2	{
+                  padding: 12px 0px 8px 14px;
+                  }
+
+
+#twocol 	{
+                  border-right: 1px solid #CCC;
+                  padding: 0px 44px 40px 14px;
+                  margin: 0px 0px 0px 0px;
+                  text-align: left;
+                  float: left;
+                  }
+
+#twotext	{
+                  width: 335px;
+                  font-size: 11px;
+                  line-height: 17px;
+                  }
+
+#moomtext	{
+                  width: 334px;
+                  font-size: 11px;
+                  line-height: 11px;
+                  }
+
+#moommast	{
+                  width: 334px;
+                  height: 143;
+                  background:url(../i/moomhed.gif) no-repeat left bottom;
+                  background-color: #FFF;
+                  }
+
+
+#moomtitle	{
+                  font-family: times;
+                  color: #444;
+                  margin: 0;
+                  padding: 85px 0px 0px 0px;
+                  font-size: 62px;
+                  line-height: 54px;
+                  letter-spacing: -2px;
+                  font-weight:  bold;
+                  }
+
+
+#threecol 	{
+                  border-right: 1px solid #CCC;
+                  padding: 30px 64px 40px 64px;
+                  margin: 0px 0px 0px 0px;
+                  text-align: left;
+                  float: left;
+                  }
+
+#threetext	{
+                  width: 80%;
+                  /* width: 480px; */
+                  font-size: 11px;
+                  line-height: 17px;
+                  }
+
+#mainpane       { 
+                  /* max-width: 1024px; */
+                  }
+
+#leftcol 	{
+                  /* border-right: 1px solid #CCC; */
+                  padding: 30px 64px 40px 64px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  /* margin: 0px 20% 0px 0px; */
+                  /* width: 65%; */
+                  width: 65ex;
+                  text-align: left;
+                  float: left;
+                  font-size: 11px;
+                  line-height: 17px;
+                  }
+
+#rightcol 	{
+                  border-left: 1px solid #CCC;
+                  padding: 30px 20px 40px 14px;
+                  /* margin: 0px 0px 0px 65%; */
+                  margin: 0px;
+                  text-align: left;
+                  max-width: 250px;
+                  float: right;
+                  /* width: 181px; */
+                  /* http://www.svendtofte.com/code/max_width_in_ie/ */
+                  width:expression(document.body.clientWidth > 250? "250px": "auto" );
+                  font-size: 11px;
+                  line-height: 15px;
+                  }
+
+#onecol 	{
+                  margin: 0px 5%;
+                  /* width: 90%; */
+                  width: 66ex;
+                  text-align: left;
+                  float: left;
+                  font-size: 11px;
+                  line-height: 17px;
+                  }
+
+#onecolwide 	{
+                  margin: 0px 5%;
+                  /* width: 90%; */
+                  width: 132ex;
+                  text-align: left;
+                  float: left;
+                  font-size: 11px;
+                  line-height: 17px;
+                  }
+
+#singlemiddlecol 	{
+                  margin: 0px 5%;
+                  /* width: 90%; */
+                  width: 600px;
+                  text-align: left;
+                  font-size: 11px;
+                  line-height: 17px;
+                  }
+
+#archtext	{
+                  width: 480px;
+                  font-size: 11px;
+                  line-height: 14px;
+                  }
+
+#weektext	{
+                  font-size: 12px;
+                  line-height: 18px;
+                  padding: 0px 0px 12px 0px;
+                  }
+
+
+#adpad 		{
+                  width: 146px;
+                  height: 700px;
+                  border-right: 1px solid #CCC;
+                  padding: 75px 20px 40px 14px;
+                  margin: 0px 0px 0px 0px;
+                  text-align: left;
+                  float: left;
+                  }
+
+
+#adpadtext	{
+                  
+                  width: 130px;
+                  font-size: 11px;
+                  line-height: 15px;
+                  }
+
+.adpadh		{
+                  font-family: times, times-roman, georgia, serif;
+                  font-style: oblique;
+                  color: #444;
+                  font-size: 30px;
+                  line-height: 30px;
+                  letter-spacing: -1px;
+                  font-weight: bold;
+                  }
+
+/* 			_______________________	*/
+/*			THE HEADLINES			*/
+
+/* 			HEADERS 				*/	
+h1			{
+                          font-family: Gill Sans, Verdana;
+                          color: #444;
+                          margin: 0;
+                          padding: 11px 0px 5px 0px;
+                          font-size: 11px;
+                          line-height: 14px;
+                          text-transform: uppercase;
+                          letter-spacing: 2px;
+                          font-weight: bold;
+                          }
+
+/* 			WOOD 					*/
+h2			{
+                          font-family: times, Times New Roman, times-roman, georgia, serif;
+                          color: #444;
+                          margin: 0;
+                          padding: 0px 0px 6px 0px;
+                          font-size: 62px;
+                          line-height: 50px;
+                          letter-spacing: -2px;
+                          font-weight: bold;
+                          }
+
+/* 			TEASES OBLIQUE 			*/
+h3			{
+                          font-family: times, Times New Roman, times-roman, georgia, serif;
+                          font-style: oblique;
+                          color: #444;
+                          margin: 0px 0px 0px 0px;
+                          font-size: 23px;
+                          line-height: 23px;
+                          letter-spacing: -1px;
+                          font-weight: bold;
+                          }
+
+/* 			LITTLE WOOD 			*/
+h4			{
+                          font-family: times, Times New Roman, times-roman, georgia, serif;
+                          color: #444;
+                          margin: 0;
+                          padding: 0px 0px 6px 0px;
+                          font-size: 34px;
+                          line-height: 30px;
+                          letter-spacing: -1px;
+                          font-weight: bold;
+                          }
+
+/* 			ARCHIVE WOOD 			*/
+h5			{
+                          font-family: times, Times New Roman, times-roman, georgia, serif;
+                          color: #444;
+                          margin: 0;
+                          padding: 0px 0px 6px 0px;
+                          font-size: 40px;
+                          line-height: 34px;
+                          letter-spacing: -1px;
+                          font-weight: bold;
+                          }
+
+/* 			SUBHEADS OBLIQUE 			*/
+h6			{
+                          font-family: times, Times New Roman, times-roman, georgia, serif;
+                          font-style: oblique;
+                          color: #444;
+                          margin: 7px 0px 4px 0px;
+                          font-size: 22px;
+                          line-height: 22px;
+                          letter-spacing: -1px;
+                          font-weight: bold;
+                          }
+
+
+/* 			_______________________	*/
+/*			THE NAVIGATION			*/
+
+#nav 		{
+                  font-family: verdana;
+                  font-size: 11px;
+                  margin: 0px 0px 0px -14px;
+                  padding: 10px 0px 11px 0px;
+                  border-bottom: 1px solid #CCC;
+                  }
+
+#navPyra 	{
+                  margin:0;
+                  padding:2px 2px 2px 0;
+                  text-decoration: none;
+                  border: 0;
+                  }
+
+#navPyra li {
+              margin:0;
+              padding:0;
+              display:block;
+              text-decoration: none;
+              list-style-type:none;
+              border: 0;
+              }
+
+#navPyra a:link, #navPyra a:visited 
+{
+  font-size:11px;
+  line-height:16px;
+  padding: 0px 0px 0px 14px;
+  text-decoration: none;
+  margin: 0px 0px 0px 0px;
+  border: 0;
+  }
+
+#navPyra a:link.active, #navPyra a:visited.active, #navPyra a:hover 
+{
+  color: #222;
+  text-decoration: none;
+  background:url(../i/tab_pyra.gif) no-repeat left top;
+  border: 0;
+  }
+
+#navPyra a:visited 	{ 	
+                          color:#555;
+                          text-decoration: none;
+                          border: 0;
+                          }
+
+
+/* 			_______________________	*/
+/*			THE CHECKLISTS			*/
+
+#navlist 	{
+                  font-family: verdana;
+                  font-size: 11px;
+                  margin: 0px 0px 0px -14px;
+                  padding: 6px 0px 6px 0px;
+                  }
+
+#navCheck 	{
+                  margin:0;
+                  padding: 2px 2px 2px 0;
+                  }
+
+#navCheck li {
+               margin:0;
+               padding:0;
+               display:block;
+               list-style-type:none;
+               border: 0;
+               }
+
+#navCheck a:link, #navCheck a:visited 
+{
+  font-size:11px;
+  line-height:16px;
+  padding:0 12px 6px 34px;
+  text-decoration:none;
+  border: 0px 0px 0px 0px;
+  background:url(../i/check.gif) no-repeat left top; 
+  border: 0;
+  }
+
+#navCheck a:link.active, #navCheck a:visited.active, #navCheck a:hover 
+{
+  color: #AB601F;
+  background:url(../i/checkover.gif) no-repeat left top;
+  background-color: #FFF;
+  border: 0;
+  }
+
+#navCheck a:visited 
+{ color:#555;
+  background:url(../i/checkdone.gif) no-repeat left top; 
+  background-color: #FFF;
+  border: 0;
+  }
+
+
+/* 			_______________________	*/
+/*			SPECIAL FEATURES		*/
+/*			Scott Smith Blog		*/
+
+
+img.smith 	{
+                  display: block;
+                  border: 1px solid #CCC;
+                  margin: 3px 0px 6px 12px;
+                  padding: 6px 6px 6px 6px;
+                  }
+
+
+
+img.smithwide 	{
+                  display: block;
+                  border: 1px solid #CCC;
+                  margin: 3px 0px 9px 0px;
+                  padding: 6px 6px 6px 6px;
+                  }
+
+img.smithr 	{
+                  display: block;
+                  border: 1px solid #CCC;
+                  margin: 14px 0px 0px 0px;
+                  padding: 6px 6px 6px 6px;
+                  }
+
+.capsmith			{
+                                  font-family: Gill Sans, Verdana;
+                                  
+                                  margin: 0;
+                                  padding: 11px 0px 5px 0px;
+                                  font-size: 12px;
+                                  line-height: 16px;
+                                  text-transform: uppercase;
+                                  letter-spacing: 2px;
+                                  font-weight: bold;
+                                  }
+
+.subsmith	{
+                  font-family: Times, Times-Roman, Geogia;
+                  margin: 0;
+                  padding: 0;
+                  font-size: 14px;
+                  line-height: 13px;
+                  text-transform: lowercase;
+                  letter-spacing: 0px;
+                  font-weight: bold;
+                  font-style: oblique;
+                  }
+
+.feat		{
+                  font-family: Helvetica, Arial, Verdana;
+                  
+                  color: #444;
+                  margin: 7px 0px 4px 0px;
+                  font-size: 80px;
+                  line-height: 70px;
+                  letter-spacing: -3px;
+                  font-weight: normal;
+                  }
+
+.lilfeat	{
+                  font-family: Helvetica, Arial, Verdana;
+                  color: #444;
+                  padding: 0;
+                  margin: 0;
+                  font-size: 22px;
+                  line-height: 34px;
+                  letter-spacing: -1px;
+                  font-weight: normal;
+                  }
+
+
+
+/* 			_______________________	*/
+/*			SPECIAL FEATURES		*/
+/*			Shuffle					*/
+
+
+#covershuffle	{
+                  position: relative;
+                  height: 480px;
+                  width: 816px;
+                  margin-left: auto;
+                  margin-right: auto;
+                  background-color: #FFF; 
+                  }
+
+
+#lefty			{
+                          position: absolute;
+                          width: 290px;
+                          left: 82px;
+                          top: 35px;
+                          }
+
+#righty			{
+                          position: absolute;
+                          width: 290px;
+                          left: 430px;
+                          top: 35px;
+                          }
+
+#markframe	{
+                  margin: 0px 0px 0px 0px;
+                  padding: 0px 0px 0px 0px;
+                  }
+
+.motto	{
+          font-family: verdana;
+          text-transform: uppercase;
+          
+          margin: 2px 0px 2px 0px;
+          font-size: 10px;
+          line-height: 10px;
+          letter-spacing: 2px;
+          max-width: 100ex; 
+          }
+
+.tease	{
+          font-family: verdana;
+          color: #222;
+          margin: 0px 0px 0px 0px;
+          font-size: 11px;
+          line-height: 14px;
+          max-width: 100ex; 
+          
+          
+          }
+
+.posted	{
+          font-family: verdana;
+          
+          line-height: 15px;
+          
+          color: #222;
+          }
+
+.caption	{
+                  font-family: verdana;
+                  color: #444;
+                  margin: 0px 0px 11px 0px;
+                  font-size: 11px;
+                  line-height: 12px;
+                  }
+
+.arched	{
+          font-family: verdana;
+          color: #444;
+          font-weight: bold;
+          margin-left: 14px;
+          
+          font-size: 11px;
+          line-height: 18px;
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          }

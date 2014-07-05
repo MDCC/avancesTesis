@@ -1,0 +1,141 @@
+
+
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema1")
+frecuencia<-read.table("graficar.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,6000), 
+      main = "Frecuencia (Esquema 1)")
+
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/daniel/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema1")
+frecuencia<-read.table("graficarEnt.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,6000), 
+      main = "Frecuencia de enteros (Esquema 1)")
+
+
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/daniel/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema2")
+frecuencia<-read.table("graficar.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,6000), 
+      main = "Frecuencia (Esquema 2)")
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/daniel/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema2")
+frecuencia<-read.table("graficarEnt.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,4000), 
+      main = "Frecuencia de enteros (Esquema 2)")
+
+
+
+
+
+#########################Esquema 3#####################################################
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema3")
+frecuencia<-read.table("graficar.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,2000), 
+      main = "Frecuencia de valores entre [0,1) (Esquema 3)")
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema3")
+frecuencia<-read.table("graficarEnt.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,6500), 
+      main = "Frecuencia de enteros (Esquema 3)")
+
+
+#######################################################################################
+
+
+
+
+#########################Esquema 4#####################################################
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema4")
+frecuencia<-read.table("graficar.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,4000), 
+      main = "Frecuencia de valores entre [0,1) (Esquema 4)")
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema4")
+frecuencia<-read.table("graficarEnt.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,15000), 
+      main = "Frecuencia de enteros (Esquema 4)")
+
+
+#######################################################################################
+
+
+
+#########################Esquema 5#####################################################
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema5mio")
+frecuencia<-read.table("graficar.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,6000), 
+      main = "Frecuencia de valores entre [0,1) (Esquema 5A)")
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema5mio")
+frecuencia<-read.table("graficarEnt.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,1200), 
+      main = "Frecuencia de enteros (Esquema 5A)")
+
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema5mio")
+frecuencia<-read.table("graficar.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,6000), 
+      main = "Frecuencia de valores entre [0,1) (Esquema 5B)")
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema5mio")
+frecuencia<-read.table("graficarEnt.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Particiones", ylab = "Frecuencia",  ylim=c(0,1200), 
+      main = "Frecuencia de enteros (Esquema 5B)")
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema5mio")
+frecuencia<-read.table("graficar.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Valor", ylab = "Frecuencia",  ylim=c(0,6000))
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema5mio")
+frecuencia<-read.table("graficarEnt.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h", xlab = "Valor", ylab = "Frecuencia",  ylim=c(0,1200))
+
+#######################################################################################
+
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema5mio")
+frecuencia<-read.table("graficar.dat")
+plot( frecuencia$V1, frecuencia$V2, type = "h",  lwd=14.7,  lend=2, xlab = "Valor", col="black",   ylab = "Frecuencia",  ylim=c(0,8000))
+
+
+library(ggplot2)
+#indicamos la ruta donde se encuentra el archivo.
+setwd("/home/user/Dropbox/mis documentos/MateriasCimatTomadas/4toSemestre/tesisproyecto/pruebasLogistico/esquema5mio")
+frecuencia<-read.table("graficarEnt.dat")
+plot( frecuencia$V1, frecuencia$V2,  type = "h",  lwd=14.7,  lend=2, col="black",  xlab = "Valor", ylab = "Frecuencia",  ylim=c(0,2000))
+
+
+
+qplot(frecuencia$V2, geom = "histogram", binwidth = 1, xlim = c(0,1))
+
